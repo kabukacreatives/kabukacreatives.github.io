@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maragatham Studio — Case Study | Kabuka Creatives</title>
+<meta name="description" content="How Kabuka Creatives built a full Instagram content strategy for Maragatham Studio, a Kanchi silk bridal clutches brand targeting Indian-American women in the US.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest:  #1C3228;
+  --terra:   #C4622D;
+  --terra-l: #E8845A;
+  --cream:   #F7F3EE;
+  --warm:    #EDE6DB;
+  --ink:     #1A1A18;
+  --mid:     #555550;
+  --light:   #9A9590;
+  --gold:    #B8860B;
+  --gold-bg: #FDF8EE;
+  --border:  rgba(28,50,40,0.12);
+  --white:   #FFFFFF;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb { background: var(--terra); }
+
+/* NAV */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; justify-content:space-between; align-items:center;
+  padding: 22px 56px;
+  background: rgba(247,243,238,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--forest); text-decoration:none; }
+.nav-logo span { color:var(--terra); }
+.nav-back { font-size:13px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; color:var(--mid); text-decoration:none; display:flex; align-items:center; gap:8px; transition:color 0.2s; }
+.nav-back:hover { color:var(--terra); }
+.nav-back svg { transition:transform 0.2s; }
+.nav-back:hover svg { transform:translateX(-3px); }
+
+/* HERO */
+.case-hero {
+  min-height: 70vh;
+  background: var(--forest);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.case-hero::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; bottom:0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-left { padding: 80px 64px 80px; display:flex; flex-direction:column; justify-content:flex-end; position:relative; }
+.breadcrumb { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:rgba(247,243,238,0.4); margin-bottom:24px; }
+.breadcrumb span { color:var(--terra-l); }
+.case-brand {
+  font-size:11px; letter-spacing:4px; text-transform:uppercase;
+  color:var(--terra-l); font-weight:600; margin-bottom:20px;
+  display:flex; align-items:center; gap:14px;
+}
+.case-brand::before { content:''; width:32px; height:1px; background:var(--terra); }
+h1 {
+  font-family:'Playfair Display',serif;
+  font-size: clamp(36px, 4.5vw, 64px);
+  font-weight:900; color:var(--cream); line-height:1.08;
+  margin-bottom:28px;
+}
+h1 em { font-style:italic; color:var(--terra-l); }
+.hero-desc { font-size:16px; color:rgba(247,243,238,0.6); max-width:440px; line-height:1.8; }
+
+.hero-right { padding:80px 64px 80px; display:flex; flex-direction:column; justify-content:flex-end; position:relative; }
+.case-meta-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:2px;
+}
+.meta-cell {
+  background:rgba(255,255,255,0.05); padding:24px 20px;
+}
+.meta-cell.accent { background:var(--terra); }
+.meta-label { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:rgba(247,243,238,0.45); margin-bottom:8px; font-weight:600; }
+.meta-cell.accent .meta-label { color:rgba(255,255,255,0.7); }
+.meta-val { font-family:'Playfair Display',serif; font-size:18px; color:var(--cream); font-weight:400; line-height:1.3; }
+.meta-cell.accent .meta-val { color:var(--white); }
+
+/* GOLD BAR */
+.gold-bar {
+  background:var(--gold);
+  padding:16px 56px;
+  display:flex; gap:48px; flex-wrap:wrap; align-items:center;
+}
+.gold-stat { }
+.gold-stat-n { font-family:'Playfair Display',serif; font-size:32px; font-weight:900; color:var(--white); line-height:1; }
+.gold-stat-l { font-size:12px; color:rgba(255,255,255,0.75); font-weight:500; margin-top:2px; }
+
+/* SECTIONS */
+.cs-section { padding:80px 56px; border-bottom:1px solid var(--border); }
+.cs-section.alt { background:var(--warm); }
+.cs-section.dark { background:var(--forest); }
+
+.cs-tag {
+  font-size:10px; letter-spacing:4px; text-transform:uppercase;
+  color:var(--terra); font-weight:700; margin-bottom:12px;
+  display:flex; align-items:center; gap:12px;
+}
+.cs-tag::before { content:''; width:24px; height:1px; background:var(--terra); }
+.dark .cs-tag { color:var(--terra-l); }
+.dark .cs-tag::before { background:var(--terra); }
+
+h2 {
+  font-family:'Playfair Display',serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight:700; color:var(--forest); line-height:1.15;
+  margin-bottom:16px;
+}
+h2 em { font-style:italic; color:var(--terra); }
+.dark h2 { color:var(--cream); }
+
+.cs-intro { font-size:16px; color:var(--mid); max-width:680px; line-height:1.85; margin-bottom:48px; }
+.dark .cs-intro { color:rgba(247,243,238,0.65); }
+
+/* TWO COL */
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+.three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; }
+
+/* CHALLENGE BOX */
+.challenge-box {
+  background:var(--white); border-left:4px solid var(--terra);
+  padding:32px 32px; margin-bottom:0;
+}
+.challenge-box h3 { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--forest); margin-bottom:12px; }
+.challenge-box p { font-size:15px; color:var(--mid); line-height:1.8; }
+
+/* ICP CARDS */
+.icp-card {
+  background:var(--white); padding:32px 28px;
+  border-top:3px solid var(--border); transition:border-color 0.25s;
+}
+.icp-card:hover { border-color:var(--terra); }
+.icp-n { font-family:'Playfair Display',serif; font-size:36px; font-weight:900; color:rgba(196,98,45,0.15); line-height:1; margin-bottom:12px; }
+.icp-title { font-size:15px; font-weight:700; color:var(--forest); margin-bottom:8px; }
+.icp-desc { font-size:14px; color:var(--mid); line-height:1.7; }
+.icp-tag { display:inline-block; background:var(--warm); color:var(--terra); font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 10px; margin-top:10px; }
+
+/* ANGLE CARDS */
+.angle-card {
+  background:rgba(255,255,255,0.05); padding:28px 24px;
+  border-top:2px solid rgba(196,98,45,0.3);
+  transition:background 0.25s;
+}
+.angle-card:hover { background:rgba(255,255,255,0.08); }
+.angle-n { font-family:'Playfair Display',serif; font-size:40px; font-weight:900; color:rgba(196,98,45,0.2); line-height:1; margin-bottom:10px; }
+.angle-title { font-size:15px; font-weight:600; color:var(--cream); margin-bottom:8px; }
+.angle-hook { font-size:14px; font-style:italic; color:var(--terra-l); line-height:1.6; margin-bottom:12px; }
+.angle-subs { font-size:13px; color:rgba(247,243,238,0.5); line-height:1.8; }
+
+/* CALENDAR TABLE */
+.cal-wrap { overflow-x:auto; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+thead tr { background:var(--gold-bg); }
+th { padding:13px 16px; text-align:left; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); border-bottom:2px solid rgba(184,134,11,0.2); white-space:nowrap; }
+td { padding:13px 16px; border-bottom:1px solid var(--border); color:var(--ink); vertical-align:top; line-height:1.5; }
+tr:last-child td { border-bottom:none; }
+tr.post-row { background:#FFFEF8; }
+tr.story-row { background:var(--white); }
+tr.anchor-row { background:rgba(184,134,11,0.06); }
+.td-date { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--forest); white-space:nowrap; }
+.td-day { display:block; font-family:'DM Sans',sans-serif; font-size:10px; color:var(--light); text-transform:uppercase; letter-spacing:1px; }
+.td-format { font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; }
+.fmt-reel { color:#7A5800; }
+.fmt-story { color:var(--terra); }
+.fmt-carousel { color:var(--forest); }
+.fmt-case { color:#444; }
+.fmt-prov { color:#1A1A4A; }
+.fmt-special { color:var(--gold); }
+.td-topic { font-weight:600; color:var(--ink); font-size:14px; }
+.td-hook { font-size:13px; font-style:italic; color:var(--terra); margin-top:3px; }
+.td-goal { font-size:13px; font-weight:600; color:var(--forest); }
+.anchor-badge { display:inline-block; background:var(--gold); color:var(--white); font-size:9px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:2px 7px; border-radius:2px; margin-bottom:4px; }
+.week-header td { background:var(--forest); color:var(--gold); font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; padding:10px 16px; }
+
+/* DELIVERABLES */
+.deliverable-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; }
+.del-card { background:var(--white); padding:28px 24px; text-align:center; }
+.del-card:nth-child(2) { background:var(--forest); }
+.del-card:nth-child(3) { background:var(--terra); }
+.del-n { font-family:'Playfair Display',serif; font-size:48px; font-weight:900; line-height:1; margin-bottom:8px; }
+.del-card:nth-child(1) .del-n { color:var(--gold); }
+.del-card:nth-child(2) .del-n { color:var(--terra-l); }
+.del-card:nth-child(3) .del-n { color:var(--white); }
+.del-card:nth-child(4) .del-n { color:var(--forest); }
+.del-l { font-size:13px; color:var(--mid); }
+.del-card:nth-child(2) .del-l { color:rgba(247,243,238,0.7); }
+.del-card:nth-child(3) .del-l { color:rgba(255,255,255,0.85); }
+
+/* KW TAGS */
+.kw-grid { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+.kw-tag { background:rgba(184,134,11,0.15); border:1px solid rgba(184,134,11,0.3); color:var(--gold); font-size:13px; font-weight:700; padding:8px 18px; letter-spacing:1px; }
+.dm-kw-tag { background:rgba(196,98,45,0.15); border:1px solid rgba(196,98,45,0.3); color:var(--terra); font-size:13px; font-weight:700; padding:8px 18px; letter-spacing:1px; }
+
+/* CTA STRIP */
+.cta-strip {
+  background:var(--terra); padding:72px 56px;
+  display:flex; justify-content:space-between; align-items:center; gap:48px; flex-wrap:wrap;
+}
+.cta-strip-text h2 { color:var(--white); margin-bottom:10px; }
+.cta-strip-text p { font-size:16px; color:rgba(255,255,255,0.8); max-width:520px; }
+.btn-white { background:var(--white); color:var(--terra); padding:16px 36px; font-size:13px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; text-decoration:none; border-radius:2px; white-space:nowrap; transition:transform 0.2s; display:inline-block; }
+.btn-white:hover { transform:translateY(-2px); }
+
+/* FOOTER */
+footer { background:var(--ink); border-top:1px solid rgba(255,255,255,0.06); padding:32px 56px; display:flex; justify-content:space-between; align-items:center; }
+.footer-logo { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--cream); text-decoration:none; }
+.footer-logo span { color:var(--terra); }
+.footer-copy { font-size:13px; color:rgba(247,243,238,0.3); }
+
+/* REVEAL */
+.reveal { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-delay-1 { transition-delay:0.1s; }
+.reveal-delay-2 { transition-delay:0.2s; }
+.reveal-delay-3 { transition-delay:0.3s; }
+
+/* MOBILE */
+@media(max-width:900px){
+  nav { padding:18px 24px; }
+  .case-hero { grid-template-columns:1fr; min-height:auto; }
+  .hero-left,.hero-right { padding:60px 28px 40px; }
+  .cs-section { padding:60px 28px; }
+  .two-col,.three-col { grid-template-columns:1fr; gap:24px; }
+  .deliverable-grid { grid-template-columns:1fr 1fr; }
+  .cta-strip { padding:48px 28px; }
+  footer { flex-direction:column; gap:12px; text-align:center; }
+  .gold-bar { padding:16px 28px; gap:24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Kabuka<span>.</span></a>
+  <a href="index.html#portfolio" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    All Work
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="case-hero">
+  <div class="hero-left">
+    <div class="breadcrumb">Kabuka Creatives <span>/ Case Study 01</span></div>
+    <div class="case-brand">South Asian Brand · Instagram Strategy</div>
+    <h1>Maragatham Studio —<br><em>Kanchi Silk Bridal</em><br>Clutches & Bags</h1>
+    <p class="hero-desc">Full brand repositioning and 30-day content strategy for a handcrafted Kanchi silk accessories brand targeting Indian-American brides and event-going women in the US.</p>
+  </div>
+  <div class="hero-right">
+    <div class="case-meta-grid">
+      <div class="meta-cell">
+        <div class="meta-label">Industry</div>
+        <div class="meta-val">Handcrafted Ethnic Accessories</div>
+      </div>
+      <div class="meta-cell accent">
+        <div class="meta-label">Platform</div>
+        <div class="meta-val">Instagram — Reels, Carousels & Stories</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-label">Market</div>
+        <div class="meta-val">Indian-American women, US diaspora</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-label">Timeline</div>
+        <div class="meta-val">30-Day Calendar — March to April 2026</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GOLD BAR -->
+<div class="gold-bar">
+  <div class="gold-stat"><div class="gold-stat-n">4</div><div class="gold-stat-l">Buyer Segments Mapped</div></div>
+  <div class="gold-stat"><div class="gold-stat-n">7</div><div class="gold-stat-l">Content Angles</div></div>
+  <div class="gold-stat"><div class="gold-stat-n">63</div><div class="gold-stat-l">Ready-to-Post Formats</div></div>
+  <div class="gold-stat"><div class="gold-stat-n">5</div><div class="gold-stat-l">SEO Keywords</div></div>
+  <div class="gold-stat"><div class="gold-stat-n">11</div><div class="gold-stat-l">DM Tracking Keywords</div></div>
+  <div class="gold-stat"><div class="gold-stat-n">30</div><div class="gold-stat-l">Days — Fri · Sun · Tue Posting</div></div>
+</div>
+
+<!-- CHALLENGE -->
+<div class="cs-section">
+  <div class="cs-tag">The Challenge</div>
+  <h2>A world-class product with <em>no market position.</em></h2>
+  <p class="cs-intro">Maragatham Studio makes genuine handcrafted Kanchi silk clutches and bags in Kanchipuram, India — and ships them to Indian-American women across the US. The product is exceptional. The problem: no dominant Kanchi silk bridal accessories brand exists on Instagram, yet the owner had no system, no strategy, and no clear customer profile.</p>
+  <div class="two-col">
+    <div>
+      <div class="challenge-box reveal">
+        <h3>No category ownership</h3>
+        <p>Indian bridal accessories on Instagram is dominated by jewellery brands. Silk clutches and bags had no dedicated voice — nobody had claimed the category. That's the opportunity.</p>
+      </div>
+    </div>
+    <div>
+      <div class="challenge-box reveal reveal-delay-1">
+        <h3>The right customer was invisible</h3>
+        <p>Every brand targets the bride. Nobody was talking to the event-circuit woman — Indian-American, 28–45, attending 8–15 events a year — who buys year-round, refers others, and is the highest-frequency customer in the market.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ICP -->
+<div class="cs-section alt">
+  <div class="cs-tag">Customer Research</div>
+  <h2>Four buyer segments. <em>One trojan horse.</em></h2>
+  <p class="cs-intro">We mapped four distinct buyer segments with different purchase triggers, transaction values, and messaging needs. The event-circuit woman became the core — she buys across the calendar, across silk types, and refers everyone she knows.</p>
+  <div class="three-col">
+    <div class="icp-card reveal">
+      <div class="icp-n">01</div>
+      <div class="icp-title">The Event-Circuit Woman</div>
+      <div class="icp-desc">Indian-American, 28–45, professional, 8–15 events per year. Primary metros: Atlanta, NJ, Houston, Chicago, Bay Area. Buys year-round. No dedicated brand had ever spoken directly to her.</div>
+      <div class="icp-tag">Primary — Trojan Horse Segment</div>
+    </div>
+    <div class="icp-card reveal reveal-delay-1">
+      <div class="icp-n">02</div>
+      <div class="icp-title">The NRI Bride</div>
+      <div class="icp-desc">25–35, multi-function wedding, time-pressured. High-intent buyer with a specific occasion and a specific need. Highest single transaction value after bulk orders.</div>
+      <div class="icp-tag">High Value — Bridal Season</div>
+    </div>
+    <div class="icp-card reveal reveal-delay-2">
+      <div class="icp-n">03</div>
+      <div class="icp-title">The Mother Buyer</div>
+      <div class="icp-desc">45–60, buying for her daughter's wedding or as bridesmaid gifts. Price-tolerant, quality-focused, and the most likely to place repeat orders across multiple years.</div>
+      <div class="icp-tag">Gifting Pipeline</div>
+    </div>
+  </div>
+  <div style="margin-top:24px;">
+    <div class="icp-card reveal" style="max-width:340px;">
+      <div class="icp-n">04</div>
+      <div class="icp-title">The Wedding Planner / Bulk Buyer</div>
+      <div class="icp-desc">6–50 units per order, highest total transaction value. Triggered by bridesmaid sets and return gift packages. One DM from this segment can equal 20 individual orders.</div>
+      <div class="icp-tag">Highest Transaction Value</div>
+    </div>
+  </div>
+</div>
+
+<!-- ANGLES -->
+<div class="cs-section dark">
+  <div class="cs-tag">Content Strategy</div>
+  <h2>7 content angles. <em>63 ready-to-post formats.</em></h2>
+  <p class="cs-intro">Each angle attacks a different belief, fear, or knowledge gap the target customer carries. Every angle has 3 subtopics × 3 formats (Educational / Provocative / Case Study) = 63 posts that can run for months.</p>
+  <div class="three-col" style="margin-bottom:24px;">
+    <div class="angle-card reveal">
+      <div class="angle-n">01</div>
+      <div class="angle-title">The Outfit Tax</div>
+      <div class="angle-hook">"Your ₹80,000 saree just got cheapened by a ₹2,000 bag."</div>
+      <div class="angle-subs">10% Rule · Silent Downgrade · Real Cost Calculation</div>
+    </div>
+    <div class="angle-card reveal reveal-delay-1">
+      <div class="angle-n">02</div>
+      <div class="angle-title">The Synthetic Trap</div>
+      <div class="angle-hook">"That 'silk' bag you bought online probably isn't."</div>
+      <div class="angle-subs">The Burn Test · Language Tricks · Photography Difference</div>
+    </div>
+    <div class="angle-card reveal reveal-delay-2">
+      <div class="angle-n">03</div>
+      <div class="angle-title">The Bridal Blind Spot</div>
+      <div class="angle-hook">"Every brand targets the bride. Nobody dresses the guest."</div>
+      <div class="angle-subs">Most Ignored Customer · Tamil New Year · Bridesmaid Problem</div>
+    </div>
+  </div>
+  <div class="three-col">
+    <div class="angle-card reveal">
+      <div class="angle-n">04</div>
+      <div class="angle-title">The Matching Myth</div>
+      <div class="angle-hook">"Stop matching your bag to your saree. You've been doing it wrong."</div>
+      <div class="angle-subs">Match the Border · 3-Colour Rule · Why Exact-Match Fails</div>
+    </div>
+    <div class="angle-card reveal reveal-delay-1">
+      <div class="angle-n">05</div>
+      <div class="angle-title">The Occasion Economy</div>
+      <div class="angle-hook">"Your Indian event calendar is worth more than your outfit budget."</div>
+      <div class="angle-subs">Silk Occasion Map · Patola for Navratri · Event Calendar Audit</div>
+    </div>
+    <div class="angle-card reveal reveal-delay-2">
+      <div class="angle-n">06</div>
+      <div class="angle-title">The Custom Order Fear</div>
+      <div class="angle-hook">"Custom doesn't mean risky. Bad process does."</div>
+      <div class="angle-subs">3 Process Failures · 5 Questions to Ask · The Timeline Map</div>
+    </div>
+  </div>
+  <div style="margin-top:24px; max-width:340px;">
+    <div class="angle-card reveal">
+      <div class="angle-n">07</div>
+      <div class="angle-title">The Heirloom Inversion</div>
+      <div class="angle-hook">"Your grandmother's silk was built to last 100 years. Yours won't last 10."</div>
+      <div class="angle-subs">Handloom vs Power Loom · Gifting Has Lost Its Meaning · 4 Physical Tests</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE -->
+<div class="cs-section">
+  <div class="cs-tag">Instagram Profile Rewrite</div>
+  <h2>Bio rebuilt for <em>search and conversion.</em></h2>
+  <p class="cs-intro">The existing bio was poetic but vague. A bride visiting in 5 seconds couldn't tell the brand did custom work, shipped to the USA, or took bulk orders. Every line was rewritten with a specific job.</p>
+  <div class="two-col">
+    <div>
+      <div style="background:var(--warm);padding:28px 32px;margin-bottom:20px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--light);margin-bottom:16px;">OLD BIO</div>
+        <p style="font-size:15px;color:#999;text-decoration:line-through;line-height:2;">Elegant handcrafted silk clutches<br>Inspired by Indian heritage<br>Silk & art in every piece</p>
+        <p style="font-size:13px;color:var(--light);margin-top:16px;font-style:italic;">Poetic. No keyword. No CTA. Visitors don't know what to do.</p>
+      </div>
+    </div>
+    <div>
+      <div style="background:var(--gold-bg);border-left:4px solid var(--gold);padding:28px 32px;margin-bottom:20px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">NEW BIO — COPY/PASTE READY</div>
+        <div style="line-height:2.2;">
+          <p style="font-size:16px;font-weight:700;color:var(--ink);">✦ Kanchi Silk Bridal Clutches & Bags</p>
+          <p style="font-size:15px;color:var(--mid);">Handcrafted in Kanchipuram | 200+ Custom Pieces</p>
+          <p style="font-size:15px;color:var(--mid);">Brides · Events · Bridesmaids · Gifting 🇮🇳🇺🇸</p>
+          <p style="font-size:15px;color:var(--mid);">⬇ Custom Design · Ships USA · DM or WhatsApp</p>
+        </div>
+        <p style="font-size:12px;color:var(--terra);margin-top:12px;font-weight:600;">Line 1 is a searchable keyword. Instagram indexes bios.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SEO -->
+<div class="cs-section alt">
+  <div class="cs-tag">SEO Strategy</div>
+  <h2>5 keywords. 4 deployment points. <em>4× the reach.</em></h2>
+  <p class="cs-intro">Every keyword was deployed in four places simultaneously: caption line 1 · on-screen text overlay · hashtag · spoken in audio. Instagram indexes all four. One keyword in all four positions = 4× the search visibility.</p>
+  <div class="kw-grid">
+    <div class="kw-tag">Kanchi Silk Bridal Clutch</div>
+    <div class="kw-tag">Indian Bridal Accessories USA</div>
+    <div class="kw-tag">Bridesmaids Gift Ideas Indian Wedding</div>
+    <div class="kw-tag">Silk Clutch Bag Handcrafted</div>
+    <div class="kw-tag">Wedding Return Gifts India</div>
+  </div>
+  <div style="margin-top:32px;">
+    <div class="cs-tag" style="margin-bottom:12px;">DM Tracking Keywords — One Per Post CTA</div>
+    <div class="kw-grid">
+      <div class="dm-kw-tag">PUTHANDU</div>
+      <div class="dm-kw-tag">PARTY</div>
+      <div class="dm-kw-tag">CALENDAR</div>
+      <div class="dm-kw-tag">AUDIT</div>
+      <div class="dm-kw-tag">TRUST</div>
+      <div class="dm-kw-tag">TESTME</div>
+      <div class="dm-kw-tag">ONEBAG</div>
+      <div class="dm-kw-tag">PHOTOS</div>
+      <div class="dm-kw-tag">GIFT</div>
+      <div class="dm-kw-tag">BRIDAL</div>
+      <div class="dm-kw-tag">NAVRATRI</div>
+    </div>
+  </div>
+</div>
+
+<!-- CALENDAR SAMPLE -->
+<div class="cs-section">
+  <div class="cs-tag">30-Day Calendar — Sample</div>
+  <h2>Week 1: <em>Authority Launch</em> (Mar 13–19)</h2>
+  <p class="cs-intro">The full calendar runs March 13 to April 14, 2026 — anchored to Ugadi (March 30) and Tamil New Year (April 14). Below is Week 1. Posting rhythm: Friday · Sunday · Tuesday nights, 7–9pm EST.</p>
+  <div class="cal-wrap reveal">
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Format</th>
+          <th>Topic</th>
+          <th>Goal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="post-row">
+          <td><span class="td-date">Mar 13</span><span class="td-day">Fri — Tonight</span></td>
+          <td><span class="td-format fmt-reel">SEO Reel</span></td>
+          <td><span class="td-topic">Real Kanchi vs Imitation: The Burn Test</span><div class="td-hook">"Pull a thread from your silk bag. What happens tells you everything."</div></td>
+          <td><span class="td-goal">Authority + Saves · Pin this reel</span></td>
+        </tr>
+        <tr class="story-row">
+          <td><span class="td-date">Mar 14</span><span class="td-day">Sat — Story</span></td>
+          <td><span class="td-format fmt-story">Story</span></td>
+          <td><span class="td-topic">Fabric arrival day — raw footage</span><div class="td-hook">Poll: Gold or Peacock Blue?</div></td>
+          <td><span class="td-goal">Engagement · 30+ poll votes</span></td>
+        </tr>
+        <tr class="post-row">
+          <td><span class="td-date">Mar 15</span><span class="td-day">Sun — Post</span></td>
+          <td><span class="td-format fmt-prov">Provocative</span></td>
+          <td><span class="td-topic">3 months choosing your saree. 3 minutes on the bag.</span><div class="td-hook">"Your ₹80,000 saree just got cheapened by a ₹2,000 bag."</div></td>
+          <td><span class="td-goal">Comments + Reach · 20+ comments</span></td>
+        </tr>
+        <tr class="story-row">
+          <td><span class="td-date">Mar 17</span><span class="td-day">Tue — Post</span></td>
+          <td><span class="td-format fmt-carousel">Carousel</span></td>
+          <td><span class="td-topic">The 3-Colour Rule: Style Any Silk Saree Without a Stylist</span><div class="td-hook">"Three colours live in every silk saree. Most women only see one."</div></td>
+          <td><span class="td-goal">Saves 150+ · DM styling leads</span></td>
+        </tr>
+        <tr class="anchor-row">
+          <td><span class="td-date">Mar 29</span><span class="td-day">Sun — Ugadi Eve</span></td>
+          <td><span class="td-format fmt-special">SPECIAL</span></td>
+          <td><div class="anchor-badge">Ugadi 2026</div><span class="td-topic">Ugadi Cultural Post — Ugadi Subhakankshalu</span></td>
+          <td><span class="td-goal">Cultural reach · New followers</span></td>
+        </tr>
+        <tr class="anchor-row">
+          <td><span class="td-date">Apr 14</span><span class="td-day">Tue — Tamil New Year</span></td>
+          <td><span class="td-format fmt-special">PUTHANDU</span></td>
+          <td><div class="anchor-badge">Tamil New Year 2026</div><span class="td-topic">Iniya Tamil Puthandu Vazhthugal 🌺</span></td>
+          <td><span class="td-goal">Community + Peak reach · No CTA</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- DELIVERABLES -->
+<div class="cs-section alt">
+  <div class="cs-tag">What Was Delivered</div>
+  <h2>Everything needed to <em>start posting tonight.</em></h2>
+  <p class="cs-intro">Every deliverable was built to be executed immediately — no additional design, photography, or copywriting agency required.</p>
+  <div class="deliverable-grid reveal">
+    <div class="del-card"><div class="del-n">63</div><div class="del-l">Ready-to-post content formats across 7 angles</div></div>
+    <div class="del-card"><div class="del-n">30</div><div class="del-l">Day calendar with exact posting times and notes</div></div>
+    <div class="del-card"><div class="del-n">5</div><div class="del-l">SEO keywords deployed across 4 Instagram touchpoints</div></div>
+    <div class="del-card"><div class="del-n">11</div><div class="del-l">DM tracking keywords — one per post, turns DMs into qualified leads</div></div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <div class="cta-strip-text">
+    <h2 style="font-size:clamp(24px,3vw,40px);">Want this for your business?</h2>
+    <p>We build the same depth of strategy — brand analysis, customer profiling, content angles, calendar, and SEO — for small businesses across the US. Start with a conversation.</p>
+  </div>
+  <a href="index.html#contact" class="btn-white">Start a Project</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-logo">Kabuka<span>.</span></a>
+  <div class="footer-copy">© 2026 Kabuka Creatives · <a href="index.html#portfolio" style="color:rgba(247,243,238,0.3);text-decoration:none;">← Back to all work</a></div>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
