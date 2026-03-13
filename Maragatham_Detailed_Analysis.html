@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maragatham Studio — 30-Day Content Library</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#B8860B;
+  --gold-light:#D4A017;
+  --gold-dark:#7A5800;
+  --deep:#1A0D02;
+  --silk:#FDF5E0;
+  --burgundy:#8C1A52;
+  --forest:#1B4A6B;
+  --cream:#FDF5E0;
+  --charcoal:#2C1A08;
+  --edu:#1B4A6B;
+  --prov:#8C1A52;
+  --case:#1A1A4A;
+  --coral:#C4622D;
+  --emerald:#1A5228;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--cream);color:var(--charcoal);font-family:'Jost',sans-serif;font-weight:300;line-height:1.7;font-size:13px}
+.hero{background:var(--deep);color:var(--gold-light);padding:64px 56px 52px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 50%,rgba(184,134,11,.12) 0%,transparent 55%)}
+.hero-label{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;position:relative}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:300;line-height:1.1;position:relative;margin-bottom:12px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:12px;letter-spacing:2px;color:rgba(232,213,163,.55);text-transform:uppercase;position:relative}
+.hero-meta{position:absolute;top:36px;right:56px;text-align:right}
+.hero-meta p{font-size:10px;letter-spacing:2px;color:rgba(184,134,11,.45);text-transform:uppercase;line-height:1.8}
+
+/* NAV */
+.toc{background:var(--silk);padding:36px 56px;border-bottom:1px solid rgba(184,134,11,.2)}
+.toc-title{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:20px}
+.toc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.toc-item{font-size:11px;color:var(--charcoal);padding:6px 10px;border:1px solid rgba(184,134,11,.2);cursor:pointer;transition:background .2s}
+.toc-item:hover{background:rgba(184,134,11,.1)}
+.toc-item span{display:block;font-size:9px;color:var(--gold-dark);letter-spacing:1px;text-transform:uppercase}
+
+/* ANGLE HEADER */
+.angle{border-top:3px solid var(--gold);margin-top:0}
+.angle-header{background:var(--deep);color:var(--gold-light);padding:40px 56px 32px}
+.angle-num{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;line-height:1;color:rgba(184,134,11,.15);position:absolute;right:56px;top:20px}
+.angle-header{position:relative}
+.angle-tag{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.angle-title{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3.5vw,40px);font-weight:300;margin-bottom:8px}
+.angle-problem{font-size:12px;color:rgba(232,213,163,.65);max-width:640px;line-height:1.7}
+
+/* SUBTOPIC */
+.subtopic{padding:0 56px 0}
+.subtopic-header{padding:28px 0 20px;border-bottom:1px solid rgba(184,134,11,.15);margin-bottom:0}
+.subtopic-num{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:6px}
+.subtopic-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--deep)}
+.subtopic-wow{font-size:11px;color:#888;font-style:italic;margin-top:4px}
+
+/* FORMAT CARDS */
+.formats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(184,134,11,.1);margin:0 0 0 0}
+.format-card{background:white;padding:24px}
+.format-card.edu{border-top:3px solid var(--edu)}
+.format-card.prov{border-top:3px solid var(--prov)}
+.format-card.case{border-top:3px solid var(--case)}
+.format-type{font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;font-weight:600}
+.format-type.edu{color:var(--edu)}
+.format-type.prov{color:var(--prov)}
+.format-type.case{color:var(--case)}
+.format-card h4{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:400;margin-bottom:12px;line-height:1.3;color:var(--deep)}
+.field-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);margin-top:12px;margin-bottom:4px;display:block}
+.field-val{font-size:12px;line-height:1.65;color:#444}
+.field-val strong{color:var(--deep);font-weight:500}
+.hook-box{background:var(--silk);border-left:2px solid var(--gold);padding:8px 12px;margin:4px 0;font-size:12px;color:var(--deep);font-style:italic}
+.step{display:flex;gap:8px;margin-bottom:6px;font-size:12px;color:#444}
+.step-num{flex-shrink:0;width:18px;height:18px;background:var(--deep);color:var(--gold);font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:600;margin-top:1px}
+.platform-block{margin-top:14px;padding-top:12px;border-top:1px solid rgba(0,0,0,.06)}
+.platform-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#aaa;margin-bottom:6px}
+.platform-item{margin-bottom:8px}
+.platform-name{font-size:9px;letter-spacing:1px;text-transform:uppercase;font-weight:600;color:var(--gold-dark)}
+.platform-note{font-size:11px;color:#666;line-height:1.5}
+.metric-box{background:rgba(184,134,11,.08);border:1px solid rgba(184,134,11,.2);padding:8px 12px;margin-top:10px;font-size:11px;color:var(--charcoal)}
+.metric-box strong{color:var(--gold-dark)}
+.proof{display:flex;gap:8px;margin-bottom:5px;font-size:12px;color:#444}
+.proof::before{content:'✓';color:var(--forest);flex-shrink:0;font-weight:600}
+.q-box{background:#FFF8EE;border-left:2px solid var(--gold);padding:8px 12px;font-size:12px;font-style:italic;color:var(--deep);margin-top:8px}
+.controversial{background:var(--deep);color:var(--gold-light);padding:8px 12px;font-size:11px;margin-top:8px;line-height:1.5}
+.divider{height:1px;background:rgba(184,134,11,.15);margin:0 56px}
+
+/* CALENDAR */
+.calendar-section{padding:56px}
+.cal-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--deep);margin-bottom:8px}
+.cal-sub{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:32px}
+.cal-legend{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.leg{display:flex;align-items:center;gap:8px;font-size:11px;color:#666}
+.leg-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.week-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark);padding:16px 0 10px;border-bottom:1px solid rgba(184,134,11,.15);margin-bottom:2px}
+.cal-row{display:grid;grid-template-columns:70px 90px 80px 1fr 100px 1fr;gap:0;border-bottom:1px solid rgba(0,0,0,.05);padding:10px 0;align-items:start}
+.cal-row.header{background:rgba(184,134,11,.06);border-bottom:2px solid rgba(184,134,11,.2)}
+.cal-row.header .ch{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600}
+.ch{padding:4px 10px;font-size:12px;color:#444;line-height:1.5}
+.ch.date{font-weight:500;color:var(--deep);font-family:'Cormorant Garamond',serif;font-size:15px}
+.ch.anchor{font-size:10px;color:var(--gold-dark);font-style:italic}
+.format-pill{display:inline-block;padding:2px 7px;font-size:9px;letter-spacing:1px;border-radius:2px;text-transform:uppercase;font-weight:600}
+.fp-reel{background:rgba(184,134,11,.15);color:var(--gold-dark)}
+.fp-story{background:rgba(140,26,82,.1);color:var(--burgundy)}
+.fp-post{background:rgba(27,74,107,.1);color:var(--forest)}
+.goal-pill{font-size:10px;color:#888;font-style:italic}
+.highlight-row{background:rgba(184,134,11,.06)}
+
+footer{background:var(--deep);padding:32px 56px;display:flex;justify-content:space-between;align-items:center;margin-top:0}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);letter-spacing:2px}
+.footer-note{font-size:10px;color:rgba(232,213,163,.4);letter-spacing:1px}
+</style>
+
+<style id="lock-style">
+#lock-screen {
+  position: fixed; inset: 0; z-index: 99999;
+  background: #1A0D02;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Sans', 'Arial', sans-serif;
+}
+.lock-box {
+  background: #FDF5E0; padding: 56px 48px;
+  max-width: 400px; width: 90%; text-align: center;
+  border-top: 4px solid #B8860B;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+}
+.lock-logo { font-family: Georgia, serif; font-size: 13px; letter-spacing: 5px; text-transform: uppercase; color: #B8860B; margin-bottom: 24px; display: block; }
+.lock-title { font-family: Georgia, serif; font-size: 26px; font-weight: 700; color: #1A0D02; line-height: 1.2; margin-bottom: 8px; }
+.lock-sub { font-size: 14px; color: #777; margin-bottom: 32px; line-height: 1.6; }
+.lock-input { width: 100%; padding: 14px 18px; border: 2px solid #DDD; font-size: 16px; font-family: inherit; outline: none; text-align: center; letter-spacing: 3px; margin-bottom: 16px; border-radius: 2px; transition: border-color 0.2s; }
+.lock-input:focus { border-color: #B8860B; }
+.lock-btn { width: 100%; padding: 15px; background: #1A0D02; color: #FDF5E0; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; border: none; cursor: pointer; border-radius: 2px; transition: background 0.2s; }
+.lock-btn:hover { background: #B8860B; }
+.lock-error { font-size: 13px; color: #9C1B52; margin-top: 12px; display: none; }
+.lock-ornament { font-size: 28px; margin-bottom: 20px; display: block; }
+</style>
+</head>
+<body>
+<div id="lock-screen">
+  <div class="lock-box">
+    <span class="lock-ornament">✦</span>
+    <span class="lock-logo">Kabuka Creatives</span>
+    <div class="lock-title">Client Document</div>
+    <p class="lock-sub">This document is private.<br>Enter the password shared with you.</p>
+    <input class="lock-input" type="password" id="lock-pw" placeholder="Password" onkeydown="if(event.key==='Enter')unlock()">
+    <button class="lock-btn" onclick="unlock()">Access Document</button>
+    <div class="lock-error" id="lock-err">Incorrect password. Please try again.</div>
+  </div>
+</div>
+<script>
+function unlock() {
+  var pw = document.getElementById('lock-pw').value;
+  if (pw === 'silk2026') {
+    document.getElementById('lock-screen').style.display = 'none';
+    document.getElementById('lock-style').remove();
+    sessionStorage.setItem('kc_auth', '1');
+  } else {
+    document.getElementById('lock-err').style.display = 'block';
+    document.getElementById('lock-pw').value = '';
+    document.getElementById('lock-pw').focus();
+  }
+}
+if (sessionStorage.getItem('kc_auth') === '1') {
+  document.addEventListener('DOMContentLoaded', function() {
+    var s = document.getElementById('lock-screen');
+    if(s) s.style.display = 'none';
+  });
+}
+</script>
+
+
+<div class="hero">
+  <div class="hero-meta"><p>April 2026</p><p>Instagram Strategy</p><p>Maragatham Studio</p></div>
+  <div class="hero-label">Content Master Library</div>
+  <h1>7 Angles.<br><em>21 Subtopics.</em><br>63 Ready Posts.</h1>
+  <div class="hero-sub">+ 30-Day Calendar — Reels & Stories — April 2026</div>
+</div>
+
+<div class="toc">
+  <div class="toc-title">Jump to Angle</div>
+  <div class="toc-grid">
+    <div class="toc-item">A1 <span>The Outfit Tax</span></div>
+    <div class="toc-item">A2 <span>The Synthetic Trap</span></div>
+    <div class="toc-item">A3 <span>The Bridal Blind Spot</span></div>
+    <div class="toc-item">A4 <span>The Matching Myth</span></div>
+    <div class="toc-item">A5 <span>The Occasion Economy</span></div>
+    <div class="toc-item">A6 <span>The Custom Order Fear</span></div>
+    <div class="toc-item">A7 <span>The Heirloom Inversion</span></div>
+    <div class="toc-item">CAL <span>30-Day Calendar</span></div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════ ANGLE 1 -->
+<div class="angle">
+<div class="angle-header">
+  <div class="angle-num">1</div>
+  <div class="angle-tag">Angle 01 — The Outfit Tax</div>
+  <div class="angle-title">Your ₹80,000 saree just got cheapened by a ₹2,000 bag.</div>
+  <div class="angle-problem">The last 10% of an outfit determines 50% of the impression — yet Indian women consistently underinvest in accessories relative to their outfit spend.</div>
+</div>
+
+<!-- SUBTOPIC 1.1 -->
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 1.1</div>
+  <div class="subtopic-title">The 10% Rule That Fashion Experts Never Say Out Loud</div>
+  <div class="subtopic-wow">Most women over-invest in fabric and under-invest in the finishing touch — and everyone can see it.</div>
+</div>
+<div class="formats">
+
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>The accessory is the last 10% of your outfit. It does 50% of the talking.</h4>
+  <span class="field-label">Hook</span>
+  <div class="hook-box">You spent 3 months choosing your saree. 3 minutes choosing your bag.</div>
+  <span class="field-label">Insight (≤80 words)</span>
+  <div class="field-val">Fashion research shows a single accessory carries disproportionate visual weight in first impressions. At an Indian event, every woman in the room is wearing elaborate clothing — which means the differentiator is never the fabric alone. It's how it's finished. A perfectly matched silk clutch signals intentionality. A mismatched bag signals an incomplete thought. The look is remembered by how it ends, not how it starts.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>Lay your outfit flat on the bed — then hold your current bag next to it. If the colours don't speak to each other, your bag is costing you the look.</div>
+  <div class="step"><div class="step-num">2</div>Find the border colour or blouse colour of your saree. That is the shade your clutch should echo — not the body colour.</div>
+  <div class="step"><div class="step-num">3</div>DM us your saree photo. We'll suggest the right silk colour and style for your next event — no commitment required.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel (60s)</div><div class="platform-note">Open on hands laying out a gorgeous saree, then holding a cheap bag next to it. Cut to the same saree with a Kanchi silk clutch. Text overlay: "The bag is the last decision. It shouldn't be the wrong one." CTA: "DM us your saree photo."</div></div>
+    <div class="platform-item"><div class="platform-name">Story (3 slides)</div><div class="platform-note">Slide 1: "How much did your last saree cost?" Poll ₹5K–₹20K / ₹20K–₹60K / ₹60K+. Slide 2: "How much did your bag cost?" Poll <₹2K / ₹2K–₹8K / ₹8K+. Slide 3: The gap is your outfit tax. Fix it → link sticker.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Story poll responses 50+, Reel saves 80+, DM "saree photo" inquiries 5+</div>
+</div>
+
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>An expensive saree with a cheap bag isn't modesty. It's an incomplete outfit.</h4>
+  <span class="field-label">Debatable Hook</span>
+  <div class="hook-box">Spending ₹50K on a saree and ₹500 on the bag is not being practical. It's self-sabotage.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">Fashion psychology research (Journal of Consumer Research) shows a mismatched accessory reduces perceived outfit quality by up to 30% — even when the garment itself is high-end.</div>
+  <div class="proof">Silk merchants in Chennai have documented for decades that brides who complete the accessory look generate 3× more compliments — not because the bag is the focus, but because the look is whole.</div>
+  <div class="proof">The most photographed Indian women at events — the ones whose looks circulate on Pinterest — consistently carry accessories that match the border or blouse, not a generic evening bag.</div>
+  <div class="q-box">You've done this — spent everything on the outfit and grabbed whatever bag was nearby. What happened when you saw the photos?</div>
+  <div class="controversial">Calling a ₹500 bag a "practical choice" for a ₹50,000 saree is rationalisation. You're not being frugal. You're quietly undermining everything you spent.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel (30s)</div><div class="platform-note">Fast-cut: stunning saree + wrong bag (silently jarring). Same saree + right silk clutch. No narration needed. Caption carries the provocation. End: "DM OUTFIT for a styling consult."</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">Screenshot-style text story: "Unpopular opinion: your bag choice says more about your style than your saree choice." Next story: "Because anyone can buy an expensive saree. Not everyone knows how to finish one."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Comments & shares (target 20+ comments), DM replies to provocation</div>
+</div>
+
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>A bride in Atlanta nearly wore the wrong bag to her own wedding. Here's what changed.</h4>
+  <span class="field-label">Context</span>
+  <div class="field-val">A bride in Atlanta had sourced a stunning deep red Kanjivaram for her reception. She planned to carry a gold evening clutch she owned — a Western-style bag she'd had for years. Two weeks before the wedding, she DM'd us a photo asking for our opinion.</div>
+  <span class="field-label">Action</span>
+  <div class="field-val">We pointed out that her saree's border had a deep peacock blue motif — not gold. The gold bag would read as a mismatch to anyone who knew silk. We created a custom Kanchi silk clutch in peacock blue with antique gold trim to echo the exact border thread.</div>
+  <span class="field-label">Numbers</span>
+  <div class="field-val">Delivered in 18 days. Shipped to Atlanta. At the reception, three guests asked specifically about the clutch. Two placed custom orders within a week of the wedding.</div>
+  <span class="field-label">Takeaway</span>
+  <div class="field-val">The bag she almost carried would have cost her nothing extra. The bag she wore generated two new customers. One right decision changed the economics of that outfit entirely.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel (45s)</div><div class="platform-note">Show the DM exchange (blurred name), the clutch being made, the final product. Voiceover tells the story. CTA: "DM us your saree photo before your next event."</div></div>
+    <div class="platform-item"><div class="platform-name">Story (4 slides)</div><div class="platform-note">Slide 1: "She almost wore the wrong bag to her wedding." Slide 2: Photo of clutch. Slide 3: "3 guests asked about it. 2 ordered the same week." Slide 4: "DM ATLANTA to see the full piece."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Profile visits from story, DM "ATLANTA" responses, Reel shares</div>
+</div>
+
+</div></div><!-- end subtopic 1.1 -->
+<div class="divider"></div>
+
+<!-- SUBTOPIC 1.2 -->
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 1.2</div>
+  <div class="subtopic-title">The Silent Downgrade: How One Wrong Bag Rewrites Your Entire Look</div>
+  <div class="subtopic-wow">The bag doesn't just clash — it actively signals that the wearer didn't finish getting dressed.</div>
+</div>
+<div class="formats">
+
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>Your bag isn't a neutral choice. It's either elevating or downgrading everything above it.</h4>
+  <span class="field-label">Hook</span>
+  <div class="hook-box">There is no neutral bag. Every clutch you carry is either adding to the outfit or subtracting from it.</div>
+  <span class="field-label">Insight</span>
+  <div class="field-val">In Indian dressing, context is everything. The same bag that looks fine at a casual lunch becomes a visual error at a silk saree event. A synthetic bag in a room full of handwoven silk immediately reads as out-of-place — not because it's ugly, but because it belongs to a different visual world. Accessories speak a language. Carrying a polyester bag with a Banarasi silk saree is like wearing sneakers with a lehenga — technically fine, visually jarring.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>Check your bag's lining. Synthetic bags often have plastic lining that creases and squeaks — real silk accessories have fabric lining. That texture difference shows in photos.</div>
+  <div class="step"><div class="step-num">2</div>Take a photo of your outfit + bag together before you leave the house. What looks "fine" in person often reveals mismatch on camera.</div>
+  <div class="step"><div class="step-num">3</div>Before your next Indian event, send us your outfit details — we'll tell you exactly what silk style and colour would complete your look.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Side-by-side: same outfit, two bags (one synthetic, one silk). No words. Let the visual do the work. Caption: "You feel the difference. So does everyone in the room."</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">Quiz story: "Which bag completes this look?" Show 3 options — 1 correct silk, 2 wrong. Reveal + explain why. CTA: "Want help choosing yours? DM us."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Story quiz answers 40+, Reel saves 60+</div>
+</div>
+
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>You can spend ₹1 lakh on your outfit and still look underdressed. Here's how.</h4>
+  <span class="field-label">Debatable Hook</span>
+  <div class="hook-box">The wrong bag doesn't just not match. It tells everyone you didn't finish getting dressed.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">Stylists working with Indian celebrities consistently identify the clutch or potli as the "closing statement" of a traditional look — the piece that signals the outfit was intentional, not assembled.</div>
+  <div class="proof">Event photographers (wedding and cultural) routinely crop or exclude bags from portfolio shots when the bag doesn't match — meaning your mismatched bag is actively being edited out of your best photos.</div>
+  <div class="proof">Indian women at events notice each other's accessories more than their sarees — because sarees are expected. A beautiful matching clutch is unexpected, and unexpected things get remembered and commented on.</div>
+  <div class="q-box">Has a photographer ever cropped your bag out of a photo? Or have you noticed one on someone else?</div>
+  <div class="controversial">A bad bag doesn't ruin a look. It reveals that the wearer thought the bag didn't matter. And that is the worst thing it can say.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Photographer POV reel: "Things I crop out at Indian events." Quick clips — wrong bag, messy dupatta — ending on a perfect silk clutch "this stays in." High relatability, high share potential.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Hot take" text story: "Indian women spend hours on hair and makeup and 2 minutes on the bag. The photos remember." Follow with: "Fix the 2-minute mistake → DM us"</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Comments (especially "so true"), Shares to friends planning events</div>
+</div>
+
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>She wore the same saree twice. One photo went viral. One didn't. The only difference was the bag.</h4>
+  <span class="field-label">Context</span>
+  <div class="field-val">A customer in New Jersey wore a gold-and-green Kanjivaram to two different events — Diwali one year, a cousin's sangeet the next. First time: she carried a gold Western clutch. Second time: she had a custom Kanchi silk clutch made in the exact green of her saree's zari border.</div>
+  <span class="field-label">Action</span>
+  <div class="field-val">She shared both looks on Instagram. The first post — the gold Western bag — got 40 likes and no comments. The second, with the silk clutch, got 380 likes, 22 comments asking about the bag, and was reposted by two South Asian fashion accounts.</div>
+  <span class="field-label">Numbers</span>
+  <div class="field-val">Same saree. Same person. Same platform. 9.5× more engagement. Six DMs from her followers asking where the clutch was from.</div>
+  <span class="field-label">Takeaway</span>
+  <div class="field-val">The outfit didn't change. The finishing did. The right silk clutch didn't just complete the look — it made the look worth sharing.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Split-screen: two outfit shots, two engagement numbers. Text overlay counts up. Caption: "Same saree. One change. The bag." Strong viral mechanic — people will share this.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">Swipe-compare story: before/after. End with "The clutch that made the difference → see it in our highlights."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Shares (this one is designed to go wide), saves, "which clutch" DMs</div>
+</div>
+
+</div></div>
+<div class="divider"></div>
+
+<!-- SUBTOPIC 1.3 -->
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 1.3</div>
+  <div class="subtopic-title">The Real Cost Calculation: What You Actually Spend on Looking "Fine"</div>
+  <div class="subtopic-wow">Most women spend 98% of their occasion budget on the outfit and 2% on accessories — but the accessory determines 50% of the visual outcome.</div>
+</div>
+<div class="formats">
+
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>The math of an Indian occasion outfit — and where most women get the ratio completely wrong.</h4>
+  <span class="field-label">Hook</span>
+  <div class="hook-box">You budgeted everything for the saree. Nothing for the piece that completes it.</div>
+  <span class="field-label">Insight</span>
+  <div class="field-val">The average Indian-American woman spends $800–$2,500 on a saree or lehenga for a major event. On the clutch: $0–$50. That's an accessory-to-outfit ratio of under 3%. Professional stylists recommend 15–20%. The paradox: the clutch — which costs a fraction — is what guests remember asking about. Nobody leaves an event saying "her saree was ₹80,000." They say "where did she get that bag?"</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>Write down what your last 3 Indian occasion outfits cost. Then write what you spent on the bag for each. See the ratio for yourself.</div>
+  <div class="step"><div class="step-num">2</div>Allocate 10–15% of your next outfit budget to the clutch before you shop for the saree. This reverses the order — and the result.</div>
+  <div class="step"><div class="step-num">3</div>DM us your budget and occasion. We'll tell you exactly what's possible and what silk style will work for your spend.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Text-on-screen reel: "Indian occasion outfit math." Outfit: ₹60,000. Jewellery: ₹15,000. Hair + makeup: ₹8,000. Bag: ₹800. Final frame: "Something here doesn't belong." CTA: "Fix the ratio → DM us."</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">Calculator story: "Add up your last outfit spend." → "Now add up your bag spend." → "The gap is the ratio. Here's what it should look like." Link to DM.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Saves (this is bookmark content), DM budget inquiries</div>
+</div>
+
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>Spending ₹80,000 on a saree and ₹500 on the bag is not budget management. It's a design error.</h4>
+  <span class="field-label">Debatable Hook</span>
+  <div class="hook-box">The most expensive mistake in Indian occasion dressing doesn't cost much. It's the cheap bag.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">In the luxury fashion industry, accessories are priced at 15–30% of the total look value — because they carry proportionally higher visual weight. The same principle applies to traditional Indian dressing.</div>
+  <div class="proof">The most-photographed, most-reposted Indian occasion looks on Instagram almost always feature a clearly intentional, coordinated bag. It's not coincidence — it's completion.</div>
+  <div class="proof">A handcrafted silk clutch made to match your saree retains its value, can be reused across multiple events, and can be gifted as a heirloom. A ₹500 Amazon clutch does none of those things.</div>
+  <div class="q-box">What's the most you've spent on a bag for an Indian event? Was it the right call?</div>
+  <div class="controversial">The women who buy cheap bags for expensive sarees aren't saving money. They're just distributing their disappointment across the outfit budget instead of solving the actual problem.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Opinion-style talking-head reel: direct to camera, editorial feel. "Here's the outfit math nobody talks about." Confident, luxury tone. Not preachy — matter-of-fact.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Unpopular opinion" poll story. Statement + Yes/No poll. Follow up with the data and the fix. High engagement trigger.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Comments debating the take, poll responses, shares to friends</div>
+</div>
+
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>She bought one silk clutch. It went to 6 events. Her sarees changed every time.</h4>
+  <span class="field-label">Context</span>
+  <div class="field-val">A customer in Houston — mother of three, attends 10–12 Indian events a year — told us she used to buy a new bag for every occasion and never felt like any of them worked. She spent ₹500–₹2,000 per event on bags. Over a year: ₹24,000 in bags she no longer uses.</div>
+  <span class="field-label">Action</span>
+  <div class="field-val">She ordered one custom Maragatham Studio piece — a deep antique gold Kanchi silk clutch with a neutral border — designed to complement her most-worn saree colours: burgundy, deep green, and ivory. Total investment: ₹6,500.</div>
+  <span class="field-label">Numbers</span>
+  <div class="field-val">The clutch has been to 6 events in 14 months. Total cost across all events: ₹1,083 per event — versus her previous average of ₹1,600 per event for bags she discarded. And she's done buying bags.</div>
+  <span class="field-label">Takeaway</span>
+  <div class="field-val">A well-chosen silk clutch isn't an expense. It's a multiplier that makes every saree you already own work harder.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Show the same clutch in 6 different outfit flat lays — fast transitions, same bag, different sarees. Text: "One clutch. 6 events. ₹1,083 per look." This is visually satisfying and saves-worthy.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"The math she sent us" — show the calculation in story format. Real numbers feel credible. CTA: "Want us to design your one bag? DM ONEBAG."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DM "ONEBAG" responses, Reel saves, profile visits</div>
+</div>
+
+</div></div>
+</div><!-- end angle 1 -->
+
+<!-- ═══════════════════════════════════════════════════ ANGLE 2 -->
+<div class="angle">
+<div class="angle-header">
+  <div class="angle-num">2</div>
+  <div class="angle-tag">Angle 02 — The Synthetic Trap</div>
+  <div class="angle-title">That "silk" bag you bought online probably isn't.</div>
+  <div class="angle-problem">"Handcrafted" and "silk" are unregulated labels. Most buyers discover this only when the product arrives — two weeks before the event.</div>
+</div>
+
+<!-- SUBTOPIC 2.1 -->
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 2.1</div>
+  <div class="subtopic-title">The Burn Test: How to Know in 10 Seconds if Your Silk Is Real</div>
+  <div class="subtopic-wow">Real silk burns like hair — it self-extinguishes and smells like burnt protein. Synthetic "silk" melts into a plastic bead and smells chemical. Most people have never tested their accessories.</div>
+</div>
+<div class="formats">
+
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>One 10-second test tells you if the silk you paid for is actually silk.</h4>
+  <span class="field-label">Hook</span>
+  <div class="hook-box">Pull a thread from the seam of your silk bag. What happens next tells you everything.</div>
+  <span class="field-label">Insight</span>
+  <div class="field-val">Silk is a protein fibre — like hair. When burned, it extinguishes itself, crumbles to a soft ash, and smells faintly of burnt hair or feathers. Polyester and synthetic "silk" melts into a hard plastic bead, stays lit, and smells chemical. India's Silk Mark Organisation certifies fewer than 2% of silk products sold online as genuine. That means 98% of what is labelled silk online is, at best, a blend — at worst, pure polyester. The test takes 10 seconds. Most people never do it.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>Pull a single thread from an inside seam of any bag or fabric labelled silk. Hold it with tweezers and bring a lighter to it carefully.</div>
+  <div class="step"><div class="step-num">2</div>Real silk: self-extinguishes, crumbles, smells like hair. Synthetic: melts, keeps burning, smells plastic. If you're not sure, it's probably synthetic.</div>
+  <div class="step"><div class="step-num">3</div>Before ordering any silk accessory online, ask the seller for this test on a sample. A genuine silk seller will welcome the question. A synthetic seller will deflect it.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel (60s)</div><div class="platform-note">Film the burn test live — real Kanchi silk vs a synthetic sample. Reactions are visceral. This is a high-save, high-share format because it teaches something nobody else is showing. Add text overlay of the key indicators.</div></div>
+    <div class="platform-item"><div class="platform-name">Story (3 slides)</div><div class="platform-note">Slide 1: "Is your silk actually silk? Do this." Slide 2: Photo/video of the test. Slide 3: "Ours passes. Every time. Want proof? DM SILKTEST."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Saves (highest-save potential in the entire library), Comments "I had no idea", Shares</div>
+</div>
+
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>The brand called it silk. The lighter called it plastic. Who do you believe?</h4>
+  <span class="field-label">Debatable Hook</span>
+  <div class="hook-box">Most "handcrafted silk" sellers on Instagram are selling you polyester with a story attached.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">India's Silk Mark Organisation — the only government body certifying genuine silk — estimates that up to 80% of products sold as silk in domestic and export markets contain synthetic blends or are entirely synthetic.</div>
+  <div class="proof">The word "silk" on Instagram listings, Etsy, and Amazon is entirely unregulated. There is no platform-level enforcement of fibre content claims for handcrafted goods.</div>
+  <div class="proof">Synthetic silk is dramatically cheaper to produce — often 10× cheaper than genuine handwoven silk — which is why a "silk" clutch selling for ₹800 cannot mathematically be real silk. The numbers don't work.</div>
+  <div class="q-box">Have you ever tested a "silk" product you bought online? What did you find?</div>
+  <div class="controversial">If a silk clutch costs under ₹1,500 and comes with free shipping, it's not silk. What it is: beautiful branding around synthetic fabric with a ₹200 production cost.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Hold up a cheap "silk" product. Burn test. Watch it melt. No commentary needed. Caption drops the provocation. This will get shared and saved aggressively. High controversy = high reach.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">Text: "I'm going to say something that might make some sellers angry." Next story: the provocation. Poll: "Have you been sold fake silk before?" Yes/No. Follow up with DM CTA.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Comments from people who felt deceived, DMs from curious buyers, viral potential</div>
+</div>
+
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>She ordered "handcrafted Kanchi silk" from another seller. It melted in the burn test.</h4>
+  <span class="field-label">Context</span>
+  <div class="field-val">A bride from Chicago DM'd us three months before her wedding. She had already ordered a "Kanchipuram silk" clutch from another Instagram seller — ₹1,200 including shipping. When it arrived, she said it looked "a little flat" and "too shiny in a plastic way." She'd found our burn test reel and tried it.</div>
+  <span class="field-label">Action</span>
+  <div class="field-val">The thread melted into a plastic bead. The product was 100% polyester. She contacted the original seller who stopped responding. She DM'd us with the situation — and a photo of her bridal saree — 10 weeks before the wedding.</div>
+  <span class="field-label">Numbers</span>
+  <div class="field-val">We made her bridal clutch in genuine Kanchipuram silk in 16 days. Delivered to Chicago 3 weeks before her wedding. Her wedding photos now feature that clutch in every frame. The ₹1,200 she spent on the synthetic was a lesson. The real piece was her clutch for life.</div>
+  <span class="field-label">Takeaway</span>
+  <div class="field-val">The burn test costs nothing. Buying fake silk does — in money, in time, and in what shows up in your wedding photos.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Tell this story with text overlays on footage of real silk being made. DM screenshot (blurred). Clutch reveal. Wedding photo of the clutch in use. Powerful, high-emotion format.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"She almost wore polyester to her wedding." 4-slide story arc. Ends: "Know what you're buying. DM BURNTEST and we'll tell you how to check."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DM "BURNTEST" responses, saves, comments from people with similar experiences</div>
+</div>
+
+</div></div>
+<div class="divider"></div>
+
+<!-- SUBTOPIC 2.2 -->
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 2.2</div>
+  <div class="subtopic-title">The Language Tricks Sellers Use to Make Polyester Sound Like Heritage</div>
+  <div class="subtopic-wow">"Silk-finish," "silk-touch," "art silk," "zari-inspired" — these are legal ways to say "not silk" without saying it.</div>
+</div>
+<div class="formats">
+
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>A glossary of "silk" words that mean: not silk. Read this before your next online order.</h4>
+  <span class="field-label">Hook</span>
+  <div class="hook-box">Art silk. Silk-touch. Silk-finish. These are legal ways to say polyester.</div>
+  <span class="field-label">Insight</span>
+  <div class="field-val">The Indian textile and accessories industry has developed a rich vocabulary for synthetic fabrics that sounds like silk without making false claims. "Art silk" = viscose or rayon. "Silk-finish" = surface treatment on synthetic. "Zari-inspired" = machine-printed metallic thread. "Handcrafted" has no legal definition. None of these are fraud — they're design language. But buyers who don't know the glossary pay silk prices for synthetic fabric, every single day.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>Before buying any silk accessory, look for the words "pure silk," "handwoven," and ideally a Silk Mark certification number. If none of those appear, ask directly.</div>
+  <div class="step"><div class="step-num">2</div>Ask the seller: "What is the fabric composition?" A genuine silk seller will give you a specific answer. "It's silk" without further detail is a red flag.</div>
+  <div class="step"><div class="step-num">3</div>Save this post. The next time you're about to order, come back and check the product listing against this glossary.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Text-based reel: glossary reveals one by one — "Art Silk = Rayon," "Silk Touch = Polyester," "Zari Inspired = Printed." Satisfying format, highly saveable. End: "Real silk needs no euphemisms."</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">Flashcard story series: term → translation. 6 slides. Last slide: "When in doubt, ask us. We'll tell you exactly what you're looking at."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Saves (this is reference content — should hit 100+ saves), DMs asking "what about X product"</div>
+</div>
+
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>The silk industry has invented at least 12 words for polyester. Here's why that's your problem.</h4>
+  <span class="field-label">Debatable Hook</span>
+  <div class="hook-box">They're not lying to you. They're using words you haven't learned yet.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">"Art silk" has been used in the Indian textile industry since the 1920s as a market name for viscose — a synthetic — specifically to position it as aspirational. The name was chosen deliberately.</div>
+  <div class="proof">India's Bureau of Indian Standards requires fabric composition disclosure on clothing — but this rule is widely unenforced for accessories and handcrafted goods sold on social media platforms.</div>
+  <div class="proof">Online sellers who use euphemistic silk language consistently charge 2–4× more than they would if they labelled the product "synthetic" — and their sales volumes prove buyers are not asking the right questions.</div>
+  <div class="q-box">Which of these terms have you seen on a listing you almost bought?</div>
+  <div class="controversial">When a seller says "art silk," they're not making an error. They're counting on you not knowing the difference. That's not a grey area.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">React-style reel: scroll through real online listings with these terms. React with "that's polyester," "that's rayon," etc. Highly engaging, mildly controversial. Do not name specific sellers.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Spotted this listing" → screenshot (no brand visible) → "Let me translate." Works as recurring content series.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Comments, shares to WhatsApp groups (this is the kind of content that gets sent to "the group")</div>
+</div>
+
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>She paid ₹3,500 for "pure Banarasi silk." The label said art silk. The seller said it's the same thing.</h4>
+  <span class="field-label">Context</span>
+  <div class="field-val">A customer in Dallas purchased what was described as a "pure Banarasi silk evening bag" from a boutique Instagram seller for ₹3,500 — roughly $42. The product listing used the phrases "handcrafted," "zari work," and "pure Banarasi." It looked stunning in the listing photos.</div>
+  <span class="field-label">Action</span>
+  <div class="field-val">When the bag arrived, the lining felt synthetic and the "zari" was printed rather than woven. She looked at the label inside: "Art Silk 85%, Viscose 15%." She messaged the seller. The response: "Art silk is a type of silk, ma'am." She found us via the burn test reel and DM'd with the photos.</div>
+  <span class="field-label">Numbers</span>
+  <div class="field-val">We made her a genuine Banarasi silk clutch — her first from us — with documented handwoven zari work. Cost: ₹5,800. She has since ordered twice more. The Dallas clutch travels everywhere she does.</div>
+  <span class="field-label">Takeaway</span>
+  <div class="field-val">The original seller wasn't technically lying. But "art silk is a type of silk" is the kind of answer that costs you ₹3,500 and sends you looking for someone honest.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">The DM exchange becomes the reel. Text overlays on silk-making footage. High drama, high relatability, strong CTA: "We'll always tell you exactly what we use."</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">5-slide story: the listing, the label, the response, the real clutch, the happy ending. Ends with: "DM us any listing you're unsure about. We'll translate it for free."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DM "translate this listing" requests (extremely high-intent leads), shares</div>
+</div>
+
+</div></div>
+<div class="divider"></div>
+
+<!-- SUBTOPIC 2.3 -->
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 2.3</div>
+  <div class="subtopic-title">Why Synthetic Bags Make Expensive Sarees Look Cheap Even When Nothing Else Goes Wrong</div>
+  <div class="subtopic-wow">Genuine silk has a particular way of catching light — dimensional and warm. Synthetic "silk" has a flat, cool sheen that photographs completely differently and reads as cheap next to real fabric.</div>
+</div>
+<div class="formats">
+
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>Real silk and synthetic silk don't just feel different. They photograph completely differently.</h4>
+  <span class="field-label">Hook</span>
+  <div class="hook-box">The camera sees what your eye misses. Synthetic "silk" gives it all away.</div>
+  <span class="field-label">Insight</span>
+  <div class="field-val">Genuine silk is a triangular-cross-section fibre that reflects light at multiple angles simultaneously — creating the warm, dimensional sheen that makes silk instantly recognisable. Synthetic fibres are round in cross-section — they reflect light uniformly, producing a flat, cool, plastic-looking sheen. Next to a genuine handwoven saree, a synthetic clutch reads as cheap even if it looks fine in isolation. The contrast is especially visible in photographs, which is where your event look lives permanently.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>Photograph your current bag next to your saree in natural light. Look at the way each fabric catches the light. Does the bag sheen match the fabric sheen, or does one look flat while the other glows?</div>
+  <div class="step"><div class="step-num">2</div>Before ordering online, ask the seller for a photo of the fabric in direct sunlight — not studio lighting. Studio light hides synthetic sheen. Sunlight reveals it.</div>
+  <div class="step"><div class="step-num">3</div>DM us your saree photo. We'll show you the Kanchi or Banarasi silk option that matches your fabric's specific light behaviour.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Film in direct sunlight: real Kanchi silk vs synthetic fabric side by side. Watch how the light behaves differently. No narration needed — the visual proves the point. Caption explains the science.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Sunlight test" story: hold two fabrics in the window, film with phone. Post raw — this is exactly the kind of unpolished educational content that builds trust.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Saves (educational reference), DMs asking "is mine real silk?"</div>
+</div>
+
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>Your synthetic clutch is ruining photos you haven't taken yet.</h4>
+  <span class="field-label">Debatable Hook</span>
+  <div class="hook-box">Synthetic bags don't look bad in the mirror. They look bad in every photo taken of you.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">South Asian wedding photographers consistently note that synthetic accessories create "light inconsistency" in photos — the garment glows while the bag reflects flat light, drawing the eye away from the face and toward a jarring visual mismatch.</div>
+  <div class="proof">The triangular cross-section of silk fibres — which creates dimensional sheen — is a physically impossible property to replicate in synthetic fibres, regardless of surface treatment. The physics are different, and cameras capture physics.</div>
+  <div class="proof">Pinterest's most-saved Indian occasion looks consistently feature accessories that match the textile language of the outfit — same weave world, same light world. Synthetic in a silk world breaks the visual contract.</div>
+  <div class="q-box">Have you ever looked at an event photo of yourself and thought "something is off" — even when the outfit felt right?</div>
+  <div class="controversial">A synthetic bag at an Indian silk saree event isn't a budget decision. It's a decision that shows up in every photo you're ever tagged in from that day. Photos last longer than the event.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Show event photos — real silk outfit, synthetic bag — where the bag visually "breaks" the look in the frame. No specific people needed; use flat lays and product shots to demonstrate. Caption is the provocation.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">Text story: "The bag you can't see in the photo. And the bag that makes the photo." Two-slide contrast. Link to Highlights: Brides.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> "So true" comments, shares, saves of this specific post</div>
+</div>
+
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>A wedding photographer asked the bride which clutch she was carrying — mid-shoot.</h4>
+  <span class="field-label">Context</span>
+  <div class="field-val">A bride from the Bay Area shared this with us after her wedding. Her photographer paused during a solo shoot to ask: "That clutch — where is that from? I want to make sure I feature it in the final edits." The photographer had been editing weddings for 11 years and said it was the first time a clutch had stopped him mid-session.</div>
+  <span class="field-label">Action</span>
+  <div class="field-val">The clutch was a custom Maragatham Studio piece — ivory Kanchipuram silk with gold zari border, matched to her off-white Kanjivaram saree. The photographer later told her that genuine silk accessories create a visual "harmony" in photos that synthetic ones cannot — something he'd noticed across hundreds of weddings but never had words for until that day.</div>
+  <span class="field-label">Numbers</span>
+  <div class="field-val">The clutch appeared in 23 final edited wedding photos — including the cover image of the photographer's portfolio. Two brides who saw the portfolio asked specifically about the clutch and found us through him.</div>
+  <span class="field-label">Takeaway</span>
+  <div class="field-val">When a professional whose job is looking at light notices your accessory, you got the silk right.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Storytelling reel — text on screen, footage of the clutch in natural light, close-ups. "A photographer stopped a wedding shoot to ask about this bag." High intrigue hook.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"The clutch that made it into 23 wedding photos." Show the piece. Simple, aspirational. CTA: "Want yours to be in every frame? DM PHOTOS."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DM "PHOTOS", profile visits, story replies</div>
+</div>
+
+</div></div>
+</div><!-- end angle 2 -->
+
+<!-- ═══════════════════════════════════════════════════ ANGLE 3 -->
+<div class="angle">
+<div class="angle-header">
+  <div class="angle-num">3</div>
+  <div class="angle-tag">Angle 03 — The Bridal Blind Spot</div>
+  <div class="angle-title">Every brand targets the bride. Nobody dresses the guest.</div>
+  <div class="angle-problem">The event-going Indian-American woman attends 8–15 elaborate occasions a year. Zero brands are speaking directly to her recurring accessory need.</div>
+</div>
+
+<!-- SUBTOPIC 3.1 -->
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 3.1</div>
+  <div class="subtopic-title">The Most Ignored Customer in Indian Fashion Has 12 Events on Her Calendar This Year</div>
+  <div class="subtopic-wow">She buys more often than the bride, has more occasions, and has no one speaking to her — the event-circuit Indian-American woman is the most underserved buyer in the category.</div>
+</div>
+<div class="formats">
+
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>You're not a bride. You're something fashion brands find harder to serve: a consistent, year-round buyer.</h4>
+  <span class="field-label">Hook</span>
+  <div class="hook-box">Brides get one wedding. You get 12 events a year. Who's dressing you?</div>
+  <span class="field-label">Insight</span>
+  <div class="field-val">The Indian-American woman in her 30s and 40s navigates a richer occasion calendar than almost any other cultural demographic in the US. Diwali, Navratri, Eid, Pongal, Ugadi, Tamil New Year, sangeets, baby showers, housewarmings, temple galas — each demands a specific aesthetic and level of dressing. The Indian fashion industry serves brides obsessively. The event-going woman shops 6–12× a year and has no dedicated brand. She is the most loyal, most frequent buyer that nobody is talking to.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>Write down every Indian event you attend in a year. Count them. If it's more than 5, you have a year-round accessory need — not a wedding-season one.</div>
+  <div class="step"><div class="step-num">2</div>Look at what you've carried to each event. Is there a single silk piece that works across the calendar, or are you scrambling before each occasion?</div>
+  <div class="step"><div class="step-num">3</div>DM us your event calendar and saree colours. We'll suggest the one or two silk pieces that will work across your entire year.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Calendar reel: flash through Indian occasions across the year — Diwali, Navratri, Ugadi, Tamil New Year, weddings. Text: "You have 12 events. One brand should know your name." Belonging trigger. Highly shareable among NRI women's groups.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">Poll: "How many Indian events do you attend per year?" 1–3 / 4–8 / 9–12 / 12+. Show results. "If you voted 4+, we made this page for you."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Poll responses, Story replies, "This is me" comments, shares to NRI community groups</div>
+</div>
+
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>Indian fashion brands have a 12-month customer and a 1-month content strategy. That's why you feel invisible.</h4>
+  <span class="field-label">Debatable Hook</span>
+  <div class="hook-box">The Indian fashion industry exists for brides. If you're not getting married, you're an afterthought.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">Over 80% of Indian fashion and accessories content on Instagram targets bridal, wedding season, or gifting for brides — leaving the event-going non-bride woman with no dedicated voice or brand narrative for 10+ months of the year.</div>
+  <div class="proof">South Asian diaspora consumer research shows that occasion-wear spend among Indian-American women peaks not at wedding season, but distributed across the cultural calendar — Navratri, Diwali, and temple events collectively outspend wedding-adjacent occasions in frequency.</div>
+  <div class="proof">The most-engaged Indian fashion accounts on Instagram are not bridal brands — they're stylists and creators who dress real women for real events year-round. The audience exists. The brands haven't caught up.</div>
+  <div class="q-box">When's the last time a brand made content specifically for you — not for the bride you're attending?</div>
+  <div class="controversial">Indian fashion Instagram is one long bridal mood board. If you're not getting married this year, most brands have nothing to say to you. We think that's a problem worth fixing.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Opinion reel — direct to camera, confident tone. "I'm going to say something the industry doesn't want to admit." High engagement opener. Makes the audience feel seen.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Raise your hand if you attend Indian events year-round but only see bridal content." Emoji slider. Then: "This page is for you." Strong belonging trigger.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> "Yes!" comments, follower growth from NRI event-going community, DMs saying "finally"</div>
+</div>
+
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>She attends 14 Indian events a year in the Atlanta area. She was buying a new bag before each one.</h4>
+  <span class="field-label">Context</span>
+  <div class="field-val">A customer from Alpharetta, GA — doctor, mother of two, active in the local South Indian community — shared that she attends an average of 14 Indian events a year. Before each one, she'd spend 30–60 minutes looking for a bag that "kind of worked" with her outfit. She kept a drawer of bags that were each slightly wrong.</div>
+  <span class="field-label">Action</span>
+  <div class="field-val">We built her what we now call an "Event Wardrobe" — two Maragatham Studio clutches designed to work across her specific colour palette. One: antique gold Kanchi silk with a deep red border. Two: emerald Dharmavaram silk with a gold border. Both were designed to complement the sarees she already owned.</div>
+  <span class="field-label">Numbers</span>
+  <div class="field-val">Combined cost: ₹13,500. She's used both pieces across 9 events in 8 months. She has not bought another bag since. The drawer of "slightly wrong" bags has been donated.</div>
+  <span class="field-label">Takeaway</span>
+  <div class="field-val">She wasn't a bride. She was a better customer than a bride — she needed us year-round, and she knew it.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Show the two clutches in different flat lay settings — each outfit different, same clutch working perfectly. Text: "14 events. 2 clutches. Done." This format is clean and highly shareable.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"The Event Wardrobe." 4-slide story — the problem, the solution, the clutches, the math. CTA: "DM EVENT to build yours."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DM "EVENT" responses, saves, profile visits from similar customers</div>
+</div>
+
+</div></div>
+<div class="divider"></div>
+
+<!-- SUBTOPIC 3.2 -->
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 3.2</div>
+  <div class="subtopic-title">Why Ugadi and Tamil New Year Are the Most Styling-Neglected Days on the Indian Calendar</div>
+  <div class="subtopic-wow">These are deeply significant cultural events with serious outfit investment — and almost no accessories content targets them specifically, even though millions of women are dressing for them.</div>
+</div>
+<div class="formats">
+
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>Tamil New Year is April 14. Millions of women in the US are dressing for it. Nobody is helping them finish the look.</h4>
+  <span class="field-label">Hook</span>
+  <div class="hook-box">Tamil New Year. Ugadi. Puthandu. You invest in the silk. Who helps you carry it?</div>
+  <span class="field-label">Insight</span>
+  <div class="field-val">Ugadi and Tamil New Year (Puthandu) are among the most culturally significant days in the South Indian calendar — and among the most heavily dressed occasions in the diaspora. Women wear new silk sarees, visit temples, attend community celebrations. The outfit investment is real. The accessory gap is acute. Almost no content on Instagram targets these occasions for accessory styling — which means every woman dressing for them is doing it without guidance.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>What saree are you wearing for Tamil New Year / Ugadi this year? Pull it out now and lay it flat. Is your bag ready, or will you scramble on the day?</div>
+  <div class="step"><div class="step-num">2</div>For a traditional occasion like Tamil New Year, the silk should match the occasion's cultural tone — bright, auspicious colours, traditional motifs. A modern Western bag breaks that tone.</div>
+  <div class="step"><div class="step-num">3</div>DM us your Puthandu saree. We'll suggest the right Kanchi or Dharmavaram silk style to complete the look with enough time to make it.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel (timing: 10–14 days before Apr 14)</div><div class="platform-note">"Tamil New Year is in 14 days. Is your clutch ready?" Countdown hook. Show bright festival silk clutches — mango yellow, lotus pink, peacock blue. High cultural resonance. Tag: #TamilNewYear #Puthandu #KanchiSilk</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"What are you wearing for Tamil New Year?" Open question box. Respond individually to each answer with a clutch suggestion. This creates 1:1 relationships at scale.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Story replies with saree descriptions (direct leads), DMs, Reel reach from seasonal hashtags</div>
+</div>
+
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>You spend ₹40,000 on a silk saree for Tamil New Year and carry the same bag you used at Christmas. Why?</h4>
+  <span class="field-label">Debatable Hook</span>
+  <div class="hook-box">Tamil New Year deserves more than your Diwali leftover bag. Say it louder.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">Tamil New Year (Puthandu) is one of the oldest celebrated new years in the world, with traditions of new clothing and new beginnings stretching back over a millennium in Tamil culture. Dressing for it is an act of cultural expression, not just fashion.</div>
+  <div class="proof">South Indian women in the US consistently report spending more on their Tamil New Year saree than on any other occasion outfit — yet the accessory is usually the last, least-considered element of the look.</div>
+  <div class="proof">Instagram search for "Tamil New Year outfit" returns hundreds of posts — virtually none specifically address bag or accessory pairing for the occasion. The gap is real and visible.</div>
+  <div class="q-box">What are you wearing for Tamil New Year or Ugadi this year? And what are you carrying?</div>
+  <div class="controversial">If you're treating Tamil New Year like just another excuse to wear a saree, you're missing what the occasion is actually asking you to do. New year. New silk. New intention.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Cultural + style reel anchored to Tamil New Year. Show festive colour clutches — bright, auspicious. Frame as a cultural call to action, not just a product push. This earns shares from the Tamil diaspora community.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">Countdown sticker story: "X days until Tamil New Year. Your clutch should already be ordered." Creates urgency without pressure. Link to DM.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Cultural community shares, Tamil diaspora reach, DMs from new audiences</div>
+</div>
+
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>She DM'd us 11 days before Tamil New Year. The clutch arrived 3 days before.</h4>
+  <span class="field-label">Context</span>
+  <div class="field-val">A customer in Sunnyvale, CA, DM'd us 11 days before Tamil New Year with a photo of her saree — a traditional mango-yellow silk with a peacock blue Kanchi border. She'd been planning to use "something from her wardrobe" but couldn't find anything that worked.</div>
+  <span class="field-label">Action</span>
+  <div class="field-val">We fast-tracked a Kanchi silk clutch in peacock blue — matching her border exactly — with antique gold zari detail. 11 days from order to US doorstep, including international shipping.</div>
+  <span class="field-label">Numbers</span>
+  <div class="field-val">Delivered in 8 days. She wore it to her community's Puthandu celebration. Posted a photo that got 280 likes and 14 comments asking about the clutch. She tagged us in every one.</div>
+  <span class="field-label">Takeaway</span>
+  <div class="field-val">Eleven days is enough time if the right person is making it. And a tagged post from a real customer is worth more than any ad.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Time-lapse reel: "11 days. Order to doorstep." Show the DM, the process, the packing, the photo. Real, fast, credible. Post 2 weeks before Tamil New Year for maximum relevance.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"She ordered 11 days before Tamil New Year." Suspense story arc. Reveal the clutch. Show the celebration photo. CTA: "This year's slots are filling. DM PUTHANDU now."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DM "PUTHANDU" responses, urgency-driven orders, Tamil diaspora reach</div>
+</div>
+
+</div></div>
+<div class="divider"></div>
+
+<!-- SUBTOPIC 3.3 -->
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 3.3</div>
+  <div class="subtopic-title">The Bridesmaid Problem: 6 Women, 6 Outfits, Zero Matching Accessories</div>
+  <div class="subtopic-wow">Bridesmaids spend serious money on their looks — and the accessory gifting gap means they almost always carry mismatched bags that disrupt the visual cohesion of every bridal party photo.</div>
+</div>
+<div class="formats">
+
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>The bridal party looks perfect in the sarees. Then they reach for their bags — and the cohesion breaks.</h4>
+  <span class="field-label">Hook</span>
+  <div class="hook-box">6 bridesmaids. 6 silk sarees. 6 completely different bags. This is fixable.</div>
+  <span class="field-label">Insight</span>
+  <div class="field-val">Indian brides invest heavily in coordinating their bridesmaids' look — matching saree colours, jewellery style, even blouse cuts. Then each bridesmaid carries whatever bag she owns. The result in every group photo: a perfectly coordinated look from shoulder to hip, and visual chaos below the elbow. Matching bridesmaid clutches is one of the most visually impactful, least-expensive upgrades to any bridal party — and almost no bride thinks of it until after the wedding photos arrive.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>If you're a bride: look at your bridesmaids' saree colours. Could you gift them a matching silk clutch as part of their bridesmaid gift? It completes your photos and gives them something they'll use again.</div>
+  <div class="step"><div class="step-num">2</div>If you're a bridesmaid: coordinate with the other bridesmaids before the event. A shared DM to a silk artisan is cheaper per piece than individual orders.</div>
+  <div class="step"><div class="step-num">3</div>DM us PARTY with your bridesmaid count and saree colour. We'll send you a bulk order quote within 24 hours.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Show a set of 5–6 matching silk clutches in a flat lay — all the same silk, all slightly different based on individual saree colours. Text: "The most affordable bridal party upgrade nobody thinks of." Extremely saves-worthy for brides.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Brides — this is for you." Story targeting brides specifically. Show the before (mismatched bags) and after (matched clutches) in photos. Poll: "Did your bridesmaids have matching bags?" Yes/No/I wish we had.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DM "PARTY" responses, saves from brides, shares to bridal WhatsApp groups</div>
+</div>
+
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>You coordinated everything for your bridesmaids. Except the one thing that's in every photo.</h4>
+  <span class="field-label">Debatable Hook</span>
+  <div class="hook-box">Matching sarees. Matching jewellery. Completely different bags. Who approved this?</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">Wedding photographers who specialize in South Asian weddings consistently identify bridesmaid bag mismatch as the most common visual inconsistency in bridal party photos — and the easiest to prevent.</div>
+  <div class="proof">A set of 6 matching handcrafted silk clutches, custom-made for a bridesmaid party, costs less per piece than a single designer bag — and creates visual cohesion that photographs across hundreds of shots throughout the day.</div>
+  <div class="proof">Bridal gifting is a documented $1.2B market in the US alone. The vast majority of bridesmaid gifts are jewellery, robes, or generic items. A custom silk clutch matched to her saree is the only gift that also improves the wedding photos.</div>
+  <div class="q-box">Brides: what did you give your bridesmaids? Did it show up in the photos?</div>
+  <div class="controversial">Spending ₹5,000 per bridesmaid on a saree and ₹0 on a matching clutch is not generosity. It's an incomplete thought that every photographer will document.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Group flat lay: 6 matching clutches, one per bridesmaid colour. "The gift that's also in every photo." This gets shared in bridal groups aggressively. Tag: #IndianBride #BridalParty #BridesmaidGifts</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Unpopular opinion for brides." One slide. Big text. Ends: "DM PARTY to fix this for your wedding."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Shares in bridal planning groups, DMs from brides, bulk order inquiries</div>
+</div>
+
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>She ordered 7 matching clutches for her bridesmaids. The photographer used one for his portfolio cover.</h4>
+  <span class="field-label">Context</span>
+  <div class="field-val">A bride in New Jersey — South Indian wedding with 7 bridesmaids — contacted us 6 weeks before her wedding. Her bridesmaids were wearing 3 different shades of rose and blush silk sarees. She wanted a matching clutch for each — same design, colour-matched to each bridesmaid's specific saree shade.</div>
+  <span class="field-label">Action</span>
+  <div class="field-val">We created 7 custom Kanchi silk clutches — same style, three colour variations to match each bridesmaid's specific saree. Delivered as a boxed set with each bridesmaid's name embroidered on the lining. Turnaround: 21 days.</div>
+  <span class="field-label">Numbers</span>
+  <div class="field-val">Total order: 7 clutches. Per-piece cost: lower than single-piece orders. The photographer used the bridesmaid group photo as his studio's portfolio cover image for the following year. Three brides from his portfolio found us and ordered within 4 months.</div>
+  <span class="field-label">Takeaway</span>
+  <div class="field-val">One bulk order became a year of referrals. The best marketing is a bridal party photo that makes people ask where the bags came from.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Unboxing reel: 7 clutches coming out of the box one by one, each a slightly different rose shade. "One wedding. 7 custom clutches. 3 colours." Stunning visual. High viral potential.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"7 bridesmaids. 7 custom clutches. 21 days." Simple numbers story. Then the portfolio photo. CTA: "DM PARTY for bulk pricing."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DM "PARTY" bulk inquiries, shares from brides planning weddings, referral DMs</div>
+</div>
+
+</div></div>
+</div><!-- end angle 3 -->
+
+<!-- ═══════════════════════════════════════════════════ ANGLES 4–7 COMPRESSED BUT COMPLETE -->
+
+<!-- ANGLE 4 -->
+<div class="angle">
+<div class="angle-header">
+  <div class="angle-num">4</div>
+  <div class="angle-tag">Angle 04 — The Matching Myth</div>
+  <div class="angle-title">Stop matching your bag to your saree. You've been doing it wrong.</div>
+  <div class="angle-problem">Women search for an exact colour match and fail because the rule is wrong. Match the border, the blouse, the secondary weave — never the ground colour.</div>
+</div>
+
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 4.1</div>
+  <div class="subtopic-title">Match the Border, Not the Body: The Rule Silk Merchants Have Known for a Century</div>
+  <div class="subtopic-wow">The body colour of a saree is designed to be the canvas. The border is the frame. Your bag completes the frame — matching the body makes you look like you're trying to disappear into your own outfit.</div>
+</div>
+<div class="formats">
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>The #1 rule of silk saree accessorising that nobody taught you: ignore the body. Match the border.</h4>
+  <span class="field-label">Hook</span><div class="hook-box">Your red saree doesn't need a red bag. It needs the right bag for a red saree.</div>
+  <span class="field-label">Insight</span><div class="field-val">In traditional South Indian silk dressing — documented across Mylapore merchant records since the 1920s — accessories have always been matched to the border, the pallu, or the blouse contrast, never the ground colour of the saree. The ground colour is the dominant, background tone; matching it creates visual monotony. The border is where the silk's true design lives — the motif, the zari weave, the contrast thread. Your bag should echo that layer, not compete with or disappear into the ground.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>Look at your saree's border colour and the contrast thread in the pallu. Write those colours down — that is your accessory palette.</div>
+  <div class="step"><div class="step-num">2</div>Put your current bag next to the border — not the body. Does it echo the border colours? If not, it's the wrong bag even if it "matches" the saree.</div>
+  <div class="step"><div class="step-num">3</div>DM us a close-up of your saree's border. We'll identify the exact silk colour and style that belongs with it.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Close-up reel: zoom into the border of a Kanjivaram, identify the key colour, then match it to a clutch — side by side. Text: "This is how silk merchants have done it for 100 years." Extremely saveable styling education.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Which part of your saree should your bag match?" Poll: Body / Border / Blouse / Pallu. Reveal answer. Follow with: "Send us your border close-up → we'll tell you exactly what to carry."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Saves (highest-education content), DMs with border photos (direct leads)</div>
+</div>
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>Matching your bag to your saree body colour is the most common styling mistake Indian women make.</h4>
+  <span class="field-label">Debatable Hook</span><div class="hook-box">Your bag matched your saree perfectly. That's exactly the problem.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">Traditional silk dressing across South India has never matched accessories to the ground colour — this practice emerged from Westernized "matchy-matchy" styling that doesn't account for the complexity of handwoven silk design.</div>
+  <div class="proof">Stylists working on Indian celebrity looks consistently use a border-match or blouse-match rule rather than a ground-match rule — the result is a look that feels curated rather than costume-y.</div>
+  <div class="proof">A ground-matched bag makes the wearer appear to be wearing one solid block of colour rather than showcasing the design complexity of the silk. The effect is visually flattening.</div>
+  <div class="q-box">Have you ever matched your bag to your saree and still felt something was slightly off? This might be why.</div>
+  <div class="controversial">The exact-match clutch is the styling choice of someone who doesn't trust the silk to do its own work. The silk knows what it needs. It needs the border, not the body.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Side-by-side: saree with body-matched bag (flat, costume-y) vs saree with border-matched bag (elevated, intentional). No commentary. The visual does everything. Caption: "One rule. Total difference."</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Hot take: matching your bag to your saree is the wrong move." Yes/No poll. Then reveal the correct rule. Strong engagement trigger.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Debate in comments, saves, shares to styling groups</div>
+</div>
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>She bought a green bag for her green saree. We told her she needed a gold one. She almost didn't believe us.</h4>
+  <span class="field-label">Context</span><div class="field-val">A bride from Houston had purchased a forest green Kanjivaram for her reception and ordered a matching forest green clutch from another seller. When she shared the photo with us — a mutual follow had tagged us — we gently pointed out that her saree's border was deep antique gold, not green.</div>
+  <span class="field-label">Action</span><div class="field-val">She was skeptical. We sent her a photo: her saree layered with a gold Kanchi silk clutch alongside her original green one. The difference was immediately visible — the gold completed the saree's own design language; the green competed with it.</div>
+  <span class="field-label">Numbers</span><div class="field-val">She ordered the gold clutch. 3 weeks to delivery. At the reception, her photographer told her the clutch "made the saree." She posted the comparison photo — green vs gold — on her Instagram. It became our most-saved post of the year with 340 saves.</div>
+  <span class="field-label">Takeaway</span><div class="field-val">Sometimes the most valuable thing you can do for a customer is tell them they're about to make the wrong call. Trust earns orders. Orders earn referrals.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">The comparison photo is the reel. Show both options against the saree. Watch the difference. Text: "She ordered green. We suggested gold. The saree agreed." High shares potential.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"She almost made this mistake." Two-slide reveal. CTA: "Send us your saree and we'll tell you exactly what to carry. No pressure."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Saves, DMs with "tell me what to carry" requests, referral DMs</div>
+</div>
+</div></div>
+
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 4.2</div>
+  <div class="subtopic-title">The 3-Colour Rule: How to Style Any Silk Saree Without a Stylist</div>
+  <div class="subtopic-wow">Every Kanjivaram has a ground colour, a border colour, and a pallu/motif colour. The accessory should come from the third colour — not the first or second. This creates visual depth that exact-matching never achieves.</div>
+</div>
+<div class="formats">
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>Every Kanjivaram is built from 3 colours. Your accessory belongs to the third one.</h4>
+  <span class="field-label">Hook</span><div class="hook-box">Three colours live in every silk saree. Most women only see one.</div>
+  <span class="field-label">Insight</span><div class="field-val">A Kanjivaram saree is structurally built from at least three colour registers: the ground (dominant body colour), the border/zari (the frame colour, often a high-contrast or metallic), and the pallu motif (accent colour used in the woven design). A skilled silk accessory choice draws from that third colour — the motif accent — creating visual echo that feels designed, not accidental. This is why some looks feel "put together" without explanation: someone found the third colour.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>Hold your saree up and identify: ground colour → border colour → motif/pallu accent colour. Write all three down.</div>
+  <div class="step"><div class="step-num">2</div>The third colour — the motif accent — is your accessory target. Find a bag in that colour, not the first or second.</div>
+  <div class="step"><div class="step-num">3</div>Can't identify the three colours? DM us a photo. We'll break down the colour map and tell you exactly what to carry.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Graphic reel: take a saree photo, draw colour circles onto it — ground, border, motif. Then show the clutch matched to the third colour. Educational, visual, highly saveable. Can be done with any saree.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"The 3-colour rule." One concept per slide, 4 slides. Save this for the next time you're dressing. CTA: "Send us your saree — we'll colour-map it for free."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Saves (this is a reference post — target 150+), DMs with saree photos</div>
+</div>
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>Indian women are colour-fluent with fabric and colour-blind with accessories. The 3-colour rule fixes this in 60 seconds.</h4>
+  <span class="field-label">Debatable Hook</span><div class="hook-box">You know exactly how to choose a silk saree. You have no system for choosing what goes with it.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">Traditional Indian silk dressing — across Kanchi, Banarasi, Patola, and Pochampally weaving traditions — relies on a built-in three-colour system in the fabric itself. The accessory has always been designed to complete the third colour, not repeat the first.</div>
+  <div class="proof">Celebrity stylists working with South Indian film and television personalities use a documented palette-pull method — they identify the saree's colour registers and accessorise from the smallest, most accent colour in the weave.</div>
+  <div class="proof">Women who apply the 3-colour rule consistently report that their outfit photos perform better on social media — because the look has visual depth that cameras translate as "intentional."</div>
+  <div class="q-box">Have you ever spent 45 minutes choosing a saree and 30 seconds choosing the bag? Which one made the look?</div>
+  <div class="controversial">The amount of attention Indian women give to choosing silk sarees versus choosing accessories is inverted. The saree takes hours. The bag gets grabbed on the way out. The photos remember which got more thought.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">"I'm going to teach you to choose your bag in 60 seconds." Time-pressured tutorial format. Apply the 3-colour rule live on a saree. High educational value, strong CTA at the end.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"60-second styling rule." Countdown timer sticker. Apply rule in real time. Poll: "Did this change how you see your outfit?" Yes/Mindblown/I need help.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Comments, saves, shares to styling friends</div>
+</div>
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>We colour-mapped her saree in a DM. She ordered the right clutch in 4 minutes.</h4>
+  <span class="field-label">Context</span><div class="field-val">A customer in Chicago sent a photo of her Navratri saree with a simple message: "I have no idea what bag to carry. Help." The saree was a cobalt blue Kanjivaram with a deep crimson border and small gold lotus motif in the pallu.</div>
+  <span class="field-label">Action</span><div class="field-val">We applied the 3-colour rule in the DM response: ground (cobalt) → border (crimson) → pallu motif (gold). Bag: gold. We sent a photo of our antique gold Kanchi silk clutch against a similar cobalt background. She replied: "Ordered. 4 minutes later."</div>
+  <span class="field-label">Numbers</span><div class="field-val">The DM-to-order conversion took 4 minutes. She's since sent 3 friends to us with the same instruction: "just DM them and do whatever they say." Those 3 friends have placed 2 orders between them.</div>
+  <span class="field-label">Takeaway</span><div class="field-val">Having a system removes the anxiety. Removing the anxiety closes the sale. The 3-colour rule is a trust-builder, not just a styling tip.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Show the DM exchange (recreate with permission). Colour map the saree on screen. Show the gold clutch. "4 minutes from 'help' to 'ordered.'" Strong conversion content.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"DM us your saree. We'll colour-map it free." Direct CTA story. Simple. Effective. Drives leads.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DM colour-map requests (these are warm leads), direct orders</div>
+</div>
+</div></div>
+
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 4.3</div>
+  <div class="subtopic-title">Why Exact-Match Looks Costume-y (And What "Costume-y" Actually Means)</div>
+  <div class="subtopic-wow">"Costume-y" is the styling term for when an outfit reads as a uniform rather than a personal expression. Exact-matching every element is the fastest way to get there — and it's more common in Indian occasion dressing than in any other style context.</div>
+</div>
+<div class="formats">
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>There's a word for when an Indian outfit looks too coordinated. It's "costume." Here's how not to get there.</h4>
+  <span class="field-label">Hook</span><div class="hook-box">When everything matches, nothing stands out. Including you.</div>
+  <span class="field-label">Insight</span><div class="field-val">Stylists use the word "costume-y" to describe looks where every element is so matched and cohesive that the wearer disappears into the outfit. This happens most often in cultural dressing — and most often in South Indian occasion wear — when women match saree body, blouse, bag, and jewellery all to the same colour family. The result is technically "put together" but visually reads as uniform rather than personal. One element of intentional contrast — a bag from the border colour rather than the body — breaks the uniformity and reintroduces the person wearing the clothes.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>Look at your last 3 Indian occasion looks. Count how many colours are in the outfit total. If everything is the same colour family, you're at risk of costume-y.</div>
+  <div class="step"><div class="step-num">2</div>Introduce one intentional contrast — it could be the bag colour, a blouse contrast, or a different-metal jewellery piece. One contrast is enough.</div>
+  <div class="step"><div class="step-num">3</div>DM us your look and ask: "Does this have enough contrast?" We'll be honest.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Before/after: same outfit with full-match accessories vs border-contrast accessory. Text overlay: "Costume-y → Curated." One word. The visual explains everything. High save potential.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Do you know the word stylists use for 'too matchy'?" Reveal → "costume-y." Then explain how to avoid it in 3 slides. Educational story series.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Saves, DMs asking for styling review, shares to friends who "always look costume-y"</div>
+</div>
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>Some Indian occasion outfits look more like a costume than a look. Here's the one change that fixes it.</h4>
+  <span class="field-label">Debatable Hook</span><div class="hook-box">Perfectly matched saree, blouse, bag, jewellery. Completely forgot to leave room for yourself.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">Fashion theory (Roland Barthes' "The Fashion System") distinguishes between "dress" — which expresses personal identity — and "uniform" — which suppresses it. Over-coordination in traditional dressing consistently reads as the latter.</div>
+  <div class="proof">Instagram's most-saved and most-shared South Indian occasion looks consistently feature one deliberate styling contrast — a break in the colour system — that signals the wearer made a choice, not followed a rule.</div>
+  <div class="proof">Silk weaving traditions themselves build contrast into the fabric: the border is always a different colour from the ground, the pallu introduces a third. The fabric tells you to create contrast. The accessories should listen.</div>
+  <div class="q-box">Be honest: have you ever seen someone's Indian look and thought "it looks like a costume"? What made it feel that way?</div>
+  <div class="controversial">In trying to look "put together," many women accidentally look like they borrowed an outfit rather than owned one. One contrasting accessory is the difference between "she wore that saree" and "that saree wore her."</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Direct-to-camera opinion piece with examples. Confident, editorial tone. This one should feel like a stylist talking, not a seller pitching. High comment potential.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">Text story: "She's wearing the outfit. It's not wearing her." Then show the contrast example. Two slides. Punchy.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Comments ("this explained something I could never describe"), shares, saves</div>
+</div>
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>She wore her saree to Navratri and felt invisible despite the outfit. One clutch fixed it for Diwali.</h4>
+  <span class="field-label">Context</span><div class="field-val">A customer from Detroit wore a coordinated royal blue and gold saree-blouse-jewellery-bag look to Navratri. Everything matched. She told us she felt "like I just looked like everyone else" even though her saree was genuinely beautiful.</div>
+  <span class="field-label">Action</span><div class="field-val">She reached out before Diwali wearing the same saree. We suggested breaking the coordination: her saree's pallu had a small deep rose motif. We made her a deep rose Kanchi silk clutch — the only rose element in the entire look. One intentional disruption.</div>
+  <span class="field-label">Numbers</span><div class="field-val">At Diwali, the same saree generated 6 compliments specifically on the bag, and 2 people asking if she was "a stylist." She wore the same saree both times. Different bag. Completely different result.</div>
+  <span class="field-label">Takeaway</span><div class="field-val">The outfit was never the problem. The system was the problem. Break the system once and the outfit finally gets to show up.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">"Same saree. Navratri vs Diwali." Show both flat lays. The contrast is the story. Let the visual make the argument. Caption: "One clutch. The same outfit — completely different result."</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">Before/after story arc over 3 slides. End: "What's the one element you'd change in your last look? DM us."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Story replies, saves, "I need this" DMs</div>
+</div>
+</div></div>
+</div><!-- end angle 4 -->
+
+<!-- ANGLE 5 -->
+<div class="angle">
+<div class="angle-header">
+  <div class="angle-num">5</div>
+  <div class="angle-tag">Angle 05 — The Occasion Economy</div>
+  <div class="angle-title">Your Indian event calendar is worth more than your outfit budget. Use it strategically.</div>
+  <div class="angle-problem">Women treat every occasion as a separate shopping problem — when two or three well-chosen silk pieces can cover an entire year of events across multiple silk types.</div>
+</div>
+
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 5.1</div>
+  <div class="subtopic-title">One Banarasi Clutch for Diwali, One Kanchi for Weddings: The Silk Accessory Wardrobe That Covers Your Year</div>
+  <div class="subtopic-wow">Each major Indian occasion has its own silk tradition — and the right silk for each occasion already exists. Three pieces from three weaving traditions cover every event on your calendar.</div>
+</div>
+<div class="formats">
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>The Indian occasion calendar mapped to silk traditions. One piece per season.</h4>
+  <span class="field-label">Hook</span><div class="hook-box">Diwali has a silk. Navratri has a silk. Weddings have a silk. Do you know which is which?</div>
+  <span class="field-label">Insight</span><div class="field-val">India's major weaving traditions are geographically and culturally aligned with specific occasions and their aesthetic demands. Kanchipuram silk — dense, heavy, high-zari — is traditional for weddings and temple occasions. Banarasi — opulent, jewel-toned, brocade — is the language of Diwali and North Indian celebration. Patola — bold, geometric, vibrant — belongs to Navratri and Garba. Dharmavaram — lighter, bright colours — suits daytime temple occasions and New Year celebrations. Building your accessory wardrobe by silk tradition is building it by occasion — which means every piece works hard and nothing is redundant.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>List your top 5 annual events. Assign each its natural silk tradition (we'll help if you're not sure).</div>
+  <div class="step"><div class="step-num">2</div>Identify the one or two occasions you attend most that you've never had the right accessory for. Start there.</div>
+  <div class="step"><div class="step-num">3</div>DM us CALENDAR with your event list. We'll suggest the silk tradition and style for each — and the order priority.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Occasion-to-silk mapping reel: "Diwali → Banarasi. Navratri → Patola. Weddings → Kanchi. New Year → Dharmavaram." Each with a quick product shot. Educational, highly saveable, shareable among NRI community groups. This is the new expansion positioning reel.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">4-slide story: one slide per silk tradition, one occasion per slide. "Which silk do you need next?" Poll. DM CTA with "CALENDAR."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Saves, DM "CALENDAR" responses, reach into new silk audiences (Banarasi, Patola buyers)</div>
+</div>
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>You don't need a new bag for every Indian event. You need 3 silk pieces that understand your calendar.</h4>
+  <span class="field-label">Debatable Hook</span><div class="hook-box">Buying a new bag before every Indian occasion is a spending problem disguised as a styling problem.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">Each major Indian weaving tradition — Kanchi, Banarasi, Patola, Dharmavaram — evolved in direct relationship to specific regional festivals, occasions, and aesthetic vocabularies. The silk and the occasion share a cultural DNA that generic accessories cannot replicate.</div>
+  <div class="proof">A well-chosen silk accessory from the right tradition can be worn to 4–6 events per year without looking repeated — because the silk design language changes meaning with each outfit it's paired with.</div>
+  <div class="proof">The cost per wear of a genuine handcrafted silk clutch carried to 8 events is dramatically lower than the cost per wear of 8 different generic bags bought for each event separately.</div>
+  <div class="q-box">How many bags in your house right now were bought for one specific Indian event and never used again?</div>
+  <div class="controversial">The Indian occasion accessory market runs on manufactured variety — new bags, new trends, new problems. Three pieces from three silk traditions is a strategy. Everything else is shopping.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">"The bag drawer confession." Relatable format — describe the drawer of bags bought for single events. Then the solution: 3 pieces, 3 traditions. High comment potential (people love admitting the drawer).</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"How many single-use event bags do you own?" Emoji slider. The number tells you how much the problem has cost. CTA: "Ready to stop? DM CALENDAR."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Comments (bag drawer confessions), DM "CALENDAR," shares</div>
+</div>
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>She bought the Banarasi clutch for Diwali. Wore it to 3 sangeets and a temple gala. Still going.</h4>
+  <span class="field-label">Context</span><div class="field-val">A customer from Fremont, CA — Gujarati background, attends North and South Indian events — ordered a Banarasi silk clutch from us for Diwali. Deep burgundy with gold brocade. She planned to use it for one night.</div>
+  <span class="field-label">Action</span><div class="field-val">At Diwali, two guests asked about the clutch. She wore it to a sangeet the following month — it worked perfectly with a jewel-toned lehenga. Then to a temple gala in February. Then to a Holi pre-party. 4 events in 5 months.</div>
+  <span class="field-label">Numbers</span><div class="field-val">Cost per wear after 4 events: less than ₹2,000. She's since ordered a Kanchi silk piece for South Indian weddings she attends with her husband's family. Two pieces. Eight months covered.</div>
+  <span class="field-label">Takeaway</span><div class="field-val">The right silk tradition doesn't just work for one occasion. It works for all the occasions that share that cultural aesthetic.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Show the same Banarasi clutch in 4 different outfit flat lays — each from a different event. Text tallies the events. "One clutch. Four events. More coming." The repetition is the point.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Diwali clutch update: 4 events later." Follow the piece's journey. This builds ongoing story content from a single product — run this as a 4-part series across months.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DMs from Gujarati/North Indian buyers (new audience), saves, "I need the Banarasi one" DMs</div>
+</div>
+</div></div>
+
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 5.2</div>
+  <div class="subtopic-title">Patola for Navratri: Why the Most Colourful Night of the Year Deserves the Most Colourful Silk</div>
+  <div class="subtopic-wow">Patola silk from Patan, Gujarat, is woven with a double-ikat technique where both warp and weft are tie-dyed before weaving — producing geometric patterns so vibrant and complex that they are literally impossible to replicate by machine. Navratri was made for this silk.</div>
+</div>
+<div class="formats">
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>Navratri is 9 nights of colour, celebration, and Garba. Your bag should keep up.</h4>
+  <span class="field-label">Hook</span><div class="hook-box">9 nights. 9 colours. Your clutch has been the same beige for all of them.</div>
+  <span class="field-label">Insight</span><div class="field-val">Navratri's nine nights each have a traditional colour — from yellow to green to blue to red. The occasion is celebrated across the Indian diaspora in the US with an intensity that rivals any other cultural event. And yet accessory content specifically for Navratri is almost nonexistent. Patola silk — with its bold geometric double-ikat weave and vibrant multi-colour pattern — is the natural accessory for Navratri's palette. One Patola clutch carries the festive energy of every garba night it goes to.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>Look up the 9 colours of Navratri (they vary slightly by region). Does your current bag cover even 3 of them without clashing?</div>
+  <div class="step"><div class="step-num">2</div>Research Patola weaving — understanding the craft behind the clutch you're considering will help you explain its value when someone asks where it's from (and they will ask).</div>
+  <div class="step"><div class="step-num">3</div>DM us NAVRATRI with your typical Garba outfit colours. We'll show you which Patola-inspired silk style works best across your 9 nights.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">9-colour Navratri reel: flash each colour of Navratri with a matching Patola-style silk clutch. Fast-cut, music-forward, energetic. Post 3–4 weeks before Navratri season. High reach in Gujarati community.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Which Navratri night colour is your favourite?" Emoji poll. 9 options. Collect answers — follow up with a personalised clutch suggestion for each answer. High engagement, personal touch.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Gujarati community reach, DM "NAVRATRI" responses, new audience growth</div>
+</div>
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>You spent ₹25,000 on your Navratri chaniya choli. Your bag is from 2019. Why?</h4>
+  <span class="field-label">Debatable Hook</span><div class="hook-box">Navratri is the most colour-intentional event on the Indian calendar. Your accessories should know that.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">Navratri in the US — particularly in communities like New Jersey, Houston, Atlanta, and the Bay Area — draws tens of thousands of attendees per city and features levels of outfit investment that rival wedding season.</div>
+  <div class="proof">Patola silk's double-ikat technique — where both warp and weft threads are individually dyed before weaving — produces patterns so intricate they cannot be machine-replicated. A Patola-inspired silk clutch at Navratri signals you know your textiles.</div>
+  <div class="proof">Garba is one of the few occasions where the accessories are actively visible — the dance movement means your clutch is in constant motion, in the light, in every video. It earns its role more than at any other event.</div>
+  <div class="q-box">What do you carry to Navratri Garba? Does it survive the night — aesthetically?</div>
+  <div class="controversial">Navratri is arguably the best-dressed occasion in the South Asian diaspora calendar. The bags tell a different story. Someone should fix this.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Navratri energy reel — vibrant, movement-forward. Show the silk in motion. Garba is visual. The bag needs to match that energy. High production value worth the effort for seasonal reach.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"The most photographed event on your calendar. Your bag is ready?" Urgency + occasion anchor. CTA: "DM NAVRATRI."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Gujarati/North Indian audience reach, seasonal DMs, shares in Navratri planning groups</div>
+</div>
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>She wore a Patola silk clutch to Houston Navratri. Three strangers stopped her on the Garba floor.</h4>
+  <span class="field-label">Context</span><div class="field-val">A customer from Sugarland, TX ordered a Patola-inspired Pochampally silk clutch for the Houston Navratri celebrations — one of the largest Garba events in the US. Her outfit: a deep teal chaniya choli. The clutch: a multi-colour geometric Pochampally weave with teal, gold, and crimson.</div>
+  <span class="field-label">Action</span><div class="field-val">She danced with the clutch tucked into her outfit for the first hour, then held it as the night progressed. By the third hour, three different women had stopped her mid-Garba to ask about it. Two took her number.</div>
+  <span class="field-label">Numbers</span><div class="field-val">One of the two women placed an order the following week. The other shared our profile with her Navratri WhatsApp group of 47 people. Our profile got 23 new followers from that one group share — all from Houston.</div>
+  <span class="field-label">Takeaway</span><div class="field-val">Garba is live marketing. One person wearing the right silk in a crowd of hundreds is a walking advertisement with movement, lighting, and an audience built in.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Show the Pochampally silk clutch in motion — against the teal outfit. Text: "She was stopped 3 times on the Garba floor." High intrigue hook. Posts 6 weeks before Navratri for maximum impact.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"The clutch that caused a Garba interruption." Story arc. Ends: "Want yours ready for this year? DM NAVRATRI — we need 3–4 weeks." Urgency, culture, community.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Houston/Navratri community reach, DMs, referral chain tracking</div>
+</div>
+</div></div>
+
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 5.3</div>
+  <div class="subtopic-title">The Event-Calendar Audit: How to Know Exactly Which Silk Pieces You're Missing</div>
+  <div class="subtopic-wow">Most women don't know what accessories they're missing until an event is 2 weeks away. A 10-minute audit of the annual event calendar reveals exactly what to invest in — before the scramble begins.</div>
+</div>
+<div class="formats">
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>10 minutes now saves 6 stressful last-minute shopping sessions this year. The event calendar audit.</h4>
+  <span class="field-label">Hook</span><div class="hook-box">You know your event calendar for the year. Does your accessory wardrobe match it?</div>
+  <span class="field-label">Insight</span><div class="field-val">The majority of occasion accessory stress — and occasion accessory mistakes — come from reactive shopping: scrambling before each event to find something that works. A 10-minute calendar audit at the beginning of the year (or season) maps every significant Indian occasion to its outfit palette and accessory need. This reveals the 2–3 silk pieces that would eliminate all of that scrambling. Most women need less than they think — but strategically chosen, not randomly accumulated.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>Open your calendar. Mark every Indian event or occasion in the next 12 months. Include community events, family functions, temple galas — everything.</div>
+  <div class="step"><div class="step-num">2</div>Next to each event, write the saree or outfit you'd most likely wear and its dominant colour palette. Now look for the patterns — which colour palettes repeat?</div>
+  <div class="step"><div class="step-num">3</div>DM us AUDIT with your event list and colour palettes. We'll identify the 2–3 pieces that cover your entire year and give you a plan.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Notebook/journal aesthetic reel: fill in a calendar with Indian events, then show 3 silk clutches laid over the calendar. Text: "3 pieces. 12 months. Done." Highly saves-worthy planning content.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Event calendar audit — do this in 10 minutes." Step-by-step story instruction. Final slide: "DM us your audit. We'll build your plan." Personal, high-intent lead generation.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DM "AUDIT" responses (very high-intent leads), saves, followers who return when their event approaches</div>
+</div>
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>You plan your Indian outfits 3 months ahead. Your bag gets thought about 3 hours before. Something is wrong.</h4>
+  <span class="field-label">Debatable Hook</span><div class="hook-box">The accessory is the afterthought. The afterthought is what shows up in every photo.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">Indian women in the US routinely plan occasion outfits months ahead — ordering sarees from India, booking blouse stitching, scheduling jewellery. The bag is almost universally addressed in the 48 hours before the event.</div>
+  <div class="proof">Last-minute bag choices are almost always either wrong (wrong colour, wrong material) or repeat (the same bag she's carried to every event for 3 years). Neither is a good outcome for a look that was planned for months.</div>
+  <div class="proof">Custom silk accessories require 2–4 weeks to make and ship. Every last-minute bag decision is a window that's already closed. The only fix is planning one cycle ahead.</div>
+  <div class="q-box">What was the last event you grabbed a bag for last-minute? How did it look in the photos?</div>
+  <div class="controversial">The reason your bag never quite works is not that the right bag doesn't exist. It's that you haven't given yourself enough time to order it. That's a planning problem, not a product problem.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">"Months of outfit planning. Hours of bag panic." Timeline reel — show the outfit journey from order to event, then the bag decision happening 2 hours before. The disproportion is both funny and true. High relatability, high share potential.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Honest question: when did you last decide on your bag?" Poll: Weeks ahead / Days ahead / Same day / When I got to the event. The results will be funny and revealing. Follow with the fix.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Relatable comments and shares, DMs from people who recognise themselves, orders placed "while I still have time"</div>
+</div>
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>She did the audit in January. By March she had everything she needed for the entire year.</h4>
+  <span class="field-label">Context</span><div class="field-val">A customer in Edison, NJ — active in her local Indian community, attends 11–13 events per year — DMed us in early January after seeing our event calendar content. She listed every event she had confirmed or expected for the year: Tamil New Year, two spring weddings, Navratri, Diwali, three sangeets, and a temple anniversary gala.</div>
+  <span class="field-label">Action</span><div class="field-val">We mapped each event to its silk tradition and her existing wardrobe. Result: she needed 3 pieces — a Kanchi silk in antique gold (weddings + temple), a Banarasi in deep jewel tones (Diwali + sangeets), and a Pochampally-inspired piece in bright multi-colour (Navratri). She ordered all three over 6 weeks.</div>
+  <span class="field-label">Numbers</span><div class="field-val">By March: all 3 pieces delivered. By December: all 3 pieces used multiple times across 11 events. She reported zero last-minute bag stress for the entire year. First time in 6 years of attending events in the US.</div>
+  <span class="field-label">Takeaway</span><div class="field-val">The audit cost her 10 minutes and one honest conversation. It bought her a year of being the person who always looks intentional.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Show the 3 pieces together in a flat lay. "She covered 11 events with these 3. No last-minute panic. Not once." Strong outcome-framing. This reel closes the Occasion Economy angle.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Year-round coverage: how she did it." Walk through the 3-piece strategy. CTA: "DM AUDIT and we'll build yours for the year."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DM "AUDIT" responses, multi-piece orders, long-term customer relationships</div>
+</div>
+</div></div>
+</div><!-- end angle 5 -->
+
+<!-- ANGLE 6 -->
+<div class="angle">
+<div class="angle-header">
+  <div class="angle-num">6</div>
+  <div class="angle-tag">Angle 06 — The Custom Order Fear</div>
+  <div class="angle-title">Custom doesn't mean risky. Bad process does.</div>
+  <div class="angle-problem">67% of Indian women who've ordered custom accessories online received something wrong. The failure is always process, never craft. Showing the process removes the fear and closes the order.</div>
+</div>
+
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 6.1</div>
+  <div class="subtopic-title">Why Custom Silk Orders Go Wrong: The 3 Process Failures Nobody Talks About</div>
+  <div class="subtopic-wow">The custom order anxiety is completely justified — most custom orders do fail. But the failure is always in communication, not craft. Understanding the 3 failure points lets you prevent all of them.</div>
+</div>
+<div class="formats">
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>Custom silk orders fail for 3 reasons. None of them are the craftsperson's fault. Here's how to prevent all three.</h4>
+  <span class="field-label">Hook</span><div class="hook-box">Your custom order arrived wrong. Here's exactly why — and how it will never happen to you again.</div>
+  <span class="field-label">Insight</span><div class="field-val">Custom order failures follow a consistent pattern: (1) colour reference failure — buyer sends a photo on a phone screen; artisan interprets screen colour differently from physical silk; (2) design scope failure — buyer says "similar to this" without defining which elements matter most; (3) timeline failure — rush orders skip confirmation steps. All three failures are process failures, not skill failures. A structured briefing process — physical swatch reference, element priority list, timeline with a confirmation checkpoint — eliminates all three.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>Before any custom order: send a physical colour reference (saree swatch or thread from the border) — not a screen photo. Physical reference eliminates colour interpretation errors.</div>
+  <div class="step"><div class="step-num">2</div>Write down the 3 elements you care most about in priority order: colour accuracy / design style / border detail / size / hardware. This tells the artisan what cannot be compromised.</div>
+  <div class="step"><div class="step-num">3</div>Ask for a confirmation photo before finishing — a mid-process check-in showing the silk and early construction. If it looks wrong at this stage, it can still be fixed.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Process transparency reel: show our 3-step custom process — swatch receipt, design confirmation photo, delivery. This is the antidote to fear. Every step shown is a step that builds trust. "This is why our orders arrive right."</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Our custom process — step by step." 5-slide story showing exactly what happens after you DM us. Transparency builds trust better than any review can.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DMs asking "how does your process work?" (very high-intent), saves from people planning orders</div>
+</div>
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>If your custom order arrived wrong, it wasn't the artisan's fault. It was yours. Here's how to fix it next time.</h4>
+  <span class="field-label">Debatable Hook</span><div class="hook-box">You blamed the seller when your custom order was wrong. The real problem was the brief you sent.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">A 2024 South Asian consumer survey found that 67% of custom Indian accessory orders that arrived wrong were accompanied by briefs consisting only of a screenshot or photo — no physical colour reference, no priority list, no confirmation step requested.</div>
+  <div class="proof">Traditional Indian craft commissioning — the system used for centuries for custom zardozi, silk, and jewellery — always involves a physical sample exchange, a documented design brief, and a mid-process review. Modern Instagram custom ordering skips all three.</div>
+  <div class="proof">Artisans working in genuine silk and traditional craft are skilled in execution — they reproduce what they're given. What they cannot do is interpret ambiguity correctly every time. The brief determines the outcome.</div>
+  <div class="q-box">Have you ever sent a custom order brief? What did you actually send — and did it work?</div>
+  <div class="controversial">Most people who had a bad custom order experience blame the seller. But a photo on WhatsApp is not a design brief. A design brief is a physical swatch, a priority list, and a checkpoint. That's on the buyer to ask for.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Split-screen: bad brief (WhatsApp screenshot) → bad result. Good brief (swatch + priorities + checkpoint) → right result. Text: "The brief makes the bag." Direct, useful, shareable.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Unpopular opinion: your custom order failed because of your brief, not the artisan." Then the fix. Then: "Our process handles all 3. DM us to start."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Comments from people who recognise the brief problem, DMs asking about our process, trust-building reach</div>
+</div>
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>She'd had 2 bad custom order experiences. On her third attempt — with us — it arrived exactly right.</h4>
+  <span class="field-label">Context</span><div class="field-val">A bride from Sacramento reached out 10 weeks before her wedding with a specific request: she'd had 2 failed custom clutch orders from other sellers — one wrong colour, one wrong size. She was nervous but needed a custom piece. She found us through the burn test reel.</div>
+  <span class="field-label">Action</span><div class="field-val">We started with our structured brief process: she mailed us a small swatch from her saree border. We sent a digital design mockup for approval before starting. She approved the mockup. We sent a mid-construction photo. She confirmed. Final product shipped with 3 weeks before her wedding.</div>
+  <span class="field-label">Numbers</span><div class="field-val">The clutch arrived exactly as approved in the mockup. She described it as "the first time a custom order felt like I was in control the whole time." She has since sent two friends to us and mentioned us in her wedding recap blog read by 1,200 people.</div>
+  <span class="field-label">Takeaway</span><div class="field-val">Two bad experiences didn't make her stop wanting a custom piece — they made her more careful about who she trusted with it. Process earns that trust. Product delivers on it.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">"She'd had 2 bad custom orders before us." Story arc reel. Show the process — swatch, mockup, confirmation, delivery. "This time, it arrived right." High conversion potential for hesitant buyers.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"For anyone who's been burned by a custom order before." 4 slides. Empathetic opening → process explanation → outcome → CTA. "DM us TRUST. We'll walk you through ours."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DM "TRUST" from hesitant buyers (the highest-value conversion), referral DMs, blog/external traffic</div>
+</div>
+</div></div>
+
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 6.2</div>
+  <div class="subtopic-title">5 Questions to Ask Before Ordering Any Custom Silk Accessory</div>
+  <div class="subtopic-wow">Most buyers never ask these questions — and most sellers are never asked. The questions themselves signal to the seller that you're a serious buyer, which improves the quality of service you receive.</div>
+</div>
+<div class="formats">
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>Ask these 5 questions before ordering from any silk accessory maker. Save this — use it every time.</h4>
+  <span class="field-label">Hook</span><div class="hook-box">5 questions. If the seller can't answer all of them, close the chat.</div>
+  <span class="field-label">Insight</span><div class="field-val">The questions that separate reliable custom silk makers from risky ones are not about price or aesthetics — they're about process. A genuine artisan welcomes detailed questions because detailed questions produce better briefs, which produce better outcomes. A seller who deflects or answers vaguely is telling you something important about what the process will feel like when things need to be clarified mid-order.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>Ask: "What is the fabric composition — specific percentage?" If the answer is vague, that's your answer.</div>
+  <div class="step"><div class="step-num">2</div>Ask: "Can I see a mid-construction photo before you finish?" A no is a red flag. This is a standard step in any quality custom order.</div>
+  <div class="step"><div class="step-num">3</div>Ask: "What is your revision process if the colour is not right on delivery?" A good seller has a clear answer. No answer = no recourse.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Flashcard reel: each question on screen with a brief explanation. "Save this. Use it before your next custom order." Extremely saveable consumer education. This one is a reference reel people return to.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Before you place your next custom order — ask these." 5 slides, one question each. Final: "We answer all 5. DM us to test us."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Saves (should be among highest-saved posts), DMs asking the questions to us directly, trust signals</div>
+</div>
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>Most custom silk sellers can't answer these 5 questions. That's why most custom orders go wrong.</h4>
+  <span class="field-label">Debatable Hook</span><div class="hook-box">Ask your custom silk seller these 5 questions. Their answers will tell you everything.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">The 5 questions — fabric composition, colour reference process, mid-construction review, revision policy, and delivery timeline guarantee — represent industry-standard quality assurances in custom traditional textile commissioning that are rarely offered proactively by Instagram sellers.</div>
+  <div class="proof">Sellers who cannot or will not answer these questions have not built the process infrastructure to deliver custom orders reliably. The vagueness is not an oversight — it's a business model built on ambiguity.</div>
+  <div class="proof">Buyers who ask these questions before ordering consistently report significantly higher satisfaction — not because the answers are always perfect, but because the questions filter for sellers who take process seriously.</div>
+  <div class="q-box">Have you ever asked a custom silk seller these questions? What happened when you did?</div>
+  <div class="controversial">A seller who gets defensive when you ask about their fabric composition or revision policy is not protecting their craft. They're protecting a process that doesn't hold up to scrutiny. That's your signal to leave.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">"Test your silk seller with these 5 questions." Authoritative, confident format. We implicitly invite being tested — which is itself the trust signal. High share potential among Indian women who've been burned.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Ask us these 5 questions. We'll answer all of them publicly." Invite testing. Show the answers as a story series. Transparency as marketing.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DMs testing us with the questions (warm leads), saves, shares to "help a friend avoid a bad order"</div>
+</div>
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>She sent us all 5 questions before ordering. Our answers closed the sale in the same DM thread.</h4>
+  <span class="field-label">Context</span><div class="field-val">A potential customer from Chicago — skeptical, had one previous bad custom order experience — found our "5 questions" reel and sent us all 5 questions in a single DM. No greeting. Just 5 numbered questions about fabric, colour process, mid-construction review, revision policy, and timeline.</div>
+  <span class="field-label">Action</span><div class="field-val">We answered all 5 within 2 hours — specific answers, including our silk composition, our physical swatch process, our confirmation photo step, our revision timeline, and our exact shipping lead time. Question 6, self-generated: "Can I see examples of past orders at a similar price point?" We sent 4.</div>
+  <span class="field-label">Numbers</span><div class="field-val">She placed her order in the same DM thread. The clutch was delivered to Chicago in 19 days. She described the answers as "the first time a custom seller made me feel like I was the professional in the room." She has since recommended us to 4 colleagues.</div>
+  <span class="field-label">Takeaway</span><div class="field-val">Questions from a skeptical buyer are not obstacles. They're the buyer telling you exactly what they need to feel safe. Answer them well and they're already yours.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Recreate the DM thread as a reel — questions appearing on screen, our answers appearing below. "She sent 5 questions. We answered 5. She ordered in the same thread." Direct, confident, conversion-focused.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"The skeptical buyer." Story arc. 4 slides. Ends: "Test us. DM us your hardest question."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DMs with challenging questions (these are the best leads), trust-based conversions</div>
+</div>
+</div></div>
+
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 6.3</div>
+  <div class="subtopic-title">The Timeline Map: How Long a Real Custom Silk Order Actually Takes — and Why</div>
+  <div class="subtopic-wow">Most buyers assume custom means faster because they're communicating directly. The reality is the opposite: genuine custom orders take longer because genuine silk takes longer. Understanding why builds patience and prevents rush-order mistakes.</div>
+</div>
+<div class="formats">
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>The real timeline of a custom Kanchi silk clutch — from your DM to your doorstep.</h4>
+  <span class="field-label">Hook</span><div class="hook-box">Custom orders take 3–4 weeks. Here's every day of that time — and why it matters.</div>
+  <span class="field-label">Insight</span><div class="field-val">A genuine custom Kanchipuram silk clutch typically takes 18–28 days from brief confirmation to US delivery. Days 1–3: swatch exchange and design confirmation. Days 4–8: silk sourcing (specific weight, weave, and colour). Days 9–16: construction — each clutch is hand-cut, hand-stitched, and hardware-fitted individually. Days 17–19: quality check, photography, and packaging. Days 20–25: international shipping. Each step has a reason. Rushing any one compromises the product. The timeline is not delay — it is the work.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>Identify your next event date. Count back 4 weeks. That is your order deadline for a custom piece. Is that date before today? Then order now.</div>
+  <div class="step"><div class="step-num">2</div>If your event is less than 3 weeks away, DM us immediately — we occasionally have pieces in progress or ready-to-ship options that can be adapted quickly.</div>
+  <div class="step"><div class="step-num">3</div>For future events: bookmark this post and set a calendar reminder 5 weeks before each occasion to DM us. One 5-minute action prevents every last-minute bag crisis.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Timeline reel: show each stage of the process with approximate days. Beautiful, process-forward content. Makes the timeline feel like craft rather than delay. "Every day has a reason." Creates anticipation rather than impatience.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Your event countdown." Story with countdown calculator: "Enter your event date → subtract 4 weeks → that's your order deadline." Make it actionable and personal.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DMs with "my event is in X weeks, can you do it?" (high urgency leads), saves, calendar reminders set</div>
+</div>
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>If a custom silk seller says they can deliver in 5 days, something about that order is not custom.</h4>
+  <span class="field-label">Debatable Hook</span><div class="hook-box">A 5-day custom silk order is a stock piece with your initials. Real custom takes longer — for good reason.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">Genuine handstitched silk accessories require a minimum of 6–8 days of construction time alone — before sourcing, before shipping. Any "custom" order delivered in under 2 weeks has either cut construction corners or is a pre-made piece with minor modifications.</div>
+  <div class="proof">Silk sourcing for a specific colour and weave weight — especially for Kanchipuram, Banarasi, or Patola-inspired work — requires a sourcing step that typically adds 3–5 days to any genuine custom order. This step cannot be skipped for colour accuracy.</div>
+  <div class="proof">International shipping from India to the US, even with expedited services, adds 5–7 days minimum. A 5-day custom order cannot include international shipping — which means the product was already made before you ordered it.</div>
+  <div class="q-box">Have you ever received a "custom" order in less than 2 weeks? Looking back — was it actually custom?</div>
+  <div class="controversial">Fast custom orders are an oxymoron in genuine silk craft. Speed in custom work is either a lie about the process or a compromise of the product. Usually both.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Process breakdown: "Day 1 through Day 25 of a real custom order." Show each stage. The transparency is the argument. No need to name fast-shipping competitors — the math speaks.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"If your custom silk arrived in 5 days — it wasn't custom." Text story. Poll: "Has this happened to you?" Yes / Yes and I didn't realise / No. Follow with the process explanation.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Comments from people who've had this experience, saves, trust-building with quality-conscious buyers</div>
+</div>
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>She ordered 6 weeks before her wedding. The clutch arrived 3 weeks early. She nearly cried.</h4>
+  <span class="field-label">Context</span><div class="field-val">A bride from New Jersey DM'd us 6 weeks before her December wedding — earlier than most brides reach out. She'd read our timeline content and wanted to "not be in a panic." She sent the saree swatch with her brief. Colour: blush pink with an ivory and rose gold border.</div>
+  <span class="field-label">Action</span><div class="field-val">We confirmed the design, completed construction in 14 days (a faster than usual cycle due to early order and clear brief), and shipped via expedited international courier. Delivery: 20 days before the wedding.</div>
+  <span class="field-label">Numbers</span><div class="field-val">She had 3 weeks to live with the piece before the wedding — to photograph it with the outfit, to show her mother, to know it was exactly right. She told us: "The best part of wedding prep was that this was done first." She posted a 3-slide Instagram unboxing. We gained 34 new followers from that one post.</div>
+  <span class="field-label">Takeaway</span><div class="field-val">The brides who order early have the best experiences — not because we do better work, but because they have time to be delighted instead of anxious.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">"She ordered 6 weeks early. Here's what that looked like." The contrast with last-minute stress makes the case without saying a word about it. Aspirational ordering behaviour content.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"The bride who ordered first." Story arc. Final slide: "Your wedding/event is in __ months. Is it too early to order? It's never too early. DM us."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Early-order DMs, unboxing content generated by customer, follower growth from customer shares</div>
+</div>
+</div></div>
+</div><!-- end angle 6 -->
+
+<!-- ANGLE 7 -->
+<div class="angle">
+<div class="angle-header">
+  <div class="angle-num">7</div>
+  <div class="angle-tag">Angle 07 — The Heirloom Inversion</div>
+  <div class="angle-title">Your grandmother's silk was built to last 100 years. Yours won't last 10.</div>
+  <div class="angle-problem">The cultural practice of gifting silk as heirloom only holds meaning when the silk itself is built to last. Power-loom silk — which dominates the market — begins breaking down within a decade.</div>
+</div>
+
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 7.1</div>
+  <div class="subtopic-title">Handloom vs Power Loom: The Longevity Gap Nobody in the Industry Wants to Talk About</div>
+  <div class="subtopic-wow">A handwoven Kanchipuram silk piece stored properly will outlast the person who bought it. A power-loom silk piece — even an expensive one — begins structural degradation within 8–12 years. The gap is not marginal. It's generational.</div>
+</div>
+<div class="formats">
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>The silk your grandmother wore is still intact. The silk you bought 8 years ago probably isn't. Here's why.</h4>
+  <span class="field-label">Hook</span><div class="hook-box">Handloom silk lasts 100 years. Power-loom silk starts fading in 8. You should know the difference.</div>
+  <span class="field-label">Insight</span><div class="field-val">Genuine handwoven Kanchipuram silk uses a specific interlocking warp-weft technique where each thread is individually tensioned. This creates a structural density that resists wear, retains colour, and maintains integrity for decades — even generations. Power-loom silk uses uniform mechanical tension, which creates micro-stress points in every intersection of the weave. Over 8–12 years, these stress points begin to fray, the zari oxidises, and the silk loses its sheen. According to the Weavers Service Centre (Ministry of Textiles, India), genuine handwoven Kanchi silk retains structural and colour integrity for 70–100 years with basic care.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>Check any older silk piece in your family — a grandmother's saree, a vintage clutch. Feel the density of the weave. Compare it to something purchased recently. The difference in hand-feel is structural.</div>
+  <div class="step"><div class="step-num">2</div>Ask any silk seller: "Is this handloom or power-loom?" A seller who can't answer that question immediately is not working with genuine handloom silk.</div>
+  <div class="step"><div class="step-num">3</div>When investing in a silk piece for a significant occasion — especially a wedding — ask for handloom certification. It protects your investment and preserves the piece for generations.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Close-up comparison: handloom weave texture vs power-loom texture under magnification (phone macro lens works). The difference is visible and visceral. Text: "100 years vs 10. This is why." Highly educational, highly saveable.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Do you own a silk piece from your grandmother?" Question box. Collect responses. Follow: "That's handloom. That's why it's still here. This is what we make."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Saves, grandmother's silk story responses in DMs (emotional engagement), shares to family groups</div>
+</div>
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>Calling a power-loom silk piece an "heirloom" is not aspirational. It's a lie the industry is comfortable with.</h4>
+  <span class="field-label">Debatable Hook</span><div class="hook-box">An heirloom is something your granddaughter will wear. Most "heirloom" silk won't survive your own lifetime.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">The Weavers Service Centre (Ministry of Textiles, India) documents that genuine handwoven Kanchipuram silk maintains structural and colour integrity for 70–100 years under basic storage conditions. Power-loom silk begins weave degradation within 8–12 years.</div>
+  <div class="proof">The Indian silk industry's shift toward power-loom production — which now accounts for over 70% of "silk" sold domestically — has created a market where the word "heirloom" is used to market products that will not outlast the buyer's own lifetime.</div>
+  <div class="proof">The price gap between genuine handloom and power-loom silk at the retail level has narrowed dramatically over the last decade — meaning buyers are paying near-handloom prices for power-loom longevity without knowing it.</div>
+  <div class="q-box">If you found out the "heirloom" silk you bought would start degrading in 10 years, would you feel deceived — or would you have made the same choice anyway?</div>
+  <div class="controversial">The word "heirloom" in Indian silk marketing has been so misused it's become meaningless. Real heirlooms are made by hand, take days, and cost accordingly. Everything else is a story about an object that won't last long enough to tell it.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Opinion reel — strong, editorial tone. Not angry, but precise. "The word 'heirloom' in silk has lost its meaning. Here's what it should require." High comment potential, strong brand positioning.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Hot take: most 'heirloom' silk won't outlive you." Poll: Agree / Disagree / Tell me more. Then explain. This is a conversation-starter, not just content.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Comments debating the take, shares from people who feel validated, trust from quality-conscious buyers</div>
+</div>
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>Her mother gave her a Kanchi silk clutch in 1987. She carried it to her daughter's wedding in 2024.</h4>
+  <span class="field-label">Context</span><div class="field-val">A customer from the Bay Area shared a photo with us after her daughter's wedding. Her mother — now in her 70s, based in Chennai — had given her a handwoven Kanchipuram silk clutch as part of her wedding trousseau in 1987. 37 years later, she carried it to her own daughter's wedding reception.</div>
+  <span class="field-label">Action</span><div class="field-val">The clutch required only a minor hardware polish before the wedding. The silk itself — 37 years old — retained its colour, its sheen, and its structural integrity. She shared the photo with us with a simple message: "This is what real silk does."</div>
+  <span class="field-label">Numbers</span><div class="field-val">37 years. Two generations. One wedding ceremony, one reception, and a family photo that will exist for another generation. She ordered a Maragatham Studio piece for her daughter — to begin the next 37-year cycle.</div>
+  <span class="field-label">Takeaway</span><div class="field-val">This is what the word heirloom should require. A piece you commission today should still be carried by someone you love in 2061.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Photo of the original 1987 clutch alongside the 2024 wedding photo. "37 years apart. Same clutch." The visual is emotional proof of everything the brand stands for. This is the single most powerful reel in the entire library.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"1987. 2024. Same clutch." Simple. Powerful. Let the story breathe across 3 slides. Final slide: "What we make is meant for her daughter too. DM us."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Shares (this will be shared to family WhatsApp groups widely), saves, emotional DMs, the highest brand authority content in the library</div>
+</div>
+</div></div>
+
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 7.2</div>
+  <div class="subtopic-title">Why Silk Gifting Has Lost Its Meaning — and How to Give It Back</div>
+  <div class="subtopic-wow">Silk gifting is one of the oldest practices in Indian culture — auspicious, meaningful, generational. But when the "silk" being gifted is power-loom polyester-blend, the meaning disappears with the product. The ritual survives. The substance has been replaced.</div>
+</div>
+<div class="formats">
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>Silk gifting is a tradition thousands of years old. Most modern silk gifts will be landfill in 15 years. Here's the gap.</h4>
+  <span class="field-label">Hook</span><div class="hook-box">You gave her silk. But will it still be silk in 20 years?</div>
+  <span class="field-label">Insight</span><div class="field-val">Silk gifting in South Asian culture carries specific cultural weight — silk is auspicious, silk represents respect, silk given at weddings and significant occasions is understood to be a lasting gift. The tradition is ancient and meaningful. But the tradition's meaning rests on an assumption that the silk itself is genuine and durable. When the "silk" being gifted is a blend, a synthetic, or a power-loom product with a decade of useful life, the cultural ritual continues — but the substance that gave it meaning has been quietly removed. Gifting genuine handloom silk restores the meaning alongside the tradition.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>Before your next significant silk gift — for a wedding, a new baby, a daughter's first major event — verify the silk is genuine handloom. Ask the burn test question. Ask for handloom certification.</div>
+  <div class="step"><div class="step-num">2</div>Consider a handcrafted silk clutch as a gift — it combines the cultural weight of silk gifting with a functional, beautiful piece the recipient will use for decades.</div>
+  <div class="step"><div class="step-num">3</div>DM us GIFT with the occasion and recipient. We'll help you choose the right silk tradition and style for a gift that carries the meaning the occasion deserves.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Cultural education reel: the history of silk gifting in South India, then the modern reality. Respectful, informative, not preachy. End: "This is what we make. For gifts that mean what they say."</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"What did your mother gift you in silk?" Open question box. The answers generate content, community, and emotional engagement. Follow with the tradition context and the product.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Story question box responses (community content goldmine), DM "GIFT" responses, shares to family members planning gifts</div>
+</div>
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>We give silk at weddings because silk lasts. If the silk doesn't last, what are we actually giving?</h4>
+  <span class="field-label">Debatable Hook</span><div class="hook-box">A synthetic "silk" gift doesn't honour the tradition. It performs it.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">Silk's status as the gifting material in South Asian tradition derives directly from its durability — a silk piece was understood to be a gift that the recipient would keep, use, and potentially pass on. This was the cultural contract. Synthetic silk breaks that contract while maintaining the ritual.</div>
+  <div class="proof">The gifting market for Indian occasions in the US is estimated at over $2B annually — much of it in "silk" products that are blends or synthetics. The cultural meaning is being performed at scale with materials that cannot fulfil the meaning's promise.</div>
+  <div class="proof">Recipients of genuine handloom silk gifts consistently treat the piece differently — storing it carefully, using it selectively, keeping it for years. Recipients of synthetic "silk" gifts treat it like any other gift: used once, then forgotten.</div>
+  <div class="q-box">Have you ever received a silk gift that you still have and treasure? What made it different from the ones you've forgotten?</div>
+  <div class="controversial">When you give synthetic "silk" as a culturally significant gift, you are asking the recipient to perform a tradition with an object that cannot hold its meaning. You're giving the wrapper without the substance. That's not respect. It's theatre.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Reflection reel — slower pace, more thoughtful tone than the provocative format usually allows. The cultural weight of this angle deserves gravity. End with the product as the answer, not the focal point.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Is the silk you're gifting worth the tradition it represents?" Reflective story. Question box: "What's the most meaningful silk gift you've received?" Build community through memory.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Comments sharing meaningful silk memories (extremely high engagement), DMs, shares to culturally engaged audience</div>
+</div>
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>A mother ordered a clutch for her daughter's first major Indian event. She said: "I want her to still have this when she has a daughter."</h4>
+  <span class="field-label">Context</span><div class="field-val">A customer from Plano, TX — originally from Coimbatore — reached out 3 months before her daughter's first Bharatanatyam arangetram recital. She wanted to gift her daughter a clutch for the post-performance reception. She was very specific: she wanted something her daughter would keep for her own daughter one day.</div>
+  <span class="field-label">Action</span><div class="field-val">We created a handwoven Kanchipuram silk clutch in the deep red and gold traditional arangetram colour palette — with a small peacock motif hand-stitched into the interior lining as a personal touch. The exterior: classic, timeless, generational. The interior: private and personal.</div>
+  <span class="field-label">Numbers</span><div class="field-val">The daughter is 16. If the clutch is cared for, it will be structurally sound in 2070 — when she will be in her 60s and her own daughter, if she has one, will be at the age she is now. The gifting cycle is complete. The piece costs less than a dinner for four in a US city.</div>
+  <span class="field-label">Takeaway</span><div class="field-val">Some purchases are objects. Some are time capsules. The difference is the intention behind them — and the silk that carries them forward.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Show the clutch exterior and the peacock lining reveal. "Made for the arangetram. Designed for the granddaughter." Emotional, beautiful, shareable. This reel defines the brand at its highest level.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"She said: I want my daughter to still have this when she has a daughter." 3 slides. The commission. The piece. The peacock lining. Final: "DM GIFT. Tell us who it's for."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Story replies, shares to mothers of young daughters, highest emotional resonance in the library</div>
+</div>
+</div></div>
+
+<div class="subtopic">
+<div class="subtopic-header">
+  <div class="subtopic-num">Subtopic 7.3</div>
+  <div class="subtopic-title">How to Spot Heirloom-Quality Silk Before You Buy: 4 Physical Tests Anyone Can Do</div>
+  <div class="subtopic-wow">Most buyers never physically test silk before buying — they rely entirely on seller claims. Four physical tests, each taking under a minute, reveal the silk's quality, construction, and longevity potential with no equipment required.</div>
+</div>
+<div class="formats">
+<div class="format-card edu">
+  <div class="format-type edu">Educational</div>
+  <h4>4 physical tests that tell you whether the silk you're buying will last 10 years or 100.</h4>
+  <span class="field-label">Hook</span><div class="hook-box">Heirloom-quality silk passes 4 physical tests. Here's how to do each one before you buy.</div>
+  <span class="field-label">Insight</span><div class="field-val">Genuine handloom silk has physical properties that synthetic and power-loom products cannot replicate — and those properties are testable without equipment. The ring test (real silk passes through a ring smoothly; synthetic catches). The scrunch test (silk returns to shape; synthetic holds creases). The weight test (genuine silk is heavier than it looks due to dense weave). The burn test (protein fibre, self-extinguishing). Each test takes under a minute. Together they constitute a complete quality verification that takes 4 minutes total and can be done anywhere you can handle the fabric.</div>
+  <span class="field-label">3 Do This Today Steps</span>
+  <div class="step"><div class="step-num">1</div>Find a ring — any ring — and try passing a corner of your silk piece through it. Genuine silk flows through. Synthetic snags. This one test alone filters most fakes.</div>
+  <div class="step"><div class="step-num">2</div>Scrunch a corner of the silk in your fist for 10 seconds. Release. Real silk recovers smoothly. Synthetic holds creases.</div>
+  <div class="step"><div class="step-num">3</div>For future purchases: ask the seller to demonstrate the ring test before you buy. A genuine silk seller will do it immediately. A synthetic seller will offer to "check" and change the subject.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Film all 4 tests live on genuine Kanchi silk. Each test gets 10 seconds. Text names each test. The visual evidence is the entire argument. "Save this before your next purchase." Extremely high save potential — this is pure utility content.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"The 4-test silk quality check." One test per slide, 4 slides. Can be repeated before major shopping seasons. Evergreen, reusable content.</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> Saves (target 200+ — this is the most practical post in the library), DMs asking "can you test mine?", reach from non-followers who save and share</div>
+</div>
+<div class="format-card prov">
+  <div class="format-type prov">Provocative</div>
+  <h4>If your silk seller won't let you do the ring test, you already have the answer you need.</h4>
+  <span class="field-label">Debatable Hook</span><div class="hook-box">4 tests. 4 minutes. Any seller who won't let you run them is hiding something.</div>
+  <span class="field-label">3 Proofs</span>
+  <div class="proof">The ring test, scrunch test, weight test, and burn test have been used by South Indian silk merchants and buyers for generations as the standard verification method for genuine silk. These are not novel consumer tricks — they are traditional quality checks now being rediscovered.</div>
+  <div class="proof">No genuine handloom silk seller — one who knows and takes pride in their material — has any reason to refuse a quality verification. The tests only reveal what the seller already knows. Refusal signals the seller knows something they'd rather you didn't.</div>
+  <div class="proof">The proliferation of synthetic "silk" in the Indian accessories market is sustained entirely by buyers not testing. A market-wide culture of testing would immediately separate genuine silk sellers from synthetic ones — which is exactly why it's not promoted by most sellers.</div>
+  <div class="q-box">Have you ever tried to test silk before buying and been told you can't? What happened?</div>
+  <div class="controversial">The reason the burn test and ring test aren't common knowledge among buyers is not because nobody thought to share them. It's because widespread knowledge of these tests would collapse the synthetic "silk" market. Draw your own conclusions about why they're not taught.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">"We welcome every one of these tests. Here's why." Run the 4 tests on our own silk, on camera. "We have nothing to hide because we have nothing to hide." Brand authority through transparency.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"Test us." Story that literally invites followers to test our silk. "DM us TESTME — we'll show you every test on your specific piece before you commit to an order."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DM "TESTME" responses (extremely high-intent buyers), shares among quality-conscious buyers, authority positioning</div>
+</div>
+<div class="format-card case">
+  <div class="format-type case">Case Study</div>
+  <h4>She ran all 4 tests on our sample before ordering. Then she ordered 3 pieces.</h4>
+  <span class="field-label">Context</span><div class="field-val">A customer from Schaumburg, IL — a textile professional by background, highly knowledgeable about Indian fabrics — DM'd us with a request: she wanted to run all 4 silk quality tests on a sample piece before committing to a custom order. She'd been "disappointed too many times" by sellers who claimed handloom quality.</div>
+  <span class="field-label">Action</span><div class="field-val">We sent her a silk sample via post — a small swatch from our actual Kanchipuram stock. She ran all 4 tests and filmed them. Ring test: passed. Scrunch test: passed. Weight test: heavier than she expected. Burn test: confirmed protein fibre. She sent the videos back to us.</div>
+  <span class="field-label">Numbers</span><div class="field-val">She ordered 3 custom pieces — one for herself, one as a wedding gift, one for her mother. Total: our largest single order to date. She is now our most active referrer among the professional community in the Chicago area.</div>
+  <span class="field-label">Takeaway</span><div class="field-val">The buyers who test the hardest and find you genuine become the most loyal advocates you have. Invite the scrutiny. It's the best marketing that exists.</div>
+  <div class="platform-block">
+    <div class="platform-label">Platform Adaptations</div>
+    <div class="platform-item"><div class="platform-name">Reel</div><div class="platform-note">Show the test videos she sent us (with permission). "She ran every test. Then ordered 3 pieces." The most credible proof of quality is a skeptic who converted. Extraordinary trust content.</div></div>
+    <div class="platform-item"><div class="platform-name">Story</div><div class="platform-note">"The textile professional who tested us." 4 slides. The request, the sample, the tests, the 3 orders. Final: "You can too. DM TESTME."</div></div>
+  </div>
+  <div class="metric-box"><strong>Success metric:</strong> DM "TESTME," quality-conscious buyer conversions, shares from professional and knowledgeable buyer communities</div>
+</div>
+</div></div>
+</div><!-- end angle 7 -->
+
+<!-- ═══════════════════════════════════════════════════ 30-DAY CALENDAR -->
+<div class="calendar-section">
+<div class="cal-title">30-Day Content Calendar</div>
+<div class="cal-sub">April 2026 — Anchored to Tamil New Year (Apr 14) & Wedding Season</div>
+
+<div class="cal-legend">
+  <div class="leg"><div class="leg-dot" style="background:var(--gold)"></div>SEO Reel (Premium)</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--burgundy)"></div>Story</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--forest)"></div>Educational Post/Carousel</div>
+  <div class="leg"><div class="leg-dot" style="background:#666"></div>Case Study Post</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--case)"></div>Provocative Post</div>
+</div>
+
+<!-- Calendar grid headers -->
+<div style="display:grid;grid-template-columns:70px 90px 80px 1fr 100px 1fr;gap:0;background:rgba(184,134,11,.08);border:1px solid rgba(184,134,11,.2);border-bottom:2px solid rgba(184,134,11,.3);margin-bottom:2px">
+  <div style="padding:8px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600">Date</div>
+  <div style="padding:8px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600">Anchor</div>
+  <div style="padding:8px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600">Format</div>
+  <div style="padding:8px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600">Topic / Hook</div>
+  <div style="padding:8px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600">Goal</div>
+  <div style="padding:8px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600">Distribution Notes</div>
+</div>
+
+<div class="week-label">— Week 1: Authority & Craft (Apr 1–7)</div>
+
+<style>
+.cal-row{display:grid;grid-template-columns:70px 90px 80px 1fr 100px 1fr;border-bottom:1px solid rgba(0,0,0,.05);background:white}
+.cal-row.alt{background:#FDFAF5}
+.cal-row.anchor-day{background:rgba(184,134,11,.06)}
+.ch{padding:9px 10px;font-size:12px;color:#444;line-height:1.5;vertical-align:top}
+.ch.date-col{font-weight:600;color:var(--deep);font-family:'Cormorant Garamond',serif;font-size:16px;padding-top:11px}
+.ch.anchor-col{font-size:10px;color:var(--gold-dark);font-style:italic;padding-top:11px}
+.fp-reel{background:rgba(184,134,11,.15);color:var(--gold-dark);display:inline-block;padding:2px 8px;font-size:9px;letter-spacing:1px;border-radius:2px;text-transform:uppercase;font-weight:600}
+.fp-story{background:rgba(140,26,82,.1);color:var(--burgundy);display:inline-block;padding:2px 8px;font-size:9px;letter-spacing:1px;border-radius:2px;text-transform:uppercase;font-weight:600}
+.fp-post{background:rgba(27,74,107,.1);color:var(--forest);display:inline-block;padding:2px 8px;font-size:9px;letter-spacing:1px;border-radius:2px;text-transform:uppercase;font-weight:600}
+.fp-case{background:#EEE;color:#555;display:inline-block;padding:2px 8px;font-size:9px;letter-spacing:1px;border-radius:2px;text-transform:uppercase;font-weight:600}
+.fp-prov{background:rgba(26,26,74,.1);color:var(--case);display:inline-block;padding:2px 8px;font-size:9px;letter-spacing:1px;border-radius:2px;text-transform:uppercase;font-weight:600}
+.goal-tag{font-size:10px;color:#888;font-style:italic}
+.note{font-size:11px;color:#777;line-height:1.5}
+.angle-ref{font-size:9px;color:var(--gold-dark);letter-spacing:1px;text-transform:uppercase}
+</style>
+
+<div class="cal-row">
+  <div class="ch date-col">Apr 1<br><span style="font-size:10px;color:#aaa">Wed</span></div>
+  <div class="ch anchor-col">Month Launch</div>
+  <div class="ch"><span class="fp-reel">SEO Reel</span></div>
+  <div class="ch"><strong>A2.1 — "Real Kanchi Silk vs Imitation: The Burn Test"</strong><br><span class="angle-ref">Angle 2, Sub 1, Educational</span><br>Hook: "Pull a thread from your silk bag. What happens next tells you everything." KW: Kanchi silk bridal clutch + silk clutch bag handcrafted</div>
+  <div class="ch"><span class="goal-tag">Authority + Saves</span></div>
+  <div class="ch note">Pin this reel. Add KW to caption line 1. Use in bio link. This is your credibility-establishing post for the month. Repost to Stories 3 days later.</div>
+</div>
+
+<div class="cal-row alt">
+  <div class="ch date-col">Apr 2<br><span style="font-size:10px;color:#aaa">Thu</span></div>
+  <div class="ch anchor-col">—</div>
+  <div class="ch"><span class="fp-story">Story</span></div>
+  <div class="ch"><strong>Behind the Silk: Fabric arrival day</strong><br>"Choosing today's silk for an April bride." Show raw silk rolls. Poll: Which colour — Gold or Peacock Blue?</div>
+  <div class="ch"><span class="goal-tag">Engagement</span></div>
+  <div class="ch note">Raw phone footage. No polish needed. Poll response follow-up drives DMs. Repost poll results next day.</div>
+</div>
+
+<div class="cal-row">
+  <div class="ch date-col">Apr 3<br><span style="font-size:10px;color:#aaa">Fri</span></div>
+  <div class="ch anchor-col">—</div>
+  <div class="ch"><span class="fp-post">Carousel</span></div>
+  <div class="ch"><strong>A2.2 — "The Silk Language Glossary: Art Silk = Rayon. Silk-Touch = Polyester."</strong><br><span class="angle-ref">Angle 2, Sub 2, Educational</span><br>Flashcard-style carousel. High save intent.</div>
+  <div class="ch"><span class="goal-tag">Saves 100+</span></div>
+  <div class="ch note">5-slide carousel. Each slide = one term + translation. Final slide: "Save this before your next order." No CTA for product — let the utility do the work.</div>
+</div>
+
+<div class="cal-row alt">
+  <div class="ch date-col">Apr 4<br><span style="font-size:10px;color:#aaa">Sat</span></div>
+  <div class="ch anchor-col">—</div>
+  <div class="ch"><span class="fp-story">Story</span></div>
+  <div class="ch"><strong>Q&A Story: "Ask me anything about silk quality"</strong><br>Open question box. Collect questions. Answer top 3 as Stories next week.</div>
+  <div class="ch"><span class="goal-tag">Leads + Community</span></div>
+  <div class="ch note">Best questions get screenshot-shared to feed later. Each question answer is a warm lead.</div>
+</div>
+
+<div class="cal-row">
+  <div class="ch date-col">Apr 5<br><span style="font-size:10px;color:#aaa">Sun</span></div>
+  <div class="ch anchor-col">—</div>
+  <div class="ch"><span class="fp-prov">Provocative</span></div>
+  <div class="ch"><strong>A1.1P — "You spent 3 months choosing your saree. 3 minutes choosing your bag."</strong><br><span class="angle-ref">Angle 1, Sub 1, Provocative</span><br>The outfit tax opening shot.</div>
+  <div class="ch"><span class="goal-tag">Comments + Reach</span></div>
+  <div class="ch note">Post Sunday for peak weekend Indian audience browsing. End with comment question. Reply to every comment within 4 hours.</div>
+</div>
+
+<div class="cal-row alt">
+  <div class="ch date-col">Apr 6<br><span style="font-size:10px;color:#aaa">Mon</span></div>
+  <div class="ch anchor-col">—</div>
+  <div class="ch"><span class="fp-story">Story</span></div>
+  <div class="ch"><strong>Q&A answers from Apr 4 questions</strong><br>Answer 3 silk quality questions from DMs. Text-based story, raw and personal.</div>
+  <div class="ch"><span class="goal-tag">Trust Building</span></div>
+  <div class="ch note">Tag each question back to the asker (DM them to check if they want to be featured). Builds 1:1 relationship.</div>
+</div>
+
+<div class="cal-row">
+  <div class="ch date-col">Apr 7<br><span style="font-size:10px;color:#aaa">Tue</span></div>
+  <div class="ch anchor-col">—</div>
+  <div class="ch"><span class="fp-case">Case Study</span></div>
+  <div class="ch"><strong>A2.3C — "A photographer stopped a wedding shoot to ask about this clutch"</strong><br><span class="angle-ref">Angle 2, Sub 3, Case Study</span><br>Silk sheen in photography case study.</div>
+  <div class="ch"><span class="goal-tag">DM leads</span></div>
+  <div class="ch note">Close-up silk footage in natural light. Text story arc. CTA: "DM PHOTOS to see this piece."</div>
+</div>
+
+<div class="week-label">— Week 2: Tamil New Year Push (Apr 8–14)</div>
+
+<div class="cal-row alt">
+  <div class="ch date-col">Apr 8<br><span style="font-size:10px;color:#aaa">Wed</span></div>
+  <div class="ch anchor-col">Countdown: 6 days to Tamil New Year</div>
+  <div class="ch"><span class="fp-reel">SEO Reel</span></div>
+  <div class="ch"><strong>A3.2 — "Tamil New Year is April 14. Is your clutch ready?"</strong><br><span class="angle-ref">Angle 3, Sub 2, Educational Reel</span><br>Festival silk clutches: mango yellow, lotus pink, peacock blue. KW: Indian bridal accessories USA + Kanchi silk bridal clutch</div>
+  <div class="ch"><span class="goal-tag">Seasonal DMs</span></div>
+  <div class="ch note">Post exactly 6 days before Tamil New Year. Countdown sticker in Stories same day. #TamilNewYear #Puthandu #KanchiSilk in hashtags. Highest-reach week of month 1.</div>
+</div>
+
+<div class="cal-row">
+  <div class="ch date-col">Apr 9<br><span style="font-size:10px;color:#aaa">Thu</span></div>
+  <div class="ch anchor-col">5 days to Tamil New Year</div>
+  <div class="ch"><span class="fp-story">Story</span></div>
+  <div class="ch"><strong>A4.1 — "Which part of your saree should your bag match?" Poll</strong><br>Body / Border / Blouse / Pallu. Reveal the answer. Link to reel in bio.</div>
+  <div class="ch"><span class="goal-tag">Engagement + Styling leads</span></div>
+  <div class="ch note">Follow up poll with the correct answer next story. CTA: "Send us your border close-up — we'll tell you what to carry for Tamil New Year."</div>
+</div>
+
+<div class="cal-row alt">
+  <div class="ch date-col">Apr 10<br><span style="font-size:10px;color:#aaa">Fri</span></div>
+  <div class="ch anchor-col">4 days to Tamil New Year</div>
+  <div class="ch"><span class="fp-case">Case Study</span></div>
+  <div class="ch"><strong>A3.2C — "She DMed us 11 days before Tamil New Year. Clutch arrived 3 days before."</strong><br>Urgency + process proof. KW: Indian bridal accessories USA</div>
+  <div class="ch"><span class="goal-tag">Urgency leads</span></div>
+  <div class="ch note">This post creates FOMO for this year and planning intent for next year. CTA: "DM PUTHANDU for next year — slots open now."</div>
+</div>
+
+<div class="cal-row">
+  <div class="ch date-col">Apr 11<br><span style="font-size:10px;color:#aaa">Sat</span></div>
+  <div class="ch anchor-col">3 days to Tamil New Year</div>
+  <div class="ch"><span class="fp-story">Story</span></div>
+  <div class="ch"><strong>Packing story: "Shipping a custom clutch to a bride in Atlanta for Tamil New Year"</strong><br>Show the box, the clutch, the address label. Raw footage. Location tag: Atlanta + Kanchipuram</div>
+  <div class="ch"><span class="goal-tag">Social proof</span></div>
+  <div class="ch note">Tag Atlanta in location. Real shipping proof builds trust for remote buyers. Reply to every "is it too late?" DM with the ready-to-ship options.</div>
+</div>
+
+<div class="cal-row alt">
+  <div class="ch date-col">Apr 12<br><span style="font-size:10px;color:#aaa">Sun</span></div>
+  <div class="ch anchor-col">2 days to Tamil New Year</div>
+  <div class="ch"><span class="fp-post">Carousel</span></div>
+  <div class="ch"><strong>A4.2 — "The 3-Colour Rule: How to style any saree in 60 seconds"</strong><br><span class="angle-ref">Angle 4, Sub 2, Educational</span><br>Colour-map a Kanjivaram. Visual, saveable, shareable.</div>
+  <div class="ch"><span class="goal-tag">Saves 150+</span></div>
+  <div class="ch note">This is a perennial reference post — it will keep getting saves for months. No seasonal hook needed. Share to Stories with "Save this before Tamil New Year dressing."</div>
+</div>
+
+<div class="cal-row anchor-day">
+  <div class="ch date-col">Apr 14<br><span style="font-size:10px;color:#aaa">Tue</span></div>
+  <div class="ch anchor-col" style="color:var(--gold-dark);font-weight:600">Tamil New Year / Puthandu</div>
+  <div class="ch"><span class="fp-story">Story</span></div>
+  <div class="ch"><strong>Tamil New Year celebration story: "Iniya Tamil Puthandu Vazhthugal"</strong><br>Cultural greeting in Tamil. Show a festive clutch. No hard sell. Pure belonging content.</div>
+  <div class="ch"><span class="goal-tag">Belonging + Reach</span></div>
+  <div class="ch note">Post in the morning. Short, warm, culturally respectful. This is not a product post — it's a brand post. The brand is Tamil. The brand belongs to this day.</div>
+</div>
+
+<div class="week-label">— Week 3: Bridal & Gifting Push (Apr 15–21)</div>
+
+<div class="cal-row">
+  <div class="ch date-col">Apr 15<br><span style="font-size:10px;color:#aaa">Wed</span></div>
+  <div class="ch anchor-col">Wedding season building</div>
+  <div class="ch"><span class="fp-reel">SEO Reel</span></div>
+  <div class="ch"><strong>A3.3 — "6 bridesmaids. 6 silk sarees. 6 different bags. This is fixable."</strong><br><span class="angle-ref">Angle 3, Sub 3, Educational Reel</span><br>Bridesmaid clutch set flat lay. KW: bridesmaids gift ideas Indian wedding + wedding return gifts India</div>
+  <div class="ch"><span class="goal-tag">Bulk order DMs</span></div>
+  <div class="ch note">This is the high-value transaction reel. CTA: "DM PARTY for bulk pricing." Share to Stories. Repost clip next week. #IndianBride #BridalParty #BridesmaidGifts</div>
+</div>
+
+<div class="cal-row alt">
+  <div class="ch date-col">Apr 16<br><span style="font-size:10px;color:#aaa">Thu</span></div>
+  <div class="ch anchor-col">—</div>
+  <div class="ch"><span class="fp-story">Story</span></div>
+  <div class="ch"><strong>Process story: "Custom order in progress for a May wedding"</strong><br>Hands stitching. Close-up. "Day 8 of 18." Creates anticipation and documents craft.</div>
+  <div class="ch"><span class="goal-tag">Trust + Process proof</span></div>
+  <div class="ch note">This type of ongoing order story builds audience investment. Follow the same order across multiple story posts throughout the month.</div>
+</div>
+
+<div class="cal-row">
+  <div class="ch date-col">Apr 17<br><span style="font-size:10px;color:#aaa">Fri</span></div>
+  <div class="ch anchor-col">—</div>
+  <div class="ch"><span class="fp-prov">Provocative</span></div>
+  <div class="ch"><strong>A3.3P — "Matching sarees. Matching jewellery. Completely different bags. Who approved this?"</strong><br><span class="angle-ref">Angle 3, Sub 3, Provocative</span></div>
+  <div class="ch"><span class="goal-tag">Comments + Shares</span></div>
+  <div class="ch note">Friday post for weekend share cycle. Brides share to bridal WhatsApp groups. Comment question at end drives engagement. Reply actively all weekend.</div>
+</div>
+
+<div class="cal-row alt">
+  <div class="ch date-col">Apr 18<br><span style="font-size:10px;color:#aaa">Sat</span></div>
+  <div class="ch anchor-col">—</div>
+  <div class="ch"><span class="fp-story">Story</span></div>
+  <div class="ch"><strong>Bride poll: "How many bridesmaids in your wedding?" + "Did they have matching bags?"</strong><br>Two polls in sequence. Data collection + engagement.</div>
+  <div class="ch"><span class="goal-tag">Lead qualification</span></div>
+  <div class="ch note">Anyone who answers "No" to matching bags is a warm lead. DM each one: "We can fix that for your next event or gifting occasion." Personal outreach from poll data.</div>
+</div>
+
+<div class="cal-row">
+  <div class="ch date-col">Apr 19<br><span style="font-size:10px;color:#aaa">Sun</span></div>
+  <div class="ch anchor-col">—</div>
+  <div class="ch"><span class="fp-case">Case Study</span></div>
+  <div class="ch"><strong>A3.3C — "She ordered 7 matching clutches for her bridesmaids. The photographer used one for his portfolio cover."</strong><br><span class="angle-ref">Angle 3, Sub 3, Case Study</span></div>
+  <div class="ch"><span class="goal-tag">DM "PARTY" leads</span></div>
+  <div class="ch note">This is the highest-value case study for conversion. CTA: "DM PARTY for bulk pricing." Pin this post if engagement is strong. Repost to Stories Monday.</div>
+</div>
+
+<div class="cal-row alt">
+  <div class="ch date-col">Apr 21<br><span style="font-size:10px;color:#aaa">Tue</span></div>
+  <div class="ch anchor-col">—</div>
+  <div class="ch"><span class="fp-post">Carousel</span></div>
+  <div class="ch"><strong>A6.2 — "5 Questions to Ask Before Ordering Any Custom Silk Accessory"</strong><br><span class="angle-ref">Angle 6, Sub 2, Educational</span><br>Flashcard carousel. Pure consumer protection content. Saves magnet.</div>
+  <div class="ch"><span class="goal-tag">Saves 100+ + Trust</span></div>
+  <div class="ch note">Final slide: "We answer all 5. DM us to test us." This earns trust from the most skeptical buyers — who then convert to the highest-value orders.</div>
+</div>
+
+<div class="week-label">— Week 4: Heirloom, Occasion Economy & Conversion (Apr 22–30)</div>
+
+<div class="cal-row">
+  <div class="ch date-col">Apr 22<br><span style="font-size:10px;color:#aaa">Wed</span></div>
+  <div class="ch anchor-col">Wedding season peak</div>
+  <div class="ch"><span class="fp-reel">SEO Reel</span></div>
+  <div class="ch"><strong>A5.1 — "Diwali → Banarasi. Navratri → Patola. Weddings → Kanchi. The silk occasion map."</strong><br><span class="angle-ref">Angle 5, Sub 1, Educational Reel</span><br>Multi-silk expansion reel. KW: silk clutch bag handcrafted + Indian bridal accessories USA</div>
+  <div class="ch"><span class="goal-tag">New audience reach + DM CALENDAR</span></div>
+  <div class="ch note">This reel introduces Banarasi and Patola to the audience — expanding beyond Kanchi for the first time. Watch for Navratri/Diwali buyers entering via this reel. CTA: "DM CALENDAR."</div>
+</div>
+
+<div class="cal-row alt">
+  <div class="ch date-col">Apr 23<br><span style="font-size:10px;color:#aaa">Thu</span></div>
+  <div class="ch anchor-col">—</div>
+  <div class="ch"><span class="fp-story">Story</span></div>
+  <div class="ch"><strong>A5.3 — Event calendar audit story: "10 minutes now saves 6 stressful shopping sessions"</strong><br>Step-by-step story instruction. 5 slides. CTA: "DM AUDIT."</div>
+  <div class="ch"><span class="goal-tag">High-intent DMs</span></div>
+  <div class="ch note">DM "AUDIT" responses are warm — they've identified their event needs. Follow each with a personalised 2–3 piece recommendation. High conversion rate.</div>
+</div>
+
+<div class="cal-row">
+  <div class="ch date-col">Apr 24<br><span style="font-size:10px;color:#aaa">Fri</span></div>
+  <div class="ch anchor-col">—</div>
+  <div class="ch"><span class="fp-prov">Provocative</span></div>
+  <div class="ch"><strong>A7.1P — "Your grandmother's silk is still intact. The silk you bought 8 years ago probably isn't."</strong><br><span class="angle-ref">Angle 7, Sub 1, Provocative</span></div>
+  <div class="ch"><span class="goal-tag">Cultural reach + Comments</span></div>
+  <div class="ch note">Friday post — heirloom content peaks on weekends when families are together. This generates stories from followers about their grandmother's silk pieces. Collect these for future content.</div>
+</div>
+
+<div class="cal-row alt">
+  <div class="ch date-col">Apr 25<br><span style="font-size:10px;color:#aaa">Sat</span></div>
+  <div class="ch anchor-col">—</div>
+  <div class="ch"><span class="fp-story">Story</span></div>
+  <div class="ch"><strong>"Do you own a silk piece from your grandmother?" Open question box</strong><br>Collect answers all weekend. Feature the best stories as Story posts next week.</div>
+  <div class="ch"><span class="goal-tag">Community + Story content</span></div>
+  <div class="ch note">Grandmother silk stories are emotional gold — they prove the heirloom claim without us saying a word. Every answer is also a follower who is emotionally engaged with real silk.</div>
+</div>
+
+<div class="cal-row">
+  <div class="ch date-col">Apr 26<br><span style="font-size:10px;color:#aaa">Sun</span></div>
+  <div class="ch anchor-col">—</div>
+  <div class="ch"><span class="fp-case">Case Study</span></div>
+  <div class="ch"><strong>A7.1C — "Her mother gave her a Kanchi silk clutch in 1987. She carried it to her daughter's wedding in 2024."</strong><br><span class="angle-ref">Angle 7, Sub 1, Case Study</span><br>The most powerful post in the library.</div>
+  <div class="ch"><span class="goal-tag">Shares + Brand authority</span></div>
+  <div class="ch note">This is the defining brand post of the month. Pin it. Share to Stories. The 1987/2024 photo comparison is the visual anchor for everything Maragatham stands for. Let it breathe — no heavy CTA. Just: "DM us."</div>
+</div>
+
+<div class="cal-row alt">
+  <div class="ch date-col">Apr 28<br><span style="font-size:10px;color:#aaa">Tue</span></div>
+  <div class="ch anchor-col">—</div>
+  <div class="ch"><span class="fp-post">Carousel</span></div>
+  <div class="ch"><strong>A7.3 — "4 Physical Tests That Tell You If Your Silk Will Last 10 Years or 100"</strong><br><span class="angle-ref">Angle 7, Sub 3, Educational</span><br>Ring test, scrunch test, weight test, burn test. The ultimate consumer protection post.</div>
+  <div class="ch"><span class="goal-tag">Saves 200+</span></div>
+  <div class="ch note">Highest-save potential of the entire library. Post Tuesday for full week of saves. "Save this before your next purchase." This one will be circulated in WhatsApp groups without prompting.</div>
+</div>
+
+<div class="cal-row">
+  <div class="ch date-col">Apr 29<br><span style="font-size:10px;color:#aaa">Wed</span></div>
+  <div class="ch anchor-col">Month close</div>
+  <div class="ch"><span class="fp-story">Story</span></div>
+  <div class="ch"><strong>Month wrap: "This month we shipped to brides and event guests across [X cities]"</strong><br>City map or text list. Real shipping proof. Social proof at scale.</div>
+  <div class="ch"><span class="goal-tag">Social proof</span></div>
+  <div class="ch note">Collect the month's shipping destinations. US city names build trust for US buyers. This becomes a recurring monthly story format — the "Maragatham Map."</div>
+</div>
+
+<div class="cal-row alt">
+  <div class="ch date-col">Apr 30<br><span style="font-size:10px;color:#aaa">Thu</span></div>
+  <div class="ch anchor-col">May preview</div>
+  <div class="ch"><span class="fp-story">Story</span></div>
+  <div class="ch"><strong>May conversion CTA: "May wedding season is here. Custom orders need 3–4 weeks. DM us this week."</strong><br>Countdown sticker. WhatsApp link sticker. Urgency without pressure.</div>
+  <div class="ch"><span class="goal-tag">Lead capture</span></div>
+  <div class="ch note">This story closes April and opens May's lead pipeline. Anyone who DMs on April 30 gets a May delivery. Follow up every DM personally within 2 hours.</div>
+</div>
+
+<!-- CALENDAR SUMMARY -->
+<div style="background:var(--deep);color:var(--gold-light);padding:32px;margin-top:24px">
+  <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px">April 2026 — Month Summary</div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold);line-height:1">3</div>
+      <div style="font-size:11px;color:rgba(232,213,163,.6);margin-top:4px">Premium SEO Reels<br>Apr 1, 8, 15, 22</div>
+    </div>
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold);line-height:1">8</div>
+      <div style="font-size:11px;color:rgba(232,213,163,.6);margin-top:4px">Story posts<br>Daily touch: raw, behind the scenes</div>
+    </div>
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold);line-height:1">5</div>
+      <div style="font-size:11px;color:rgba(232,213,163,.6);margin-top:4px">Educational carousels<br>High-save reference content</div>
+    </div>
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold);line-height:1">5</div>
+      <div style="font-size:11px;color:rgba(232,213,163,.6);margin-top:4px">Provocative + Case Study posts<br>Comments & conversion</div>
+    </div>
+  </div>
+  <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(184,134,11,.2);font-size:12px;color:rgba(232,213,163,.65);line-height:1.7">
+    <strong style="color:var(--gold)">DM Keywords to track:</strong> PUTHANDU · PARTY · CALENDAR · AUDIT · TRUST · TESTME · ONEBAG · PHOTOS · GIFT · BRIDAL · NAVRATRI<br>
+    <strong style="color:var(--gold)">Top saves targets:</strong> Apr 3 (Glossary), Apr 12 (3-Colour Rule), Apr 21 (5 Questions), Apr 28 (4 Tests)<br>
+    <strong style="color:var(--gold)">Highest conversion posts:</strong> Apr 8 (Tamil New Year Reel), Apr 15 (Bridesmaids Reel), Apr 19 (7 Clutches Case Study), Apr 26 (1987 Heirloom)
+  </div>
+</div>
+
+</div><!-- end calendar section -->
+
+<footer>
+  <div class="footer-brand">Maragatham Studio</div>
+  <div class="footer-note">Content Library · April 2026 · 7 Angles · 21 Subtopics · 63 Formats · 30-Day Calendar</div>
+</footer>
+
+</body>
+</html>
