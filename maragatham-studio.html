@@ -9,17 +9,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --forest:  #1C3228;
-  --terra:   #C4622D;
-  --terra-l: #E8845A;
-  --cream:   #F7F3EE;
-  --warm:    #EDE6DB;
-  --ink:     #1A1A18;
-  --mid:     #555550;
-  --light:   #9A9590;
-  --gold:    #B8860B;
-  --gold-bg: #FDF8EE;
-  --border:  rgba(28,50,40,0.12);
+  /* ── Silk Fabric Palette — drawn from genuine Kanchi weave ── */
+  --forest:  #1B4A6B;   /* peacock blue — dominant motif */
+  --terra:   #C4622D;   /* coral orange — border accent */
+  --terra-l: #E8845A;   /* soft coral */
+  --cream:   #FDF5E0;   /* antique silk ground */
+  --warm:    #F5E8C8;   /* aged gold ground */
+  --ink:     #1A0D02;   /* deep warm near-black */
+  --mid:     #5C4A38;   /* warm brown mid-tone */
+  --light:   #9A8A72;   /* muted silk thread */
+  --gold:    #B8860B;   /* antique gold zari */
+  --gold-bg: #FDF5E0;   /* silk ground */
+  --magenta: #8C1A52;   /* jewel pink — peacock breast */
+  --emerald: #1A5228;   /* leaf green — vine motif */
+  --border:  rgba(27,74,107,0.15);
   --white:   #FFFFFF;
 }
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -248,8 +251,99 @@ footer { background:var(--ink); border-top:1px solid rgba(255,255,255,0.06); pad
   .gold-bar { padding:16px 28px; gap:24px; }
 }
 </style>
+
+<style id="lock-style">
+#lock-screen {
+  position: fixed; inset: 0; z-index: 99999;
+  background: #1A0D02;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Sans', 'Arial', sans-serif;
+}
+.lock-box {
+  background: #FDF5E0;
+  padding: 56px 48px;
+  max-width: 400px; width: 90%;
+  text-align: center;
+  border-top: 4px solid #B8860B;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+}
+.lock-logo {
+  font-family: Georgia, serif;
+  font-size: 13px; letter-spacing: 5px;
+  text-transform: uppercase; color: #B8860B;
+  margin-bottom: 24px; display: block;
+}
+.lock-title {
+  font-family: Georgia, serif;
+  font-size: 26px; font-weight: 700;
+  color: #1A0D02; line-height: 1.2;
+  margin-bottom: 8px;
+}
+.lock-sub {
+  font-size: 14px; color: #777;
+  margin-bottom: 32px; line-height: 1.6;
+}
+.lock-input {
+  width: 100%; padding: 14px 18px;
+  border: 2px solid #DDD; font-size: 16px;
+  font-family: inherit; outline: none;
+  text-align: center; letter-spacing: 3px;
+  margin-bottom: 16px; border-radius: 2px;
+  transition: border-color 0.2s;
+}
+.lock-input:focus { border-color: #B8860B; }
+.lock-btn {
+  width: 100%; padding: 15px;
+  background: #1A0D02; color: #FDF5E0;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  border: none; cursor: pointer;
+  border-radius: 2px; transition: background 0.2s;
+}
+.lock-btn:hover { background: #B8860B; }
+.lock-error {
+  font-size: 13px; color: #9C1B52;
+  margin-top: 12px; display: none;
+}
+.lock-ornament {
+  font-size: 28px; margin-bottom: 20px; display: block;
+}
+</style>
 </head>
 <body>
+<div id="lock-screen">
+  <div class="lock-box">
+    <span class="lock-ornament">✦</span>
+    <span class="lock-logo">Kabuka Creatives</span>
+    <div class="lock-title">Client Document</div>
+    <p class="lock-sub">This document is private.<br>Enter the password shared with you.</p>
+    <input class="lock-input" type="password" id="lock-pw" placeholder="Password" onkeydown="if(event.key==='Enter')unlock()">
+    <button class="lock-btn" onclick="unlock()">Access Document</button>
+    <div class="lock-error" id="lock-err">Incorrect password. Please try again.</div>
+  </div>
+</div>
+<script>
+function unlock() {
+  var pw = document.getElementById('lock-pw').value;
+  if (pw === 'silk2026') {
+    document.getElementById('lock-screen').style.display = 'none';
+    document.getElementById('lock-style').remove();
+    sessionStorage.setItem('kc_auth', '1');
+  } else {
+    document.getElementById('lock-err').style.display = 'block';
+    document.getElementById('lock-pw').value = '';
+    document.getElementById('lock-pw').focus();
+  }
+}
+// Auto-unlock if already authenticated this session
+if (sessionStorage.getItem('kc_auth') === '1') {
+  document.addEventListener('DOMContentLoaded', function() {
+    var s = document.getElementById('lock-screen');
+    if(s) s.style.display = 'none';
+  });
+}
+</script>
+
 
 <!-- NAV -->
 <nav>

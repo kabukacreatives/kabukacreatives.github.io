@@ -9,20 +9,20 @@
 :root {
   --gold: #B8860B;
   --gold-light: #D4A017;
-  --gold-bg: #FDF8EE;
-  --deep: #1A0800;
-  --burgundy: #7B1A1A;
-  --forest: #1A3A20;
-  --black: #111111;
-  --dark: #222222;
-  --mid: #444444;
-  --light: #777777;
+  --gold-bg: #FDF5E0;
+  --deep: #1A0D02;
+  --burgundy: #8C1A52;
+  --forest: #1B4A6B;
+  --black: #1A0D02;
+  --dark: #2C1A08;
+  --mid: #5C4A38;
+  --light: #9A8A72;
   --border: rgba(184,134,11,0.25);
-  --bg: #FAFAF7;
+  --bg: #FDF5E0;
   --white: #FFFFFF;
-  --edu-bg: #EFF5F0;
-  --prov-bg: #FDF0F0;
-  --case-bg: #EEF0F8;
+  --edu-bg: #EAF4F0;
+  --prov-bg: #FDF0EC;
+  --case-bg: #EEF2F8;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -446,8 +446,64 @@ footer {
 }
 .footer-note { font-size: 12px; color: rgba(245,237,216,0.4); }
 </style>
+
+<style id="lock-style">
+#lock-screen {
+  position: fixed; inset: 0; z-index: 99999;
+  background: #1A0D02;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Sans', 'Arial', sans-serif;
+}
+.lock-box {
+  background: #FDF5E0; padding: 56px 48px;
+  max-width: 400px; width: 90%; text-align: center;
+  border-top: 4px solid #B8860B;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+}
+.lock-logo { font-family: Georgia, serif; font-size: 13px; letter-spacing: 5px; text-transform: uppercase; color: #B8860B; margin-bottom: 24px; display: block; }
+.lock-title { font-family: Georgia, serif; font-size: 26px; font-weight: 700; color: #1A0D02; line-height: 1.2; margin-bottom: 8px; }
+.lock-sub { font-size: 14px; color: #777; margin-bottom: 32px; line-height: 1.6; }
+.lock-input { width: 100%; padding: 14px 18px; border: 2px solid #DDD; font-size: 16px; font-family: inherit; outline: none; text-align: center; letter-spacing: 3px; margin-bottom: 16px; border-radius: 2px; transition: border-color 0.2s; }
+.lock-input:focus { border-color: #B8860B; }
+.lock-btn { width: 100%; padding: 15px; background: #1A0D02; color: #FDF5E0; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; border: none; cursor: pointer; border-radius: 2px; transition: background 0.2s; }
+.lock-btn:hover { background: #B8860B; }
+.lock-error { font-size: 13px; color: #9C1B52; margin-top: 12px; display: none; }
+.lock-ornament { font-size: 28px; margin-bottom: 20px; display: block; }
+</style>
 </head>
 <body>
+<div id="lock-screen">
+  <div class="lock-box">
+    <span class="lock-ornament">✦</span>
+    <span class="lock-logo">Kabuka Creatives</span>
+    <div class="lock-title">Client Document</div>
+    <p class="lock-sub">This document is private.<br>Enter the password shared with you.</p>
+    <input class="lock-input" type="password" id="lock-pw" placeholder="Password" onkeydown="if(event.key==='Enter')unlock()">
+    <button class="lock-btn" onclick="unlock()">Access Document</button>
+    <div class="lock-error" id="lock-err">Incorrect password. Please try again.</div>
+  </div>
+</div>
+<script>
+function unlock() {
+  var pw = document.getElementById('lock-pw').value;
+  if (pw === 'silk2026') {
+    document.getElementById('lock-screen').style.display = 'none';
+    document.getElementById('lock-style').remove();
+    sessionStorage.setItem('kc_auth', '1');
+  } else {
+    document.getElementById('lock-err').style.display = 'block';
+    document.getElementById('lock-pw').value = '';
+    document.getElementById('lock-pw').focus();
+  }
+}
+if (sessionStorage.getItem('kc_auth') === '1') {
+  document.addEventListener('DOMContentLoaded', function() {
+    var s = document.getElementById('lock-screen');
+    if(s) s.style.display = 'none';
+  });
+}
+</script>
+
 
 <div class="hero">
   <div class="hero-date">Starting March 13, 2026</div>
