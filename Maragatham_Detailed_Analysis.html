@@ -23,94 +23,94 @@
   --emerald:#1A5228;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--cream);color:var(--charcoal);font-family:'Jost',sans-serif;font-weight:300;line-height:1.7;font-size:13px}
+body{background:var(--cream);color:var(--charcoal);font-family:'Jost',sans-serif;font-weight:300;line-height:1.7;font-size:17px}
 .hero{background:var(--deep);color:var(--gold-light);padding:64px 56px 52px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 50%,rgba(184,134,11,.12) 0%,transparent 55%)}
-.hero-label{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;position:relative}
+.hero-label{font-size:17px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;position:relative}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:300;line-height:1.1;position:relative;margin-bottom:12px}
 .hero h1 em{font-style:italic;color:var(--gold)}
-.hero-sub{font-size:12px;letter-spacing:2px;color:rgba(232,213,163,.55);text-transform:uppercase;position:relative}
+.hero-sub{font-size:16px;letter-spacing:2px;color:rgba(232,213,163,0.92);text-transform:uppercase;position:relative}
 .hero-meta{position:absolute;top:36px;right:56px;text-align:right}
-.hero-meta p{font-size:10px;letter-spacing:2px;color:rgba(184,134,11,.45);text-transform:uppercase;line-height:1.8}
+.hero-meta p{font-size:17px;letter-spacing:2px;color:rgba(184,134,11,0.80);text-transform:uppercase;line-height:1.8}
 
 /* NAV */
 .toc{background:var(--silk);padding:36px 56px;border-bottom:1px solid rgba(184,134,11,.2)}
-.toc-title{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:20px}
+.toc-title{font-size:17px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:20px}
 .toc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.toc-item{font-size:11px;color:var(--charcoal);padding:6px 10px;border:1px solid rgba(184,134,11,.2);cursor:pointer;transition:background .2s}
+.toc-item{font-size:15px;color:var(--charcoal);padding:6px 10px;border:1px solid rgba(184,134,11,.2);cursor:pointer;transition:background .2s}
 .toc-item:hover{background:rgba(184,134,11,.1)}
-.toc-item span{display:block;font-size:9px;color:var(--gold-dark);letter-spacing:1px;text-transform:uppercase}
+.toc-item span{display:block;font-size:16px;color:var(--gold-dark);letter-spacing:1px;text-transform:uppercase}
 
 /* ANGLE HEADER */
 .angle{border-top:3px solid var(--gold);margin-top:0}
 .angle-header{background:var(--deep);color:var(--gold-light);padding:40px 56px 32px}
-.angle-num{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;line-height:1;color:rgba(184,134,11,.15);position:absolute;right:56px;top:20px}
+.angle-num{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;line-height:1;color:rgba(184,134,11,0.20);position:absolute;right:56px;top:20px}
 .angle-header{position:relative}
-.angle-tag{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.angle-tag{font-size:16px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
 .angle-title{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3.5vw,40px);font-weight:300;margin-bottom:8px}
-.angle-problem{font-size:12px;color:rgba(232,213,163,.65);max-width:640px;line-height:1.7}
+.angle-problem{font-size:16px;color:rgba(232,213,163,0.90);max-width:640px;line-height:1.7}
 
 /* SUBTOPIC */
 .subtopic{padding:0 56px 0}
 .subtopic-header{padding:28px 0 20px;border-bottom:1px solid rgba(184,134,11,.15);margin-bottom:0}
-.subtopic-num{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:6px}
-.subtopic-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--deep)}
-.subtopic-wow{font-size:11px;color:#888;font-style:italic;margin-top:4px}
+.subtopic-num{font-size:16px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:6px}
+.subtopic-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--deep)}
+.subtopic-wow{font-size:15px;color:#222;font-style:italic;margin-top:4px}
 
 /* FORMAT CARDS */
 .formats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(184,134,11,.1);margin:0 0 0 0}
-.format-card{background:white;padding:24px}
+.format-card{background:white;padding:28px}
 .format-card.edu{border-top:3px solid var(--edu)}
 .format-card.prov{border-top:3px solid var(--prov)}
 .format-card.case{border-top:3px solid var(--case)}
-.format-type{font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;font-weight:600}
+.format-type{font-size:16px;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;font-weight:600}
 .format-type.edu{color:var(--edu)}
 .format-type.prov{color:var(--prov)}
 .format-type.case{color:var(--case)}
-.format-card h4{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:400;margin-bottom:12px;line-height:1.3;color:var(--deep)}
-.field-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);margin-top:12px;margin-bottom:4px;display:block}
-.field-val{font-size:12px;line-height:1.65;color:#444}
+.format-card h4{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:12px;line-height:1.3;color:var(--deep)}
+.field-label{font-size:16px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);margin-top:12px;margin-bottom:4px;display:block}
+.field-val{font-size:16px;line-height:1.75;color:#222}
 .field-val strong{color:var(--deep);font-weight:500}
-.hook-box{background:var(--silk);border-left:2px solid var(--gold);padding:8px 12px;margin:4px 0;font-size:12px;color:var(--deep);font-style:italic}
-.step{display:flex;gap:8px;margin-bottom:6px;font-size:12px;color:#444}
-.step-num{flex-shrink:0;width:18px;height:18px;background:var(--deep);color:var(--gold);font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:600;margin-top:1px}
+.hook-box{background:var(--silk);border-left:2px solid var(--gold);padding:10px 16px;margin:4px 0;font-size:16px;color:var(--deep);font-style:italic}
+.step{display:flex;gap:8px;margin-bottom:6px;font-size:16px;color:#222}
+.step-num{flex-shrink:0;width:18px;height:18px;background:var(--deep);color:var(--gold);font-size:16px;display:flex;align-items:center;justify-content:center;font-weight:600;margin-top:1px}
 .platform-block{margin-top:14px;padding-top:12px;border-top:1px solid rgba(0,0,0,.06)}
-.platform-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#aaa;margin-bottom:6px}
+.platform-label{font-size:16px;letter-spacing:2px;text-transform:uppercase;color:#333;margin-bottom:6px}
 .platform-item{margin-bottom:8px}
-.platform-name{font-size:9px;letter-spacing:1px;text-transform:uppercase;font-weight:600;color:var(--gold-dark)}
-.platform-note{font-size:11px;color:#666;line-height:1.5}
-.metric-box{background:rgba(184,134,11,.08);border:1px solid rgba(184,134,11,.2);padding:8px 12px;margin-top:10px;font-size:11px;color:var(--charcoal)}
+.platform-name{font-size:16px;letter-spacing:1px;text-transform:uppercase;font-weight:600;color:var(--gold-dark)}
+.platform-note{font-size:15px;color:#333;line-height:1.7}
+.metric-box{background:rgba(184,134,11,.08);border:1px solid rgba(184,134,11,.2);padding:10px 16px;margin-top:10px;font-size:15px;color:var(--charcoal)}
 .metric-box strong{color:var(--gold-dark)}
-.proof{display:flex;gap:8px;margin-bottom:5px;font-size:12px;color:#444}
+.proof{display:flex;gap:8px;margin-bottom:5px;font-size:16px;color:#222}
 .proof::before{content:'✓';color:var(--forest);flex-shrink:0;font-weight:600}
-.q-box{background:#FFF8EE;border-left:2px solid var(--gold);padding:8px 12px;font-size:12px;font-style:italic;color:var(--deep);margin-top:8px}
-.controversial{background:var(--deep);color:var(--gold-light);padding:8px 12px;font-size:11px;margin-top:8px;line-height:1.5}
+.q-box{background:#FFF8EE;border-left:2px solid var(--gold);padding:10px 16px;font-size:16px;font-style:italic;color:var(--deep);margin-top:8px}
+.controversial{background:var(--deep);color:var(--gold-light);padding:10px 16px;font-size:15px;margin-top:8px;line-height:1.7}
 .divider{height:1px;background:rgba(184,134,11,.15);margin:0 56px}
 
 /* CALENDAR */
 .calendar-section{padding:56px}
 .cal-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--deep);margin-bottom:8px}
-.cal-sub{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:32px}
+.cal-sub{font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:32px}
 .cal-legend{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:24px}
-.leg{display:flex;align-items:center;gap:8px;font-size:11px;color:#666}
+.leg{display:flex;align-items:center;gap:8px;font-size:15px;color:#333}
 .leg-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.week-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark);padding:16px 0 10px;border-bottom:1px solid rgba(184,134,11,.15);margin-bottom:2px}
+.week-label{font-size:17px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark);padding:16px 0 10px;border-bottom:1px solid rgba(184,134,11,.15);margin-bottom:2px}
 .cal-row{display:grid;grid-template-columns:70px 90px 80px 1fr 100px 1fr;gap:0;border-bottom:1px solid rgba(0,0,0,.05);padding:10px 0;align-items:start}
 .cal-row.header{background:rgba(184,134,11,.06);border-bottom:2px solid rgba(184,134,11,.2)}
-.cal-row.header .ch{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600}
-.ch{padding:4px 10px;font-size:12px;color:#444;line-height:1.5}
-.ch.date{font-weight:500;color:var(--deep);font-family:'Cormorant Garamond',serif;font-size:15px}
-.ch.anchor{font-size:10px;color:var(--gold-dark);font-style:italic}
-.format-pill{display:inline-block;padding:2px 7px;font-size:9px;letter-spacing:1px;border-radius:2px;text-transform:uppercase;font-weight:600}
+.cal-row.header .ch{font-size:16px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600}
+.ch{padding:4px 10px;font-size:16px;color:#222;line-height:1.7}
+.ch.date{font-weight:500;color:var(--deep);font-family:'Cormorant Garamond',serif;font-size:18px}
+.ch.anchor{font-size:17px;color:var(--gold-dark);font-style:italic}
+.format-pill{display:inline-block;padding:2px 7px;font-size:16px;letter-spacing:1px;border-radius:2px;text-transform:uppercase;font-weight:600}
 .fp-reel{background:rgba(184,134,11,.15);color:var(--gold-dark)}
 .fp-story{background:rgba(140,26,82,.1);color:var(--burgundy)}
 .fp-post{background:rgba(27,74,107,.1);color:var(--forest)}
-.goal-pill{font-size:10px;color:#888;font-style:italic}
+.goal-pill{font-size:17px;color:#222;font-style:italic}
 .highlight-row{background:rgba(184,134,11,.06)}
 
 footer{background:var(--deep);padding:32px 56px;display:flex;justify-content:space-between;align-items:center;margin-top:0}
 .footer-brand{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);letter-spacing:2px}
-.footer-note{font-size:10px;color:rgba(232,213,163,.4);letter-spacing:1px}
+.footer-note{font-size:17px;color:rgba(232,213,163,.4);letter-spacing:1px}
 </style>
 
 <style id="lock-style">
@@ -1570,12 +1570,12 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 
 <!-- Calendar grid headers -->
 <div style="display:grid;grid-template-columns:70px 90px 80px 1fr 100px 1fr;gap:0;background:rgba(184,134,11,.08);border:1px solid rgba(184,134,11,.2);border-bottom:2px solid rgba(184,134,11,.3);margin-bottom:2px">
-  <div style="padding:8px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600">Date</div>
-  <div style="padding:8px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600">Anchor</div>
-  <div style="padding:8px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600">Format</div>
-  <div style="padding:8px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600">Topic / Hook</div>
-  <div style="padding:8px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600">Goal</div>
-  <div style="padding:8px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600">Distribution Notes</div>
+  <div style="padding:8px 10px;font-size:17px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600">Date</div>
+  <div style="padding:8px 10px;font-size:17px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600">Anchor</div>
+  <div style="padding:8px 10px;font-size:17px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600">Format</div>
+  <div style="padding:8px 10px;font-size:17px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600">Topic / Hook</div>
+  <div style="padding:8px 10px;font-size:17px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600">Goal</div>
+  <div style="padding:8px 10px;font-size:17px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);font-weight:600">Distribution Notes</div>
 </div>
 
 <div class="week-label">— Week 1: Authority & Craft (Apr 1–7)</div>
@@ -1584,21 +1584,21 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 .cal-row{display:grid;grid-template-columns:70px 90px 80px 1fr 100px 1fr;border-bottom:1px solid rgba(0,0,0,.05);background:white}
 .cal-row.alt{background:#FDFAF5}
 .cal-row.anchor-day{background:rgba(184,134,11,.06)}
-.ch{padding:9px 10px;font-size:12px;color:#444;line-height:1.5;vertical-align:top}
+.ch{padding:9px 10px;font-size:16px;color:#444;line-height:1.5;vertical-align:top}
 .ch.date-col{font-weight:600;color:var(--deep);font-family:'Cormorant Garamond',serif;font-size:16px;padding-top:11px}
-.ch.anchor-col{font-size:10px;color:var(--gold-dark);font-style:italic;padding-top:11px}
-.fp-reel{background:rgba(184,134,11,.15);color:var(--gold-dark);display:inline-block;padding:2px 8px;font-size:9px;letter-spacing:1px;border-radius:2px;text-transform:uppercase;font-weight:600}
-.fp-story{background:rgba(140,26,82,.1);color:var(--burgundy);display:inline-block;padding:2px 8px;font-size:9px;letter-spacing:1px;border-radius:2px;text-transform:uppercase;font-weight:600}
-.fp-post{background:rgba(27,74,107,.1);color:var(--forest);display:inline-block;padding:2px 8px;font-size:9px;letter-spacing:1px;border-radius:2px;text-transform:uppercase;font-weight:600}
-.fp-case{background:#EEE;color:#555;display:inline-block;padding:2px 8px;font-size:9px;letter-spacing:1px;border-radius:2px;text-transform:uppercase;font-weight:600}
-.fp-prov{background:rgba(26,26,74,.1);color:var(--case);display:inline-block;padding:2px 8px;font-size:9px;letter-spacing:1px;border-radius:2px;text-transform:uppercase;font-weight:600}
-.goal-tag{font-size:10px;color:#888;font-style:italic}
-.note{font-size:11px;color:#777;line-height:1.5}
-.angle-ref{font-size:9px;color:var(--gold-dark);letter-spacing:1px;text-transform:uppercase}
+.ch.anchor-col{font-size:14px;color:var(--gold-dark);font-style:italic;padding-top:11px}
+.fp-reel{background:rgba(184,134,11,.15);color:var(--gold-dark);display:inline-block;padding:2px 8px;font-size:17px;letter-spacing:1px;border-radius:2px;text-transform:uppercase;font-weight:600}
+.fp-story{background:rgba(140,26,82,.1);color:var(--burgundy);display:inline-block;padding:2px 8px;font-size:17px;letter-spacing:1px;border-radius:2px;text-transform:uppercase;font-weight:600}
+.fp-post{background:rgba(27,74,107,.1);color:var(--forest);display:inline-block;padding:2px 8px;font-size:17px;letter-spacing:1px;border-radius:2px;text-transform:uppercase;font-weight:600}
+.fp-case{background:#EEE;color:#555;display:inline-block;padding:2px 8px;font-size:17px;letter-spacing:1px;border-radius:2px;text-transform:uppercase;font-weight:600}
+.fp-prov{background:rgba(26,26,74,.1);color:var(--case);display:inline-block;padding:2px 8px;font-size:17px;letter-spacing:1px;border-radius:2px;text-transform:uppercase;font-weight:600}
+.goal-tag{font-size:14px;color:#444;font-style:italic}
+.note{font-size:15px;color:#777;line-height:1.5}
+.angle-ref{font-size:17px;color:var(--gold-dark);letter-spacing:1px;text-transform:uppercase}
 </style>
 
 <div class="cal-row">
-  <div class="ch date-col">Apr 1<br><span style="font-size:10px;color:#aaa">Wed</span></div>
+  <div class="ch date-col">Apr 1<br><span style="font-size:14px;color:#555">Wed</span></div>
   <div class="ch anchor-col">Month Launch</div>
   <div class="ch"><span class="fp-reel">SEO Reel</span></div>
   <div class="ch"><strong>A2.1 — "Real Kanchi Silk vs Imitation: The Burn Test"</strong><br><span class="angle-ref">Angle 2, Sub 1, Educational</span><br>Hook: "Pull a thread from your silk bag. What happens next tells you everything." KW: Kanchi silk bridal clutch + silk clutch bag handcrafted</div>
@@ -1607,7 +1607,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row alt">
-  <div class="ch date-col">Apr 2<br><span style="font-size:10px;color:#aaa">Thu</span></div>
+  <div class="ch date-col">Apr 2<br><span style="font-size:14px;color:#555">Thu</span></div>
   <div class="ch anchor-col">—</div>
   <div class="ch"><span class="fp-story">Story</span></div>
   <div class="ch"><strong>Behind the Silk: Fabric arrival day</strong><br>"Choosing today's silk for an April bride." Show raw silk rolls. Poll: Which colour — Gold or Peacock Blue?</div>
@@ -1616,7 +1616,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row">
-  <div class="ch date-col">Apr 3<br><span style="font-size:10px;color:#aaa">Fri</span></div>
+  <div class="ch date-col">Apr 3<br><span style="font-size:14px;color:#555">Fri</span></div>
   <div class="ch anchor-col">—</div>
   <div class="ch"><span class="fp-post">Carousel</span></div>
   <div class="ch"><strong>A2.2 — "The Silk Language Glossary: Art Silk = Rayon. Silk-Touch = Polyester."</strong><br><span class="angle-ref">Angle 2, Sub 2, Educational</span><br>Flashcard-style carousel. High save intent.</div>
@@ -1625,7 +1625,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row alt">
-  <div class="ch date-col">Apr 4<br><span style="font-size:10px;color:#aaa">Sat</span></div>
+  <div class="ch date-col">Apr 4<br><span style="font-size:14px;color:#555">Sat</span></div>
   <div class="ch anchor-col">—</div>
   <div class="ch"><span class="fp-story">Story</span></div>
   <div class="ch"><strong>Q&A Story: "Ask me anything about silk quality"</strong><br>Open question box. Collect questions. Answer top 3 as Stories next week.</div>
@@ -1634,7 +1634,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row">
-  <div class="ch date-col">Apr 5<br><span style="font-size:10px;color:#aaa">Sun</span></div>
+  <div class="ch date-col">Apr 5<br><span style="font-size:14px;color:#555">Sun</span></div>
   <div class="ch anchor-col">—</div>
   <div class="ch"><span class="fp-prov">Provocative</span></div>
   <div class="ch"><strong>A1.1P — "You spent 3 months choosing your saree. 3 minutes choosing your bag."</strong><br><span class="angle-ref">Angle 1, Sub 1, Provocative</span><br>The outfit tax opening shot.</div>
@@ -1643,7 +1643,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row alt">
-  <div class="ch date-col">Apr 6<br><span style="font-size:10px;color:#aaa">Mon</span></div>
+  <div class="ch date-col">Apr 6<br><span style="font-size:14px;color:#555">Mon</span></div>
   <div class="ch anchor-col">—</div>
   <div class="ch"><span class="fp-story">Story</span></div>
   <div class="ch"><strong>Q&A answers from Apr 4 questions</strong><br>Answer 3 silk quality questions from DMs. Text-based story, raw and personal.</div>
@@ -1652,7 +1652,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row">
-  <div class="ch date-col">Apr 7<br><span style="font-size:10px;color:#aaa">Tue</span></div>
+  <div class="ch date-col">Apr 7<br><span style="font-size:14px;color:#555">Tue</span></div>
   <div class="ch anchor-col">—</div>
   <div class="ch"><span class="fp-case">Case Study</span></div>
   <div class="ch"><strong>A2.3C — "A photographer stopped a wedding shoot to ask about this clutch"</strong><br><span class="angle-ref">Angle 2, Sub 3, Case Study</span><br>Silk sheen in photography case study.</div>
@@ -1663,7 +1663,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 <div class="week-label">— Week 2: Tamil New Year Push (Apr 8–14)</div>
 
 <div class="cal-row alt">
-  <div class="ch date-col">Apr 8<br><span style="font-size:10px;color:#aaa">Wed</span></div>
+  <div class="ch date-col">Apr 8<br><span style="font-size:14px;color:#555">Wed</span></div>
   <div class="ch anchor-col">Countdown: 6 days to Tamil New Year</div>
   <div class="ch"><span class="fp-reel">SEO Reel</span></div>
   <div class="ch"><strong>A3.2 — "Tamil New Year is April 14. Is your clutch ready?"</strong><br><span class="angle-ref">Angle 3, Sub 2, Educational Reel</span><br>Festival silk clutches: mango yellow, lotus pink, peacock blue. KW: Indian bridal accessories USA + Kanchi silk bridal clutch</div>
@@ -1672,7 +1672,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row">
-  <div class="ch date-col">Apr 9<br><span style="font-size:10px;color:#aaa">Thu</span></div>
+  <div class="ch date-col">Apr 9<br><span style="font-size:14px;color:#555">Thu</span></div>
   <div class="ch anchor-col">5 days to Tamil New Year</div>
   <div class="ch"><span class="fp-story">Story</span></div>
   <div class="ch"><strong>A4.1 — "Which part of your saree should your bag match?" Poll</strong><br>Body / Border / Blouse / Pallu. Reveal the answer. Link to reel in bio.</div>
@@ -1681,7 +1681,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row alt">
-  <div class="ch date-col">Apr 10<br><span style="font-size:10px;color:#aaa">Fri</span></div>
+  <div class="ch date-col">Apr 10<br><span style="font-size:14px;color:#555">Fri</span></div>
   <div class="ch anchor-col">4 days to Tamil New Year</div>
   <div class="ch"><span class="fp-case">Case Study</span></div>
   <div class="ch"><strong>A3.2C — "She DMed us 11 days before Tamil New Year. Clutch arrived 3 days before."</strong><br>Urgency + process proof. KW: Indian bridal accessories USA</div>
@@ -1690,7 +1690,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row">
-  <div class="ch date-col">Apr 11<br><span style="font-size:10px;color:#aaa">Sat</span></div>
+  <div class="ch date-col">Apr 11<br><span style="font-size:14px;color:#555">Sat</span></div>
   <div class="ch anchor-col">3 days to Tamil New Year</div>
   <div class="ch"><span class="fp-story">Story</span></div>
   <div class="ch"><strong>Packing story: "Shipping a custom clutch to a bride in Atlanta for Tamil New Year"</strong><br>Show the box, the clutch, the address label. Raw footage. Location tag: Atlanta + Kanchipuram</div>
@@ -1699,7 +1699,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row alt">
-  <div class="ch date-col">Apr 12<br><span style="font-size:10px;color:#aaa">Sun</span></div>
+  <div class="ch date-col">Apr 12<br><span style="font-size:14px;color:#555">Sun</span></div>
   <div class="ch anchor-col">2 days to Tamil New Year</div>
   <div class="ch"><span class="fp-post">Carousel</span></div>
   <div class="ch"><strong>A4.2 — "The 3-Colour Rule: How to style any saree in 60 seconds"</strong><br><span class="angle-ref">Angle 4, Sub 2, Educational</span><br>Colour-map a Kanjivaram. Visual, saveable, shareable.</div>
@@ -1708,7 +1708,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row anchor-day">
-  <div class="ch date-col">Apr 14<br><span style="font-size:10px;color:#aaa">Tue</span></div>
+  <div class="ch date-col">Apr 14<br><span style="font-size:14px;color:#555">Tue</span></div>
   <div class="ch anchor-col" style="color:var(--gold-dark);font-weight:600">Tamil New Year / Puthandu</div>
   <div class="ch"><span class="fp-story">Story</span></div>
   <div class="ch"><strong>Tamil New Year celebration story: "Iniya Tamil Puthandu Vazhthugal"</strong><br>Cultural greeting in Tamil. Show a festive clutch. No hard sell. Pure belonging content.</div>
@@ -1719,7 +1719,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 <div class="week-label">— Week 3: Bridal & Gifting Push (Apr 15–21)</div>
 
 <div class="cal-row">
-  <div class="ch date-col">Apr 15<br><span style="font-size:10px;color:#aaa">Wed</span></div>
+  <div class="ch date-col">Apr 15<br><span style="font-size:14px;color:#555">Wed</span></div>
   <div class="ch anchor-col">Wedding season building</div>
   <div class="ch"><span class="fp-reel">SEO Reel</span></div>
   <div class="ch"><strong>A3.3 — "6 bridesmaids. 6 silk sarees. 6 different bags. This is fixable."</strong><br><span class="angle-ref">Angle 3, Sub 3, Educational Reel</span><br>Bridesmaid clutch set flat lay. KW: bridesmaids gift ideas Indian wedding + wedding return gifts India</div>
@@ -1728,7 +1728,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row alt">
-  <div class="ch date-col">Apr 16<br><span style="font-size:10px;color:#aaa">Thu</span></div>
+  <div class="ch date-col">Apr 16<br><span style="font-size:14px;color:#555">Thu</span></div>
   <div class="ch anchor-col">—</div>
   <div class="ch"><span class="fp-story">Story</span></div>
   <div class="ch"><strong>Process story: "Custom order in progress for a May wedding"</strong><br>Hands stitching. Close-up. "Day 8 of 18." Creates anticipation and documents craft.</div>
@@ -1737,7 +1737,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row">
-  <div class="ch date-col">Apr 17<br><span style="font-size:10px;color:#aaa">Fri</span></div>
+  <div class="ch date-col">Apr 17<br><span style="font-size:14px;color:#555">Fri</span></div>
   <div class="ch anchor-col">—</div>
   <div class="ch"><span class="fp-prov">Provocative</span></div>
   <div class="ch"><strong>A3.3P — "Matching sarees. Matching jewellery. Completely different bags. Who approved this?"</strong><br><span class="angle-ref">Angle 3, Sub 3, Provocative</span></div>
@@ -1746,7 +1746,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row alt">
-  <div class="ch date-col">Apr 18<br><span style="font-size:10px;color:#aaa">Sat</span></div>
+  <div class="ch date-col">Apr 18<br><span style="font-size:14px;color:#555">Sat</span></div>
   <div class="ch anchor-col">—</div>
   <div class="ch"><span class="fp-story">Story</span></div>
   <div class="ch"><strong>Bride poll: "How many bridesmaids in your wedding?" + "Did they have matching bags?"</strong><br>Two polls in sequence. Data collection + engagement.</div>
@@ -1755,7 +1755,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row">
-  <div class="ch date-col">Apr 19<br><span style="font-size:10px;color:#aaa">Sun</span></div>
+  <div class="ch date-col">Apr 19<br><span style="font-size:14px;color:#555">Sun</span></div>
   <div class="ch anchor-col">—</div>
   <div class="ch"><span class="fp-case">Case Study</span></div>
   <div class="ch"><strong>A3.3C — "She ordered 7 matching clutches for her bridesmaids. The photographer used one for his portfolio cover."</strong><br><span class="angle-ref">Angle 3, Sub 3, Case Study</span></div>
@@ -1764,7 +1764,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row alt">
-  <div class="ch date-col">Apr 21<br><span style="font-size:10px;color:#aaa">Tue</span></div>
+  <div class="ch date-col">Apr 21<br><span style="font-size:14px;color:#555">Tue</span></div>
   <div class="ch anchor-col">—</div>
   <div class="ch"><span class="fp-post">Carousel</span></div>
   <div class="ch"><strong>A6.2 — "5 Questions to Ask Before Ordering Any Custom Silk Accessory"</strong><br><span class="angle-ref">Angle 6, Sub 2, Educational</span><br>Flashcard carousel. Pure consumer protection content. Saves magnet.</div>
@@ -1775,7 +1775,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 <div class="week-label">— Week 4: Heirloom, Occasion Economy & Conversion (Apr 22–30)</div>
 
 <div class="cal-row">
-  <div class="ch date-col">Apr 22<br><span style="font-size:10px;color:#aaa">Wed</span></div>
+  <div class="ch date-col">Apr 22<br><span style="font-size:14px;color:#555">Wed</span></div>
   <div class="ch anchor-col">Wedding season peak</div>
   <div class="ch"><span class="fp-reel">SEO Reel</span></div>
   <div class="ch"><strong>A5.1 — "Diwali → Banarasi. Navratri → Patola. Weddings → Kanchi. The silk occasion map."</strong><br><span class="angle-ref">Angle 5, Sub 1, Educational Reel</span><br>Multi-silk expansion reel. KW: silk clutch bag handcrafted + Indian bridal accessories USA</div>
@@ -1784,7 +1784,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row alt">
-  <div class="ch date-col">Apr 23<br><span style="font-size:10px;color:#aaa">Thu</span></div>
+  <div class="ch date-col">Apr 23<br><span style="font-size:14px;color:#555">Thu</span></div>
   <div class="ch anchor-col">—</div>
   <div class="ch"><span class="fp-story">Story</span></div>
   <div class="ch"><strong>A5.3 — Event calendar audit story: "10 minutes now saves 6 stressful shopping sessions"</strong><br>Step-by-step story instruction. 5 slides. CTA: "DM AUDIT."</div>
@@ -1793,7 +1793,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row">
-  <div class="ch date-col">Apr 24<br><span style="font-size:10px;color:#aaa">Fri</span></div>
+  <div class="ch date-col">Apr 24<br><span style="font-size:14px;color:#555">Fri</span></div>
   <div class="ch anchor-col">—</div>
   <div class="ch"><span class="fp-prov">Provocative</span></div>
   <div class="ch"><strong>A7.1P — "Your grandmother's silk is still intact. The silk you bought 8 years ago probably isn't."</strong><br><span class="angle-ref">Angle 7, Sub 1, Provocative</span></div>
@@ -1802,7 +1802,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row alt">
-  <div class="ch date-col">Apr 25<br><span style="font-size:10px;color:#aaa">Sat</span></div>
+  <div class="ch date-col">Apr 25<br><span style="font-size:14px;color:#555">Sat</span></div>
   <div class="ch anchor-col">—</div>
   <div class="ch"><span class="fp-story">Story</span></div>
   <div class="ch"><strong>"Do you own a silk piece from your grandmother?" Open question box</strong><br>Collect answers all weekend. Feature the best stories as Story posts next week.</div>
@@ -1811,7 +1811,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row">
-  <div class="ch date-col">Apr 26<br><span style="font-size:10px;color:#aaa">Sun</span></div>
+  <div class="ch date-col">Apr 26<br><span style="font-size:14px;color:#555">Sun</span></div>
   <div class="ch anchor-col">—</div>
   <div class="ch"><span class="fp-case">Case Study</span></div>
   <div class="ch"><strong>A7.1C — "Her mother gave her a Kanchi silk clutch in 1987. She carried it to her daughter's wedding in 2024."</strong><br><span class="angle-ref">Angle 7, Sub 1, Case Study</span><br>The most powerful post in the library.</div>
@@ -1820,7 +1820,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row alt">
-  <div class="ch date-col">Apr 28<br><span style="font-size:10px;color:#aaa">Tue</span></div>
+  <div class="ch date-col">Apr 28<br><span style="font-size:14px;color:#555">Tue</span></div>
   <div class="ch anchor-col">—</div>
   <div class="ch"><span class="fp-post">Carousel</span></div>
   <div class="ch"><strong>A7.3 — "4 Physical Tests That Tell You If Your Silk Will Last 10 Years or 100"</strong><br><span class="angle-ref">Angle 7, Sub 3, Educational</span><br>Ring test, scrunch test, weight test, burn test. The ultimate consumer protection post.</div>
@@ -1829,7 +1829,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row">
-  <div class="ch date-col">Apr 29<br><span style="font-size:10px;color:#aaa">Wed</span></div>
+  <div class="ch date-col">Apr 29<br><span style="font-size:14px;color:#555">Wed</span></div>
   <div class="ch anchor-col">Month close</div>
   <div class="ch"><span class="fp-story">Story</span></div>
   <div class="ch"><strong>Month wrap: "This month we shipped to brides and event guests across [X cities]"</strong><br>City map or text list. Real shipping proof. Social proof at scale.</div>
@@ -1838,7 +1838,7 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 </div>
 
 <div class="cal-row alt">
-  <div class="ch date-col">Apr 30<br><span style="font-size:10px;color:#aaa">Thu</span></div>
+  <div class="ch date-col">Apr 30<br><span style="font-size:14px;color:#555">Thu</span></div>
   <div class="ch anchor-col">May preview</div>
   <div class="ch"><span class="fp-story">Story</span></div>
   <div class="ch"><strong>May conversion CTA: "May wedding season is here. Custom orders need 3–4 weeks. DM us this week."</strong><br>Countdown sticker. WhatsApp link sticker. Urgency without pressure.</div>
@@ -1848,26 +1848,26 @@ if (sessionStorage.getItem('kc_auth') === '1') {
 
 <!-- CALENDAR SUMMARY -->
 <div style="background:var(--deep);color:var(--gold-light);padding:32px;margin-top:24px">
-  <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px">April 2026 — Month Summary</div>
+  <div style="font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px">April 2026 — Month Summary</div>
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
     <div>
       <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold);line-height:1">3</div>
-      <div style="font-size:11px;color:rgba(232,213,163,.6);margin-top:4px">Premium SEO Reels<br>Apr 1, 8, 15, 22</div>
+      <div style="font-size:15px;color:rgba(232,213,163,.6);margin-top:4px">Premium SEO Reels<br>Apr 1, 8, 15, 22</div>
     </div>
     <div>
       <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold);line-height:1">8</div>
-      <div style="font-size:11px;color:rgba(232,213,163,.6);margin-top:4px">Story posts<br>Daily touch: raw, behind the scenes</div>
+      <div style="font-size:15px;color:rgba(232,213,163,.6);margin-top:4px">Story posts<br>Daily touch: raw, behind the scenes</div>
     </div>
     <div>
       <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold);line-height:1">5</div>
-      <div style="font-size:11px;color:rgba(232,213,163,.6);margin-top:4px">Educational carousels<br>High-save reference content</div>
+      <div style="font-size:15px;color:rgba(232,213,163,.6);margin-top:4px">Educational carousels<br>High-save reference content</div>
     </div>
     <div>
       <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold);line-height:1">5</div>
-      <div style="font-size:11px;color:rgba(232,213,163,.6);margin-top:4px">Provocative + Case Study posts<br>Comments & conversion</div>
+      <div style="font-size:15px;color:rgba(232,213,163,.6);margin-top:4px">Provocative + Case Study posts<br>Comments & conversion</div>
     </div>
   </div>
-  <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(184,134,11,.2);font-size:12px;color:rgba(232,213,163,.65);line-height:1.7">
+  <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(184,134,11,.2);font-size:16px;color:rgba(232,213,163,.65);line-height:1.7">
     <strong style="color:var(--gold)">DM Keywords to track:</strong> PUTHANDU · PARTY · CALENDAR · AUDIT · TRUST · TESTME · ONEBAG · PHOTOS · GIFT · BRIDAL · NAVRATRI<br>
     <strong style="color:var(--gold)">Top saves targets:</strong> Apr 3 (Glossary), Apr 12 (3-Colour Rule), Apr 21 (5 Questions), Apr 28 (4 Tests)<br>
     <strong style="color:var(--gold)">Highest conversion posts:</strong> Apr 8 (Tamil New Year Reel), Apr 15 (Bridesmaids Reel), Apr 19 (7 Clutches Case Study), Apr 26 (1987 Heirloom)
