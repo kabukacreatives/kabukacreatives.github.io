@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planet U Fitness — Content Strategy | Kabuka Creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --black: #0f0f0f;
+    --off-white: #f7f6f3;
+    --warm-white: #faf9f6;
+    --accent: #e94560;
+    --accent-dark: #c93048;
+    --mid: #6b6b6b;
+    --border: #e2e0da;
+    --border-dark: #2a2a2a;
+    --navy: #1a1a2e;
+    --card-bg: #f2f1ee;
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--black);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 40px;
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+  }
+  .nav-logo {
+    font-family: var(--serif); font-size: 22px; font-weight: 400;
+    color: var(--black); text-decoration: none; letter-spacing: -0.3px;
+  }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a {
+    font-size: 13px; font-weight: 500; color: var(--mid);
+    text-decoration: none; letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--black); }
+  .nav-badge {
+    font-size: 11px; font-weight: 600; color: var(--accent);
+    background: rgba(233,69,96,0.08); padding: 4px 10px;
+    border-radius: 20px; letter-spacing: 0.5px;
+  }
+
+  /* ── PASSWORD GATE ── */
+  #gate {
+    position: fixed; inset: 0; z-index: 200;
+    background: var(--black);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 32px;
+  }
+  #gate .gate-inner {
+    text-align: center; max-width: 380px; width: 90%;
+  }
+  #gate .gate-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 2px;
+    color: rgba(255,255,255,0.4); text-transform: uppercase; margin-bottom: 16px;
+  }
+  #gate h2 {
+    font-family: var(--serif); font-size: 28px; color: #fff;
+    font-weight: 400; margin-bottom: 8px; line-height: 1.3;
+  }
+  #gate p { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 32px; }
+  #gate input {
+    width: 100%; padding: 14px 20px; font-size: 15px;
+    font-family: var(--sans); background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15); border-radius: 8px;
+    color: #fff; outline: none; text-align: center; letter-spacing: 2px;
+    margin-bottom: 12px; transition: border-color 0.2s;
+  }
+  #gate input:focus { border-color: var(--accent); }
+  #gate input::placeholder { letter-spacing: 0.5px; color: rgba(255,255,255,0.3); }
+  #gate button {
+    width: 100%; padding: 14px; font-size: 14px; font-weight: 600;
+    font-family: var(--sans); background: var(--accent); color: #fff;
+    border: none; border-radius: 8px; cursor: pointer;
+    transition: background 0.2s;
+  }
+  #gate button:hover { background: var(--accent-dark); }
+  #gate .gate-error {
+    font-size: 13px; color: var(--accent); margin-top: 8px;
+    display: none;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--black); color: #fff;
+    padding: 80px 40px 70px;
+    border-bottom: 1px solid var(--border-dark);
+  }
+  .hero-meta {
+    font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
+    color: rgba(255,255,255,0.35); text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .hero-sub {
+    font-size: 13px; color: rgba(255,255,255,0.45);
+    font-weight: 400; margin-bottom: 32px; letter-spacing: 0.3px;
+  }
+  .hero h1 {
+    font-family: var(--serif); font-size: clamp(36px, 5vw, 58px);
+    font-weight: 400; line-height: 1.1; max-width: 760px;
+    margin-bottom: 20px;
+  }
+  .hero h1 em { color: var(--accent); font-style: italic; }
+  .hero-desc {
+    font-size: 15px; color: rgba(255,255,255,0.55);
+    max-width: 580px; line-height: 1.7; margin-bottom: 56px;
+  }
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0; border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 40px; max-width: 680px;
+  }
+  .stat { padding: 0 32px 0 0; }
+  .stat:first-child { padding-left: 0; }
+  .stat-num {
+    font-family: var(--serif); font-size: 42px; color: #fff;
+    line-height: 1; margin-bottom: 6px;
+  }
+  .stat-num span { color: var(--accent); }
+  .stat-label { font-size: 12px; color: rgba(255,255,255,0.4); font-weight: 400; line-height: 1.4; }
+
+  /* ── CONTENT WRAPPER ── */
+  .content-wrap { max-width: 900px; margin: 0 auto; }
+
+  /* ── SECTIONS ── */
+  section { padding: 80px 40px; border-bottom: 1px solid var(--border); }
+  section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
+    color: var(--accent); text-transform: uppercase; margin-bottom: 20px;
+  }
+  .section-title {
+    font-family: var(--serif); font-size: clamp(26px, 3.5vw, 38px);
+    font-weight: 400; line-height: 1.2; margin-bottom: 16px;
+  }
+  .section-title em { color: var(--accent); font-style: italic; }
+  .section-desc {
+    font-size: 15px; color: var(--mid); max-width: 600px; line-height: 1.75;
+    margin-bottom: 48px;
+  }
+
+  /* ── ICP TABLE ── */
+  .icp-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  .icp-table th {
+    background: var(--black); color: #fff;
+    font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 14px 20px; text-align: left;
+  }
+  .icp-table td {
+    padding: 16px 20px; font-size: 14px; line-height: 1.6;
+    border-bottom: 1px solid var(--border); vertical-align: top;
+  }
+  .icp-table td:first-child { font-weight: 600; color: var(--black); white-space: nowrap; }
+  .icp-table tr:last-child td { border-bottom: none; }
+  .icp-table tr:nth-child(even) td { background: var(--card-bg); }
+
+  /* ── ANGLES GRID ── */
+  .angles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 64px; }
+  .angle-card {
+    background: var(--card-bg); padding: 28px 28px 24px;
+    border: 1px solid var(--border);
+  }
+  .angle-card:hover { background: var(--border); }
+  .angle-num {
+    font-size: 11px; font-weight: 600; letter-spacing: 2px;
+    color: var(--accent); margin-bottom: 10px;
+  }
+  .angle-title { font-size: 15px; font-weight: 600; line-height: 1.4; margin-bottom: 8px; }
+  .angle-hook { font-size: 13px; color: var(--mid); font-style: italic; line-height: 1.5; }
+
+  /* ── ANGLE DEEP DIVES ── */
+  .angle-section { margin-bottom: 80px; }
+  .angle-header {
+    background: var(--navy); color: #fff;
+    padding: 36px 40px; margin: 0 -40px 0;
+  }
+  .angle-header .num {
+    font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
+    color: rgba(255,255,255,0.4); text-transform: uppercase; margin-bottom: 10px;
+  }
+  .angle-header h2 {
+    font-family: var(--serif); font-size: 28px; font-weight: 400; color: #fff;
+  }
+  .angle-header h2 em { color: var(--accent); }
+
+  .subtopic { margin-bottom: 56px; padding-bottom: 56px; border-bottom: 1px solid var(--border); }
+  .subtopic:last-child { border-bottom: none; }
+  .subtopic-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 2px;
+    color: var(--mid); text-transform: uppercase; margin-bottom: 10px;
+  }
+  .subtopic-title {
+    font-family: var(--serif); font-size: 22px; font-weight: 400;
+    line-height: 1.3; margin-bottom: 32px; color: var(--black);
+  }
+
+  /* ── FORMAT BLOCKS ── */
+  .format-block {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 2px; padding: 32px; margin-bottom: 16px;
+  }
+  .format-tag {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px;
+    border-radius: 20px; margin-bottom: 20px;
+  }
+  .tag-edu { background: rgba(26,26,46,0.08); color: var(--navy); }
+  .tag-prov { background: rgba(233,69,96,0.1); color: var(--accent); }
+  .tag-case { background: rgba(0,0,0,0.06); color: #555; }
+
+  .format-row { margin-bottom: 20px; }
+  .format-row-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--mid); margin-bottom: 6px;
+  }
+  .format-row-content { font-size: 14px; line-height: 1.7; color: var(--black); }
+  .format-hook {
+    font-size: 15px; font-style: italic; font-weight: 500;
+    color: var(--black); line-height: 1.5; padding-left: 16px;
+    border-left: 3px solid var(--accent);
+  }
+
+  .steps-list { list-style: none; counter-reset: steps; }
+  .steps-list li {
+    counter-increment: steps; font-size: 14px; line-height: 1.7;
+    padding: 10px 0 10px 44px; border-top: 1px solid var(--border);
+    position: relative; color: var(--black);
+  }
+  .steps-list li:first-child { border-top: none; }
+  .steps-list li::before {
+    content: counter(steps);
+    position: absolute; left: 0; top: 10px;
+    font-size: 11px; font-weight: 700; color: var(--accent);
+    background: rgba(233,69,96,0.1); width: 24px; height: 24px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+  }
+
+  .proofs-list { list-style: none; }
+  .proofs-list li {
+    font-size: 14px; line-height: 1.7; padding: 10px 0 10px 28px;
+    border-top: 1px solid var(--border); position: relative;
+  }
+  .proofs-list li:first-child { border-top: none; }
+  .proofs-list li::before {
+    content: '✦'; position: absolute; left: 0; top: 12px;
+    font-size: 10px; color: var(--accent);
+  }
+
+  .closing-q {
+    font-size: 14px; font-style: italic; font-weight: 500;
+    color: var(--black); background: rgba(233,69,96,0.06);
+    padding: 16px 20px; border-radius: 2px; line-height: 1.6;
+  }
+
+  /* ── PLATFORM TABLE ── */
+  .platform-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 13px; }
+  .platform-table th {
+    background: var(--black); color: rgba(255,255,255,0.6);
+    font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 10px 14px; text-align: left;
+  }
+  .platform-table td {
+    padding: 11px 14px; border-bottom: 1px solid var(--border);
+    vertical-align: top; line-height: 1.5; color: var(--black);
+  }
+  .platform-table td:first-child { font-weight: 600; white-space: nowrap; }
+  .platform-table tr:last-child td { border-bottom: none; }
+  .platform-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+
+  /* ── CASE STUDY GRID ── */
+  .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .case-cell { padding: 20px; background: #fff; border: 1px solid var(--border); }
+  .case-cell-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+  }
+  .case-cell-val { font-size: 14px; line-height: 1.65; }
+  .case-takeaway {
+    background: var(--navy); color: #fff; padding: 20px 24px;
+    font-size: 15px; font-style: italic; font-weight: 400;
+    font-family: var(--serif); line-height: 1.5; border-radius: 2px;
+  }
+
+  /* ── CALENDAR ── */
+  .calendar-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .calendar-table thead th {
+    background: var(--black); color: rgba(255,255,255,0.6);
+    font-size: 10px; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 12px 16px; text-align: left;
+  }
+  .calendar-table tbody td {
+    padding: 12px 16px; border-bottom: 1px solid var(--border);
+    vertical-align: top; line-height: 1.5;
+  }
+  .calendar-table tbody tr:last-child td { border-bottom: none; }
+  .calendar-table .day-num { font-weight: 700; color: var(--accent); font-size: 15px; }
+  .calendar-table .plat-tag {
+    display: inline-block; font-size: 10px; font-weight: 600;
+    padding: 2px 8px; border-radius: 10px; letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .plat-threads { background: rgba(0,0,0,0.07); color: var(--black); }
+  .plat-reels { background: rgba(233,69,96,0.1); color: var(--accent); }
+  .plat-both { background: rgba(26,26,46,0.08); color: var(--navy); }
+  .calendar-table .fmt-tag {
+    font-size: 10px; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--mid);
+  }
+  .calendar-table .goal-tag { font-size: 12px; font-weight: 500; color: var(--black); }
+  .calendar-table .notes-cell { font-size: 12px; color: var(--mid); line-height: 1.5; }
+  .calendar-table tbody tr:nth-child(odd) td { background: var(--warm-white); }
+  .calendar-table tbody tr:nth-child(even) td { background: var(--card-bg); }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--black); color: #fff; padding: 80px 40px;
+    text-align: center;
+  }
+  .cta-section .label {
+    font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
+    color: rgba(255,255,255,0.35); text-transform: uppercase; margin-bottom: 20px;
+  }
+  .cta-section h2 {
+    font-family: var(--serif); font-size: 36px; font-weight: 400;
+    max-width: 480px; margin: 0 auto 16px; line-height: 1.25;
+  }
+  .cta-section h2 em { color: var(--accent); font-style: italic; }
+  .cta-section p { color: rgba(255,255,255,0.45); font-size: 15px; margin-bottom: 40px; }
+  .cta-btn {
+    display: inline-block; background: var(--accent); color: #fff;
+    padding: 16px 36px; border-radius: 2px; text-decoration: none;
+    font-weight: 600; font-size: 14px; letter-spacing: 0.3px;
+    transition: background 0.2s;
+  }
+  .cta-btn:hover { background: var(--accent-dark); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 24px 40px; border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 13px; color: var(--mid);
+  }
+  footer a { color: var(--mid); text-decoration: none; }
+  footer a:hover { color: var(--black); }
+  .footer-logo { font-family: var(--serif); font-size: 18px; color: var(--black); }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    nav, section, .hero { padding-left: 20px; padding-right: 20px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; gap: 24px; }
+    .stat { padding: 0; }
+    .angles-grid { grid-template-columns: 1fr; }
+    .case-grid { grid-template-columns: 1fr; }
+    .angle-header { margin: 0 -20px; padding: 28px 20px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PASSWORD GATE -->
+<div id="gate">
+  <div class="gate-inner">
+    <div class="gate-label">Kabuka Creatives · Client Document</div>
+    <h2>This document is private.</h2>
+    <p>Enter the password shared with you.</p>
+    <input type="password" id="pw-input" placeholder="Enter password" autocomplete="off">
+    <button onclick="checkPw()">Access Document</button>
+    <div class="gate-error" id="pw-error">Incorrect password. Please try again.</div>
+  </div>
+</div>
+
+<script>
+  function checkPw() {
+    const val = document.getElementById('pw-input').value.trim().toLowerCase();
+    if (val === 'planetu2026') {
+      document.getElementById('gate').style.display = 'none';
+    } else {
+      document.getElementById('pw-error').style.display = 'block';
+      document.getElementById('pw-input').style.borderColor = '#e94560';
+    }
+  }
+  document.getElementById('pw-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') checkPw();
+  });
+</script>
+
+<!-- NAV -->
+<nav>
+  <a href="https://kabukacreatives.github.io/" class="nav-logo">Kabuka.</a>
+  <div class="nav-links">
+    <a href="https://kabukacreatives.github.io/#portfolio">All Work</a>
+    <span class="nav-badge">Client Document</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="content-wrap">
+    <div class="hero-meta">Kabuka Creatives / Content Strategy 02</div>
+    <div class="hero-sub">Fitness & Wellness · Instagram Strategy · Membership Sales</div>
+    <h1>Planet U Fitness — <em>The Restarter</em><br>Content Strategy</h1>
+    <p class="hero-desc">Full content strategy for driving membership sales among busy professional women 25–40. 7 angles, 21 subtopics, 63 ready-to-post formats, and a 30-day execution calendar built for one person with no budget and no agency.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">7</div><div class="stat-label">Content Angles</div></div>
+      <div class="stat"><div class="stat-num">63</div><div class="stat-label">Ready-to-Post Formats</div></div>
+      <div class="stat"><div class="stat-num">30</div><div class="stat-label">Day Calendar</div></div>
+      <div class="stat"><div class="stat-num"><span>1</span></div><div class="stat-label">Core Platform: Instagram</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CHALLENGE -->
+<section>
+  <div class="content-wrap">
+    <div class="section-label">The Challenge</div>
+    <h2 class="section-title">One core problem. <em>Shareable by design.</em></h2>
+    <p class="section-desc">Busy professional women between 25–40 aren't failing because they lack discipline — they're failing because every system they've tried was built for someone else's life.</p>
+
+    <div class="format-block" style="background:#fff;">
+      <div class="format-row-label">Core Problem Statement</div>
+      <div class="format-hook">"She keeps starting over — and she's tired of it."</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:24px;">
+      <div class="format-block" style="padding:24px;">
+        <div class="format-row-label">Why it spreads</div>
+        <div class="format-row-content" style="font-size:13px;">Carries both shame <em>and</em> hope — two emotions that drive saves, DMs, and decisions. Women share it because they finally feel seen.</div>
+      </div>
+      <div class="format-block" style="padding:24px;">
+        <div class="format-row-label">Why it converts</div>
+        <div class="format-row-content" style="font-size:13px;">The problem is unsolved in her market. Planet U is the specific answer. Content that names the problem positions the brand as the cure.</div>
+      </div>
+      <div class="format-block" style="padding:24px;">
+        <div class="format-row-label">Why it's ownable</div>
+        <div class="format-row-content" style="font-size:13px;">Big-box gyms can't say this without exposing their own business model. Only a gym designed for her can credibly own this message.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ICP -->
+<section style="background:var(--card-bg);">
+  <div class="content-wrap">
+    <div class="section-label">Ideal Customer Profile</div>
+    <h2 class="section-title">Meet <em>"The Restarter."</em></h2>
+    <p class="section-desc">One archetype. Every piece of content is written for her — not at her.</p>
+
+    <table class="icp-table">
+      <thead>
+        <tr>
+          <th style="width:180px;">Dimension</th>
+          <th>Detail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Who She Is</td><td>28–38, works full-time (often healthcare, education, corporate), juggles family or relationship demands, financially stable enough to invest in herself — but needs to feel it's <em>worth it</em>.</td></tr>
+        <tr><td>What She Wants</td><td>To feel strong and consistent — not just lose weight. A version of herself she can actually maintain. Something that fits her life, not a life she has to build around it.</td></tr>
+        <tr><td>What Blocks Her</td><td>Time scarcity, past failures she's internalized as personal flaws, fear of walking into a gym and looking lost, information overload from influencers.</td></tr>
+        <tr><td>Her Language</td><td>"I just need to be consistent." "I've tried everything." "I don't even know where to start anymore." "I don't have time for an hour at the gym."</td></tr>
+        <tr><td>Triggers That Move Her</td><td>Seeing a woman like her — not a fitness model — making it work. Real schedules, real results, real talk about hard weeks.</td></tr>
+        <tr><td>Taboos — Never Say</td><td>"No excuses." "You just have to want it." Before/after weight-loss framing. Anything implying she is lazy or undisciplined.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ANGLES OVERVIEW -->
+<section>
+  <div class="content-wrap">
+    <div class="section-label">Content Strategy</div>
+    <h2 class="section-title">7 angles. <em>63 ready-to-post formats.</em></h2>
+    <p class="section-desc">Each angle attacks a different belief, fear, or knowledge gap "The Restarter" carries. No two angles overlap. Scroll down for the full breakdown of every subtopic and format.</p>
+
+    <div class="angles-grid">
+      <div class="angle-card">
+        <div class="angle-num">01</div>
+        <div class="angle-title">The Consistency Trap</div>
+        <div class="angle-hook">"Consistency isn't the goal. This is."</div>
+      </div>
+      <div class="angle-card">
+        <div class="angle-num">02</div>
+        <div class="angle-title">The Hour Myth</div>
+        <div class="angle-hook">"The 60-minute workout was invented to sell gym memberships."</div>
+      </div>
+      <div class="angle-card">
+        <div class="angle-num">03</div>
+        <div class="angle-title">The Hidden Cost of the Big Box Gym</div>
+        <div class="angle-hook">"Your $25/month gym is costing you thousands."</div>
+      </div>
+      <div class="angle-card">
+        <div class="angle-num">04</div>
+        <div class="angle-title">The All-or-Nothing Identity</div>
+        <div class="angle-hook">"You're not lazy. You're telling yourself the wrong story."</div>
+      </div>
+      <div class="angle-card">
+        <div class="angle-num">05</div>
+        <div class="angle-title">The Progress Photo Lie</div>
+        <div class="angle-hook">"Your progress photo is lying to you. Here's what's real."</div>
+      </div>
+      <div class="angle-card">
+        <div class="angle-num">06</div>
+        <div class="angle-title">The Monday Reset Spiral</div>
+        <div class="angle-hook">"Monday isn't a fresh start. It's a relapse pattern."</div>
+      </div>
+      <div class="angle-card" style="grid-column:1/-1;">
+        <div class="angle-num">07</div>
+        <div class="angle-title">The Gym Environment Tax</div>
+        <div class="angle-hook">"The wrong gym environment is a silent quit trigger."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     ANGLE 1
+═══════════════════════════════════════════════════════ -->
+<section>
+  <div class="content-wrap">
+    <div class="angle-header">
+      <div class="num">Angle 01 · 3 Subtopics · 9 Formats</div>
+      <h2>The Consistency Trap — <em>"You've been chasing the wrong goal."</em></h2>
+    </div>
+
+    <!-- SUBTOPIC 1.1 -->
+    <div class="subtopic" style="margin-top:48px;">
+      <div class="subtopic-label">Subtopic 1 of 3</div>
+      <div class="subtopic-title">"Just be consistent" is the worst fitness advice ever given</div>
+
+      <!-- EDUCATIONAL -->
+      <div class="format-block">
+        <span class="format-tag tag-edu">Educational</span>
+        <div class="format-row">
+          <div class="format-row-label">Hook (≤ 2 lines)</div>
+          <div class="format-hook">"Consistency is not a personality trait. Stop trying to grow one."</div>
+        </div>
+        <div class="format-row">
+          <div class="format-row-label">Core Insight</div>
+          <div class="format-row-content">Telling someone to "just be consistent" is like telling someone to "just be rich." Consistency is an outcome of a well-designed system, not a character virtue. When women fail to stay consistent, they blame themselves — when they should blame the advice. The gym industry benefits from your self-blame because it sends you back to buy another membership.</div>
+        </div>
+        <div class="format-row">
+          <div class="format-row-label">3 Do This Today Steps</div>
+          <ul class="steps-list">
+            <li>Audit your current routine: which days consistently get skipped? That's a design flaw, not a discipline flaw.</li>
+            <li>Replace "I need to be more consistent" with "What one thing can I remove to make showing up easier?"</li>
+            <li>Set a minimum viable workout (15 min) for hard weeks so skipping becomes the harder choice.</li>
+          </ul>
+        </div>
+        <div class="format-row" style="margin-bottom:0;">
+          <div class="format-row-label">Platform Adaptations</div>
+          <table class="platform-table">
+            <thead><tr><th>Platform</th><th>Length / Format</th><th>Visual Direction</th><th>CTA</th><th>Success Metric</th></tr></thead>
+            <tbody>
+              <tr><td>Threads</td><td>150–200 words</td><td>Text-only, bold opener line</td><td>Save this + tag a friend who's been told to "just be consistent"</td><td>50+ saves, 10+ shares</td></tr>
+              <tr><td>Reels</td><td>30–45 sec</td><td>Talking head, fast cuts, caption overlay</td><td>"Save for when you feel like quitting" sticker</td><td>1,000+ views, 60+ saves</td></tr>
+              <tr><td>Telegram</td><td>100 words + bullet list</td><td>Plain text</td><td>Reply with the excuse you use most</td><td>20%+ reply rate</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PROVOCATIVE -->
+      <div class="format-block">
+        <span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row">
+          <div class="format-row-label">Debatable Hook</div>
+          <div class="format-hook">"The fitness industry profits every time you blame yourself for quitting."</div>
+        </div>
+        <div class="format-row">
+          <div class="format-row-label">3 Proofs</div>
+          <ul class="proofs-list">
+            <li>67% of gym memberships go unused — gyms budget for this in their revenue model (Statista gym industry reports).</li>
+            <li>Research shows self-blame after quitting increases time before next attempt — guilt = delayed revenue for gyms.</li>
+            <li>No major exercise science body defines "consistency" as a training variable — it's not one. It's a marketing word.</li>
+          </ul>
+        </div>
+        <div class="format-row">
+          <div class="format-row-label">Closing Question</div>
+          <div class="closing-q">So who actually benefits when you tell yourself you just need more discipline?</div>
+        </div>
+        <div class="format-row" style="margin-bottom:0;">
+          <div class="format-row-label">Platform Adaptations</div>
+          <table class="platform-table">
+            <thead><tr><th>Platform</th><th>Length / Format</th><th>Visual Direction</th><th>CTA</th><th>Success Metric</th></tr></thead>
+            <tbody>
+              <tr><td>Threads</td><td>3 short punchy paragraphs</td><td>Bold statement graphic optional</td><td>Drop your take 👇</td><td>30+ comments, 20+ shares</td></tr>
+              <tr><td>Reels</td><td>45–60 sec</td><td>Text on screen + voiceover</td><td>"Agree or disagree? Comment below"</td><td>500+ comments, 2k+ views</td></tr>
+              <tr><td>Telegram</td><td>200 words, conversational</td><td>Poll: "Whose fault is it when you quit?"</td><td>Poll engagement</td><td>40%+ poll response</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CASE STUDY -->
+      <div class="format-block">
+        <span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Maya, 34, marketing manager. Rejoined a gym 4 times in 3 years. Each time she quit within 6 weeks, citing "lack of discipline."</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Switched from a big-box gym to Planet U's 3x/week structured program. Removed the decision of what to do each day.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">Attended 11 of 12 sessions in her first month. She didn't become more disciplined — the system became more forgiving.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Platform Notes</div><div class="case-cell-val">Narrative format on Threads. Real member or actor Reel. CTA: DM us START. Repurpose as Telegram story.</div></div>
+        </div>
+        <div class="case-takeaway">"The environment was fixed. Maya wasn't broken."</div>
+        <div class="format-row" style="margin-top:16px;margin-bottom:0;">
+          <div class="format-row-label">Platform Adaptations</div>
+          <table class="platform-table">
+            <thead><tr><th>Platform</th><th>Length / Format</th><th>Visual Direction</th><th>CTA</th><th>Success Metric</th></tr></thead>
+            <tbody>
+              <tr><td>Threads</td><td>250 words, narrative</td><td>Before/after mindset framing (no weight metrics)</td><td>DM us START to get Maya's exact schedule</td><td>15+ DMs, 40+ saves</td></tr>
+              <tr><td>Reels</td><td>60 sec, documentary style</td><td>Real member or actor with permission</td><td>Link in bio for your free week</td><td>3k+ views, 25+ link clicks</td></tr>
+              <tr><td>Telegram</td><td>150 words</td><td>Text story format</td><td>Reply YES for the 3x schedule</td><td>30%+ reply rate</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBTOPIC 1.2 -->
+    <div class="subtopic">
+      <div class="subtopic-label">Subtopic 2 of 3</div>
+      <div class="subtopic-title">Environment design beats willpower every single time</div>
+
+      <div class="format-block">
+        <span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"Your gym bag is more powerful than your motivation. Here's why."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">Willpower is a limited daily resource that depletes with every decision you make. By 6pm after a full workday, your self-control tank is nearly empty. Elite athletes don't rely on willpower — they engineer their environment so that working out is the default behavior, not the effortful choice.</div></div>
+        <div class="format-row"><div class="format-row-label">3 Steps</div>
+          <ul class="steps-list">
+            <li>Pack your gym bag the night before and place it by the door — remove the "prep" decision entirely.</li>
+            <li>Choose a gym on your commute route, not across town — proximity beats prestige.</li>
+            <li>Tell one person your 3 workout days for the week. Social accountability activates a different mechanism than willpower.</li>
+          </ul>
+        </div>
+        <div class="format-row" style="margin-bottom:0;"><div class="format-row-label">Platforms</div>
+          <table class="platform-table"><thead><tr><th>Platform</th><th>Format</th><th>Visual</th><th>CTA</th><th>Metric</th></tr></thead>
+          <tbody><tr><td>Threads</td><td>150 words</td><td>Text post with line breaks</td><td>Save this — it's the one change that works</td><td>60+ saves</td></tr>
+          <tr><td>Reels</td><td>30 sec, 3 quick tips</td><td>Fast-cut b-roll: bag packing, route, check-in</td><td>Which one are you trying first? 👇</td><td>800+ views, 50+ saves</td></tr>
+          <tr><td>Telegram</td><td>3-item list</td><td>Clean text</td><td>Which of these do you already do?</td><td>25%+ engagement</td></tr></tbody></table>
+        </div>
+      </div>
+
+      <div class="format-block">
+        <span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"Willpower is a myth that keeps personal trainers in business."</div></div>
+        <div class="format-row"><div class="format-row-label">3 Proofs</div>
+          <ul class="proofs-list">
+            <li>Roy Baumeister's ego depletion research sparked a field showing self-control is a finite resource across the day.</li>
+            <li>Studies consistently show proximity (gym location, equipment visibility) outperforms motivation as a long-term predictor.</li>
+            <li>The most consistent exercisers report the lowest motivation — because they've built habits that don't require it.</li>
+          </ul>
+        </div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">If the most consistent gym-goers don't rely on motivation, why is every ad selling you more of it?</div></div>
+      </div>
+
+      <div class="format-block">
+        <span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Priya, 31, nurse. High-motivation start, crashed by week 3 every time. Gym was 20 mins from her hospital.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Switched to Planet U (8 min from work). Started going straight from shifts 3x/week with pre-packed bag.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">11 consecutive weeks attending. No significant change in motivation — massive change in friction.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM ROUTE to find your closest Planet U. Map animation as Reel visual.</div></div>
+        </div>
+        <div class="case-takeaway">"Distance was the enemy. Not discipline."</div>
+      </div>
+    </div>
+
+    <!-- SUBTOPIC 1.3 -->
+    <div class="subtopic">
+      <div class="subtopic-label">Subtopic 3 of 3</div>
+      <div class="subtopic-title">The 2-minute rule: the smallest possible start is the most powerful</div>
+
+      <div class="format-block">
+        <span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"The hardest part isn't the workout. It's walking through the door."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">Behavioral science shows that starting an action — even in a reduced form — dramatically increases the probability of completing it. A "bad" workout you showed up to beats a "perfect" workout you skipped by every measurable metric. Committing to just showing up removes performance pressure and replaces it with identity reinforcement.</div></div>
+        <div class="format-row"><div class="format-row-label">3 Steps</div>
+          <ul class="steps-list">
+            <li>On your lowest-energy days, commit only to arriving — not performing. Once you're there, you'll almost always do more.</li>
+            <li>Replace "I'll go when I feel ready" with "I go, then I feel ready." Action creates motivation, not the other way around.</li>
+            <li>Track attendance only for 30 days — not weight, not reps. Just days attended. Build the identity before the results.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="format-block">
+        <span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"You don't need to feel motivated to go to the gym. You need to go to feel motivated."</div></div>
+        <div class="format-row"><div class="format-row-label">3 Proofs</div>
+          <ul class="proofs-list">
+            <li>Behavioral activation therapy shows that action reliably precedes motivation — not the other way around.</li>
+            <li>Neuroscience shows that beginning a task triggers dopamine release — the motivation comes from starting, not from wanting to start.</li>
+            <li>Elite athletes report that "not feeling like it" is a near-daily experience — and irrelevant to whether they show up.</li>
+          </ul>
+        </div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">What if "I'll go when I feel like it" is the single belief that's kept you from ever going consistently?</div></div>
+      </div>
+
+      <div class="format-block">
+        <span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Anika, 37, teacher. Couldn't get past week 2 — said she "never felt ready."</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Agreed to show up 3x/week with zero performance expectations for 21 days. No rep targets. Just presence.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">Completed all 21 sessions. By day 14 was voluntarily staying 40+ minutes. Now 5 months consistent.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM READY to join our 21-day arrival challenge. Free week link in bio.</div></div>
+        </div>
+        <div class="case-takeaway">"She didn't find her motivation. She stopped waiting for it."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANGLE 2 -->
+<section style="background:var(--card-bg);">
+  <div class="content-wrap">
+    <div class="angle-header">
+      <div class="num">Angle 02 · 3 Subtopics · 9 Formats</div>
+      <h2>The Hour Myth — <em>"60 minutes was never about your results."</em></h2>
+    </div>
+
+    <div class="subtopic" style="margin-top:48px;">
+      <div class="subtopic-label">Subtopic 1 of 3</div>
+      <div class="subtopic-title">The 60-minute workout was never about your results — it was about class schedules</div>
+      <div class="format-block">
+        <span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"The hour-long workout was invented around class schedules. Not biology."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">There is no physiological law that says 60 minutes is optimal. The format emerged from group fitness logistics and marketing convenience. The belief that "anything less than an hour doesn't count" is the single biggest quit trigger — because on tough days, 30 minutes feels like failure before you even start.</div></div>
+        <div class="format-row"><div class="format-row-label">3 Steps</div>
+          <ul class="steps-list">
+            <li>Reframe your minimum session: 25 focused minutes with compound movements counts — science says so.</li>
+            <li>Design a "half session" for hard weeks: 4 exercises, 3 sets each, done in 25 minutes. Have it ready before you need it.</li>
+            <li>Stop measuring workout quality by duration. Measure by effort level and movement quality.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="format-block">
+        <span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"If your workout has to be an hour, you're doing it for your gym — not for your body."</div></div>
+        <div class="format-row"><div class="format-row-label">3 Proofs</div>
+          <ul class="proofs-list">
+            <li>ACSM guidelines recommend 150 min/week of moderate activity — that's 30 min, 5 days. "An hour" appears nowhere in the science.</li>
+            <li>HIIT research consistently shows 20–30 min sessions produce comparable cardiovascular outcomes to 60-min moderate sessions.</li>
+            <li>The "hour or nothing" belief has been named by researchers as a form of all-or-nothing cognitive distortion.</li>
+          </ul>
+        </div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">What if the hour requirement is the reason half the women you know have quit three times this year?</div></div>
+      </div>
+      <div class="format-block">
+        <span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Dana, 29, account manager. Skipping 3 of 4 planned sessions because she "couldn't carve out an hour."</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Planet U coach built a 28-minute program — same movements, compressed rest periods. 3x/week.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">Went from 1 session/week average to 3 consistently over 6 weeks. Lost 9 lbs in 8 weeks.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM '28' for her exact workout structure. Timer graphic as Reel visual.</div></div>
+        </div>
+        <div class="case-takeaway">"The results didn't need an hour. They needed her to show up."</div>
+      </div>
+    </div>
+
+    <div class="subtopic">
+      <div class="subtopic-label">Subtopic 2 of 3</div>
+      <div class="subtopic-title">What 25 minutes actually does to your body (that nobody tells you)</div>
+      <div class="format-block">
+        <span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"Your body doesn't know it was supposed to go for an hour."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">Within 25 minutes of structured training, your body has released growth hormone, elevated metabolic rate, improved insulin sensitivity, and begun muscle protein synthesis. For women in their 30s, shorter more frequent sessions can outperform long infrequent ones for hormonal health and stress management.</div></div>
+        <div class="format-row"><div class="format-row-label">3 Steps</div>
+          <ul class="steps-list">
+            <li>Prioritize compound movements (squats, hinges, pushes, pulls) to maximize physiological response in less time.</li>
+            <li>Use 30–45 second rest periods (not 2–3 minutes) to keep intensity high and session length short.</li>
+            <li>Track your energy and mood 2 hours after a 25-min session — the biological response is measurable.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="format-block">
+        <span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"A 25-minute workout delivers 80% of the results of an hour. You've been wasting 35 minutes."</div></div>
+        <div class="format-row"><div class="format-row-label">3 Proofs</div>
+          <ul class="proofs-list">
+            <li>The Journal of Physiology shows that muscle protein synthesis peaks within 20–30 mins of resistance training and doesn't significantly increase for intermediate trainees.</li>
+            <li>EPOC (excess post-exercise oxygen consumption) is driven by intensity, not duration.</li>
+            <li>Time-restricted training studies in women show equivalent strength gains in 30 vs 60-min sessions when volume is equated.</li>
+          </ul>
+        </div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">What would your attendance look like if your workouts were guaranteed done in 25 minutes?</div></div>
+      </div>
+      <div class="format-block">
+        <span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Simone, 36, operations director. Hadn't worked out consistently in 2 years. Believed anything under an hour was "not real exercise."</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Coach introduced a 25-min, 4-exercise daily session. Simone tracked energy and sleep alongside attendance.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">After 3 weeks: sleep quality up 40%, energy ratings improved daily. Attendance: 11/12 sessions.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM 25 to get the exact session structure. Infographic animation of results timeline as Reel.</div></div>
+        </div>
+        <div class="case-takeaway">"The results converted her faster than any argument could."</div>
+      </div>
+    </div>
+
+    <div class="subtopic">
+      <div class="subtopic-label">Subtopic 3 of 3</div>
+      <div class="subtopic-title">The minimum effective dose: less is the strategy, not the compromise</div>
+      <div class="format-block">
+        <span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"In medicine, the minimum effective dose is the goal. Fitness is no different."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">The MED (minimum effective dose) is the smallest input to produce the desired outcome. In fitness, exceeding the MED for your current life stage doesn't accelerate results — it accelerates burnout. For busy professional women, the MED is 3 sessions of 25–30 minutes per week. Framing this as MED isn't settling — it's precision.</div></div>
+        <div class="format-row"><div class="format-row-label">3 Steps</div>
+          <ul class="steps-list">
+            <li>Define your MED: for most women at this stage, 3x/week, 25–30 min progressive resistance is sufficient for visible change.</li>
+            <li>Protect your MED sessions like meetings — block them, don't negotiate them.</li>
+            <li>When life gets hard, drop to MED immediately. Don't quit — scale back. Maintenance is always a win.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="format-block">
+        <span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"More workouts aren't making you fitter. They're making you quit sooner."</div></div>
+        <div class="format-row"><div class="format-row-label">3 Proofs</div>
+          <ul class="proofs-list">
+            <li>Overreaching syndrome is a documented clinical state affecting recreational female exercisers who train beyond their recovery capacity.</li>
+            <li>Exercise adherence studies show women starting with 3x/week programs have significantly higher 6-month retention than 5x/week starters.</li>
+            <li>The MED concept is supported by exercise physiology labs for non-elite populations.</li>
+          </ul>
+        </div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">What if your "all or nothing" program is designed for a professional athlete's life — and you've been blaming yourself for not keeping up?</div></div>
+      </div>
+      <div class="format-block">
+        <span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Becca, 33, corporate attorney. Started a 6x/week program. Quit by week 4 — third time in two years.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Planet U reset her to 3x/week, 28 minutes. Explicitly told her 3 was the goal, not the minimum.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">Maintained 3x/week for 5 consecutive months — longest streak ever. Added a 4th session voluntarily in month 4.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM LESS to get the 3x program. Quote card → story reveal as Reel.</div></div>
+        </div>
+        <div class="case-takeaway">"Permission to do less was what made her do more."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANGLE 3 -->
+<section>
+  <div class="content-wrap">
+    <div class="angle-header">
+      <div class="num">Angle 03 · 3 Subtopics · 9 Formats</div>
+      <h2>The Hidden Cost of the Big Box Gym — <em>"Your $25/month gym is costing you thousands."</em></h2>
+    </div>
+
+    <div class="subtopic" style="margin-top:48px;">
+      <div class="subtopic-label">Subtopic 1 of 3</div>
+      <div class="subtopic-title">The business model built on your failure</div>
+      <div class="format-block"><span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"Your $25/month gym has 8,000 members. Their facility holds 300."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">Big-box gyms sell 5–10x their physical capacity in memberships, betting that 80%+ won't show up consistently. When you quit, you don't cost them anything — you still pay your monthly fee. Their product is not fitness. Their product is the feeling of having access to fitness.</div></div>
+        <div class="format-row"><div class="format-row-label">3 Steps</div>
+          <ul class="steps-list">
+            <li>Calculate your real cost-per-session (monthly fee ÷ actual sessions attended). Most people pay $30–90 per visit.</li>
+            <li>Compare: a structured accountable program often has a lower cost-per-result despite higher monthly fees.</li>
+            <li>Ask your gym: "How many active members vs. total memberships?" The answer reveals the business model.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"Planet Fitness doesn't want you to get fit. Fit members leave."</div></div>
+        <div class="format-row"><div class="format-row-label">3 Proofs</div>
+          <ul class="proofs-list">
+            <li>67% of gym memberships industry-wide go largely unused — this is a structural feature, not a bug (Statista).</li>
+            <li>Low-cost chains have no financial incentive to improve your adherence — your monthly debit is guaranteed.</li>
+            <li>High-accountability fitness models show 2–3x higher 6-month retention than self-service big-box gyms.</li>
+          </ul>
+        </div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">If your gym actually wanted you to succeed, what would they be doing differently right now?</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Rachel, 38, HR director. Paid for a gym for 14 months. Attended 6 times total. Cost: ~$560, ~$93/session.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Joined Planet U at a higher monthly rate with structured coaching. Attended 3x/week from day one.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">Month 1: 12 sessions. Real cost: ~$12/session — saving ~$80/session vs. her "cheap" gym.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM COST for a free cost-per-session breakdown. Calculator animation as Reel visual.</div></div>
+        </div>
+        <div class="case-takeaway">"The expensive gym was the affordable one."</div>
+      </div>
+    </div>
+
+    <div class="subtopic">
+      <div class="subtopic-label">Subtopic 2 of 3</div>
+      <div class="subtopic-title">The psychological debt of serial quitting</div>
+      <div class="format-block"><span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"Every gym you quit makes the next one harder to start."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">Each time a woman quits a fitness program, she reinforces a neural story: "I'm someone who doesn't follow through." Over time this becomes identity, and the psychological cost of starting again increases. The barrier isn't physical laziness — it's accumulated evidence, compiled by your own brain, that you are not a person who does this.</div></div>
+        <div class="format-row"><div class="format-row-label">3 Steps</div>
+          <ul class="steps-list">
+            <li>Name the story you're carrying: "I've quit before, so I'll probably quit again." Naming it disrupts its power.</li>
+            <li>Seek environments where success is structured in — not left up to you. Accountability isn't weakness. It's smart design.</li>
+            <li>Set a 30-day single metric: attendance only. Give yourself the chance to collect new evidence before judging results.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"The gym didn't fail you. The $25 membership with no structure failed you."</div></div>
+        <div class="format-row"><div class="format-row-label">3 Proofs</div>
+          <ul class="proofs-list">
+            <li>Behavioral economics research shows repeated failure increases avoidance — not effort — due to loss aversion.</li>
+            <li>Psychologists identify "self-handicapping" behavior in serial gym quitters: they set up conditions for failure to protect their self-esteem.</li>
+            <li>Environmental structure, not personal willpower, is the strongest predictor of sustained behavior in low-motivation individuals.</li>
+          </ul>
+        </div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">What if quitting isn't your character flaw — it's a rational response to a system that was never designed to support you?</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Tanya, 35, nurse practitioner. Had quit 5 gyms. Called herself "chronically undisciplined." Almost didn't try again.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Planet U coach did an intake on her quitting history. Identified structural reasons. Built a plan removing each one.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">7 months continuous attendance. First time in her adult life. She now coaches newer members through month 1.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM STORY for a free intake call. Emotional testimonial Reel format.</div></div>
+        </div>
+        <div class="case-takeaway">"She wasn't undisciplined. She was unsupported."</div>
+      </div>
+    </div>
+
+    <div class="subtopic">
+      <div class="subtopic-label">Subtopic 3 of 3</div>
+      <div class="subtopic-title">What you actually pay for vs. what drives results</div>
+      <div class="format-block"><span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"You're paying for treadmills you don't use and a pool you've never touched."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">Most gym memberships are priced on facility square footage and equipment variety — neither of which drives results for a busy woman. Results come from consistent progressive overload, accountability, coaching quality, and environment fit. A stripped-down coached program almost always outperforms a fully equipped facility you visit twice a month.</div></div>
+        <div class="format-row"><div class="format-row-label">3 Steps</div>
+          <ul class="steps-list">
+            <li>List the 5 things you actually use at your current gym. If it's under 5, you're paying for decoration.</li>
+            <li>Prioritize: coaching access > equipment variety. A coach who knows your name beats 40 treadmills.</li>
+            <li>Ask any gym you're considering: "What happens if I miss a week?" Their answer reveals their business model.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"The fancier the gym, the lower your chance of staying."</div></div>
+        <div class="format-row"><div class="format-row-label">3 Proofs</div>
+          <ul class="proofs-list">
+            <li>Social support and coaching quality are the strongest predictors of gym retention — not facility quality.</li>
+            <li>Boutique fitness studios, despite higher price points, consistently outperform large gyms on 12-month retention.</li>
+            <li>McKinsey's 2022 health report noted the fastest-growing fitness segment is high-accountability, lower-equipment models.</li>
+          </ul>
+        </div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">What would your fitness look like if you invested the same money in a coach instead of a cable machine collection?</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Carla, 40, finance director. $120/month luxury gym. Went 3 times in 4 months. Felt guilty every day she didn't go.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Switched to Planet U coached 3x/week. Coach checked in weekly. No pool, no sauna. Just structure.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">36 of 40 sessions in 3 months. Cancelled luxury gym. Saving $40/month and gaining real results.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM SWITCH for a free comparison consultation. Contrast montage as Reel.</div></div>
+        </div>
+        <div class="case-takeaway">"The marble floors weren't the variable. The accountability was."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANGLES 4–7 COMPACT -->
+<section style="background:var(--card-bg);">
+  <div class="content-wrap">
+    <div class="angle-header">
+      <div class="num">Angle 04 · 3 Subtopics · 9 Formats</div>
+      <h2>The All-or-Nothing Identity — <em>"It's not a discipline problem. It's a self-story problem."</em></h2>
+    </div>
+
+    <div class="subtopic" style="margin-top:48px;">
+      <div class="subtopic-label">Subtopic 1 of 3</div>
+      <div class="subtopic-title">"I'm not a gym person" is a story, not a fact</div>
+      <div class="format-block"><span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"You're not 'not a gym person.' You're a person who was failed by gyms."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">Identity statements like "I'm not a gym person" are self-sealing prophecies. Once adopted, every missed session confirms them and every success feels accidental. Lasting behavior change starts with a shifted self-concept — not a new program. You don't need more discipline. You need new evidence about who you are.</div></div>
+        <div class="format-row"><div class="format-row-label">3 Steps</div>
+          <ul class="steps-list">
+            <li>Replace "I'm not a gym person" with "I'm becoming someone who shows up for herself." Say it literally — out loud.</li>
+            <li>Collect tiny wins: each attendance is a vote for your new identity. 12 attendances = 12 votes the old story is wrong.</li>
+            <li>Join a gym where the environment reflects who you want to become — not who you think you are.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"The most dangerous sentence in fitness is 'I'm just not that kind of person.'"</div></div>
+        <div class="format-row"><div class="format-row-label">3 Proofs + Closing Question</div>
+          <ul class="proofs-list">
+            <li>James Clear's Atomic Habits documents identity-based habit formation as more reliable than outcome- or process-based approaches.</li>
+            <li>Self-concept research shows labels we adopt about ourselves predict behavior more reliably than stated intentions.</li>
+            <li>Carol Dweck's fixed vs. growth mindset research: women with fixed fitness identities show lower recovery after setbacks.</li>
+          </ul>
+        </div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">If your identity was "I'm a woman who trains 3x a week" — would you be living differently right now?</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Jasmine, 32, graphic designer. Called herself "not athletic" her entire adult life.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Coach reframed onboarding as identity-building. First 30 days: attendance, community, naming wins only.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">By month 2, described herself as "someone who works out." By month 4, brought in two friends.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM STORY for a free identity-first intake session.</div></div>
+        </div>
+        <div class="case-takeaway">"The gym didn't change her body first. It changed what she believed about herself."</div>
+      </div>
+    </div>
+
+    <div class="subtopic">
+      <div class="subtopic-label">Subtopic 2 of 3</div>
+      <div class="subtopic-title">The 2-day rule: why missing once is fine, twice is dangerous</div>
+      <div class="format-block"><span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"One missed workout means nothing. Two in a row means everything."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">The biggest predictor of fitness dropout isn't missing a session — it's the behavior that follows the first miss. Women who apply the 2-day rule (never miss more than one day in a row) dramatically outperform those without it. The rule isn't about guilt. It's about pattern interruption.</div></div>
+        <div class="format-row"><div class="format-row-label">3 Steps</div>
+          <ul class="steps-list">
+            <li>Adopt the rule explicitly: one miss is fine, two consecutive misses trigger a response.</li>
+            <li>Plan your "rescue session" in advance: if you miss Monday, what's the non-negotiable backup?</li>
+            <li>Text a gym friend or coach when you miss day one. Not to report — to activate.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"One missed gym session won't derail you. The story you tell yourself about it will."</div></div>
+        <div class="format-row"><div class="format-row-label">3 Proofs</div>
+          <ul class="proofs-list">
+            <li>Habit research shows behavioral gaps become self-reinforcing after 48 hours, making resumption psychologically harder.</li>
+            <li>Angela Duckworth's grit research: "bouncing back immediately" — not avoiding setbacks — is the key adherence differentiator.</li>
+            <li>Fitness tracking data shows 2+ consecutive missed sessions is the strongest single predictor of full program dropout.</li>
+          </ul>
+        </div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">How many times have you let one missed Monday turn into a missed month?</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Nina, 29, events coordinator. Pattern: 2–3 great weeks, one miss, then quit. Repeated 4 times in 18 months.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Coach implemented the 2-day rule with a specific rescue session (Saturday 9am, no exceptions).</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">In 4 months, missed 6 individual sessions — made up every one within 24 hours. Zero full-dropout events.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM RULE to get the 2-day accountability system. Calendar graphic as Reel visual.</div></div>
+        </div>
+        <div class="case-takeaway">"One rule. Zero quits."</div>
+      </div>
+    </div>
+
+    <div class="subtopic">
+      <div class="subtopic-label">Subtopic 3 of 3</div>
+      <div class="subtopic-title">Buying a new gym membership every January isn't hope — it's the same mistake with better marketing</div>
+      <div class="format-block"><span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"You don't need a new program. You need a new sentence about yourself."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">Most women approach fitness failure by changing the plan. But the plan rarely was the problem — the self-story was. Identity change doesn't require a fresh start. Every single session you complete is evidence against the old story. The fastest way to become "a person who works out" is to work out once and call yourself that.</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"Buying a new gym membership every January isn't hope. It's the same mistake with better marketing."</div></div>
+        <div class="format-row"><div class="format-row-label">3 Proofs</div>
+          <ul class="proofs-list">
+            <li>January enrollments spike 12% annually — and 80% of those new members quit before February ends.</li>
+            <li>"False hope syndrome" shows the high of starting a new program temporarily replaces the need to actually change behavior.</li>
+            <li>Identity-based change research: people who describe themselves as athletes before becoming athletic maintain behavior longer.</li>
+          </ul>
+        </div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">What if you don't need a new gym — you need a new sentence about who you are?</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Monica, 41, teacher. Started fresh at a new gym 6 times in 5 years. Each with new gear, new playlist, new plan.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Coach: no new plan. Same 3x/week. Focus only on showing up and saying "I showed up" after each session.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">6 months later: longest streak ever. Stopped tracking plan changes. Started tracking identity moments.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM STORY to book your identity-first session. Gear pile vs. actual attendance Reel visual.</div></div>
+        </div>
+        <div class="case-takeaway">"The plan was never the problem. The story was."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANGLE 5 -->
+<section>
+  <div class="content-wrap">
+    <div class="angle-header">
+      <div class="num">Angle 05 · 3 Subtopics · 9 Formats</div>
+      <h2>The Progress Photo Lie — <em>"Visual results are the worst way to measure if it's working."</em></h2>
+    </div>
+    <div class="subtopic" style="margin-top:48px;">
+      <div class="subtopic-label">Subtopic 1 of 3</div>
+      <div class="subtopic-title">The 6-week lag: you were winning while you thought you were failing</div>
+      <div class="format-block"><span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"Your body was changing for 6 weeks before you could see it. And you quit at week 4."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">Visible results of resistance training lag behind physiological ones by 4–8 weeks. Neural adaptations, improved mitochondrial density, hormonal regulation, and strength gains all happen invisibly. Women who quit at weeks 3–5 do so at the exact moment their body is responding most actively. The problem is not the program. It is the measurement tool.</div></div>
+        <div class="format-row"><div class="format-row-label">3 Steps</div>
+          <ul class="steps-list">
+            <li>Measure energy, sleep quality, and mood for the first 6 weeks — not the mirror.</li>
+            <li>Track strength: are you lifting more, recovering faster, feeling less breathless on stairs?</li>
+            <li>Commit to 8 weeks before making any judgment on a program. Week 6 is not the end — it's the beginning of visible.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"Before/after photos have caused more women to quit than any other fitness content."</div></div>
+        <div class="format-row"><div class="format-row-label">3 Proofs</div>
+          <ul class="proofs-list">
+            <li>Exercise physiology confirms visible hypertrophy requires 6–8 weeks minimum of consistent training.</li>
+            <li>Psychological studies show before/after expectations create a "progress gap" — when visible results don't match timeline, dropout is likely.</li>
+            <li>Social comparison research shows before/after content increases body dissatisfaction, correlated strongly with program abandonment.</li>
+          </ul>
+        </div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">What if the content that's supposed to motivate you is actually the thing that's been making you quit?</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Sofia, 34, project manager. Quit 3 programs between weeks 4–6 each time. Said she "never saw results."</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Coach removed visual tracking entirely. Replaced with weekly energy score, sleep rating, and strength log.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">By week 7: better sleep, lifting 20% heavier, highest energy in years. Week 8: first visible change. She kept going.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM MEASURE to get the non-mirror tracking template.</div></div>
+        </div>
+        <div class="case-takeaway">"She wasn't failing. She was measuring wrong."</div>
+      </div>
+    </div>
+
+    <div class="subtopic">
+      <div class="subtopic-label">Subtopic 2 of 3</div>
+      <div class="subtopic-title">What actually changes first — and why you're not measuring it</div>
+      <div class="format-block"><span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"Your nervous system is adapting. Your metabolism is improving. You just can't Instagram it."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">Within 2–3 weeks of consistent resistance training, the body undergoes measurable neurological adaptation — the brain gets better at recruiting motor units, increasing strength before any visible change. Simultaneously, sleep quality regulates and cortisol management improves. These are real, significant changes — completely invisible in a mirror.</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"If you're only measuring what you can see, you're not measuring fitness. You're measuring vanity."</div></div>
+        <div class="format-row"><div class="format-row-label">3 Proofs</div>
+          <ul class="proofs-list">
+            <li>Neurological strength adaptations are measurable within 14–21 days of training — before any muscle change.</li>
+            <li>VO2 max and resting metabolic rate both respond to exercise within 2–4 weeks — well before visible body composition change.</li>
+            <li>Long-term fitness adherers consistently report "feeling better" preceded "looking better" — and feeling better was the stronger retention driver.</li>
+          </ul>
+        </div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">What if the goal isn't how you look — and that's exactly why the mirror is the worst possible tool to track progress?</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Kezia, 36, marketing director. Trained consistently but "gave up" at week 5 — photos showed no change.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Coach introduced weekly strength and energy logs. Kezia discovered a 25% squat improvement and energy up from 4 to 7/10.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">Visible changes at week 8. By then she no longer cared — she was hooked on the strength data.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM TRACK to get the non-mirror progress template. Strength log reveal Reel format.</div></div>
+        </div>
+        <div class="case-takeaway">"The right metrics made the mirror irrelevant."</div>
+      </div>
+    </div>
+
+    <div class="subtopic">
+      <div class="subtopic-label">Subtopic 3 of 3</div>
+      <div class="subtopic-title">The 4 metrics that predict long-term fitness success better than any photo</div>
+      <div class="format-block"><span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"The women who stay consistent for years don't track weight. They track these instead."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">Long-term fitness adherers measure attendance, strength benchmarks, energy quality, and recovery rate — not bodyweight. These metrics move faster, respond to effort more directly, and don't fluctuate based on hydration or lighting. They create a positive feedback loop that motivates continued behavior — because they always show progress even when the mirror doesn't.</div></div>
+        <div class="format-row"><div class="format-row-label">4 Metrics to Track</div>
+          <ul class="steps-list">
+            <li>Sessions attended per week (target: your MED — typically 3).</li>
+            <li>Weight lifted in one key compound exercise (progressive overload marker).</li>
+            <li>Morning energy score (1–10, same time each day).</li>
+            <li>Sleep quality score (1–10). Set 60-day targets for each.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"The scale is the least honest fitness metric in existence. And you check it every morning."</div></div>
+        <div class="format-row"><div class="format-row-label">3 Proofs</div>
+          <ul class="proofs-list">
+            <li>Body weight can fluctuate 2–4 lbs in a single day based on water retention, hormones, and sodium — with zero change in body composition.</li>
+            <li>Performance-based feedback ("I'm stronger") produces higher intrinsic motivation than outcome-based feedback ("I weigh less").</li>
+            <li>Platforms tracking performance metrics show 2x retention rates over those tracking primarily aesthetic outcomes.</li>
+          </ul>
+        </div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">If the scale can't tell you whether your body is healthier, why is it the first thing you check after a hard week of training?</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Amanda, 38, financial analyst. Tracked weight daily. Quit when scale didn't move in 2 weeks (muscle gain period).</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Coach removed scale tracking, introduced the 4-metric system. Amanda discovered 30% strength improvement over 6 weeks.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">8 months — her longest fitness commitment ever. Body composition changed significantly; scale weight changed modestly.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM METRICS for the 4-metric tracking template. KPI board vs. scale visual as Reel.</div></div>
+        </div>
+        <div class="case-takeaway">"The right feedback loop kept her in the game."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANGLE 6 -->
+<section style="background:var(--card-bg);">
+  <div class="content-wrap">
+    <div class="angle-header">
+      <div class="num">Angle 06 · 3 Subtopics · 9 Formats</div>
+      <h2>The Monday Reset Spiral — <em>"Monday isn't a fresh start. It's a relapse pattern."</em></h2>
+    </div>
+    <div class="subtopic" style="margin-top:48px;">
+      <div class="subtopic-label">Subtopic 1 of 3</div>
+      <div class="subtopic-title">Why the "fresh start" feels good but always fails</div>
+      <div class="format-block"><span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"Monday isn't a fresh start. It's the most popular form of procrastination."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">The "I'll start Monday" ritual is neurologically satisfying — it gives your brain the positive feeling of intention without the discomfort of action. Research in behavioral economics shows temporal landmarks increase initial motivation but decrease follow-through when real conditions don't match idealized ones. The reset is not optimism. It's avoidance wearing optimism's clothes.</div></div>
+        <div class="format-row"><div class="format-row-label">3 Steps</div>
+          <ul class="steps-list">
+            <li>Next time you "fall off" — go tomorrow, not Monday. Shrink the gap to 24 hours maximum.</li>
+            <li>Eliminate the concept of a "start date." Every day is a continuation, not a beginning.</li>
+            <li>When you feel like resetting — ask: "What am I avoiding by waiting?"</li>
+          </ul>
+        </div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"Every 'I'll start Monday' has cost you more than you know."</div></div>
+        <div class="format-row"><div class="format-row-label">3 Proofs</div>
+          <ul class="proofs-list">
+            <li>Hengchen Dai et al. (Management Science, 2014): fresh-start framing fails when real-life conditions aren't perfect.</li>
+            <li>Averaged over 12 weeks, Monday-resetters complete fewer total sessions than those with no fixed start day.</li>
+            <li>Planning fallacy: we systematically overestimate future self-discipline when planning from temporal landmarks.</li>
+          </ul>
+        </div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">How many Mondays have you given yourself — and how many of them actually launched a new chapter?</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Diane, 33, nurse. Tracked her own behavior: 11 "Monday restarts" in one year. Each lasted 1–2 weeks.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Coach introduced "same-week continuation" rule: if you miss, your next session is within 48 hours. No resets.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">Over 6 months: 0 Monday restarts. 68 total sessions completed. Best fitness year of her life.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM RESET for the no-Monday-restart system. Diary graphic showing 11 Mondays → 68 sessions as Reel.</div></div>
+        </div>
+        <div class="case-takeaway">"She didn't need a better Monday. She needed to stop needing one."</div>
+      </div>
+    </div>
+
+    <div class="subtopic">
+      <div class="subtopic-label">Subtopic 2 of 3</div>
+      <div class="subtopic-title">Training through imperfect conditions is the real skill nobody teaches</div>
+      <div class="format-block"><span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"Training when everything is perfect is easy. Training when nothing is perfect is the whole skill."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">The fitness industry sells optimal conditions — optimal sleep, nutrition, schedule, mood. Real life never delivers all four simultaneously. Women who maintain fitness long-term haven't found the perfect conditions — they've become skilled at training through imperfect ones. A tired workout beats a perfect plan you never execute. Every time.</div></div>
+        <div class="format-row"><div class="format-row-label">3 Steps</div>
+          <ul class="steps-list">
+            <li>Design a "chaos workout": a 20-minute, 3-exercise session you can do even at 60% energy. Know it by heart.</li>
+            <li>Replace "I'm not feeling 100%" with "What's the minimum I can do today?"</li>
+            <li>Rate your expected energy before you go and actual energy after. The gap will surprise you.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"Waiting for a perfect day to work out means you'll average about 4 workouts a year."</div></div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">What if the perfect day to train is any day you show up — and you've been waiting for a day that doesn't exist?</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Leila, 36, doctor. High perfectionism. Would cancel sessions if not fully rested, fueled, and on time. Averaged 4 sessions/month.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Coach gave her a chaos protocol: if any condition was off, do the 20-min backup plan. No skips — only adaptations.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">Month 1 with chaos protocol: 11 sessions (from avg 4). Used the full protocol 4 times. Never missed.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM CHAOS for the 20-min backup protocol.</div></div>
+        </div>
+        <div class="case-takeaway">"Flexibility wasn't compromise. It was the strategy."</div>
+      </div>
+    </div>
+
+    <div class="subtopic">
+      <div class="subtopic-label">Subtopic 3 of 3</div>
+      <div class="subtopic-title">The neuroscience of "I'll start again": why restarting is addictive</div>
+      <div class="format-block"><span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"Starting feels like progress. That's why we keep starting and never continuing."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">Beginning a new fitness plan activates dopamine release — the same reward system that makes social media compelling. The act of starting (joining a gym, buying new shoes, making a plan) can feel as rewarding as actually training — without the effort. When people become serial starters, they're often dopamine-chasing the beginning, not the work.</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"You're not addicted to fitness. You're addicted to the feeling of starting."</div></div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">What if the gym industry has accidentally built the perfect dopamine machine — and it profits whether you train or just keep joining?</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Grace, 30, UX designer. Joined 7 gyms in 4 years. Genuinely excited each time. Stopped within 6 weeks each time.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Coach identified the dopamine pattern. No new gear. No announcing on social. Attendance was private — for her only.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">9 consecutive months. Longest she'd ever maintained anything fitness-related. No announcements. Just sessions.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM HABIT to learn the no-announcement protocol. Counter: 7 gyms vs. 9 months as Reel.</div></div>
+        </div>
+        <div class="case-takeaway">"She stopped feeding the start. She started feeding the habit."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANGLE 7 -->
+<section>
+  <div class="content-wrap">
+    <div class="angle-header">
+      <div class="num">Angle 07 · 3 Subtopics · 9 Formats</div>
+      <h2>The Gym Environment Tax — <em>"The space is quietly deciding whether you'll quit."</em></h2>
+    </div>
+    <div class="subtopic" style="margin-top:48px;">
+      <div class="subtopic-label">Subtopic 1 of 3</div>
+      <div class="subtopic-title">How space design is quietly deciding whether you'll quit</div>
+      <div class="format-block"><span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"The gym that makes you feel watched is charging you a hidden tax."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">A gym with poor lighting, crowded free weights, mirror walls, and male-dominated peak hours doesn't just feel uncomfortable — it activates a low-grade cortisol response that your brain begins to associate with the activity itself. Over time, just thinking about going triggers avoidance. The space isn't neutral — it's actively working for or against you.</div></div>
+        <div class="format-row"><div class="format-row-label">3 Steps</div>
+          <ul class="steps-list">
+            <li>Visit any gym you're considering at your actual workout time — not during a tour. The energy is what matters.</li>
+            <li>Notice: Are there women who look like you? Are they being ignored or respected? This is your preview.</li>
+            <li>Ask: "What's the male-to-female ratio during evening hours?" Their answer tells you who the gym was designed for.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"A gym that makes you feel out of place isn't a neutral environment. It's an active barrier."</div></div>
+        <div class="format-row"><div class="format-row-label">3 Proofs</div>
+          <ul class="proofs-list">
+            <li>Research in Psychology of Sport & Exercise: perceived social environment is as strong a predictor of adherence as program quality.</li>
+            <li>Stereotype threat studies: women in male-dominated fitness environments underperform physically — their output is reduced by environmental stress.</li>
+            <li>Boutique fitness studios designed for women show 3x higher 12-month retention than standard co-ed commercial gyms.</li>
+          </ul>
+        </div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">What if the gym that makes you feel like you don't belong is correct — because it wasn't designed for you?</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Zoe, 27, nurse. Left 2 gyms citing "intimidation." Her therapist suggested Planet U as her third attempt.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Coach gave a 30-minute environment orientation before her first session — where to stand, who to ask, what to ignore.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">Attended every session for 8 weeks. Zero skips. First gym experience without a single "I felt out of place" report.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM WELCOME for a Planet U environment orientation session before joining.</div></div>
+        </div>
+        <div class="case-takeaway">"Onboarding to the environment was the missing piece."</div>
+      </div>
+    </div>
+
+    <div class="subtopic">
+      <div class="subtopic-label">Subtopic 2 of 3</div>
+      <div class="subtopic-title">The invisible social pressures that make women quit gyms</div>
+      <div class="format-block"><span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"Nobody said anything rude to you. But you still left feeling like you didn't belong."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">Much of what makes women leave gyms is not overt hostility — it's ambient social pressure: the sense of being watched while lifting, the unspoken hierarchy of the weight room, the performance of gym culture that assumes you know what you're doing. These micro-pressures are real, measurable, and powerful. Dismissing them as "just in your head" is scientifically inaccurate and deeply unkind.</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"The fitness industry calls it 'intimidation.' It's actually poor design — and they know it."</div></div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">If gyms know women feel unwelcome, and they keep the layout the same, what does that tell you about who they're designing for?</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Faridah, 31, data analyst. Left 3 gyms citing vague "discomfort." Couldn't articulate what drove it.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Planet U coach identified: no women near the weights, no introductions, no acknowledgment from staff. Built a plan removing each one.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">Staff greeted her by name from week 1. Coach introduced her to 2 members. She has been attending for 10 months.</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM DESIGN for a Planet U environment walk-through before you join.</div></div>
+        </div>
+        <div class="case-takeaway">"Three concrete design choices solved what 3 gyms called her problem."</div>
+      </div>
+    </div>
+
+    <div class="subtopic">
+      <div class="subtopic-label">Subtopic 3 of 3</div>
+      <div class="subtopic-title">What "non-judgmental" actually means vs. what gyms claim it means</div>
+      <div class="format-block"><span class="format-tag tag-edu">Educational</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"Any gym can put 'non-judgmental' on a sign. Almost none of them mean it."</div></div>
+        <div class="format-row"><div class="format-row-label">Core Insight</div><div class="format-row-content">"Non-judgmental" in most commercial gyms means staff won't comment on your form. It doesn't mean the environment was designed with you in mind or that the culture supports beginners. Real non-judgment is structural, not rhetorical — it shows up in how equipment is arranged, who the coaches are, how staff greet members, and what the community actually looks like.</div></div>
+        <div class="format-row"><div class="format-row-label">3 Questions to Ask Any Gym</div>
+          <ul class="steps-list">
+            <li>"What percentage of your members are beginners right now?" High answer = welcoming culture.</li>
+            <li>Watch how staff interact with newer members during a tour — not who they show you, but how they treat everyone else.</li>
+            <li>"What do you do when a member is struggling to attend consistently?" Their answer is your preview of support.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-prov">Provocative</span>
+        <div class="format-row"><div class="format-row-label">Hook</div><div class="format-hook">"'No judgment' is the most overused phrase in fitness — and the least delivered promise."</div></div>
+        <div class="format-row"><div class="format-row-label">Closing Question</div><div class="closing-q">What if "no judgment zone" is the biggest fiction in the gym industry — and you've been walking in believing it?</div></div>
+      </div>
+      <div class="format-block"><span class="format-tag tag-case">Case Study</span>
+        <div class="case-grid">
+          <div class="case-cell"><div class="case-cell-label">Context</div><div class="case-cell-val">Ingrid, 42, teacher. Joined a "judgment-free" big-box gym. Left after 3 weeks: stared at in weights area, ignored by staff.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Action</div><div class="case-cell-val">Planet U intake coach asked about her experience. Assigned a female trainer. Introduced her to community Slack before session 1.</div></div>
+          <div class="case-cell"><div class="case-cell-label">Numbers</div><div class="case-cell-val">Attended all 12 sessions in month 1. Described Planet U as "the first gym that actually meant it."</div></div>
+          <div class="case-cell"><div class="case-cell-label">CTA</div><div class="case-cell-val">DM REAL for what non-judgmental actually looks like at Planet U.</div></div>
+        </div>
+        <div class="case-takeaway">"Non-judgmental isn't a sign. It's a system."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 30-DAY CALENDAR -->
+<section style="background:var(--card-bg);">
+  <div class="content-wrap">
+    <div class="section-label">30-Day Content Calendar</div>
+    <h2 class="section-title">Day by day. <em>Ready to post.</em></h2>
+    <p class="section-desc">Platform: Instagram (Threads + Reels). North star: saves = intent, DMs = pipeline, comments = trust. Posting rhythm: 7–9am educational, 11am–1pm provocative, 5–7pm case studies.</p>
+
+    <table class="calendar-table">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Platform</th>
+          <th>Topic / Angle</th>
+          <th>Format</th>
+          <th>Goal</th>
+          <th>Distribution Notes</th>
+        </tr>
+      </thead>
+      <tbody id="cal-body">
+        <!-- JS renders rows -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- DM KEYWORDS -->
+<section>
+  <div class="content-wrap">
+    <div class="section-label">DM Tracking Keywords</div>
+    <h2 class="section-title">One keyword per post. <em>Every DM is a warm lead.</em></h2>
+    <p class="section-desc">Each post CTA ends with one keyword. The keyword triggers an automated reply with a free week link + intake form. Track which angles drive the most DMs.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;">
+      <span style="background:var(--accent);color:#fff;padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">START</span>
+      <span style="background:var(--navy);color:#fff;padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">ROUTE</span>
+      <span style="background:var(--card-bg);color:var(--black);border:1px solid var(--border);padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">READY</span>
+      <span style="background:var(--card-bg);color:var(--black);border:1px solid var(--border);padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">28</span>
+      <span style="background:var(--card-bg);color:var(--black);border:1px solid var(--border);padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">25</span>
+      <span style="background:var(--card-bg);color:var(--black);border:1px solid var(--border);padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">LESS</span>
+      <span style="background:var(--card-bg);color:var(--black);border:1px solid var(--border);padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">COST</span>
+      <span style="background:var(--card-bg);color:var(--black);border:1px solid var(--border);padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">STORY</span>
+      <span style="background:var(--card-bg);color:var(--black);border:1px solid var(--border);padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">SWITCH</span>
+      <span style="background:var(--card-bg);color:var(--black);border:1px solid var(--border);padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">RULE</span>
+      <span style="background:var(--card-bg);color:var(--black);border:1px solid var(--border);padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">MEASURE</span>
+      <span style="background:var(--card-bg);color:var(--black);border:1px solid var(--border);padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">TRACK</span>
+      <span style="background:var(--card-bg);color:var(--black);border:1px solid var(--border);padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">METRICS</span>
+      <span style="background:var(--card-bg);color:var(--black);border:1px solid var(--border);padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">RESET</span>
+      <span style="background:var(--card-bg);color:var(--black);border:1px solid var(--border);padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">CHAOS</span>
+      <span style="background:var(--card-bg);color:var(--black);border:1px solid var(--border);padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">HABIT</span>
+      <span style="background:var(--navy);color:#fff;padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">WELCOME</span>
+      <span style="background:var(--card-bg);color:var(--black);border:1px solid var(--border);padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">DESIGN</span>
+      <span style="background:var(--accent);color:#fff;padding:8px 18px;border-radius:2px;font-size:13px;font-weight:600;">REAL</span>
+    </div>
+  </div>
+</section>
+
+<!-- EXECUTION NOTES -->
+<section>
+  <div class="content-wrap">
+    <div class="section-label">Execution Notes</div>
+    <h2 class="section-title">How to run this. <em>Without a team.</em></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="format-block" style="padding:28px;">
+        <div class="format-row-label">Week 1–2 Priority</div>
+        <div class="format-row-content">Lead with Angles 2 and 6 — fastest engagement, highest relatability. These get saves and comments from day one and signal to the algorithm that your content resonates.</div>
+      </div>
+      <div class="format-block" style="padding:28px;">
+        <div class="format-row-label">Week 3–4 Priority</div>
+        <div class="format-row-content">Shift to Angles 3 and 5 for direct conversion. The cost-per-session math post and the metric reframe are your strongest DM drivers. This is when to push the free week offer hard.</div>
+      </div>
+      <div class="format-block" style="padding:28px;">
+        <div class="format-row-label">Reel Specs</div>
+        <div class="format-row-content">All Reels under 40 seconds outperform longer ones for this audience on saves and reach. Captions under 150 words. First line is always the hook — Instagram cuts off after line 1.</div>
+      </div>
+      <div class="format-block" style="padding:28px;">
+        <div class="format-row-label">Case Studies = Conversion</div>
+        <div class="format-row-content">These are your bottom-of-funnel posts. Always include a DM keyword CTA. Warm leads from case studies are 3x more likely to convert to a free week than leads from educational posts.</div>
+      </div>
+      <div class="format-block" style="padding:28px;">
+        <div class="format-row-label">Repurposing System</div>
+        <div class="format-row-content">Every Reel script → repurpose as Threads post same day. Every case study → repurpose as Telegram story. Every educational post → add to highlights under relevant theme.</div>
+      </div>
+      <div class="format-block" style="padding:28px;">
+        <div class="format-row-label">Highlights Structure</div>
+        <div class="format-row-content">Create 3 story highlight folders: "Fitness Myths" (Angles 1–3), "Mindset Tools" (Angles 4 + 6), "Real Results" (Angles 5 + 7). Add every relevant post to highlights on day of posting.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="label">Want This For Your Business?</div>
+  <h2>Strategy built for <em>your exact customer.</em></h2>
+  <p>We build the same depth — brand analysis, customer profiling, content angles, calendar, and SEO — for small businesses across the US.</p>
+  <a href="https://kabukacreatives.github.io/#contact" class="cta-btn">Start a Project</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://kabukacreatives.github.io/" class="footer-logo">Kabuka.</a>
+  <span>© 2026 Kabuka Creatives · <a href="https://kabukacreatives.github.io/#portfolio">← Back to all work</a></span>
+</footer>
+
+<script>
+const cal = [
+  [1,'Threads','A1-S1: "Just be consistent" is worst fitness advice','Provocative','Awareness / Comments','Post 7am. Pin to profile. Repurpose as Reel caption.'],
+  [2,'Reels','A2-S1: 60-min workout was never about biology','Educational','Saves / Reach','Graphic animation. Add to Highlights: "Fitness Myths".'],
+  [3,'Reels','A4-S1: "I\'m not a gym person" is a story','Educational','Saves / Identity resonance','Talking head. Warm tone. CTA: Save + Share.'],
+  [4,'Threads','A6-S1: Monday isn\'t a fresh start','Provocative','Comments / Shares','Text post. Question at end drives replies. Share to stories.'],
+  [5,'Reels','A3-S1: Business model built on your failure','Provocative','Shares / Saves','Bold tone. Cost-per-session math. CTA: Do the math in comments.'],
+  [6,'Threads','A5-S1: 6-week lag — you were winning while quitting','Educational','Saves / Trust-building','Timeline format. Highest save-rate topic. Share as carousel on stories.'],
+  [7,'Reels','A7-S1: Gym space design decides if you quit','Educational','Awareness / DMs','Walkthrough style. Red flags vs. green flags. CTA: DM WELCOME.'],
+  [8,'Threads','A1-S1: Case Study — Maya','Case Study','DMs / Lead gen','Narrative format. CTA: DM START. Repurpose as Telegram.'],
+  [9,'Reels','A4-S2: The 2-day rule','Educational','Saves / Shares','Graphic rule card. Add to Highlights: "Mindset Tools".'],
+  [10,'Threads','A2-S2: What 25 minutes does to your body','Provocative','Comments / Shares','Science-forward. Ask audience their session length. Share to stories.'],
+  [11,'Reels','A6-S2: Training through imperfect conditions','Educational','Saves','Permission-style. High save potential. CTA: DM CHAOS.'],
+  [12,'Threads','A3-S2: Psychological debt of serial quitting','Provocative','Comments / Emotional resonance','Empathetic but challenging. Share to stories.'],
+  [13,'Reels','A5-S2: What changes first (invisible results)','Educational','Saves / Trust','Body science visual. Timeline format. Add to Highlights: "Real Results".'],
+  [14,'Threads','A7-S2: Invisible social pressures in gyms','Provocative','Comments / DMs','Validation-first. Strong comment bait. CTA: DM DESIGN.'],
+  [15,'Reels','A1-S2: Environment beats willpower','Educational','Saves / Shares','Quick tips format. Repurpose as Threads same day.'],
+  [16,'Threads','A2-S3: Minimum effective dose','Provocative','Comments / Saves','Permission-as-provocation. Strong contrarian hook. Share to stories.'],
+  [17,'Reels','A4-S3: Rewriting fitness identity without starting over','Educational','Saves / DMs','Identity sentence exercise. CTA: Comment your new identity sentence.'],
+  [18,'Threads','A3-S3: Case Study — Carla ($120 luxury gym)','Case Study','DMs / Conversions','Finance lens. Strong lead-gen. CTA: DM SWITCH.'],
+  [19,'Reels','A6-S3: Neuroscience of "I\'ll start again"','Provocative','Comments / Shares','Dopamine frame. Most shareable science angle. CTA: Drop your ratio.'],
+  [20,'Threads','A5-S3: 4 metrics that predict long-term success','Educational','Saves','The 4-metric system reveal. Highest-save potential. CTA: DM METRICS.'],
+  [21,'Reels','A7-S3: What "non-judgmental" actually means','Provocative','Comments / DMs','Industry accountability. Strong comment bait. CTA: DM REAL.'],
+  [22,'Threads','A1-S3: The 2-minute rule (just arrive)','Educational','Saves / Shares','Lowest-barrier advice. Very high shareability. Add to Highlights.'],
+  [23,'Reels','A2-S2: Case Study — Simone (25-min results)','Case Study','DMs / Conversions','Testimonial format. CTA: DM 25. Link in bio for free week.'],
+  [24,'Threads','A4-S2: Case Study — Nina (2-day rule)','Case Study','DMs / Lead gen','Pattern-fix narrative. CTA: DM RULE. Repurpose to Telegram.'],
+  [25,'Reels','A5-S1: Case Study — Sofia (week 4 quitter)','Case Study','DMs / Conversions','Emotional case study. CTA: DM MEASURE for tracking template.'],
+  [26,'Threads','A3-S1: Case Study — Rachel ($93/session)','Case Study','DMs / Conversions','Math-forward story. Strongest direct conversion post. CTA: DM COST.'],
+  [27,'Reels','A6-S1: Case Study — Diane (11 Mondays → 68 sessions)','Case Study','DMs / Conversions','Data-driven story. CTA: DM RESET.'],
+  [28,'Threads','A7-S1: Case Study — Zoe (environment onboarding)','Case Study','DMs / Conversions','Belonging story. Highest empathy case study. CTA: DM WELCOME.'],
+  [29,'Reels','Community highlight / member wins reel','Community','Trust / Social proof','Compilation of member check-ins. Bold instrumental music.'],
+  [30,'Reels + Threads','Month wrap: the 3x/week woman — Planet U differentiator','Brand Position','Membership CTA','Direct offer post. Free week offer. Clear CTA to link in bio. Pin to top.'],
+];
+
+const platClass = p => p.includes('Threads') && p.includes('Reels') ? 'plat-both' : p.includes('Threads') ? 'plat-threads' : 'plat-reels';
+const fmtColor = f => f === 'Educational' ? '#1a1a2e' : f === 'Provocative' ? '#e94560' : f === 'Case Study' ? '#555' : '#888';
+
+const tbody = document.getElementById('cal-body');
+cal.forEach(([day, plat, topic, fmt, goal, notes]) => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td><span class="day-num">${day}</span></td>
+    <td><span class="plat-tag ${platClass(plat)}">${plat}</span></td>
+    <td style="font-size:13px;font-weight:500;max-width:220px;">${topic}</td>
+    <td><span class="fmt-tag" style="color:${fmtColor(fmt)}">${fmt}</span></td>
+    <td class="goal-tag">${goal}</td>
+    <td class="notes-cell">${notes}</td>
+  `;
+  tbody.appendChild(tr);
+});
+</script>
+
+</body>
+</html>
