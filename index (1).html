@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kabuka Creatives — Content Strategy & Websites for Small Businesses</title>
+<meta name="description" content="Kabuka Creatives builds content strategy, content, and websites for small businesses in the US. Specialising in South Asian brands, e-commerce, and service businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── ROOT ── */
+:root {
+  --forest:  #1C3228;
+  --terra:   #C4622D;
+  --terra-l: #E8845A;
+  --cream:   #F7F3EE;
+  --warm:    #EDE6DB;
+  --ink:     #1A1A18;
+  --mid:     #555550;
+  --light:   #9A9590;
+  --white:   #FFFFFF;
+  --border:  rgba(28,50,40,0.12);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--terra); }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 56px;
+  transition: background 0.4s, backdrop-filter 0.4s;
+}
+nav.scrolled {
+  background: rgba(247,243,238,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--forest);
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+.nav-logo span { color: var(--terra); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--terra); }
+.nav-cta {
+  background: var(--forest);
+  color: var(--cream) !important;
+  padding: 10px 22px;
+  border-radius: 2px;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--terra) !important; color: var(--white) !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left {
+  background: var(--forest);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 120px 64px 80px;
+  position: relative;
+}
+.hero-left::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-tag {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--terra-l);
+  font-weight: 600;
+  margin-bottom: 28px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.hero-tag::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--terra);
+}
+.hero-h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(44px, 5.5vw, 80px);
+  font-weight: 900;
+  color: var(--cream);
+  line-height: 1.05;
+  position: relative;
+  margin-bottom: 32px;
+}
+.hero-h1 em {
+  font-style: italic;
+  color: var(--terra-l);
+  display: block;
+}
+.hero-sub {
+  font-size: 16px;
+  color: rgba(247,243,238,0.6);
+  max-width: 400px;
+  line-height: 1.8;
+  position: relative;
+  margin-bottom: 48px;
+}
+.hero-btns { display: flex; gap: 16px; position: relative; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--terra);
+  color: var(--white);
+  padding: 15px 32px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.25s, transform 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--terra-l); transform: translateY(-2px); }
+.btn-ghost {
+  border: 1px solid rgba(247,243,238,0.3);
+  color: var(--cream);
+  padding: 15px 32px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: border-color 0.2s, background 0.2s;
+  display: inline-block;
+}
+.btn-ghost:hover { border-color: var(--terra); background: rgba(196,98,45,0.1); }
+
+.hero-right {
+  background: var(--warm);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 64px 80px;
+  position: relative;
+}
+.hero-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  width: 100%;
+  max-width: 380px;
+}
+.stat-card {
+  background: var(--white);
+  padding: 32px 28px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s forwards;
+}
+.stat-card:nth-child(1) { animation-delay: 0.2s; }
+.stat-card:nth-child(2) { animation-delay: 0.35s; background: var(--forest); }
+.stat-card:nth-child(3) { animation-delay: 0.5s; background: var(--terra); }
+.stat-card:nth-child(4) { animation-delay: 0.65s; }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-card:nth-child(1) .stat-num { color: var(--forest); }
+.stat-card:nth-child(2) .stat-num { color: var(--terra-l); }
+.stat-card:nth-child(3) .stat-num { color: var(--white); }
+.stat-card:nth-child(4) .stat-num { color: var(--terra); }
+.stat-label { font-size: 13px; font-weight: 500; }
+.stat-card:nth-child(1) .stat-label { color: var(--mid); }
+.stat-card:nth-child(2) .stat-label { color: rgba(247,243,238,0.7); }
+.stat-card:nth-child(3) .stat-label { color: rgba(255,255,255,0.85); }
+.stat-card:nth-child(4) .stat-label { color: var(--mid); }
+
+@keyframes fadeUp {
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* ── MARQUEE TICKER ── */
+.ticker {
+  background: var(--terra);
+  padding: 14px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-track {
+  display: inline-flex;
+  animation: ticker 20s linear infinite;
+}
+.ticker-item {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white);
+  padding: 0 36px;
+}
+.ticker-item::after {
+  content: '◆';
+  margin-left: 36px;
+  opacity: 0.5;
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ── SECTION COMMON ── */
+section { padding: 100px 56px; }
+.sec-tag {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--terra);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.sec-tag::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--terra);
+}
+.sec-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 700;
+  color: var(--forest);
+  line-height: 1.1;
+  max-width: 640px;
+  margin-bottom: 20px;
+}
+.sec-title em { font-style: italic; color: var(--terra); }
+.sec-sub {
+  font-size: 16px;
+  color: var(--mid);
+  max-width: 520px;
+  line-height: 1.8;
+  margin-bottom: 64px;
+}
+
+/* ── SERVICES ── */
+#services { background: var(--forest); }
+#services .sec-tag { color: var(--terra-l); }
+#services .sec-tag::before { background: var(--terra); }
+#services .sec-title { color: var(--cream); }
+#services .sec-sub { color: rgba(247,243,238,0.6); }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.service-card {
+  background: rgba(255,255,255,0.04);
+  padding: 44px 36px;
+  border-top: 2px solid rgba(196,98,45,0.3);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+  cursor: default;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0; height: 0;
+  background: var(--terra);
+  transition: height 0.3s;
+  z-index: 0;
+}
+.service-card:hover::before { height: 3px; }
+.service-card:hover { background: rgba(255,255,255,0.07); }
+.service-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  font-weight: 900;
+  color: rgba(196,98,45,0.15);
+  line-height: 1;
+  margin-bottom: 20px;
+  position: relative;
+}
+.service-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 16px;
+  line-height: 1.2;
+  position: relative;
+}
+.service-desc {
+  font-size: 15px;
+  color: rgba(247,243,238,0.6);
+  line-height: 1.8;
+  position: relative;
+}
+.service-items {
+  margin-top: 20px;
+  list-style: none;
+  position: relative;
+}
+.service-items li {
+  font-size: 13px;
+  color: rgba(247,243,238,0.5);
+  padding: 6px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.service-items li::before {
+  content: '→';
+  color: var(--terra);
+  flex-shrink: 0;
+}
+
+/* ── WHO I WORK WITH ── */
+#who { background: var(--warm); }
+.who-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.who-card {
+  background: var(--white);
+  padding: 40px 32px;
+  border-bottom: 3px solid var(--border);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.who-card:hover { border-color: var(--terra); transform: translateY(-4px); }
+.who-icon {
+  font-size: 36px;
+  margin-bottom: 20px;
+  display: block;
+}
+.who-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--forest);
+  margin-bottom: 12px;
+}
+.who-desc { font-size: 15px; color: var(--mid); line-height: 1.7; }
+
+/* ── PORTFOLIO ── */
+#portfolio { background: var(--cream); }
+.portfolio-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 64px;
+}
+.portfolio-intro .sec-sub { margin-bottom: 0; }
+
+.case-studies { display: flex; flex-direction: column; gap: 2px; }
+.case-card {
+  background: var(--white);
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 0;
+  border-left: 4px solid transparent;
+  transition: border-color 0.25s;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
+.case-card:hover { border-left-color: var(--terra); }
+.case-card-num {
+  background: var(--warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 44px 32px;
+}
+.case-card-num span {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 900;
+  color: rgba(28,50,40,0.15);
+}
+.case-card-body { padding: 44px 40px; }
+.case-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 12px;
+}
+.case-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--forest);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+.case-desc { font-size: 15px; color: var(--mid); line-height: 1.7; }
+.case-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.pill {
+  background: var(--warm);
+  color: var(--forest);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 2px;
+}
+.case-card-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 44px 32px;
+  background: var(--warm);
+  transition: background 0.25s;
+}
+.case-card:hover .case-card-arrow { background: var(--terra); }
+.case-card-arrow svg {
+  transition: transform 0.25s;
+  stroke: var(--forest);
+}
+.case-card:hover .case-card-arrow svg { transform: translateX(4px); stroke: var(--white); }
+
+.coming-soon {
+  background: var(--warm);
+  padding: 44px;
+  text-align: center;
+  margin-top: 2px;
+}
+.coming-soon p {
+  font-size: 14px;
+  color: var(--light);
+  font-style: italic;
+}
+
+/* ── PROCESS ── */
+#process { background: var(--forest); }
+#process .sec-tag { color: var(--terra-l); }
+#process .sec-tag::before { background: var(--terra); }
+#process .sec-title { color: var(--cream); }
+#process .sec-sub { color: rgba(247,243,238,0.6); margin-bottom:64px; }
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+.step {
+  background: rgba(255,255,255,0.04);
+  padding: 40px 28px;
+  position: relative;
+}
+.step::after {
+  content: '→';
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--terra);
+  font-size: 18px;
+  z-index: 1;
+}
+.step:last-child::after { display: none; }
+.step-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: rgba(196,98,45,0.25);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.step-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+.step-desc { font-size: 14px; color: rgba(247,243,238,0.55); line-height: 1.7; }
+
+/* ── ABOUT ── */
+#about {
+  background: var(--cream);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 0;
+}
+.about-left {
+  background: var(--terra);
+  padding: 100px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.about-left .sec-tag { color: rgba(255,255,255,0.7); }
+.about-left .sec-tag::before { background: rgba(255,255,255,0.4); }
+.about-left .sec-title { color: var(--white); max-width: 100%; }
+.about-left .sec-sub { color: rgba(255,255,255,0.8); margin-bottom: 0; }
+
+.about-right {
+  padding: 100px 64px;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.about-right p {
+  font-size: 16px;
+  color: var(--mid);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+.about-right p strong { color: var(--forest); font-weight: 600; }
+.about-vals {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.about-val {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.val-dot {
+  width: 8px; height: 8px;
+  background: var(--terra);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+.val-text { font-size: 15px; color: var(--mid); line-height: 1.6; }
+.val-text strong { color: var(--forest); font-weight: 600; }
+
+/* ── CONTACT ── */
+#contact { background: var(--ink); padding: 100px 56px; }
+.contact-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+#contact .sec-tag {
+  justify-content: center;
+  color: var(--terra-l);
+}
+#contact .sec-tag::before { background: var(--terra); }
+#contact .sec-title {
+  color: var(--cream);
+  max-width: 100%;
+  text-align: center;
+  margin: 0 auto 16px;
+}
+#contact .sec-sub {
+  color: rgba(247,243,238,0.55);
+  max-width: 100%;
+  text-align: center;
+  margin: 0 auto 48px;
+}
+.contact-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  text-align: left;
+  margin-bottom: 48px;
+}
+.contact-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 28px 28px;
+  transition: border-color 0.25s, background 0.25s;
+}
+.contact-card:hover { border-color: var(--terra); background: rgba(196,98,45,0.08); }
+.contact-card-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 8px;
+}
+.contact-card-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: var(--cream);
+  font-weight: 400;
+}
+.contact-card-note { font-size: 13px; color: rgba(247,243,238,0.4); margin-top: 6px; }
+
+.email-cta {
+  display: inline-block;
+  background: var(--terra);
+  color: var(--white);
+  padding: 18px 44px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.25s, transform 0.2s;
+}
+.email-cta:hover { background: var(--terra-l); transform: translateY(-2px); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 32px 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--cream);
+  text-decoration: none;
+}
+.footer-logo span { color: var(--terra); }
+.footer-copy {
+  font-size: 13px;
+  color: rgba(247,243,238,0.3);
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  nav { padding: 18px 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 100px 28px 56px; }
+  .hero-right { padding: 56px 28px; }
+  section { padding: 72px 28px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .who-grid { grid-template-columns: 1fr; }
+  .portfolio-intro { grid-template-columns: 1fr; gap: 32px; }
+  .case-card { grid-template-columns: 1fr; }
+  .case-card-num, .case-card-arrow { display: none; }
+  .case-card-body { padding: 32px 24px; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  #about { grid-template-columns: 1fr; }
+  .about-left, .about-right { padding: 72px 28px; }
+  .contact-options { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Kabuka<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Start a Project</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-tag">Content Strategy Studio</div>
+    <h1 class="hero-h1">
+      Strategy that makes<br>
+      <em>small businesses</em><br>
+      impossible to ignore.
+    </h1>
+    <p class="hero-sub">Kabuka Creatives builds content strategy, content, and websites for small businesses in the US — from South Asian brands to e-commerce shops to service businesses ready to grow.</p>
+    <div class="hero-btns">
+      <a href="#portfolio" class="btn-primary">See Our Work</a>
+      <a href="#contact" class="btn-ghost">Start a Project</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Core services — strategy, content & websites</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">US</div>
+        <div class="stat-label">Based — serving businesses across all 50 states</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">30</div>
+        <div class="stat-label">Day content calendars — ready to post from day one</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Industries — product, service, South Asian, e-commerce</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Content Strategy</span>
+    <span class="ticker-item">Brand Identity</span>
+    <span class="ticker-item">Instagram Growth</span>
+    <span class="ticker-item">Website Design</span>
+    <span class="ticker-item">30-Day Calendars</span>
+    <span class="ticker-item">South Asian Brands</span>
+    <span class="ticker-item">SEO Keywords</span>
+    <span class="ticker-item">Small Business</span>
+    <span class="ticker-item">Content Strategy</span>
+    <span class="ticker-item">Brand Identity</span>
+    <span class="ticker-item">Instagram Growth</span>
+    <span class="ticker-item">Website Design</span>
+    <span class="ticker-item">30-Day Calendars</span>
+    <span class="ticker-item">South Asian Brands</span>
+    <span class="ticker-item">SEO Keywords</span>
+    <span class="ticker-item">Small Business</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="sec-tag">What We Do</div>
+  <div class="sec-title">Three ways we make <em>your business grow.</em></div>
+  <p class="sec-sub">Every business we work with gets a strategy built for their exact customer, their exact platform, and their exact goal — not a template.</p>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <div class="service-title">Content Strategy</div>
+      <div class="service-desc">A complete roadmap for what to post, when to post it, and exactly what to say — built around your brand's voice, your customer, and your business goal.</div>
+      <ul class="service-items">
+        <li>Brand & audience analysis</li>
+        <li>Content pillars & angles</li>
+        <li>30-day content calendars</li>
+        <li>SEO keywords & hashtag strategy</li>
+        <li>Instagram profile optimisation</li>
+      </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">02</div>
+      <div class="service-title">Content Creation</div>
+      <div class="service-desc">Ready-to-post captions, hooks, carousels, story scripts, and reel concepts — written in your brand voice, built to convert, and designed to be saved and shared.</div>
+      <ul class="service-items">
+        <li>Caption writing (all formats)</li>
+        <li>Reel scripts & hooks</li>
+        <li>Story sequences</li>
+        <li>Carousel frameworks</li>
+        <li>Case studies & testimonials</li>
+      </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">03</div>
+      <div class="service-title">Website Design</div>
+      <div class="service-desc">Clean, fast, professional websites that convert visitors into customers — built specifically for small businesses who need to look credible and be easy to find.</div>
+      <ul class="service-items">
+        <li>Single-page portfolio sites</li>
+        <li>Product & e-commerce pages</li>
+        <li>Service business sites</li>
+        <li>SEO-ready structure</li>
+        <li>Mobile-first design</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section id="who">
+  <div class="sec-tag">Who We Serve</div>
+  <div class="sec-title">Built for businesses that are <em>ready to be found.</em></div>
+  <p class="sec-sub">We specialise in three kinds of businesses — and we go deep on each one.</p>
+  <div class="who-grid">
+    <div class="who-card reveal">
+      <span class="who-icon">🪡</span>
+      <div class="who-title">South Asian & Ethnic Brands</div>
+      <div class="who-desc">Handcrafted goods, fashion, food, and cultural businesses run by South Asian founders in the US and India. We understand your customer, your occasions, and your community — and we build strategy that speaks their language.</div>
+    </div>
+    <div class="who-card reveal reveal-delay-1">
+      <span class="who-icon">📦</span>
+      <div class="who-title">Product & E-Commerce Businesses</div>
+      <div class="who-desc">Founders selling physical products who need content that actually converts — not just posts that look good. We build the strategy, write the content, and design the pages that turn followers into buyers.</div>
+    </div>
+    <div class="who-card reveal reveal-delay-2">
+      <span class="who-icon">✦</span>
+      <div class="who-title">Service Businesses</div>
+      <div class="who-desc">Coaches, consultants, salons, and professionals who need to build authority and attract clients through content. We position you as the expert and give you the content system to prove it every week.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-intro">
+    <div>
+      <div class="sec-tag">Client Work</div>
+      <div class="sec-title">Strategy that <em>ships</em> and results that stick.</div>
+    </div>
+    <div>
+      <p class="sec-sub">Every project below is a real business with a real strategy, a real calendar, and a real owner who posts it. No mock-ups. No case study theatre.</p>
+    </div>
+  </div>
+
+  <div class="case-studies">
+    <a class="case-card" href="maragatham-studio.html">
+      <div class="case-card-num"><span>01</span></div>
+      <div class="case-card-body">
+        <div class="case-tag">South Asian Brand · Handcrafted Accessories · Instagram Strategy</div>
+        <div class="case-title">Maragatham Studio — Kanchi Silk Bridal Clutches</div>
+        <div class="case-desc">Full brand repositioning, Instagram profile rewrite, ICP development across 4 buyer segments, 7 content angles with 63 ready posts, SEO keyword strategy, and a 30-day calendar anchored to Ugadi and Tamil New Year. Targeting Indian-American brides and event-going women in the US.</div>
+        <div class="case-pills">
+          <span class="pill">Content Strategy</span>
+          <span class="pill">Instagram</span>
+          <span class="pill">SEO Keywords</span>
+          <span class="pill">30-Day Calendar</span>
+          <span class="pill">ICP Development</span>
+        </div>
+      </div>
+      <div class="case-card-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </div>
+    </a>
+
+    <div class="coming-soon reveal">
+      <p>More client work coming soon — currently building for new clients in e-commerce, wellness, and food & beverage. Check back shortly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="sec-tag">How It Works</div>
+  <div class="sec-title">From first conversation <em>to ready to post</em> — in 4 steps.</div>
+  <p class="sec-sub">Every engagement follows the same process. You always know what's happening, what's next, and when it lands.</p>
+  <div class="process-steps">
+    <div class="step reveal">
+      <div class="step-n">01</div>
+      <div class="step-title">Discovery Call</div>
+      <div class="step-desc">30 minutes. We learn your business, your customer, your goal, and your constraints. No forms, no questionnaires — a real conversation.</div>
+    </div>
+    <div class="step reveal reveal-delay-1">
+      <div class="step-n">02</div>
+      <div class="step-title">Strategy Build</div>
+      <div class="step-desc">We build the brand analysis, ICP, content pillars, and keyword strategy. You see the thinking before we build the content.</div>
+    </div>
+    <div class="step reveal reveal-delay-2">
+      <div class="step-n">03</div>
+      <div class="step-title">Content Delivery</div>
+      <div class="step-desc">Ready-to-post content, captions, calendars, and platform adaptations — delivered as a document you can use immediately.</div>
+    </div>
+    <div class="step reveal reveal-delay-3">
+      <div class="step-n">04</div>
+      <div class="step-title">Review & Launch</div>
+      <div class="step-desc">We walk through the delivery, answer every question, and make sure you know exactly how to execute every piece. Then you go live.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-left">
+    <div class="sec-tag">About</div>
+    <div class="sec-title">Kabuka Creatives</div>
+    <p class="sec-sub">A content strategy studio built for small businesses who are serious about growth — and done with generic advice that doesn't fit their market, their customer, or their culture.</p>
+  </div>
+  <div class="about-right">
+    <p>Kabuka Creatives was built to solve a specific problem: <strong>small businesses — especially those run by founders from underrepresented communities — get generic marketing advice that ignores who their customers actually are.</strong></p>
+    <p>We build strategy that goes deep: into the customer's language, their calendar, their cultural context, their purchase hesitations. We write content that sounds like the brand, not like a template. And we build websites that look like the business deserves to be there.</p>
+    <p>Every client we work with gets a strategy they can actually execute — not a 100-page deck that sits in a folder.</p>
+    <div class="about-vals">
+      <div class="about-val">
+        <div class="val-dot"></div>
+        <div class="val-text"><strong>Strategy first.</strong> Every piece of content has a reason to exist — a goal, an audience, a metric.</div>
+      </div>
+      <div class="about-val">
+        <div class="val-dot"></div>
+        <div class="val-text"><strong>Cultural fluency.</strong> We build for the customer in front of you — not a generic demographic profile.</div>
+      </div>
+      <div class="about-val">
+        <div class="val-dot"></div>
+        <div class="val-text"><strong>Ready to execute.</strong> Everything we deliver can be posted, published, or launched the same week.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="sec-tag">Start a Project</div>
+    <div class="sec-title">Ready to build something that <em>works?</em></div>
+    <p class="sec-sub">Tell us about your business and what you're trying to solve. We'll come back to you within 48 hours with a clear next step.</p>
+    <div class="contact-options">
+      <div class="contact-card">
+        <div class="contact-card-label">For Strategy & Content</div>
+        <div class="contact-card-val">DM on Instagram</div>
+        <div class="contact-card-note">Fastest response — usually same day</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-label">For Websites & Larger Projects</div>
+        <div class="contact-card-val">Email us directly</div>
+        <div class="contact-card-note">Full project briefs welcome</div>
+      </div>
+    </div>
+    <a href="mailto:hello@kabukacreatives.com" class="email-cta">Send Us a Message</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">Kabuka<span>.</span></a>
+  <div class="footer-copy">© 2026 Kabuka Creatives. All rights reserved.</div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
