@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planet U — 30-Day Content Calendar | Kabuka Creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0f0f0f;
+  --warm-white: #faf9f6;
+  --accent: #e94560;
+  --accent-dark: #c93048;
+  --purple: #7B2FBE;
+  --mid: #6b6b6b;
+  --border: #e2e0da;
+  --border-dark: #2a2a2a;
+  --navy: #1a1a2e;
+  --card-bg: #f2f1ee;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--warm-white); color: var(--black); font-family: var(--sans); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+/* GATE */
+#gate { position: fixed; inset: 0; z-index: 200; background: var(--black); display: flex; align-items: center; justify-content: center; }
+.gate-inner { text-align: center; max-width: 360px; width: 90%; }
+.gate-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; color: rgba(255,255,255,0.35); text-transform: uppercase; margin-bottom: 14px; }
+.gate-inner h2 { font-family: var(--serif); font-size: 26px; color: #fff; font-weight: 400; margin-bottom: 8px; }
+.gate-inner p { font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 28px; }
+#pw-input { width: 100%; padding: 13px 20px; font-size: 15px; font-family: var(--sans); background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: #fff; outline: none; text-align: center; letter-spacing: 2px; margin-bottom: 10px; transition: border-color 0.2s; }
+#pw-input:focus { border-color: var(--accent); }
+#pw-input::placeholder { letter-spacing: 0.5px; color: rgba(255,255,255,0.25); }
+.gate-btn { width: 100%; padding: 13px; font-size: 14px; font-weight: 600; font-family: var(--sans); background: var(--accent); color: #fff; border: none; border-radius: 8px; cursor: pointer; }
+.gate-btn:hover { background: var(--accent-dark); }
+.gate-error { font-size: 13px; color: var(--accent); margin-top: 8px; display: none; }
+
+/* NAV */
+nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; background: var(--warm-white); border-bottom: 1px solid var(--border); backdrop-filter: blur(8px); }
+.nav-logo { font-family: var(--serif); font-size: 20px; color: var(--black); text-decoration: none; }
+.nav-right { display: flex; align-items: center; gap: 14px; }
+.nav-badge { font-size: 11px; font-weight: 600; color: var(--accent); background: rgba(233,69,96,0.08); padding: 4px 10px; border-radius: 20px; }
+.nav-label { font-size: 12px; color: var(--mid); font-weight: 500; }
+
+/* HERO */
+.hero { background: var(--black); color: #fff; padding: 64px 40px 56px; border-bottom: 1px solid var(--border-dark); }
+.hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; color: rgba(255,255,255,0.3); text-transform: uppercase; margin-bottom: 16px; }
+.hero h1 { font-family: var(--serif); font-size: clamp(30px, 4vw, 50px); font-weight: 400; line-height: 1.1; max-width: 640px; margin-bottom: 14px; }
+.hero h1 em { color: var(--accent); font-style: italic; }
+.hero-desc { font-size: 14px; color: rgba(255,255,255,0.5); max-width: 560px; line-height: 1.75; margin-bottom: 48px; }
+.hero-stats { display: flex; gap: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; flex-wrap: wrap; }
+.stat-num { font-family: var(--serif); font-size: 36px; color: #fff; line-height: 1; margin-bottom: 4px; }
+.stat-num span { color: var(--accent); }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); }
+
+/* LAYOUT */
+.wrap { max-width: 1100px; margin: 0 auto; }
+section { padding: 64px 40px; border-bottom: 1px solid var(--border); }
+.section-label { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 14px; }
+.section-title { font-family: var(--serif); font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; line-height: 1.25; margin-bottom: 10px; }
+.section-title em { color: var(--accent); font-style: italic; }
+.section-desc { font-size: 14px; color: var(--mid); max-width: 600px; line-height: 1.75; margin-bottom: 36px; }
+
+/* LEGEND */
+.legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
+.legend-item { display: flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 500; }
+.legend-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+
+/* FILTER TABS */
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+.filter-btn { font-size: 12px; font-weight: 600; padding: 6px 14px; border: 1px solid var(--border); border-radius: 20px; cursor: pointer; background: var(--warm-white); color: var(--mid); transition: all 0.15s; font-family: var(--sans); }
+.filter-btn:hover, .filter-btn.active { background: var(--black); color: #fff; border-color: var(--black); }
+
+/* WEEK HEADERS */
+.week-header { background: var(--black); color: #fff; padding: 14px 24px; margin-bottom: 2px; display: flex; align-items: center; justify-content: space-between; }
+.week-label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+.week-theme { font-size: 12px; color: rgba(255,255,255,0.45); font-style: italic; }
+
+/* CALENDAR ROW */
+.cal-row {
+  display: grid;
+  grid-template-columns: 52px 90px 90px 1fr 110px 180px;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-top: none;
+  transition: background 0.1s;
+}
+.cal-row:hover { background: rgba(0,0,0,0.015); }
+.cal-row.gym-row { border-left: 4px solid var(--accent); }
+.cal-row.dance-row { border-left: 4px solid var(--purple); }
+.cal-row.brand-row { border-left: 4px solid var(--navy); }
+
+.cal-cell { padding: 14px 16px; border-right: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; }
+.cal-cell:last-child { border-right: none; }
+
+/* DAY CELL */
+.day-num { font-family: var(--serif); font-size: 22px; font-weight: 400; line-height: 1; color: var(--black); }
+.day-name { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--mid); margin-top: 2px; }
+
+/* PLATFORM CELL */
+.plat-ig { background: rgba(131,58,180,0.07); color: #6a1ea0; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 3px; display: inline-block; letter-spacing: 0.3px; margin-bottom: 4px; }
+.plat-reel { background: rgba(233,69,96,0.08); color: var(--accent); font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 3px; display: inline-block; letter-spacing: 0.3px; }
+.fb-note { font-size: 10px; color: var(--mid); margin-top: 5px; }
+
+/* FORMAT CELL */
+.fmt-edu { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--navy); }
+.fmt-prov { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); }
+.fmt-case { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #666; }
+.fmt-brand { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--purple); }
+.angle-tag { font-size: 10px; color: var(--mid); margin-top: 4px; }
+
+/* TOPIC CELL */
+.topic-title { font-size: 13px; font-weight: 600; line-height: 1.4; color: var(--black); margin-bottom: 4px; }
+.topic-hook { font-size: 12px; color: var(--mid); line-height: 1.45; font-style: italic; }
+
+/* GOAL CELL */
+.goal-primary { font-size: 12px; font-weight: 600; color: var(--black); margin-bottom: 3px; }
+.goal-metric { font-size: 11px; color: var(--mid); }
+
+/* NOTES CELL */
+.notes-text { font-size: 12px; color: var(--mid); line-height: 1.55; }
+.note-tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 3px; margin-bottom: 5px; letter-spacing: 0.3px; }
+.nt-carousel { background: rgba(26,26,46,0.07); color: var(--navy); }
+.nt-reel { background: rgba(233,69,96,0.08); color: var(--accent); }
+.nt-repost { background: rgba(0,0,0,0.05); color: #555; }
+.nt-pin { background: rgba(123,47,190,0.08); color: var(--purple); }
+.nt-story { background: rgba(131,58,180,0.07); color: #6a1ea0; }
+
+/* COLUMN HEADERS */
+.col-header { display: grid; grid-template-columns: 52px 90px 90px 1fr 110px 180px; gap: 0; border: 1px solid var(--border); background: var(--card-bg); margin-bottom: 2px; }
+.col-h { padding: 10px 16px; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid); border-right: 1px solid var(--border); }
+.col-h:last-child { border-right: none; }
+
+/* HIDDEN ROWS (for filter) */
+.cal-row.hidden { display: none; }
+
+/* DM KEYWORDS */
+.kw-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.kw { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; font-size: 12px; font-weight: 700; border-radius: 2px; }
+.kw-gym { background: rgba(233,69,96,0.08); color: var(--accent); }
+.kw-dance { background: rgba(123,47,190,0.08); color: var(--purple); }
+.kw-brand { background: rgba(26,26,46,0.06); color: var(--navy); }
+
+/* POSTING RULES */
+.rules-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+.rule-card { background: #fff; border: 1px solid var(--border); padding: 20px; }
+.rule-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.rule-text { font-size: 13px; color: var(--mid); line-height: 1.65; }
+
+/* FOOTER */
+footer { padding: 24px 40px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--mid); }
+footer a { color: var(--mid); text-decoration: none; }
+.footer-logo { font-family: var(--serif); font-size: 18px; color: var(--black); }
+
+/* BACK TO TOP */
+.back-top { position: fixed; bottom: 24px; right: 24px; background: var(--black); color: #fff; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; text-decoration: none; opacity: 0.65; transition: opacity 0.2s; z-index: 50; }
+.back-top:hover { opacity: 1; }
+
+@media (max-width: 900px) {
+  .cal-row, .col-header { grid-template-columns: 44px 80px 80px 1fr; }
+  .cal-row .cal-cell:nth-child(5), .cal-row .cal-cell:nth-child(6),
+  .col-header .col-h:nth-child(5), .col-header .col-h:nth-child(6) { display: none; }
+}
+@media (max-width: 600px) {
+  nav, .hero, section { padding-left: 20px; padding-right: 20px; }
+  .cal-row, .col-header { grid-template-columns: 40px 1fr; }
+  .cal-row .cal-cell:nth-child(2), .cal-row .cal-cell:nth-child(3),
+  .cal-row .cal-cell:nth-child(5), .cal-row .cal-cell:nth-child(6),
+  .col-header .col-h:nth-child(2), .col-header .col-h:nth-child(3),
+  .col-header .col-h:nth-child(5), .col-header .col-h:nth-child(6) { display: none; }
+  .hero-stats { gap: 20px; }
+  .rules-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 10px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- GATE -->
+<div id="gate">
+  <div class="gate-inner">
+    <div class="gate-label">Kabuka Creatives &middot; Client Document</div>
+    <h2>This document is private.</h2>
+    <p>Enter the password shared with you.</p>
+    <input type="password" id="pw-input" placeholder="Enter password" autocomplete="off">
+    <button class="gate-btn" onclick="checkPw()">Access Document</button>
+    <div class="gate-error" id="pw-error">Incorrect password. Please try again.</div>
+  </div>
+</div>
+<script>
+function checkPw() {
+  if (document.getElementById('pw-input').value.trim().toLowerCase() === 'planetu2026') {
+    document.getElementById('gate').style.display = 'none';
+  } else {
+    document.getElementById('pw-error').style.display = 'block';
+    document.getElementById('pw-input').style.borderColor = '#e94560';
+  }
+}
+document.getElementById('pw-input').addEventListener('keydown', function(e) { if (e.key === 'Enter') checkPw(); });
+</script>
+
+<!-- NAV -->
+<nav>
+  <a href="https://kabukacreatives.github.io/" class="nav-logo">Kabuka.</a>
+  <div class="nav-right">
+    <span class="nav-label">Planet U &mdash; Content Calendar</span>
+    <span class="nav-badge">30 Days</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">Planet U Bollywood Dance Fitness &middot; Alpharetta / Johns Creek &middot; Kabuka Creatives</div>
+    <h1>30-Day Content<br><em>Calendar.</em></h1>
+    <p class="hero-desc">Every post mapped: date, platform, topic, format, goal, and distribution notes. Instagram and Facebook carry the same content — post to Instagram, cross-post to Facebook same day. No repetition. No back-to-back same angle. Gym and dance pillars alternate throughout.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">30</div><div class="stat-label">Days planned</div></div>
+      <div class="stat"><div class="stat-num"><span>2</span></div><div class="stat-label">Platforms</div></div>
+      <div class="stat"><div class="stat-num">14</div><div class="stat-label">Angles used</div></div>
+      <div class="stat"><div class="stat-num">0</div><div class="stat-label">Repeated topics</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- POSTING RULES -->
+<section style="background: var(--card-bg);">
+  <div class="wrap">
+    <div class="section-label">Before You Post</div>
+    <h2 class="section-title">Rules that make this <em>work.</em></h2>
+    <div class="rules-grid">
+      <div class="rule-card">
+        <div class="rule-label">Platform Rule</div>
+        <div class="rule-text">Post to Instagram first. Cross-post the same caption and image to Facebook immediately after. Facebook does not need separate content — it gets everything Instagram gets, same day.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-label">Timing Rule</div>
+        <div class="rule-text"><strong>Feed posts (Educational):</strong> 7–9am.<br><strong>Feed posts (Provocative):</strong> 11am–1pm.<br><strong>Reels:</strong> 6–8pm.<br><strong>Case studies:</strong> 5–7pm. These windows match when your audience is most active.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-label">DM Keyword Rule</div>
+        <div class="rule-text">Every post ends with one DM keyword in the CTA. When someone DMs that word, they get an automated reply with your free class link. Track which keywords drive the most DMs — that angle is your top converter.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-label">Carousel Rule</div>
+        <div class="rule-text">Carousels: 4–6 slides max. Slide 1 = hook (matches your caption line 1). Slide 2 = insight. Slides 3–5 = steps or proofs. Last slide = CTA only. No slide should have more than 20 words.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-label">Reels Rule</div>
+        <div class="rule-text">Under 40 seconds for gym/fitness content. Dance Reels can run up to 60 seconds — movement holds attention. First 3 seconds must show the hook visually. Add captions — 80% of Reels are watched on mute.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-label">Hashtag Rule</div>
+        <div class="rule-text">5 hashtags every post — no more. Use these exact 5 every time: <strong>#BollywoodDanceFitnessAlpharetta #WeddingChoreographyAtlanta #FitnessForBusyWomen #WomensGymAlpharetta #AlpharettaFitness</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section>
+  <div class="wrap">
+    <div class="section-label">30-Day Plan</div>
+    <h2 class="section-title">Day by day. <em>Ready to post.</em></h2>
+    <p class="section-desc">Gym and dance angles alternate to avoid audience fatigue. Wedding/event content peaks in weeks 2 and 4. Conversion posts (Case Studies with DM keywords) land every 3–4 days.</p>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div> Fitness / Gym angle</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div> Dance / Wedding angle</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--navy)"></div> Brand / Community</div>
+    </div>
+
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterRows('all', this)">All 30 days</button>
+      <button class="filter-btn" onclick="filterRows('gym', this)">Fitness / Gym only</button>
+      <button class="filter-btn" onclick="filterRows('dance', this)">Dance / Wedding only</button>
+      <button class="filter-btn" onclick="filterRows('edu', this)">Educational only</button>
+      <button class="filter-btn" onclick="filterRows('prov', this)">Provocative only</button>
+      <button class="filter-btn" onclick="filterRows('case', this)">Case Studies only</button>
+      <button class="filter-btn" onclick="filterRows('reel', this)">Reels only</button>
+      <button class="filter-btn" onclick="filterRows('feed', this)">Feed posts only</button>
+    </div>
+
+    <!-- COLUMN HEADERS -->
+    <div class="col-header">
+      <div class="col-h">Day</div>
+      <div class="col-h">Platform</div>
+      <div class="col-h">Format</div>
+      <div class="col-h">Topic &amp; Hook</div>
+      <div class="col-h">Goal</div>
+      <div class="col-h">Distribution Notes</div>
+    </div>
+
+    <!-- ══ WEEK 1: ESTABLISH BOTH PILLARS ══ -->
+    <div class="week-header">
+      <span class="week-label">Week 1 &mdash; Days 1–7</span>
+      <span class="week-theme">Establish both pillars. Make her feel seen.</span>
+    </div>
+
+    <!-- DAY 1 -->
+    <div class="cal-row gym-row" data-type="gym" data-fmt="prov" data-plat="feed">
+      <div class="cal-cell"><div class="day-num">1</div><div class="day-name">Mon</div></div>
+      <div class="cal-cell"><span class="plat-ig">Instagram Feed</span><div class="fb-note">+ Facebook same day</div></div>
+      <div class="cal-cell"><div class="fmt-prov">Provocative</div><div class="angle-tag">A1 &mdash; Consistency Trap</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">"Just be consistent" is the worst fitness advice ever given</div>
+        <div class="topic-hook">"The fitness industry profits every time you blame yourself for quitting."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">Awareness &amp; Comments</div><div class="goal-metric">Target: 30+ comments, 20+ shares</div></div>
+      <div class="cal-cell"><span class="note-tag nt-pin">PIN TO PROFILE</span><div class="notes-text">Strong opener — pins well. End with: "So who actually benefits when you tell yourself you need more discipline?" CTA: DM START. Cross-post to Facebook with same caption.</div></div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="cal-row dance-row" data-type="dance" data-fmt="edu" data-plat="reel">
+      <div class="cal-cell"><div class="day-num">2</div><div class="day-name">Tue</div></div>
+      <div class="cal-cell"><span class="plat-reel">Reels</span><div class="fb-note">+ Facebook Reels</div></div>
+      <div class="cal-cell"><div class="fmt-edu">Educational</div><div class="angle-tag">A8 &mdash; Workout You Don't Dread</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">Every fitness program you've quit had one thing in common: you didn't enjoy it</div>
+        <div class="topic-hook">"The gym failed you. It never said you had to like it."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">Saves &amp; Reach</div><div class="goal-metric">Target: 60+ saves, 1.5k+ views</div></div>
+      <div class="cal-cell"><span class="note-tag nt-reel">REEL</span><div class="notes-text">Show class energy footage — women genuinely having fun. 35–45 sec. Hook in first 3 seconds. Add captions. CTA: "Drop 💃 if you've ever quit because the workout just wasn't fun." DM DANCE. Add to Highlights: FREE TRIAL.</div></div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="cal-row dance-row" data-type="dance" data-fmt="edu" data-plat="feed">
+      <div class="cal-cell"><div class="day-num">3</div><div class="day-name">Wed</div></div>
+      <div class="cal-cell"><span class="plat-ig">Instagram Feed</span><div class="fb-note">+ Facebook same day</div></div>
+      <div class="cal-cell"><div class="fmt-edu">Educational</div><div class="angle-tag">A9 &mdash; Wedding Body Trap</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">The pre-wedding fitness industry is selling the wrong product to the most stressed woman in the room</div>
+        <div class="topic-hook">"You're planning the most important day of your life. Your fitness plan should match that energy."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">Saves &amp; Bride Reach</div><div class="goal-metric">Target: 90+ saves, 50+ shares</div></div>
+      <div class="cal-cell"><span class="note-tag nt-carousel">CAROUSEL</span><div class="notes-text">4 slides: hook → insight → 3 steps → CTA slide. Very high save potential — brides share this. End with: "Save this if someone has told you to lose weight before your wedding." DM BRIDE. Tag location: Alpharetta.</div></div>
+    </div>
+
+    <!-- DAY 4 -->
+    <div class="cal-row gym-row" data-type="gym" data-fmt="edu" data-plat="reel">
+      <div class="cal-cell"><div class="day-num">4</div><div class="day-name">Thu</div></div>
+      <div class="cal-cell"><span class="plat-reel">Reels</span><div class="fb-note">+ Facebook Reels</div></div>
+      <div class="cal-cell"><div class="fmt-edu">Educational</div><div class="angle-tag">A4 &mdash; All-or-Nothing Identity</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">"I'm not a gym person" is a story, not a fact</div>
+        <div class="topic-hook">"You're not 'not a gym person.' You're a person who was failed by gyms."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">Saves &amp; Identity Resonance</div><div class="goal-metric">Target: 80+ saves, 2k+ views</div></div>
+      <div class="cal-cell"><span class="note-tag nt-reel">REEL</span><div class="notes-text">Talking head, warm tone. Text transition: old story → new story. 30–40 sec. CTA: "Drop 🔁 if you've ever said 'I'm not a gym person.'" DM STORY. Add to Highlights: START HERE.</div></div>
+    </div>
+
+    <!-- DAY 5 -->
+    <div class="cal-row dance-row" data-type="dance" data-fmt="prov" data-plat="feed">
+      <div class="cal-cell"><div class="day-num">5</div><div class="day-name">Fri</div></div>
+      <div class="cal-cell"><span class="plat-ig">Instagram Feed</span><div class="fb-note">+ Facebook same day</div></div>
+      <div class="cal-cell"><div class="fmt-prov">Provocative</div><div class="angle-tag">A10 &mdash; Wedding Choreography Blind Spot</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">Your guests will forget the centerpieces. They'll remember the sangeet for 20 years.</div>
+        <div class="topic-hook">"You planned the florals. The cake. The DJ. Not this."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">Comments &amp; Tags</div><div class="goal-metric">Target: 50+ comments, 80+ tags</div></div>
+      <div class="cal-cell"><span class="note-tag nt-repost">TAG BAIT</span><div class="notes-text">Strong tag bait — "Tag a family planning a sangeet right now." Budget breakdown: flowers vs. choreography visual. DM SANGEET. Cross-post to Facebook + tag local Indian community groups in Alpharetta/Johns Creek.</div></div>
+    </div>
+
+    <!-- DAY 6 -->
+    <div class="cal-row gym-row" data-type="gym" data-fmt="case" data-plat="reel">
+      <div class="cal-cell"><div class="day-num">6</div><div class="day-name">Sat</div></div>
+      <div class="cal-cell"><span class="plat-reel">Reels</span><div class="fb-note">+ Facebook Reels</div></div>
+      <div class="cal-cell"><div class="fmt-case">Case Study</div><div class="angle-tag">A1 &mdash; Consistency Trap</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">Maya rejoined 4 times. Month 1 at Planet U: 11 of 12 sessions.</div>
+        <div class="topic-hook">"The environment was fixed. Maya wasn't broken."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">DMs &amp; Lead Gen</div><div class="goal-metric">Target: 15+ DMs, 40+ saves</div></div>
+      <div class="cal-cell"><span class="note-tag nt-reel">REEL</span><div class="notes-text">Documentary style, 60 sec. Real member or actor. Warm tone. CTA: "DM START to get Maya's exact schedule." Free first class offer. Cross-post to Facebook. Add to Highlights: RESULTS.</div></div>
+    </div>
+
+    <!-- DAY 7 -->
+    <div class="cal-row dance-row" data-type="dance" data-fmt="edu" data-plat="feed">
+      <div class="cal-cell"><div class="day-num">7</div><div class="day-name">Sun</div></div>
+      <div class="cal-cell"><span class="plat-ig">Instagram Feed</span><div class="fb-note">+ Facebook same day</div></div>
+      <div class="cal-cell"><div class="fmt-edu">Educational</div><div class="angle-tag">A11 &mdash; Dance Is the Workout Science Kept Quiet</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">A 60-minute Bollywood class burns 400–600 calories. You'll check the time to see how fast it went.</div>
+        <div class="topic-hook">"Your treadmill is giving you cardio. Bollywood is giving you cardio, coordination, and a reason to come back."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">Saves &amp; Shares</div><div class="goal-metric">Target: 70+ saves, 40+ shares</div></div>
+      <div class="cal-cell"><span class="note-tag nt-carousel">CAROUSEL</span><div class="notes-text">Heart rate comparison graphic. 5 slides: hook → calorie data → science proof → adherence stat → CTA. "Save + share with the friend who thinks dance isn't a real workout." DM DANCE.</div></div>
+    </div>
+
+    <!-- ══ WEEK 2: BUILD TRUST + DRIVE WEDDING LEADS ══ -->
+    <div class="week-header">
+      <span class="week-label">Week 2 &mdash; Days 8–14</span>
+      <span class="week-theme">Build trust. Drive wedding and choreography leads.</span>
+    </div>
+
+    <!-- DAY 8 -->
+    <div class="cal-row gym-row" data-type="gym" data-fmt="prov" data-plat="feed">
+      <div class="cal-cell"><div class="day-num">8</div><div class="day-name">Mon</div></div>
+      <div class="cal-cell"><span class="plat-ig">Instagram Feed</span><div class="fb-note">+ Facebook same day</div></div>
+      <div class="cal-cell"><div class="fmt-prov">Provocative</div><div class="angle-tag">A3 &mdash; Hidden Cost of Big Box Gym</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">Your $25/month gym has 8,000 members. Their facility holds 300.</div>
+        <div class="topic-hook">"Planet Fitness doesn't want you to get fit. Fit members leave."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">Saves &amp; Shares</div><div class="goal-metric">Target: 55+ saves, 30+ comments</div></div>
+      <div class="cal-cell"><span class="note-tag nt-carousel">CAROUSEL</span><div class="notes-text">Cost-per-session math visual. "Calculate yours and drop the number below 👇" Ask audience to do the math in comments — high comment driver. DM COST. Cross-post to Facebook.</div></div>
+    </div>
+
+    <!-- DAY 9 -->
+    <div class="cal-row dance-row" data-type="dance" data-fmt="edu" data-plat="reel">
+      <div class="cal-cell"><div class="day-num">9</div><div class="day-name">Tue</div></div>
+      <div class="cal-cell"><span class="plat-reel">Reels</span><div class="fb-note">+ Facebook Reels</div></div>
+      <div class="cal-cell"><div class="fmt-edu">Educational</div><div class="angle-tag">A13 &mdash; The "I'm Not a Dancer" Identity Lie</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">"I have no rhythm" is not a fact about your body. It's a fact about your education.</div>
+        <div class="topic-hook">"You're not a bad dancer. You just haven't had the right teacher."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">Saves &amp; Shares</div><div class="goal-metric">Target: 80+ saves, 50+ shares</div></div>
+      <div class="cal-cell"><span class="note-tag nt-reel">REEL</span><div class="notes-text">Beginner learning footage — real, unfiltered. 35–45 sec. "Save this for the friend who thinks she can't dance." DM RHYTHM. Share to Stories. Add to Highlights: CLASSES.</div></div>
+    </div>
+
+    <!-- DAY 10 -->
+    <div class="cal-row gym-row" data-type="gym" data-fmt="edu" data-plat="feed">
+      <div class="cal-cell"><div class="day-num">10</div><div class="day-name">Wed</div></div>
+      <div class="cal-cell"><span class="plat-ig">Instagram Feed</span><div class="fb-note">+ Facebook same day</div></div>
+      <div class="cal-cell"><div class="fmt-edu">Educational</div><div class="angle-tag">A5 &mdash; Progress Photo Lie</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">Your body was changing for 6 weeks before you could see it. And you quit at week 4.</div>
+        <div class="topic-hook">"Stop measuring what you can see. Measure this instead."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">Saves &amp; Trust</div><div class="goal-metric">Target: 95+ saves — high save angle</div></div>
+      <div class="cal-cell"><span class="note-tag nt-carousel">CAROUSEL</span><div class="notes-text">Timeline graphic: what's happening inside weeks 1–8. 5 slides. "Save this so you stop quitting at the exact right moment." DM MEASURE. Cross-post to Facebook. Add to Highlights: RESULTS.</div></div>
+    </div>
+
+    <!-- DAY 11 -->
+    <div class="cal-row dance-row" data-type="dance" data-fmt="edu" data-plat="feed">
+      <div class="cal-cell"><div class="day-num">11</div><div class="day-name">Thu</div></div>
+      <div class="cal-cell"><span class="plat-ig">Instagram Feed</span><div class="fb-note">+ Facebook same day</div></div>
+      <div class="cal-cell"><div class="fmt-edu">Educational</div><div class="angle-tag">A14 &mdash; Event Fitness Window</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">12 weeks before your event. Here's exactly what to prioritize — and what to drop.</div>
+        <div class="topic-hook">"12 weeks before your event isn't a countdown to a deadline. It's a runway."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">Saves &amp; Bride Leads</div><div class="goal-metric">Target: 100+ saves — highest save potential</div></div>
+      <div class="cal-cell"><span class="note-tag nt-carousel">CAROUSEL</span><div class="notes-text">12-week roadmap across 4 slides: Weeks 1–4 / 5–8 / 9–12 / CTA. "Save this — the event fitness timeline that actually makes sense." DM WINDOW. Tag brides. Cross-post to Facebook wedding groups.</div></div>
+    </div>
+
+    <!-- DAY 12 -->
+    <div class="cal-row gym-row" data-type="gym" data-fmt="prov" data-plat="reel">
+      <div class="cal-cell"><div class="day-num">12</div><div class="day-name">Fri</div></div>
+      <div class="cal-cell"><span class="plat-reel">Reels</span><div class="fb-note">+ Facebook Reels</div></div>
+      <div class="cal-cell"><div class="fmt-prov">Provocative</div><div class="angle-tag">A6 &mdash; Monday Reset Spiral</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">Monday isn't a fresh start. It's the most popular form of procrastination.</div>
+        <div class="topic-hook">"Every 'I'll start Monday' has cost you more than you know."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">Comments &amp; Shares</div><div class="goal-metric">Target: 80+ comments, 3k+ views</div></div>
+      <div class="cal-cell"><span class="note-tag nt-reel">REEL</span><div class="notes-text">Calendar graphic with Monday highlighted as "procrastination." 30–40 sec. Humorous tone. "Drop 📅 if Monday is where your goals go to die." DM RESET. Share to Stories Friday night for maximum reach.</div></div>
+    </div>
+
+    <!-- DAY 13 -->
+    <div class="cal-row dance-row" data-type="dance" data-fmt="case" data-plat="feed">
+      <div class="cal-cell"><div class="day-num">13</div><div class="day-name">Sat</div></div>
+      <div class="cal-cell"><span class="plat-ig">Instagram Feed</span><div class="fb-note">+ Facebook same day</div></div>
+      <div class="cal-cell"><div class="fmt-case">Case Study</div><div class="angle-tag">A10 &mdash; Sangeet Blind Spot</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">The Mehta family: 47 WhatsApp messages, 0 rehearsals, sangeet in 4 weeks.</div>
+        <div class="topic-hook">"4 weeks was enough. 3 sessions was enough. A professional was the variable."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">DMs &amp; Conversions</div><div class="goal-metric">Target: 45+ DMs, 80+ saves</div></div>
+      <div class="cal-cell"><span class="note-tag nt-repost">HIGH SHARE</span><div class="notes-text">Chaos-to-confidence narrative. "2,400 views in family WhatsApp groups across 3 continents." CTA: DM SANGEET to book a consultation. Cross-post to Facebook. Tag local Indian community groups. Pin the comment with your link.</div></div>
+    </div>
+
+    <!-- DAY 14 -->
+    <div class="cal-row gym-row" data-type="gym" data-fmt="edu" data-plat="reel">
+      <div class="cal-cell"><div class="day-num">14</div><div class="day-name">Sun</div></div>
+      <div class="cal-cell"><span class="plat-reel">Reels</span><div class="fb-note">+ Facebook Reels</div></div>
+      <div class="cal-cell"><div class="fmt-edu">Educational</div><div class="angle-tag">A2 &mdash; The 60-Minute Difference</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">60 minutes at Planet U and a big-box gym are not the same 60 minutes.</div>
+        <div class="topic-hook">"The coach in the room is the variable you've been missing."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">Saves &amp; Awareness</div><div class="goal-metric">Target: 60+ saves, 2k+ views</div></div>
+      <div class="cal-cell"><span class="note-tag nt-reel">REEL</span><div class="notes-text">Split screen concept: wandering empty gym vs. structured coached class. 35–45 sec. "Drop ⏱️ if your gym doesn't have a plan for you." DM PLAN. Cross-post to Facebook. Add to Highlights: START HERE.</div></div>
+    </div>
+
+    <!-- ══ WEEK 3: DEEPEN CONVERSION ══ -->
+    <div class="week-header">
+      <span class="week-label">Week 3 &mdash; Days 15–21</span>
+      <span class="week-theme">Deepen credibility. Drive direct conversions.</span>
+    </div>
+
+    <!-- DAY 15 -->
+    <div class="cal-row dance-row" data-type="dance" data-fmt="case" data-plat="feed">
+      <div class="cal-cell"><div class="day-num">15</div><div class="day-name">Mon</div></div>
+      <div class="cal-cell"><span class="plat-ig">Instagram Feed</span><div class="fb-note">+ Facebook same day</div></div>
+      <div class="cal-cell"><div class="fmt-case">Case Study</div><div class="angle-tag">A8 &mdash; Workout You Don't Dread</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">Sarah quit 3 gyms. 8 months at Planet U — never once forced herself to go.</div>
+        <div class="topic-hook">"She didn't build more discipline. She found the right format."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">DMs &amp; Lead Gen</div><div class="goal-metric">Target: 30+ DMs, 55+ saves</div></div>
+      <div class="cal-cell"><span class="note-tag nt-repost">CONVERSION</span><div class="notes-text">Warm narrative tone. Real or representative member. CTA: DM DANCE to try your first Bollywood class free. Cross-post to Facebook. Add to Highlights: RESULTS.</div></div>
+    </div>
+
+    <!-- DAY 16 -->
+    <div class="cal-row gym-row" data-type="gym" data-fmt="case" data-plat="reel">
+      <div class="cal-cell"><div class="day-num">16</div><div class="day-name">Tue</div></div>
+      <div class="cal-cell"><span class="plat-reel">Reels</span><div class="fb-note">+ Facebook Reels</div></div>
+      <div class="cal-cell"><div class="fmt-case">Case Study</div><div class="angle-tag">A4 &mdash; All-or-Nothing Identity</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">Monica started fresh at 6 different gyms. Same mistake, better marketing each time.</div>
+        <div class="topic-hook">"The plan was never the problem. The story was."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">DMs &amp; Conversions</div><div class="goal-metric">Target: 30+ DMs, 3.5k+ views</div></div>
+      <div class="cal-cell"><span class="note-tag nt-reel">REEL</span><div class="notes-text">Gear pile vs. class check-ins visual. 50–55 sec. CTA: DM STORY to book an identity-first session. Free first class offer. Cross-post to Facebook. Add to Highlights: RESULTS.</div></div>
+    </div>
+
+    <!-- DAY 17 -->
+    <div class="cal-row dance-row" data-type="dance" data-fmt="case" data-plat="feed">
+      <div class="cal-cell"><div class="day-num">17</div><div class="day-name">Wed</div></div>
+      <div class="cal-cell"><span class="plat-ig">Instagram Feed</span><div class="fb-note">+ Facebook same day</div></div>
+      <div class="cal-cell"><div class="fmt-case">Case Study</div><div class="angle-tag">A12 &mdash; Sangeet Problem</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">The Gupta brothers: 4 brothers, zero dance experience, 6 weeks, standing ovation.</div>
+        <div class="topic-hook">"They didn't perform as dancers. They performed as brothers."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">DMs &amp; Tags</div><div class="goal-metric">Target: 50+ DMs, 150+ tags</div></div>
+      <div class="cal-cell"><span class="note-tag nt-repost">HIGHEST TAG POTENTIAL</span><div class="notes-text">Emotional brotherhood narrative. "3,000+ views in the extended family network." CTA: DM FAMILY. "Tag your sibling who 'definitely isn't performing.'" Cross-post to Facebook. Very high share potential.</div></div>
+    </div>
+
+    <!-- DAY 18 -->
+    <div class="cal-row gym-row" data-type="gym" data-fmt="case" data-plat="reel">
+      <div class="cal-cell"><div class="day-num">18</div><div class="day-name">Thu</div></div>
+      <div class="cal-cell"><span class="plat-reel">Reels</span><div class="fb-note">+ Facebook Reels</div></div>
+      <div class="cal-cell"><div class="fmt-case">Case Study</div><div class="angle-tag">A5 &mdash; Progress Photo Lie</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">Sofia quit 3 programs at weeks 4–6. She was already winning. She was measuring wrong.</div>
+        <div class="topic-hook">"She wasn't failing. She was measuring wrong."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">DMs &amp; Saves</div><div class="goal-metric">Target: 30+ DMs, 3.5k+ views</div></div>
+      <div class="cal-cell"><span class="note-tag nt-reel">REEL</span><div class="notes-text">Week 1–8 timeline visual. Before: scale obsession. After: strength log. 55 sec. CTA: DM MEASURE for the non-mirror tracking template. Free first class offer at end. Cross-post to Facebook.</div></div>
+    </div>
+
+    <!-- DAY 19 -->
+    <div class="cal-row dance-row" data-type="dance" data-fmt="case" data-plat="feed">
+      <div class="cal-cell"><div class="day-num">19</div><div class="day-name">Fri</div></div>
+      <div class="cal-cell"><span class="plat-ig">Instagram Feed</span><div class="fb-note">+ Facebook same day</div></div>
+      <div class="cal-cell"><div class="fmt-case">Case Study</div><div class="angle-tag">A9 &mdash; Wedding Body Trap</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">Ananya: crying in the parking lot at week 2. Dancing at her reception for 3 hours at week 14.</div>
+        <div class="topic-hook">"She didn't optimize for her wedding. She prepared for it."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">DMs &amp; Emotional Shares</div><div class="goal-metric">Target: 55+ DMs, 110+ saves</div></div>
+      <div class="cal-cell"><span class="note-tag nt-pin">PIN THIS WEEK</span><div class="notes-text">Highest emotional resonance post this month. Raw, honest. "Has a pre-wedding plan ever made you cry? Reply." CTA: DM WINDOW for the 12-week pre-wedding program. Cross-post to Facebook wedding groups. High share potential.</div></div>
+    </div>
+
+    <!-- DAY 20 -->
+    <div class="cal-row gym-row" data-type="gym" data-fmt="edu" data-plat="reel">
+      <div class="cal-cell"><div class="day-num">20</div><div class="day-name">Sat</div></div>
+      <div class="cal-cell"><span class="plat-reel">Reels</span><div class="fb-note">+ Facebook Reels</div></div>
+      <div class="cal-cell"><div class="fmt-edu">Educational</div><div class="angle-tag">A7 &mdash; Gym Environment Tax</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">The gym that makes you feel watched is charging you a hidden tax.</div>
+        <div class="topic-hook">"You didn't lose motivation. The room lost you."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">Saves &amp; DMs</div><div class="goal-metric">Target: 80+ saves, 2k+ views</div></div>
+      <div class="cal-cell"><span class="note-tag nt-reel">REEL</span><div class="notes-text">Studio walkthrough: red flags vs. green flags. 35–40 sec. Warm tone. "Drop 🚩 or ✅ — what does your current studio feel like?" CTA: DM WELCOME for a Planet U environment orientation before joining. Add to Highlights: START HERE.</div></div>
+    </div>
+
+    <!-- DAY 21 -->
+    <div class="cal-row dance-row" data-type="dance" data-fmt="case" data-plat="feed">
+      <div class="cal-cell"><div class="day-num">21</div><div class="day-name">Sun</div></div>
+      <div class="cal-cell"><span class="plat-ig">Instagram Feed</span><div class="fb-note">+ Facebook same day</div></div>
+      <div class="cal-cell"><div class="fmt-case">Case Study</div><div class="angle-tag">A11 &mdash; Dance Is the Workout Science Kept Quiet</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">Lisa was doing 4x/week bootcamp. More tired, more anxious. Switched to Bollywood. Same hours. Completely different brain.</div>
+        <div class="topic-hook">"Same hours. Completely different body — and brain."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">DMs &amp; Shares</div><div class="goal-metric">Target: 30+ DMs, 60+ saves</div></div>
+      <div class="cal-cell"><span class="note-tag nt-repost">CONVERSION</span><div class="notes-text">Burnout → joy narrative. Exhausted bootcamp vs. energized class energy. CTA: DM DANCE to try a free Bollywood class. Cross-post to Facebook. Add to Highlights: RESULTS.</div></div>
+    </div>
+
+    <!-- ══ WEEK 4: CLOSE THE MONTH STRONG ══ -->
+    <div class="week-header">
+      <span class="week-label">Week 4 &mdash; Days 22–30</span>
+      <span class="week-theme">Close strong. Convert warm leads. Brand position.</span>
+    </div>
+
+    <!-- DAY 22 -->
+    <div class="cal-row gym-row" data-type="gym" data-fmt="case" data-plat="reel">
+      <div class="cal-cell"><div class="day-num">22</div><div class="day-name">Mon</div></div>
+      <div class="cal-cell"><span class="plat-reel">Reels</span><div class="fb-note">+ Facebook Reels</div></div>
+      <div class="cal-cell"><div class="fmt-case">Case Study</div><div class="angle-tag">A3 &mdash; Hidden Cost of Big Box Gym</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">Rachel paid $93/session at her "cheap" gym. Planet U: $12/session. Month 1: 12 sessions.</div>
+        <div class="topic-hook">"The expensive gym was the affordable one."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">DMs &amp; Conversions</div><div class="goal-metric">Target: 25+ DMs, 2.5k+ views</div></div>
+      <div class="cal-cell"><span class="note-tag nt-reel">REEL</span><div class="notes-text">Calculator Reel: fee ÷ sessions = real cost. 45 sec. Strong conversion angle — show the math. CTA: DM COST for a free cost-per-session breakdown. Cross-post to Facebook.</div></div>
+    </div>
+
+    <!-- DAY 23 -->
+    <div class="cal-row dance-row" data-type="dance" data-fmt="case" data-plat="feed">
+      <div class="cal-cell"><div class="day-num">23</div><div class="day-name">Tue</div></div>
+      <div class="cal-cell"><span class="plat-ig">Instagram Feed</span><div class="fb-note">+ Facebook same day</div></div>
+      <div class="cal-cell"><div class="fmt-case">Case Study</div><div class="angle-tag">A13 &mdash; The "I'm Not a Dancer" Identity Lie</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">Jennifer sat in the parking lot 3 times and drove home. On the 4th attempt, someone knocked on her window.</div>
+        <div class="topic-hook">"One knock on a window created a 14-month member who creates more members."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">DMs &amp; Viral Potential</div><div class="goal-metric">Target: 60+ DMs, 100+ saves — highest viral post</div></div>
+      <div class="cal-cell"><span class="note-tag nt-pin">PIN THIS</span><div class="notes-text">Highest viral potential post this month. "DM START and we'll make sure someone meets you at the door." Parking lot → class door → class energy. Cross-post to Facebook. Tag community. Consider boosting this post.</div></div>
+    </div>
+
+    <!-- DAY 24 -->
+    <div class="cal-row gym-row" data-type="gym" data-fmt="case" data-plat="reel">
+      <div class="cal-cell"><div class="day-num">24</div><div class="day-name">Wed</div></div>
+      <div class="cal-cell"><span class="plat-reel">Reels</span><div class="fb-note">+ Facebook Reels</div></div>
+      <div class="cal-cell"><div class="fmt-case">Case Study</div><div class="angle-tag">A6 &mdash; Monday Reset Spiral</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">Diane had 11 Monday restarts in one year. She stopped needing Mondays. 68 sessions in 6 months.</div>
+        <div class="topic-hook">"She didn't need a better Monday. She needed to stop needing one."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">DMs &amp; Conversions</div><div class="goal-metric">Target: 35+ DMs, 3.5k+ views</div></div>
+      <div class="cal-cell"><span class="note-tag nt-reel">REEL</span><div class="notes-text">Diary-style graphic: 11 Mondays → 68 sessions. Data-driven. 50 sec. CTA: DM RESET for the no-Monday-restart system. Free first class offer. Cross-post to Facebook.</div></div>
+    </div>
+
+    <!-- DAY 25 -->
+    <div class="cal-row dance-row" data-type="dance" data-fmt="case" data-plat="feed">
+      <div class="cal-cell"><div class="day-num">25</div><div class="day-name">Thu</div></div>
+      <div class="cal-cell"><span class="plat-ig">Instagram Feed</span><div class="fb-note">+ Facebook same day</div></div>
+      <div class="cal-cell"><div class="fmt-case">Case Study</div><div class="angle-tag">A14 &mdash; Event Fitness Window</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">Pooja trained to look perfect. Left her reception early. Her sister trained to feel alive. Was the last one dancing at 1am.</div>
+        <div class="topic-hook">"The photos know the difference."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">DMs, Saves &amp; Shares</div><div class="goal-metric">Target: 60+ DMs, 120+ saves — highest save potential</div></div>
+      <div class="cal-cell"><span class="note-tag nt-pin">PIN THIS WEEK</span><div class="notes-text">Highest save potential post this month. Two sisters, two approaches, one truth. "Tag every woman you know who has an event in the next 6 months." CTA: DM ALIVE. Cross-post to Facebook. Consider boosting.</div></div>
+    </div>
+
+    <!-- DAY 26 -->
+    <div class="cal-row gym-row" data-type="gym" data-fmt="edu" data-plat="reel">
+      <div class="cal-cell"><div class="day-num">26</div><div class="day-name">Fri</div></div>
+      <div class="cal-cell"><span class="plat-reel">Reels</span><div class="fb-note">+ Facebook Reels</div></div>
+      <div class="cal-cell"><div class="fmt-edu">Educational</div><div class="angle-tag">A1 &mdash; Consistency Trap</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">The hardest part isn't the workout. It's walking through the door.</div>
+        <div class="topic-hook">"The 2-minute rule: commit only to arriving. Everything else follows."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">Saves</div><div class="goal-metric">Target: 100+ saves — permission content</div></div>
+      <div class="cal-cell"><span class="note-tag nt-reel">REEL</span><div class="notes-text">Transition visual: couch → studio entrance → class energy. 25–30 sec. Permission format — high save potential. "Drop ✅ if you've ever surprised yourself once you started." CTA: DM READY. Add to Highlights: START HERE.</div></div>
+    </div>
+
+    <!-- DAY 27 -->
+    <div class="cal-row dance-row" data-type="dance" data-fmt="case" data-plat="feed">
+      <div class="cal-cell"><div class="day-num">27</div><div class="day-name">Sat</div></div>
+      <div class="cal-cell"><span class="plat-ig">Instagram Feed</span><div class="fb-note">+ Facebook same day</div></div>
+      <div class="cal-cell"><div class="fmt-case">Case Study</div><div class="angle-tag">A12 &mdash; Sangeet Problem Nobody Talks About</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">A bride briefed her choreographer with "something fun and Bollywood." Then one sentence changed everything: "I want my grandmother to cry."</div>
+        <div class="topic-hook">"'Something fun' got her a performance. 'I want my grandmother to cry' got her a memory."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">DMs &amp; Emotional Shares</div><div class="goal-metric">Target: 50+ DMs, 95+ saves</div></div>
+      <div class="cal-cell"><span class="note-tag nt-repost">EMOTIONAL HIGH</span><div class="notes-text">Grandmother crying story — highest emotional resonance. CTA: DM BRIEF to get the Planet U choreography briefing template. Cross-post to Facebook. Very high share and save potential. Pin comment with consultation link.</div></div>
+    </div>
+
+    <!-- DAY 28 -->
+    <div class="cal-row gym-row" data-type="gym" data-fmt="edu" data-plat="feed">
+      <div class="cal-cell"><div class="day-num">28</div><div class="day-name">Sun</div></div>
+      <div class="cal-cell"><span class="plat-ig">Instagram Feed</span><div class="fb-note">+ Facebook same day</div></div>
+      <div class="cal-cell"><div class="fmt-edu">Educational</div><div class="angle-tag">A5 &mdash; Progress Photo Lie</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">The women who stay consistent for years don't track weight. They track these 4 things instead.</div>
+        <div class="topic-hook">"The scale is the least honest fitness metric in existence. And you check it every morning."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">Saves</div><div class="goal-metric">Target: 100+ saves — utility post</div></div>
+      <div class="cal-cell"><span class="note-tag nt-carousel">CAROUSEL</span><div class="notes-text">4-metric system reveal: sessions attended / weight lifted / morning energy / sleep quality. 5 slides. "Save this — the 4 metrics that actually matter." DM METRICS for the tracking template. Cross-post to Facebook.</div></div>
+    </div>
+
+    <!-- DAY 29 -->
+    <div class="cal-row dance-row" data-type="dance" data-fmt="prov" data-plat="reel">
+      <div class="cal-cell"><div class="day-num">29</div><div class="day-name">Mon</div></div>
+      <div class="cal-cell"><span class="plat-reel">Reels</span><div class="fb-note">+ Facebook Reels</div></div>
+      <div class="cal-cell"><div class="fmt-prov">Provocative</div><div class="angle-tag">A8 &mdash; Workout You Don't Dread</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">"I can't dance" is not a fact about your body. It's a fact about your exposure.</div>
+        <div class="topic-hook">"If you've quit the gym more than twice, the gym was the problem — not your discipline."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">Comments &amp; Saves</div><div class="goal-metric">Target: 60+ comments, 2.5k+ views</div></div>
+      <div class="cal-cell"><span class="note-tag nt-reel">REEL</span><div class="notes-text">Beginner learning footage — real, unfiltered progress in one session. 40 sec. "Drop 🎵 if you've used 'I can't dance' as an excuse." DM RHYTHM. Share to Stories. Cross-post to Facebook.</div></div>
+    </div>
+
+    <!-- DAY 30 -->
+    <div class="cal-row brand-row" data-type="brand" data-fmt="brand" data-plat="both">
+      <div class="cal-cell"><div class="day-num">30</div><div class="day-name">Tue</div></div>
+      <div class="cal-cell"><span class="plat-ig">Instagram Feed</span><span class="plat-reel" style="display:block;margin-top:4px;">Reels</span><div class="fb-note">+ Facebook both</div></div>
+      <div class="cal-cell"><div class="fmt-brand">Brand Position</div><div class="angle-tag">Both pillars united</div></div>
+      <div class="cal-cell">
+        <div class="topic-title">Planet U: where fitness meets the dance floor. The 3x/week studio for women who want both.</div>
+        <div class="topic-hook">"Bollywood dance fitness. Wedding choreography. Pre-wedding conditioning. Alpharetta / Johns Creek."</div>
+      </div>
+      <div class="cal-cell"><div class="goal-primary">Membership CTA</div><div class="goal-metric">Target: 60+ DMs, free class signups</div></div>
+      <div class="cal-cell"><span class="note-tag nt-pin">PIN TO PROFILE</span><span class="note-tag nt-reel" style="margin-left:4px;">REEL + FEED</span><div class="notes-text">Direct offer post. Both pillars: fitness + dance + wedding choreo. Free first class offer. Clear single CTA: DM START. Pin to profile top. Post Feed + Reel version same day. Cross-post everything to Facebook. This anchors the month.</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DM KEYWORDS SUMMARY -->
+<section style="background: var(--card-bg);">
+  <div class="wrap">
+    <div class="section-label">DM Keywords Used This Month</div>
+    <h2 class="section-title">Track these. <em>Each DM is a warm lead.</em></h2>
+    <p class="section-desc" style="margin-bottom:28px;">Every post ends with one keyword. When someone DMs it they get your free class link automatically. Watch which keywords drive the most DMs — that is your top-converting angle.</p>
+    <div class="kw-grid">
+      <span class="kw kw-brand">START &mdash; Day 1, 23, 30</span>
+      <span class="kw kw-dance">DANCE &mdash; Day 2, 7, 15, 21</span>
+      <span class="kw kw-dance">BRIDE &mdash; Day 3</span>
+      <span class="kw kw-gym">COST &mdash; Day 8, 22</span>
+      <span class="kw kw-dance">RHYTHM &mdash; Day 9, 29</span>
+      <span class="kw kw-gym">MEASURE &mdash; Day 10, 18</span>
+      <span class="kw kw-dance">WINDOW &mdash; Day 11, 19</span>
+      <span class="kw kw-gym">RESET &mdash; Day 12, 24</span>
+      <span class="kw kw-dance">SANGEET &mdash; Day 13</span>
+      <span class="kw kw-gym">PLAN &mdash; Day 14</span>
+      <span class="kw kw-gym">STORY &mdash; Day 16</span>
+      <span class="kw kw-dance">FAMILY &mdash; Day 17</span>
+      <span class="kw kw-gym">WELCOME &mdash; Day 20</span>
+      <span class="kw kw-dance">ALIVE &mdash; Day 25</span>
+      <span class="kw kw-gym">READY &mdash; Day 26</span>
+      <span class="kw kw-dance">BRIEF &mdash; Day 27</span>
+      <span class="kw kw-gym">METRICS &mdash; Day 28</span>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS STRUCTURE -->
+<section>
+  <div class="wrap">
+    <div class="section-label">Instagram Highlights</div>
+    <h2 class="section-title">5 folders. Add to these <em>as you post.</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;">
+      <div style="background:#fff;border:1px solid var(--border);padding:20px;text-align:center;">
+        <div style="font-size:22px;margin-bottom:8px;">🆓</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">FREE TRIAL</div>
+        <div style="font-size:12px;color:var(--mid);line-height:1.6;">Days 2, 6, 16, 30</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);padding:20px;text-align:center;">
+        <div style="font-size:22px;margin-bottom:8px;">✨</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">RESULTS</div>
+        <div style="font-size:12px;color:var(--mid);line-height:1.6;">Days 6, 14, 15, 16, 18, 21, 22</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);padding:20px;text-align:center;">
+        <div style="font-size:22px;margin-bottom:8px;">💍</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple);margin-bottom:8px;">WEDDINGS</div>
+        <div style="font-size:12px;color:var(--mid);line-height:1.6;">Days 3, 5, 11, 13, 17, 19, 25, 27</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);padding:20px;text-align:center;">
+        <div style="font-size:22px;margin-bottom:8px;">💃</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple);margin-bottom:8px;">CLASSES</div>
+        <div style="font-size:12px;color:var(--mid);line-height:1.6;">Days 2, 7, 9, 20, 29</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);padding:20px;text-align:center;">
+        <div style="font-size:22px;margin-bottom:8px;">▶</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:8px;">START HERE</div>
+        <div style="font-size:12px;color:var(--mid);line-height:1.6;">Days 1, 4, 14, 20, 26, 30</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BACK TO TOP + FOOTER -->
+<a href="#" class="back-top" title="Back to top">&uarr;</a>
+
+<footer>
+  <a href="https://kabukacreatives.github.io/" class="footer-logo">Kabuka.</a>
+  <span>&copy; 2026 Kabuka Creatives &middot; <a href="https://kabukacreatives.github.io/#portfolio">&larr; Back to all work</a></span>
+</footer>
+
+<script>
+function filterRows(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const rows = document.querySelectorAll('.cal-row');
+  rows.forEach(row => {
+    const rType = row.dataset.type;
+    const rFmt = row.dataset.fmt;
+    const rPlat = row.dataset.plat;
+
+    let show = false;
+    if (type === 'all')   show = true;
+    else if (type === 'gym')   show = rType === 'gym';
+    else if (type === 'dance') show = rType === 'dance';
+    else if (type === 'edu')   show = rFmt === 'edu';
+    else if (type === 'prov')  show = rFmt === 'prov';
+    else if (type === 'case')  show = rFmt === 'case';
+    else if (type === 'reel')  show = rPlat === 'reel';
+    else if (type === 'feed')  show = rPlat === 'feed' || rPlat === 'both';
+
+    row.classList.toggle('hidden', !show);
+  });
+}
+</script>
+
+</body>
+</html>
