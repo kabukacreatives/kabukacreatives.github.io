@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Plant-Based Salad Plan — Dr. Greger's Daily Dozen</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-deep: #1a3a2a;
+  --green-mid: #2d5a3d;
+  --green-bright: #3d7a52;
+  --green-light: #7ab893;
+  --green-pale: #d4ead9;
+  --green-wash: #f0f7f2;
+  --cream: #fdf8f0;
+  --cream-dark: #f5ede0;
+  --terra: #c4622d;
+  --terra-light: #e8a882;
+  --terra-pale: #faf0e8;
+  --gold: #d4a843;
+  --gold-pale: #faf3e0;
+  --charcoal: #1e1e1e;
+  --ink: #2c2c2c;
+  --muted: #6b7280;
+  --border: #e2d9cc;
+  --border-green: #c8dece;
+  --white: #ffffff;
+  --radius: 12px;
+  --shadow: 0 2px 20px rgba(26,58,42,0.08);
+  --shadow-lg: 0 8px 40px rgba(26,58,42,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--green-deep);
+  padding: 60px 40px 50px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(61,122,82,0.3) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 50%, rgba(196,98,45,0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.15;
+  margin-bottom: 12px;
+  position: relative;
+}
+.hero h1 em {
+  color: var(--terra-light);
+  font-style: italic;
+}
+.hero-sub {
+  color: var(--green-pale);
+  font-size: 15px;
+  font-weight: 300;
+  max-width: 480px;
+  margin: 0 auto 28px;
+  opacity: 0.85;
+}
+.hero-badges {
+  display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+}
+.hero-badge {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--green-pale);
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 99px;
+  font-weight: 400;
+}
+
+/* ── TOOLBAR ── */
+.toolbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.toolbar-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.unit-toggle {
+  display: flex;
+  background: var(--cream-dark);
+  border-radius: 8px;
+  padding: 3px;
+  gap: 2px;
+}
+.unit-btn {
+  padding: 5px 14px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.15s;
+}
+.unit-btn.active {
+  background: var(--white);
+  color: var(--green-deep);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+.serving-control {
+  display: flex; align-items: center; gap: 8px;
+}
+.serving-input {
+  width: 52px;
+  text-align: center;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--green-deep);
+  background: var(--white);
+}
+.serving-input:focus { outline: none; border-color: var(--green-bright); }
+.serving-btn {
+  width: 30px; height: 30px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  background: var(--white);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--green-deep);
+  font-family: 'DM Sans', sans-serif;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+}
+.serving-btn:hover { background: var(--green-wash); border-color: var(--green-bright); }
+.print-btn {
+  margin-left: auto;
+  background: var(--green-deep);
+  color: var(--cream);
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  display: flex; align-items: center; gap: 6px;
+  transition: all 0.2s;
+}
+.print-btn:hover { background: var(--green-mid); }
+.print-btn svg { width: 15px; height: 15px; }
+
+/* ── DAY NAV ── */
+.day-nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.day-nav::-webkit-scrollbar { display: none; }
+.day-tab {
+  padding: 14px 20px;
+  border: none;
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 2.5px solid transparent;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+.day-tab:hover { color: var(--green-deep); }
+.day-tab.active {
+  color: var(--green-deep);
+  border-bottom-color: var(--green-bright);
+  font-weight: 600;
+}
+.day-tab .dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  margin-right: 6px;
+  background: currentColor;
+  opacity: 0.4;
+  vertical-align: middle;
+}
+.day-tab.active .dot { opacity: 1; }
+
+/* ── MAIN LAYOUT ── */
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.day-section { display: none; }
+.day-section.active { display: block; }
+
+.day-header {
+  display: flex; align-items: flex-end; gap: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1.5px solid var(--border-green);
+}
+.day-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--green-deep);
+  line-height: 1;
+}
+.day-theme {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--terra);
+  background: var(--terra-pale);
+  padding: 4px 12px;
+  border-radius: 99px;
+  margin-bottom: 6px;
+}
+
+.salads-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+@media (max-width: 720px) { .salads-grid { grid-template-columns: 1fr; } }
+
+/* ── RECIPE CARD ── */
+.recipe-card {
+  background: var(--white);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.card-header {
+  padding: 20px 24px 16px;
+  background: var(--green-wash);
+  border-bottom: 1px solid var(--border-green);
+}
+.card-tag {
+  font-size: 10px;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+  margin-bottom: 6px;
+}
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--green-deep);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.card-desc {
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+}
+.card-body { padding: 20px 24px; }
+
+.section-label {
+  font-size: 10px;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.ingredients-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 13.5px;
+}
+.ingredients-table tr {
+  border-bottom: 1px solid var(--cream-dark);
+}
+.ingredients-table tr:last-child { border-bottom: none; }
+.ingredients-table td {
+  padding: 6px 0;
+  vertical-align: top;
+}
+.ingredients-table td:first-child {
+  color: var(--green-deep);
+  font-weight: 600;
+  width: 90px;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+}
+.ingredients-table td:last-child { color: var(--ink); }
+
+.steps-list { list-style: none; }
+.step-item {
+  display: flex; gap: 12px;
+  margin-bottom: 12px;
+  font-size: 13.5px;
+}
+.step-num {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--green-deep);
+  color: var(--cream);
+  font-size: 11px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.step-title { font-weight: 600; color: var(--green-deep); }
+.step-text { color: var(--muted); }
+
+.note-box {
+  background: var(--gold-pale);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  margin-top: 16px;
+  font-size: 12.5px;
+  color: #5a4a1a;
+  line-height: 1.55;
+}
+.note-box strong { color: #3a2e0a; }
+
+/* ── OVERVIEW SECTION ── */
+#overview .overview-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-bottom: 40px;
+}
+@media (max-width: 900px) {
+  #overview .overview-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 500px) {
+  #overview .overview-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.overview-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.overview-card:hover {
+  border-color: var(--green-bright);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+.ov-day { font-size: 11px; font-weight: 600; color: var(--muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.08em; }
+.ov-s1 { font-size: 11.5px; color: var(--green-deep); font-weight: 500; margin-bottom: 4px; line-height: 1.3; }
+.ov-s2 { font-size: 11.5px; color: var(--terra); line-height: 1.3; }
+.ov-dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; margin-right: 4px; vertical-align: middle; }
+.dot-green { background: var(--green-bright); }
+.dot-terra { background: var(--terra); }
+
+.dozen-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin-bottom: 40px;
+}
+.dozen-item {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+}
+.dozen-check {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+.check-full { background: var(--green-pale); color: var(--green-deep); }
+.check-partial { background: #fef3cd; color: #856404; }
+
+.master-dressing {
+  background: var(--green-deep);
+  color: var(--cream);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-bottom: 40px;
+}
+.master-dressing h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--terra-light);
+  margin-bottom: 8px;
+}
+.master-dressing p { opacity: 0.8; font-size: 13.5px; margin-bottom: 20px; }
+.dressing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 600px) { .dressing-grid { grid-template-columns: 1fr; } }
+.dressing-base, .dressing-profiles {
+  background: rgba(255,255,255,0.07);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+.dressing-base h4, .dressing-profiles h4 {
+  font-size: 11px;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 10px;
+}
+.base-item { font-size: 13px; margin-bottom: 6px; opacity: 0.9; }
+.base-item span { color: var(--terra-light); font-weight: 600; }
+.profile-item { font-size: 12.5px; margin-bottom: 5px; opacity: 0.85; }
+.profile-item em { color: var(--gold); font-style: normal; }
+
+/* ── SHOPPING LIST ── */
+#shopping .shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+.shop-category {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.shop-cat-header {
+  background: var(--green-wash);
+  padding: 12px 16px;
+  font-size: 11px;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+  font-weight: 500;
+}
+.shop-items { padding: 10px 16px; }
+.shop-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--cream-dark);
+  font-size: 13.5px;
+  cursor: pointer;
+}
+.shop-item:last-child { border-bottom: none; }
+.shop-cb {
+  width: 17px; height: 17px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: all 0.15s;
+  display: flex; align-items: center; justify-content: center;
+}
+.shop-item.checked .shop-cb {
+  background: var(--green-bright);
+  border-color: var(--green-bright);
+}
+.shop-item.checked .shop-cb::after {
+  content: '✓';
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+}
+.shop-item.checked span { text-decoration: line-through; color: var(--muted); }
+
+/* ── PREP SCHEDULE ── */
+.prep-timeline {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.prep-header {
+  background: var(--green-deep);
+  color: var(--cream);
+  padding: 20px 24px;
+}
+.prep-header h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 4px; }
+.prep-header p { opacity: 0.7; font-size: 13px; }
+.prep-steps { padding: 0 }
+.prep-step {
+  display: flex; gap: 16px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--cream-dark);
+  align-items: center;
+}
+.prep-step:last-child { border-bottom: none; }
+.prep-step-num {
+  width: 32px; height: 32px;
+  background: var(--green-wash);
+  border: 1.5px solid var(--border-green);
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--green-deep);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.prep-step-title { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+.prep-step-desc { font-size: 13px; color: var(--muted); }
+.prep-time {
+  margin-left: auto;
+  font-size: 12px;
+  font-family: 'DM Mono', monospace;
+  color: var(--terra);
+  background: var(--terra-pale);
+  padding: 3px 10px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+/* ── PRINT ── */
+@media print {
+  .toolbar, .day-nav, .print-btn { display: none !important; }
+  .hero { background: var(--green-deep) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .day-section { display: block !important; page-break-before: always; }
+  .day-section:first-of-type { page-break-before: avoid; }
+  #overview, #shopping { page-break-before: always; }
+  .recipe-card { box-shadow: none; break-inside: avoid; }
+  .salads-grid { gap: 16px; }
+  body { font-size: 12px; }
+  .card-title { font-size: 16px; }
+}
+
+/* ── SECTION TITLE ── */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--green-deep);
+  margin-bottom: 6px;
+}
+.section-subtitle {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+/* ── SUPPLEMENT BANNER ── */
+.supp-banner {
+  background: #fff8e1;
+  border: 1.5px solid #f6c90e;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex; gap: 12px; align-items: flex-start;
+  margin-bottom: 32px;
+  font-size: 13.5px;
+}
+.supp-icon { font-size: 20px; flex-shrink: 0; }
+.supp-text strong { color: #7a5a00; }
+.supp-text { color: #5a4a00; }
+
+/* ── AMOUNT CLASS (scaled by JS) ── */
+.amt { font-weight: 700; color: var(--green-deep); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Dr. Greger's Daily Dozen · 14 Recipes · 4 Portions</div>
+  <h1>Weekly <em>Plant-Based</em><br>Salad Plan</h1>
+  <p class="hero-sub">Pro-gut · Anti-aging · Family edition. Every salad includes sprouts, amla, nutritional yeast, tofu & ground flax — daily.</p>
+  <div class="hero-badges">
+    <span class="hero-badge">🌱 Broccoli/Radish/Methi Sprouts</span>
+    <span class="hero-badge">🍋 Amla Powder</span>
+    <span class="hero-badge">🧀 Nutritional Yeast</span>
+    <span class="hero-badge">🫘 Organic Tofu</span>
+    <span class="hero-badge">🌾 Ground Flax</span>
+    <span class="hero-badge">🍶 Fermented Foods</span>
+  </div>
+</div>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <span class="toolbar-label">Units</span>
+  <div class="unit-toggle">
+    <button class="unit-btn active" onclick="setUnit('metric')">Metric</button>
+    <button class="unit-btn" onclick="setUnit('imperial')">Imperial</button>
+  </div>
+  <span class="toolbar-label" style="margin-left:12px">Servings</span>
+  <div class="serving-control">
+    <button class="serving-btn" onclick="changeServing(-1)">−</button>
+    <input type="number" class="serving-input" id="servingInput" value="4" min="1" max="20" onchange="setServing(parseInt(this.value))">
+    <button class="serving-btn" onclick="changeServing(1)">+</button>
+  </div>
+  <button class="print-btn" onclick="window.print()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+    Print / Save PDF
+  </button>
+</div>
+
+<!-- DAY NAV -->
+<div class="day-nav">
+  <button class="day-tab active" onclick="showDay('overview')"><span class="dot"></span>Overview</button>
+  <button class="day-tab" onclick="showDay('monday')"><span class="dot"></span>Monday</button>
+  <button class="day-tab" onclick="showDay('tuesday')"><span class="dot"></span>Tuesday</button>
+  <button class="day-tab" onclick="showDay('wednesday')"><span class="dot"></span>Wednesday</button>
+  <button class="day-tab" onclick="showDay('thursday')"><span class="dot"></span>Thursday</button>
+  <button class="day-tab" onclick="showDay('friday')"><span class="dot"></span>Friday</button>
+  <button class="day-tab" onclick="showDay('saturday')"><span class="dot"></span>Saturday</button>
+  <button class="day-tab" onclick="showDay('sunday')"><span class="dot"></span>Sunday</button>
+  <button class="day-tab" onclick="showDay('shopping')"><span class="dot"></span>Shopping List</button>
+</div>
+
+<div class="main">
+
+<!-- ══ OVERVIEW ══ -->
+<div class="day-section active" id="overview">
+  <div class="section-title">Your Week at a Glance</div>
+  <div class="section-subtitle">Click any day to jump straight to its recipes</div>
+
+  <div class="overview-grid">
+    <div class="overview-card" onclick="showDay('monday')">
+      <div class="ov-day">Monday</div>
+      <div class="ov-s1"><span class="ov-dot dot-green"></span>Mediterranean Italian</div>
+      <div class="ov-s2"><span class="ov-dot dot-terra"></span>Berry, Orange & Avocado</div>
+    </div>
+    <div class="overview-card" onclick="showDay('tuesday')">
+      <div class="ov-day">Tuesday</div>
+      <div class="ov-s1"><span class="ov-dot dot-green"></span>Mexican Taco Bowl</div>
+      <div class="ov-s2"><span class="ov-dot dot-terra"></span>Tropical Papaya & Kiwi</div>
+    </div>
+    <div class="overview-card" onclick="showDay('wednesday')">
+      <div class="ov-day">Wednesday</div>
+      <div class="ov-s1"><span class="ov-dot dot-green"></span>Indian Chaat Tofu</div>
+      <div class="ov-s2"><span class="ov-dot dot-terra"></span>Beet, Black Bean & Miso</div>
+    </div>
+    <div class="overview-card" onclick="showDay('thursday')">
+      <div class="ov-day">Thursday</div>
+      <div class="ov-s1"><span class="ov-dot dot-green"></span>Japanese Triple-Ferment</div>
+      <div class="ov-s2"><span class="ov-dot dot-terra"></span>Triple Berry & Apple</div>
+    </div>
+    <div class="overview-card" onclick="showDay('friday')">
+      <div class="ov-day">Friday</div>
+      <div class="ov-s1"><span class="ov-dot dot-green"></span>South Indian Spiced</div>
+      <div class="ov-s2"><span class="ov-dot dot-terra"></span>Avocado, Strawberry & Kiwi</div>
+    </div>
+    <div class="overview-card" onclick="showDay('saturday')">
+      <div class="ov-day">Saturday</div>
+      <div class="ov-s1"><span class="ov-dot dot-green"></span>Jeera, Fennel & Coriander</div>
+      <div class="ov-s2"><span class="ov-dot dot-terra"></span>Sweet Potato & Blueberry</div>
+    </div>
+    <div class="overview-card" onclick="showDay('sunday')">
+      <div class="ov-day">Sunday</div>
+      <div class="ov-s1"><span class="ov-dot dot-green"></span>Ultimate Gut-Reset</div>
+      <div class="ov-s2"><span class="ov-dot dot-terra"></span>Rainbow Fruit Finale</div>
+    </div>
+  </div>
+
+  <div class="supp-banner">
+    <div class="supp-icon">⚠️</div>
+    <div class="supp-text"><strong>Two non-negotiable supplements on a plant-based diet:</strong> B12 (2,500 mcg cyanocobalamin weekly or 250 mcg daily) · Vitamin D3 (2,000 IU daily). No food in these salads provides reliable B12 or D3. Also consider adding 1 oz walnuts to any salad daily for complete omega-3 coverage.</div>
+  </div>
+
+  <div class="master-dressing">
+    <h3>The Master Dressing Formula</h3>
+    <p>All 14 dressings are built on this base — adjust the spice profile per the day</p>
+    <div class="dressing-grid">
+      <div class="dressing-base">
+        <h4>Base (per 4 portions)</h4>
+        <div class="base-item"><span>3 tbsp</span> ACV</div>
+        <div class="base-item"><span>2 tsp</span> Amla powder</div>
+        <div class="base-item"><span>4 tbsp</span> Nutritional yeast</div>
+        <div class="base-item"><span>1 tsp</span> Tamari (max)</div>
+        <div class="base-item"><span>1–2 tsp</span> Water to thin</div>
+      </div>
+      <div class="dressing-profiles">
+        <h4>Spice Profile</h4>
+        <div class="profile-item"><em>Italian →</em> basil + oregano</div>
+        <div class="profile-item"><em>Mexican →</em> cumin + amchur</div>
+        <div class="profile-item"><em>Chaat →</em> chaat masala + amchur</div>
+        <div class="profile-item"><em>Japanese →</em> miso + cabbage brine</div>
+        <div class="profile-item"><em>South Indian →</em> rasam + ajwain</div>
+        <div class="profile-item"><em>Sweet →</em> cinnamon + orange juice</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size:22px;margin-bottom:12px">Daily Dozen Coverage</div>
+  <div class="dozen-grid">
+    <div class="dozen-item"><div class="dozen-check check-full">✓</div>Beans — every savory salad</div>
+    <div class="dozen-item"><div class="dozen-check check-full">✓</div>Berries — every fruit salad</div>
+    <div class="dozen-item"><div class="dozen-check check-full">✓</div>Other fruits — daily</div>
+    <div class="dozen-item"><div class="dozen-check check-full">✓</div>Cruciferous — broccoli sprouts daily</div>
+    <div class="dozen-item"><div class="dozen-check check-full">✓</div>Greens — 2+ cups daily</div>
+    <div class="dozen-item"><div class="dozen-check check-full">✓</div>Other vegetables — daily</div>
+    <div class="dozen-item"><div class="dozen-check check-full">✓</div>Flaxseed — 1 tbsp every salad</div>
+    <div class="dozen-item"><div class="dozen-check check-full">✓</div>Herbs & spices — daily</div>
+    <div class="dozen-item"><div class="dozen-check check-full">✓</div>Fermented food — daily</div>
+    <div class="dozen-item"><div class="dozen-check check-full">✓</div>Sprouts — 3 types daily</div>
+    <div class="dozen-item"><div class="dozen-check check-partial">~</div>Whole grains — wheat germ partial</div>
+    <div class="dozen-item"><div class="dozen-check check-partial">~</div>Nuts — add 1 oz walnuts!</div>
+  </div>
+</div>
+
+<!-- ══ MONDAY ══ -->
+<div class="day-section" id="monday">
+  <div class="day-header">
+    <div>
+      <div class="day-theme">🇮🇹 Italian · Berry</div>
+      <div class="day-name">Monday</div>
+    </div>
+  </div>
+  <div class="salads-grid">
+
+    <div class="recipe-card">
+      <div class="card-header">
+        <div class="card-tag">Salad 1 · Savory</div>
+        <div class="card-title">Mediterranean Italian Tofu Salad</div>
+        <div class="card-desc">Basil-oregano marinated tofu over spinach and chickpeas</div>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Ingredients</div>
+        <table class="ingredients-table">
+          <tr><td><span class="amt" data-base="6" data-unit="cup">6 cups</span></td><td>Organic spinach</td></tr>
+          <tr><td><span class="amt" data-base="420" data-unit="g">420 g</span></td><td>Extra firm tofu, cubed</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Canned chickpeas, drained</td></tr>
+          <tr><td><span class="amt" data-base="1.5" data-unit="cup">1½ cups</span></td><td>Cherry tomatoes, halved</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Cucumber, sliced</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Spring onions</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Basil (fresh or dried)</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Oregano</td></tr>
+          <tr><td><span class="amt" data-base="3" data-unit="tbsp">3 tbsp</span></td><td>ACV</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Tamari (low sodium)</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Broccoli sprouts</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tsp">4 tsp</span></td><td>Ground flax</td></tr>
+        </table>
+        <div class="section-label">Method</div>
+        <ol class="steps-list">
+          <li class="step-item"><div class="step-num">1</div><div><div class="step-title">Marinate tofu</div><div class="step-text">Toss tofu with basil, oregano, tamari, and 1 tbsp ACV. Sit 10 min.</div></div></li>
+          <li class="step-item"><div class="step-num">2</div><div><div class="step-title">Make dressing</div><div class="step-text">Whisk remaining ACV with amla. Stir in nutritional yeast until thick. Thin with 1 tsp water.</div></div></li>
+          <li class="step-item"><div class="step-num">3</div><div><div class="step-title">Build bowls</div><div class="step-text">Divide spinach. Top with tomatoes, cucumber, chickpeas, and spring onions.</div></div></li>
+          <li class="step-item"><div class="step-num">4</div><div><div class="step-title">Finish</div><div class="step-text">Add marinated tofu and broccoli sprouts. Drizzle dressing, sprinkle flax.</div></div></li>
+        </ol>
+        <div class="note-box"><strong>Chef note:</strong> Make extra marinated tofu — it keeps 3 days refrigerated and works across multiple salads. Chickpeas feed Bifidobacterium (resistant starch).</div>
+      </div>
+    </div>
+
+    <div class="recipe-card">
+      <div class="card-header">
+        <div class="card-tag">Salad 2 · Fruit</div>
+        <div class="card-title">Berry, Orange & Avocado Salad</div>
+        <div class="card-desc">Polyphenol powerhouse — berry + fruit serving in one bowl</div>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Ingredients</div>
+        <table class="ingredients-table">
+          <tr><td><span class="amt" data-base="6" data-unit="cup">6 cups</span></td><td>Arugula + mixed greens</td></tr>
+          <tr><td><span class="amt" data-base="280" data-unit="g">280 g</span></td><td>Extra firm tofu, small cubes</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Strawberries, sliced</td></tr>
+          <tr><td><span class="amt" data-base="0.75" data-unit="cup">¾ cup</span></td><td>Blueberries</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="whole">2</span></td><td>Oranges, segmented</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="whole">1</span></td><td>Avocado, sliced</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Radish sprouts</td></tr>
+          <tr><td><span class="amt" data-base="3" data-unit="tbsp">3 tbsp</span></td><td>ACV</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Wheat germ</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tsp">4 tsp</span></td><td>Ground flax</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Tamari</td></tr>
+        </table>
+        <div class="section-label">Method</div>
+        <ol class="steps-list">
+          <li class="step-item"><div class="step-num">1</div><div><div class="step-title">Marinate tofu</div><div class="step-text">Toss tofu with tamari and half the amla powder. Set aside.</div></div></li>
+          <li class="step-item"><div class="step-num">2</div><div><div class="step-title">Make citrus dressing</div><div class="step-text">Squeeze a little orange juice into ACV + remaining amla + nutritional yeast.</div></div></li>
+          <li class="step-item"><div class="step-num">3</div><div><div class="step-title">Build bowls</div><div class="step-text">Divide greens. Fan avocado slices, add berries and orange segments.</div></div></li>
+          <li class="step-item"><div class="step-num">4</div><div><div class="step-title">Finish</div><div class="step-text">Add tofu, pile radish sprouts, drizzle dressing. Sprinkle wheat germ and flax.</div></div></li>
+        </ol>
+        <div class="note-box"><strong>Chef note:</strong> Avocado fat makes fat-soluble antioxidants in berries bioavailable — 2–4× increased carotenoid uptake. It's not optional, it's functional.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ TUESDAY ══ -->
+<div class="day-section" id="tuesday">
+  <div class="day-header">
+    <div>
+      <div class="day-theme">🌮 Mexican · Tropical</div>
+      <div class="day-name">Tuesday</div>
+    </div>
+  </div>
+  <div class="salads-grid">
+    <div class="recipe-card">
+      <div class="card-header">
+        <div class="card-tag">Salad 1 · Savory</div>
+        <div class="card-title">Mexican Tofu Taco Bowl</div>
+        <div class="card-desc">Cumin-spiced tofu crumbles + black beans — all the taco, none of the shell</div>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Ingredients</div>
+        <table class="ingredients-table">
+          <tr><td><span class="amt" data-base="6" data-unit="cup">6 cups</span></td><td>Mixed greens</td></tr>
+          <tr><td><span class="amt" data-base="420" data-unit="g">420 g</span></td><td>Extra firm tofu, crumbled</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Canned black beans, drained</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="whole">1</span></td><td>Bell pepper, diced</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Tomatoes, diced</td></tr>
+          <tr><td><span class="amt" data-base="6" data-unit="tbsp">6 tbsp</span></td><td>Cilantro, chopped</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Mexican seasoning</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Cumin powder (jeera)</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Amchur powder</td></tr>
+          <tr><td><span class="amt" data-base="3" data-unit="tbsp">3 tbsp</span></td><td>ACV</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Tamari</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Methi sprouts</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tsp">4 tsp</span></td><td>Ground flax</td></tr>
+        </table>
+        <div class="section-label">Method</div>
+        <ol class="steps-list">
+          <li class="step-item"><div class="step-num">1</div><div><div class="step-title">Season tofu</div><div class="step-text">Toss crumbled tofu with Mexican seasoning, cumin, tamari. Dry-pan 3 min for texture (optional).</div></div></li>
+          <li class="step-item"><div class="step-num">2</div><div><div class="step-title">Make dressing</div><div class="step-text">Whisk ACV, amla powder, amchur, and a pinch of Mexican seasoning.</div></div></li>
+          <li class="step-item"><div class="step-num">3</div><div><div class="step-title">Build bowls</div><div class="step-text">Divide greens. Add tomatoes, bell pepper, spring onions, cilantro, and black beans.</div></div></li>
+          <li class="step-item"><div class="step-num">4</div><div><div class="step-title">Finish</div><div class="step-text">Spoon tofu crumbles and methi sprouts over each bowl. Drizzle dressing, finish with nutritional yeast and flax.</div></div></li>
+        </ol>
+        <div class="note-box"><strong>Chef note:</strong> Amchur + amla mimics lime perfectly. Black beans feed Faecalibacterium prausnitzii — one of the most anti-inflammatory gut bacteria known. Methi sprouts improve insulin sensitivity.</div>
+      </div>
+    </div>
+    <div class="recipe-card">
+      <div class="card-header">
+        <div class="card-tag">Salad 2 · Fruit</div>
+        <div class="card-title">Tropical Papaya, Kiwi & Raspberry</div>
+        <div class="card-desc">Papain + actinidin digestive enzymes — break down protein naturally</div>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Ingredients</div>
+        <table class="ingredients-table">
+          <tr><td><span class="amt" data-base="5" data-unit="cup">5 cups</span></td><td>Organic spinach</td></tr>
+          <tr><td><span class="amt" data-base="280" data-unit="g">280 g</span></td><td>Extra firm tofu, cubed</td></tr>
+          <tr><td><span class="amt" data-base="1.5" data-unit="cup">1½ cups</span></td><td>Papaya, cubed</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="whole">4</span></td><td>Kiwi, sliced</td></tr>
+          <tr><td><span class="amt" data-base="0.75" data-unit="cup">¾ cup</span></td><td>Raspberries</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Purple cabbage (brine), shredded</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Radish sprouts</td></tr>
+          <tr><td><span class="amt" data-base="3" data-unit="tbsp">3 tbsp</span></td><td>ACV</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Wheat germ</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tsp">4 tsp</span></td><td>Ground flax</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Fennel seeds, crushed</td></tr>
+        </table>
+        <div class="section-label">Method</div>
+        <ol class="steps-list">
+          <li class="step-item"><div class="step-num">1</div><div><div class="step-title">Make fermented dressing</div><div class="step-text">Mix ACV, amla, nutritional yeast, 1 tbsp cabbage brine, and fennel seeds.</div></div></li>
+          <li class="step-item"><div class="step-num">2</div><div><div class="step-title">Build bowls</div><div class="step-text">Layer spinach and purple cabbage. Arrange papaya, kiwi, and raspberries.</div></div></li>
+          <li class="step-item"><div class="step-num">3</div><div><div class="step-title">Finish</div><div class="step-text">Add tofu, pile radish sprouts, drizzle dressing. Sprinkle wheat germ and flax.</div></div></li>
+        </ol>
+        <div class="note-box"><strong>Chef note:</strong> Use the purple cabbage brine in the dressing — it's live fermented liquid. Miso + ACV + brine = 3 fermented food sources in one dressing.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ WEDNESDAY ══ -->
+<div class="day-section" id="wednesday">
+  <div class="day-header">
+    <div>
+      <div class="day-theme">🇮🇳 Indian Chaat · Beet</div>
+      <div class="day-name">Wednesday</div>
+    </div>
+  </div>
+  <div class="salads-grid">
+    <div class="recipe-card">
+      <div class="card-header">
+        <div class="card-tag">Salad 1 · Savory</div>
+        <div class="card-title">Indian Chaat Tofu & Chickpea</div>
+        <div class="card-desc">Every element of chaat — tangy, spicy, crunchy, herby — in one nutritionally dense bowl</div>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Ingredients</div>
+        <table class="ingredients-table">
+          <tr><td><span class="amt" data-base="5" data-unit="cup">5 cups</span></td><td>Mixed greens + spinach</td></tr>
+          <tr><td><span class="amt" data-base="420" data-unit="g">420 g</span></td><td>Extra firm tofu, small cubes</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Canned chickpeas, drained</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Cucumber, diced</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Tomatoes, diced</td></tr>
+          <tr><td><span class="amt" data-base="0.5" data-unit="cup">½ cup</span></td><td>Onion, finely chopped</td></tr>
+          <tr><td><span class="amt" data-base="6" data-unit="tbsp">6 tbsp</span></td><td>Cilantro, chopped</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Chaat masala</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Amchur powder</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Cumin powder</td></tr>
+          <tr><td><span class="amt" data-base="3" data-unit="tbsp">3 tbsp</span></td><td>ACV</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Tamari</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Methi sprouts</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tsp">4 tsp</span></td><td>Ground flax</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Black nigella seeds (kalonji)</td></tr>
+        </table>
+        <div class="section-label">Method</div>
+        <ol class="steps-list">
+          <li class="step-item"><div class="step-num">1</div><div><div class="step-title">Make chaat mix</div><div class="step-text">Combine chaat masala, amchur, cumin. Reserve 1 tsp for dressing.</div></div></li>
+          <li class="step-item"><div class="step-num">2</div><div><div class="step-title">Coat tofu & chickpeas</div><div class="step-text">Toss both with spice mix and tamari. Sit 5 min.</div></div></li>
+          <li class="step-item"><div class="step-num">3</div><div><div class="step-title">Build bowls</div><div class="step-text">Divide greens. Mix cucumber, tomatoes, onion, cilantro and spoon over.</div></div></li>
+          <li class="step-item"><div class="step-num">4</div><div><div class="step-title">Finish</div><div class="step-text">Add spiced tofu-chickpea, methi sprouts, dressing, nutritional yeast, flax, and nigella seeds.</div></div></li>
+        </ol>
+        <div class="note-box"><strong>Chef note:</strong> Black nigella seeds (kalonji) contain thymoquinone — antimicrobial against harmful gut pathogens while being prebiotic-friendly. Chop everything finely — every forkful should have every flavour.</div>
+      </div>
+    </div>
+    <div class="recipe-card">
+      <div class="card-header">
+        <div class="card-tag">Salad 2 · Beet Day</div>
+        <div class="card-title">Beet, Black Bean & Miso Tofu</div>
+        <div class="card-desc">Nitric oxide + live cultures + vitamin C — cardiovascular gold</div>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Ingredients</div>
+        <table class="ingredients-table">
+          <tr><td><span class="amt" data-base="6" data-unit="cup">6 cups</span></td><td>Spinach + arugula</td></tr>
+          <tr><td><span class="amt" data-base="280" data-unit="g">280 g</span></td><td>Extra firm tofu, cubed</td></tr>
+          <tr><td><span class="amt" data-base="1.5" data-unit="cup">1½ cups</span></td><td>Roasted beets, cubed</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Canned black beans, drained</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="whole">2</span></td><td>Oranges, segmented</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Spring onions</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Miso paste</td></tr>
+          <tr><td><span class="amt" data-base="3" data-unit="tbsp">3 tbsp</span></td><td>ACV</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Tamari</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Broccoli sprouts</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tsp">4 tsp</span></td><td>Ground flax</td></tr>
+          <tr><td><span class="amt" data-base="0.5" data-unit="tsp">½ tsp</span></td><td>Fennel seeds, crushed</td></tr>
+        </table>
+        <div class="section-label">Method</div>
+        <ol class="steps-list">
+          <li class="step-item"><div class="step-num">1</div><div><div class="step-title">Make miso dressing</div><div class="step-text">Whisk miso, ACV, tamari, amla, fennel until smooth. Thin with 1 tsp water.</div></div></li>
+          <li class="step-item"><div class="step-num">2</div><div><div class="step-title">Marinate tofu</div><div class="step-text">Toss tofu in 3 tbsp of the dressing. Sit 5 min.</div></div></li>
+          <li class="step-item"><div class="step-num">3</div><div><div class="step-title">Build bowls</div><div class="step-text">Layer greens. Add beets, black beans, orange segments, and spring onions.</div></div></li>
+          <li class="step-item"><div class="step-num">4</div><div><div class="step-title">Finish</div><div class="step-text">Add tofu, pile broccoli sprouts, drizzle remaining dressing, finish with nutritional yeast and flax.</div></div></li>
+        </ol>
+        <div class="note-box"><strong>Chef note:</strong> Beets + broccoli sprouts = cardiovascular gold. Beet nitrates dilate blood vessels; sulforaphane activates NRF2 pathways. Orange vitamin C doubles iron absorption from spinach — always pair them.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ THURSDAY ══ -->
+<div class="day-section" id="thursday">
+  <div class="day-header">
+    <div>
+      <div class="day-theme">🇯🇵 Japanese · Triple Berry</div>
+      <div class="day-name">Thursday</div>
+    </div>
+  </div>
+  <div class="salads-grid">
+    <div class="recipe-card">
+      <div class="card-header">
+        <div class="card-tag">Salad 1 · Savory</div>
+        <div class="card-title">Japanese Triple-Ferment Miso Bowl</div>
+        <div class="card-desc">Miso + ACV + cabbage brine — three fermented foods in one dressing</div>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Ingredients</div>
+        <table class="ingredients-table">
+          <tr><td><span class="amt" data-base="6" data-unit="cup">6 cups</span></td><td>Mixed greens + arugula</td></tr>
+          <tr><td><span class="amt" data-base="420" data-unit="g">420 g</span></td><td>Extra firm tofu, cubed</td></tr>
+          <tr><td><span class="amt" data-base="1.5" data-unit="cup">1½ cups</span></td><td>Purple cabbage from brine, shredded</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Cucumber, thinly sliced</td></tr>
+          <tr><td><span class="amt" data-base="5" data-unit="tbsp">5 tbsp</span></td><td>Spring onions</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Miso paste</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Tamari</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tbsp">2 tbsp</span></td><td>ACV</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tbsp">2 tbsp</span></td><td>Purple cabbage brine (from jar)</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Broccoli sprouts</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tsp">4 tsp</span></td><td>Ground flax</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Black nigella seeds</td></tr>
+        </table>
+        <div class="section-label">Method</div>
+        <ol class="steps-list">
+          <li class="step-item"><div class="step-num">1</div><div><div class="step-title">Make triple-ferment dressing</div><div class="step-text">Whisk miso, ACV, cabbage brine, tamari, amla, and fennel. Taste it — this is the week's best dressing.</div></div></li>
+          <li class="step-item"><div class="step-num">2</div><div><div class="step-title">Marinate tofu</div><div class="step-text">Toss tofu in 4 tbsp of the dressing. Sit 10 min.</div></div></li>
+          <li class="step-item"><div class="step-num">3</div><div><div class="step-title">Build bowls</div><div class="step-text">Layer greens, purple cabbage, cucumber, and spring onions.</div></div></li>
+          <li class="step-item"><div class="step-num">4</div><div><div class="step-title">Finish</div><div class="step-text">Add marinated tofu and broccoli sprouts. Drizzle remaining dressing. Finish with nutritional yeast, flax, and nigella seeds.</div></div></li>
+        </ol>
+        <div class="note-box"><strong>Chef note:</strong> The brine provides all the saltiness needed — no extra tamari required. The cleanest, most gut-diverse dressing of the week.</div>
+      </div>
+    </div>
+    <div class="recipe-card">
+      <div class="card-header">
+        <div class="card-tag">Salad 2 · Fruit</div>
+        <div class="card-title">Triple Berry, Apple & Spinach</div>
+        <div class="card-desc">Three anthocyanin classes in one bowl — maximum polyphenol coverage</div>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Ingredients</div>
+        <table class="ingredients-table">
+          <tr><td><span class="amt" data-base="6" data-unit="cup">6 cups</span></td><td>Organic spinach</td></tr>
+          <tr><td><span class="amt" data-base="280" data-unit="g">280 g</span></td><td>Extra firm tofu, small cubes</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="whole">2</span></td><td>Apples, thinly sliced</td></tr>
+          <tr><td><span class="amt" data-base="0.5" data-unit="cup">½ cup</span></td><td>Blueberries</td></tr>
+          <tr><td><span class="amt" data-base="0.5" data-unit="cup">½ cup</span></td><td>Blackberries</td></tr>
+          <tr><td><span class="amt" data-base="0.5" data-unit="cup">½ cup</span></td><td>Raspberries</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Radish + methi sprouts</td></tr>
+          <tr><td><span class="amt" data-base="3" data-unit="tbsp">3 tbsp</span></td><td>ACV</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Wheat germ</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tsp">4 tsp</span></td><td>Ground flax</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Tamari</td></tr>
+          <tr><td><span class="amt" data-base="0.5" data-unit="tsp">½ tsp</span></td><td>Cinnamon</td></tr>
+        </table>
+        <div class="section-label">Method</div>
+        <ol class="steps-list">
+          <li class="step-item"><div class="step-num">1</div><div><div class="step-title">Make cinnamon dressing</div><div class="step-text">Whisk ACV, amla, cinnamon, nutritional yeast. Yeast thickens into a beautiful coating dressing.</div></div></li>
+          <li class="step-item"><div class="step-num">2</div><div><div class="step-title">Season tofu</div><div class="step-text">Toss with tamari and a pinch of cinnamon.</div></div></li>
+          <li class="step-item"><div class="step-num">3</div><div><div class="step-title">Build bowls</div><div class="step-text">Divide spinach. Fan apple slices and scatter all three berries generously.</div></div></li>
+          <li class="step-item"><div class="step-num">4</div><div><div class="step-title">Finish</div><div class="step-text">Add tofu, pile sprouts in center. Drizzle dressing. Sprinkle wheat germ and flax.</div></div></li>
+        </ol>
+        <div class="note-box"><strong>Chef note:</strong> Blue (delphinidin) + red (cyanidin) + raspberry red (pelargonidin) = three entirely different anthocyanin classes. Cinnamon (¼–½ tsp/day) is Dr. Greger's recommended blood-sugar regulator.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FRIDAY ══ -->
+<div class="day-section" id="friday">
+  <div class="day-header">
+    <div>
+      <div class="day-theme">🌶️ South Indian · Avocado</div>
+      <div class="day-name">Friday</div>
+    </div>
+  </div>
+  <div class="salads-grid">
+    <div class="recipe-card">
+      <div class="card-header">
+        <div class="card-tag">Salad 1 · Savory</div>
+        <div class="card-title">South Indian Spiced Tofu & Black Bean</div>
+        <div class="card-desc">Rasam-spiced tofu — South Indian warmth in a raw salad</div>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Ingredients</div>
+        <table class="ingredients-table">
+          <tr><td><span class="amt" data-base="6" data-unit="cup">6 cups</span></td><td>Arugula + spinach</td></tr>
+          <tr><td><span class="amt" data-base="420" data-unit="g">420 g</span></td><td>Extra firm tofu, cubed</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Canned black beans, drained</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Tomatoes, diced</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="whole">1</span></td><td>Bell pepper, diced</td></tr>
+          <tr><td><span class="amt" data-base="6" data-unit="tbsp">6 tbsp</span></td><td>Cilantro, chopped</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Cumin seeds, toasted</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Coriander powder</td></tr>
+          <tr><td><span class="amt" data-base="0.5" data-unit="tsp">½ tsp</span></td><td>Ajwain (carom seeds)</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>South Indian spice blend</td></tr>
+          <tr><td><span class="amt" data-base="3" data-unit="tbsp">3 tbsp</span></td><td>ACV</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Tamari</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Methi sprouts</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tsp">4 tsp</span></td><td>Ground flax</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="whole">2</span></td><td>Oranges, segmented</td></tr>
+        </table>
+        <div class="section-label">Method</div>
+        <ol class="steps-list">
+          <li class="step-item"><div class="step-num">1</div><div><div class="step-title">Toast cumin</div><div class="step-text">Dry toast cumin seeds 30 sec until fragrant. Crush lightly.</div></div></li>
+          <li class="step-item"><div class="step-num">2</div><div><div class="step-title">Spice the tofu</div><div class="step-text">Toss tofu with coriander, ajwain, South Indian blend, tamari, toasted cumin. Marinate 10 min.</div></div></li>
+          <li class="step-item"><div class="step-num">3</div><div><div class="step-title">Build bowls</div><div class="step-text">Layer greens. Add tomatoes, bell pepper, cilantro, black beans, and orange segments.</div></div></li>
+          <li class="step-item"><div class="step-num">4</div><div><div class="step-title">Finish</div><div class="step-text">Add tofu and methi sprouts. Drizzle ACV+amla dressing. Finish with nutritional yeast and flax.</div></div></li>
+        </ol>
+        <div class="note-box"><strong>Chef note:</strong> Ajwain (carom seeds) contains thymol — powerful digestive aid. Toast your cumin whole — 30 seconds dry transforms its flavour profile completely.</div>
+      </div>
+    </div>
+    <div class="recipe-card">
+      <div class="card-header">
+        <div class="card-tag">Salad 2 · Showstopper</div>
+        <div class="card-title">Avocado, Strawberry & Kiwi Salad</div>
+        <div class="card-desc">The showstopper of the week — restaurant-worthy in 10 minutes</div>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Ingredients</div>
+        <table class="ingredients-table">
+          <tr><td><span class="amt" data-base="6" data-unit="cup">6 cups</span></td><td>Mixed greens + spinach</td></tr>
+          <tr><td><span class="amt" data-base="280" data-unit="g">280 g</span></td><td>Extra firm tofu, cubed</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="whole">2</span></td><td>Avocados, sliced</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Strawberries, sliced</td></tr>
+          <tr><td><span class="amt" data-base="0.75" data-unit="cup">¾ cup</span></td><td>Raspberries</td></tr>
+          <tr><td><span class="amt" data-base="3" data-unit="whole">3</span></td><td>Kiwi, sliced</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Spring onions</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Radish sprouts</td></tr>
+          <tr><td><span class="amt" data-base="3" data-unit="tbsp">3 tbsp</span></td><td>ACV</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Wheat germ</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tsp">4 tsp</span></td><td>Ground flax</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Tamari</td></tr>
+        </table>
+        <div class="section-label">Method</div>
+        <ol class="steps-list">
+          <li class="step-item"><div class="step-num">1</div><div><div class="step-title">Make dressing</div><div class="step-text">Whisk ACV, amla, nutritional yeast, and coriander powder.</div></div></li>
+          <li class="step-item"><div class="step-num">2</div><div><div class="step-title">Season tofu</div><div class="step-text">Toss with tamari and a pinch of amla.</div></div></li>
+          <li class="step-item"><div class="step-num">3</div><div><div class="step-title">Build 4 showstopper bowls</div><div class="step-text">Fan avocado slices on one side. Arrange strawberries, raspberries, kiwi, spring onions.</div></div></li>
+          <li class="step-item"><div class="step-num">4</div><div><div class="step-title">Finish</div><div class="step-text">Add tofu and radish sprouts in center. Drizzle dressing. Finish with wheat germ and flax.</div></div></li>
+        </ol>
+        <div class="note-box"><strong>Chef note:</strong> Avocado fat increases carotenoid uptake from berries by 2–4×. This is food synergy in your bowl. Fan avocado beautifully — this one is your guest salad.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SATURDAY ══ -->
+<div class="day-section" id="saturday">
+  <div class="day-header">
+    <div>
+      <div class="day-theme">🫙 Digestive Trinity · Sweet Potato</div>
+      <div class="day-name">Saturday</div>
+    </div>
+  </div>
+  <div class="salads-grid">
+    <div class="recipe-card">
+      <div class="card-header">
+        <div class="card-tag">Salad 1 · Savory</div>
+        <div class="card-title">Jeera, Fennel & Coriander Tofu</div>
+        <div class="card-desc">The North Indian digestive trinity — jeera + fennel + coriander over spinach</div>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Ingredients</div>
+        <table class="ingredients-table">
+          <tr><td><span class="amt" data-base="6" data-unit="cup">6 cups</span></td><td>Mixed greens + spinach</td></tr>
+          <tr><td><span class="amt" data-base="420" data-unit="g">420 g</span></td><td>Extra firm tofu, cubed</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Canned chickpeas, drained</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Tomatoes, diced</td></tr>
+          <tr><td><span class="amt" data-base="0.5" data-unit="cup">½ cup</span></td><td>Onion, finely sliced</td></tr>
+          <tr><td><span class="amt" data-base="6" data-unit="tbsp">6 tbsp</span></td><td>Cilantro, chopped</td></tr>
+          <tr><td><span class="amt" data-base="1.5" data-unit="tsp">1½ tsp</span></td><td>Cumin seeds (jeera)</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Fennel seeds</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Coriander powder</td></tr>
+          <tr><td><span class="amt" data-base="3" data-unit="tbsp">3 tbsp</span></td><td>ACV</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Tamari</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Broccoli sprouts</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tsp">4 tsp</span></td><td>Ground flax</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Black nigella seeds</td></tr>
+        </table>
+        <div class="section-label">Method</div>
+        <ol class="steps-list">
+          <li class="step-item"><div class="step-num">1</div><div><div class="step-title">Toast whole spices</div><div class="step-text">Dry toast cumin and fennel seeds together 45 sec until aromatic. Crush lightly.</div></div></li>
+          <li class="step-item"><div class="step-num">2</div><div><div class="step-title">Spice tofu & chickpeas</div><div class="step-text">Toss both with coriander, tamari, and toasted seeds. Marinate 10 min.</div></div></li>
+          <li class="step-item"><div class="step-num">3</div><div><div class="step-title">Build bowls</div><div class="step-text">Layer greens. Add tomatoes, onion, cilantro.</div></div></li>
+          <li class="step-item"><div class="step-num">4</div><div><div class="step-title">Finish</div><div class="step-text">Add tofu-chickpea mix and broccoli sprouts. Drizzle dressing. Finish with nutritional yeast, flax, and nigella seeds.</div></div></li>
+        </ol>
+        <div class="note-box"><strong>Chef note:</strong> Fennel seeds contain prebiotic inulin — digestive soother AND gut bacteria food simultaneously. Raw onion is one of the best prebiotic sources in your pantry (fructooligosaccharides).</div>
+      </div>
+    </div>
+    <div class="recipe-card">
+      <div class="card-header">
+        <div class="card-tag">Salad 2 · Sweet Potato Day</div>
+        <div class="card-title">Sweet Potato, Blueberry & Apple</div>
+        <div class="card-desc">Warm sweet potato on cold arugula — comfort food in salad form</div>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Ingredients</div>
+        <table class="ingredients-table">
+          <tr><td><span class="amt" data-base="6" data-unit="cup">6 cups</span></td><td>Arugula + mixed greens</td></tr>
+          <tr><td><span class="amt" data-base="280" data-unit="g">280 g</span></td><td>Extra firm tofu, cubed</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="cup">2 cups</span></td><td>Sweet potato, roasted and cubed</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="whole">2</span></td><td>Apples, thinly sliced</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Blueberries</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Purple cabbage, shredded</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Methi + radish sprouts</td></tr>
+          <tr><td><span class="amt" data-base="3" data-unit="tbsp">3 tbsp</span></td><td>ACV</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Wheat germ</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tsp">4 tsp</span></td><td>Ground flax</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Tamari</td></tr>
+          <tr><td><span class="amt" data-base="0.5" data-unit="tsp">½ tsp</span></td><td>Cinnamon</td></tr>
+        </table>
+        <div class="section-label">Method</div>
+        <ol class="steps-list">
+          <li class="step-item"><div class="step-num">1</div><div><div class="step-title">Make warm-spice dressing</div><div class="step-text">Whisk ACV, amla, nutritional yeast, and cinnamon. Should taste like a tart chai dressing.</div></div></li>
+          <li class="step-item"><div class="step-num">2</div><div><div class="step-title">Season tofu</div><div class="step-text">Toss with tamari and a pinch of cinnamon.</div></div></li>
+          <li class="step-item"><div class="step-num">3</div><div><div class="step-title">Build bowls</div><div class="step-text">Lay greens and purple cabbage. Arrange warm sweet potato, apple slices, and blueberries.</div></div></li>
+          <li class="step-item"><div class="step-num">4</div><div><div class="step-title">Finish</div><div class="step-text">Add tofu and sprouts in center. Drizzle dressing. Finish with wheat germ and flax.</div></div></li>
+        </ol>
+        <div class="note-box"><strong>Chef note:</strong> Roast a large batch of sweet potatoes on Sunday — this and the Italian Monday salad both need them. Purple cabbage + blueberries = deepest anthocyanin combo in your pantry.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SUNDAY ══ -->
+<div class="day-section" id="sunday">
+  <div class="day-header">
+    <div>
+      <div class="day-theme">🌈 Gut Reset · Rainbow Finale</div>
+      <div class="day-name">Sunday</div>
+    </div>
+  </div>
+  <div class="salads-grid">
+    <div class="recipe-card">
+      <div class="card-header">
+        <div class="card-tag">Salad 1 · Gut Reset</div>
+        <div class="card-title">Ultimate Gut-Reset Salad</div>
+        <div class="card-desc">All 3 greens · All 3 sprouts · Both beans · 10 plant foods in one bowl</div>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Ingredients</div>
+        <table class="ingredients-table">
+          <tr><td><span class="amt" data-base="7" data-unit="cup">7 cups</span></td><td>Spinach + arugula + mixed greens</td></tr>
+          <tr><td><span class="amt" data-base="420" data-unit="g">420 g</span></td><td>Extra firm tofu, cubed</td></tr>
+          <tr><td><span class="amt" data-base="0.75" data-unit="cup">¾ cup</span></td><td>Chickpeas, drained</td></tr>
+          <tr><td><span class="amt" data-base="0.75" data-unit="cup">¾ cup</span></td><td>Black beans, drained</td></tr>
+          <tr><td><span class="amt" data-base="1.5" data-unit="cup">1½ cups</span></td><td>Purple cabbage from brine</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Cucumber, sliced</td></tr>
+          <tr><td><span class="amt" data-base="0.75" data-unit="cup">¾ cup</span></td><td>Tomatoes, diced</td></tr>
+          <tr><td><span class="amt" data-base="5" data-unit="tbsp">5 tbsp</span></td><td>Spring onions</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Miso paste</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tbsp">2 tbsp</span></td><td>ACV</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tbsp">2 tbsp</span></td><td>Purple cabbage brine</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Tamari</td></tr>
+          <tr><td><span class="amt" data-base="1.5" data-unit="cup">1½ cups</span></td><td>Broccoli + radish + methi sprouts (all 3)</td></tr>
+          <tr><td><span class="amt" data-base="5" data-unit="tbsp">5 tbsp</span></td><td>Nutritional yeast</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tsp">4 tsp</span></td><td>Ground flax</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Black nigella seeds</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Fennel seeds</td></tr>
+        </table>
+        <div class="section-label">Method</div>
+        <ol class="steps-list">
+          <li class="step-item"><div class="step-num">1</div><div><div class="step-title">Toast fennel</div><div class="step-text">Dry toast fennel seeds 30 sec. Crush lightly.</div></div></li>
+          <li class="step-item"><div class="step-num">2</div><div><div class="step-title">Make ultimate gut dressing</div><div class="step-text">Whisk miso, ACV, cabbage brine, tamari, amla. Three ferments in one dressing.</div></div></li>
+          <li class="step-item"><div class="step-num">3</div><div><div class="step-title">Marinate tofu</div><div class="step-text">Toss in 4 tbsp of the dressing + toasted fennel. Sit 10 min.</div></div></li>
+          <li class="step-item"><div class="step-num">4</div><div><div class="step-title">Build maximum diversity bowls</div><div class="step-text">Divide all 3 greens. Layer all vegetables and both beans.</div></div></li>
+          <li class="step-item"><div class="step-num">5</div><div><div class="step-title">Finish</div><div class="step-text">Add tofu and ALL THREE sprouts in a generous pile. Drizzle dressing. Finish with nutritional yeast, flax, and nigella seeds.</div></div></li>
+        </ol>
+        <div class="note-box"><strong>Chef note:</strong> Plant diversity count = 10 different plant foods in one sitting. Dr. Greger's 30-plant-per-week target? This one bowl covers one-third of it.</div>
+      </div>
+    </div>
+    <div class="recipe-card">
+      <div class="card-header">
+        <div class="card-tag">Salad 2 · Rainbow Finale</div>
+        <div class="card-title">Rainbow Fruit & Greens Finale</div>
+        <div class="card-desc">Six phytonutrient classes in one bowl — your weekly vitamin C finale</div>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Ingredients</div>
+        <table class="ingredients-table">
+          <tr><td><span class="amt" data-base="5" data-unit="cup">5 cups</span></td><td>Mixed greens + arugula</td></tr>
+          <tr><td><span class="amt" data-base="280" data-unit="g">280 g</span></td><td>Extra firm tofu, small cubes</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Papaya, cubed</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="whole">4</span></td><td>Kiwi, sliced</td></tr>
+          <tr><td><span class="amt" data-base="0.5" data-unit="cup">½ cup</span></td><td>Blackberries</td></tr>
+          <tr><td><span class="amt" data-base="0.5" data-unit="cup">½ cup</span></td><td>Strawberries, halved</td></tr>
+          <tr><td><span class="amt" data-base="0.5" data-unit="cup">½ cup</span></td><td>Blueberries</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="whole">2</span></td><td>Oranges, segmented</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="whole">1</span></td><td>Avocado, diced</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Methi sprouts</td></tr>
+          <tr><td><span class="amt" data-base="3" data-unit="tbsp">3 tbsp</span></td><td>ACV</td></tr>
+          <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Wheat germ</td></tr>
+          <tr><td><span class="amt" data-base="4" data-unit="tsp">4 tsp</span></td><td>Ground flax</td></tr>
+          <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Tamari</td></tr>
+          <tr><td><span class="amt" data-base="0.25" data-unit="tsp">¼ tsp</span></td><td>Cinnamon</td></tr>
+        </table>
+        <div class="section-label">Method</div>
+        <ol class="steps-list">
+          <li class="step-item"><div class="step-num">1</div><div><div class="step-title">Make fruit dressing</div><div class="step-text">Squeeze orange juice + ACV + amla + nutritional yeast + cinnamon.</div></div></li>
+          <li class="step-item"><div class="step-num">2</div><div><div class="step-title">Season tofu</div><div class="step-text">Toss with tamari and a pinch of amla.</div></div></li>
+          <li class="step-item"><div class="step-num">3</div><div><div class="step-title">Build rainbow bowls</div><div class="step-text">Lay greens. Arrange all fruits in sections by color. Fan avocado alongside.</div></div></li>
+          <li class="step-item"><div class="step-num">4</div><div><div class="step-title">Finish</div><div class="step-text">Add tofu and methi sprouts in center. Drizzle dressing. Finish with wheat germ and flax. This bowl deserves a moment before you eat it.</div></div></li>
+        </ol>
+        <div class="note-box"><strong>Chef note:</strong> Blueberries (delphinidin) + strawberries (pelargonidin) + blackberries (cyanidin) + papaya (cryptoxanthin) + kiwi (lutein) + orange (flavanones) = 6 different phytonutrient classes in one bowl.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SHOPPING ══ -->
+<div class="day-section" id="shopping">
+  <div class="day-header">
+    <div>
+      <div class="day-theme">Weekly Shop</div>
+      <div class="day-name">Shopping List</div>
+    </div>
+  </div>
+
+  <div style="margin-bottom:24px;display:flex;gap:12px;flex-wrap:wrap">
+    <button onclick="checkAll()" style="padding:8px 16px;border:1.5px solid var(--green-bright);border-radius:8px;background:var(--green-wash);color:var(--green-deep);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer">Check all</button>
+    <button onclick="uncheckAll()" style="padding:8px 16px;border:1.5px solid var(--border);border-radius:8px;background:var(--white);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer">Clear all</button>
+  </div>
+
+  <div class="shop-grid">
+    <div class="shop-category">
+      <div class="shop-cat-header">🫘 Protein</div>
+      <div class="shop-items">
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Extra firm organic tofu — 4–5 blocks (400g each)</span></div>
+      </div>
+    </div>
+    <div class="shop-category">
+      <div class="shop-cat-header">🥫 Canned Goods</div>
+      <div class="shop-items">
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Canned chickpeas × 3 cans</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Canned black beans × 3 cans</span></div>
+      </div>
+    </div>
+    <div class="shop-category">
+      <div class="shop-cat-header">🥬 Greens</div>
+      <div class="shop-items">
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Organic mixed greens — large tub</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Organic spinach — large bag</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Organic arugula — 2 bags</span></div>
+      </div>
+    </div>
+    <div class="shop-category">
+      <div class="shop-cat-header">🥦 Vegetables</div>
+      <div class="shop-items">
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Cucumber × 4–5</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Tomatoes × 6–8</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Bell peppers × 3–4 (mixed colors)</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Red/purple onions × 2</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Spring onions × 2 bunches</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Sweet potatoes × 3–4 (bake Sunday)</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Beets × 4–5 (bake Sunday)</span></div>
+      </div>
+    </div>
+    <div class="shop-category">
+      <div class="shop-cat-header">🌿 Herbs</div>
+      <div class="shop-items">
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Cilantro × 2 bunches</span></div>
+      </div>
+    </div>
+    <div class="shop-category">
+      <div class="shop-cat-header">🍎 Fruits</div>
+      <div class="shop-items">
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Avocados × 6–8 (stagger ripeness)</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Apples × 6</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Oranges × 8</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Strawberries × 2 punnets</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Blueberries × 2 punnets</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Raspberries × 2 punnets</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Blackberries × 1 punnet</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Kiwi × 8</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Papaya × 1–2</span></div>
+      </div>
+    </div>
+    <div class="shop-category">
+      <div class="shop-cat-header">🌱 Sprouts (refresh mid-week)</div>
+      <div class="shop-items">
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Broccoli sprouts</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Radish sprouts</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Methi sprouts</span></div>
+      </div>
+    </div>
+    <div class="shop-category">
+      <div class="shop-cat-header">💊 Supplements (essential)</div>
+      <div class="shop-items">
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>B12 — 2,500 mcg cyanocobalamin weekly</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Vitamin D3 — 2,000 IU daily</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Walnuts — 1 oz/day (add to any salad)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:32px">
+    <div class="prep-timeline">
+      <div class="prep-header">
+        <h3>Sunday Batch Prep</h3>
+        <p>30 minutes of active work → 5-minute daily assembly all week</p>
+      </div>
+      <div class="prep-steps">
+        <div class="prep-step">
+          <div class="prep-step-num">1</div>
+          <div><div class="prep-step-title">Bake sweet potatoes + beets</div><div class="prep-step-desc">Pop in oven together — mostly hands-off</div></div>
+          <div class="prep-time">60 min passive</div>
+        </div>
+        <div class="prep-step">
+          <div class="prep-step-num">2</div>
+          <div><div class="prep-step-title">Marinate a full block of tofu</div><div class="prep-step-desc">Tamari overnight → portion into 7 bags. Each day add the day's spice profile.</div></div>
+          <div class="prep-time">5 min active</div>
+        </div>
+        <div class="prep-step">
+          <div class="prep-step-num">3</div>
+          <div><div class="prep-step-title">Wash and dry all greens</div><div class="prep-step-desc">Store with paper towel to absorb moisture</div></div>
+          <div class="prep-time">10 min active</div>
+        </div>
+        <div class="prep-step">
+          <div class="prep-step-num">4</div>
+          <div><div class="prep-step-title">Chop cilantro + spring onions</div><div class="prep-step-desc">Store in glass containers</div></div>
+          <div class="prep-time">8 min active</div>
+        </div>
+        <div class="prep-step">
+          <div class="prep-step-num">5</div>
+          <div><div class="prep-step-title">Pre-mix base dressing × 7 portions</div><div class="prep-step-desc">ACV + amla + nutritional yeast in small jars. Add spice profile each day.</div></div>
+          <div class="prep-time">7 min active</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main -->
+
+<script>
+let currentServings = 4;
+let currentUnit = 'metric';
+
+const unitConversions = {
+  g:    { metric: v => v + ' g',    imperial: v => (v / 28.35).toFixed(1) + ' oz' },
+  cup:  { metric: v => formatCup(v) + ' cup' + (v !== 1 ? 's' : ''), imperial: v => formatCup(v) + ' cup' + (v !== 1 ? 's' : '') },
+  tbsp: { metric: v => formatMeasure(v, 'tbsp'), imperial: v => formatMeasure(v, 'tbsp') },
+  tsp:  { metric: v => formatMeasure(v, 'tsp'),  imperial: v => formatMeasure(v, 'tsp') },
+  whole:{ metric: v => formatNum(v), imperial: v => formatNum(v) },
+};
+
+function formatNum(v) {
+  if (v === Math.floor(v)) return v.toString();
+  const frac = v - Math.floor(v);
+  const fracs = [[0.25,'¼'],[0.5,'½'],[0.75,'¾'],[0.33,'⅓'],[0.67,'⅔'],[0.125,'⅛']];
+  for (const [f,s] of fracs) if (Math.abs(frac - f) < 0.05) return (Math.floor(v) || '') + s;
+  return v.toFixed(1);
+}
+function formatCup(v) { return formatNum(v); }
+function formatMeasure(v, unit) {
+  if (unit === 'tbsp' && v >= 3) { const c = v / 16; return formatNum(c) + ' cup'; }
+  return formatNum(v) + ' ' + unit;
+}
+
+function updateAmounts() {
+  document.querySelectorAll('.amt').forEach(el => {
+    const base = parseFloat(el.dataset.base);
+    const unit = el.dataset.unit;
+    const scaled = base * currentServings / 4;
+    const conv = unitConversions[unit] || unitConversions.whole;
+    el.textContent = conv[currentUnit](scaled);
+  });
+}
+
+function setServing(n) {
+  if (isNaN(n) || n < 1) n = 1;
+  if (n > 50) n = 50;
+  currentServings = n;
+  document.getElementById('servingInput').value = n;
+  updateAmounts();
+}
+function changeServing(d) { setServing(currentServings + d); }
+function setUnit(u) {
+  currentUnit = u;
+  document.querySelectorAll('.unit-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase().includes(u)));
+  updateAmounts();
+}
+
+function showDay(id) {
+  document.querySelectorAll('.day-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const tabs = document.querySelectorAll('.day-tab');
+  tabs.forEach(t => { if (t.onclick.toString().includes(id)) t.classList.add('active'); });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleCheck(item) {
+  item.classList.toggle('checked');
+}
+function checkAll() {
+  document.querySelectorAll('.shop-item').forEach(i => i.classList.add('checked'));
+}
+function uncheckAll() {
+  document.querySelectorAll('.shop-item').forEach(i => i.classList.remove('checked'));
+}
+
+updateAmounts();
+</script>
+</body>
+</html>
