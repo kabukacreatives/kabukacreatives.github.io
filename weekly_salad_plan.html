@@ -331,10 +331,10 @@ body {
 }
 .ingredients-table td:first-child {
   color: var(--green-deep);
-  font-weight: 600;
-  width: 90px;
-  font-family: 'DM Mono', monospace;
-  font-size: 12px;
+  font-weight: 700;
+  width: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
 }
 .ingredients-table td:last-child { color: var(--ink); }
 
@@ -606,7 +606,7 @@ body {
 .supp-text { color: #5a4a00; }
 
 /* ── AMOUNT CLASS (scaled by JS) ── */
-.amt { font-weight: 700; color: var(--green-deep); }
+.amt { font-weight: 700; color: var(--green-deep); font-family: 'DM Sans', sans-serif !important; font-size: 14px; letter-spacing: -0.01em; }
 </style>
 </head>
 <body>
@@ -708,6 +708,45 @@ body {
     <div class="supp-text"><strong>Two non-negotiable supplements on a plant-based diet:</strong> B12 (2,500 mcg cyanocobalamin weekly or 250 mcg daily) · Vitamin D3 (2,000 IU daily). No food in these salads provides reliable B12 or D3. Also consider adding 1 oz walnuts to any salad daily for complete omega-3 coverage.</div>
   </div>
 
+
+  <div style="background:var(--white);border:1.5px solid var(--border-green);border-radius:16px;padding:24px 28px;margin-bottom:32px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+      <div style="font-size:22px">🫀</div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--green-deep)">LDL Cholesterol Protocol</div>
+        <div style="font-size:12px;color:var(--muted)">Every tool in this plan that actively lowers LDL</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:16px">
+      <div style="background:var(--green-wash);border-radius:10px;padding:12px 14px">
+        <div style="font-size:13px;font-weight:600;color:var(--green-deep);margin-bottom:3px">🧄 Raw garlic — daily</div>
+        <div style="font-size:12px;color:var(--muted)">Allicin inhibits cholesterol synthesis. Raw + 10 min wait = max allicin activation. Reduces LDL 10–15%.</div>
+      </div>
+      <div style="background:var(--green-wash);border-radius:10px;padding:12px 14px">
+        <div style="font-size:13px;font-weight:600;color:var(--green-deep);margin-bottom:3px">🌾 Ground flaxseed — daily</div>
+        <div style="font-size:12px;color:var(--muted)">Soluble fiber binds bile acids, forcing liver to pull LDL from blood. Omega-3 ALA reduces triglycerides.</div>
+      </div>
+      <div style="background:var(--green-wash);border-radius:10px;padding:12px 14px">
+        <div style="font-size:13px;font-weight:600;color:var(--green-deep);margin-bottom:3px">🫘 Beans every day</div>
+        <div style="font-size:12px;color:var(--muted)">Soluble fiber (pectin + gums) shown to reduce LDL 5–10%. Chickpeas and black beans most studied.</div>
+      </div>
+      <div style="background:var(--green-wash);border-radius:10px;padding:12px 14px">
+        <div style="font-size:13px;font-weight:600;color:var(--green-deep);margin-bottom:3px">🥑 Avocado — 3× per week</div>
+        <div style="font-size:12px;color:var(--muted)">Monounsaturated fat + beta-sitosterol competitively inhibits cholesterol absorption in the gut.</div>
+      </div>
+      <div style="background:var(--green-wash);border-radius:10px;padding:12px 14px">
+        <div style="font-size:13px;font-weight:600;color:var(--green-deep);margin-bottom:3px">🍶 ACV — daily</div>
+        <div style="font-size:12px;color:var(--muted)">Acetic acid reduces triglycerides and total cholesterol. Every dressing uses it.</div>
+      </div>
+      <div style="background:var(--green-wash);border-radius:10px;padding:12px 14px">
+        <div style="font-size:13px;font-weight:600;color:var(--green-deep);margin-bottom:3px">🫐 Berries — daily</div>
+        <div style="font-size:12px;color:var(--muted)">Anthocyanins prevent LDL oxidation — the step that makes LDL dangerous. Oxidized LDL causes plaques.</div>
+      </div>
+    </div>
+    <div style="background:#fff8e1;border-radius:8px;padding:10px 14px;font-size:12.5px;color:#5a4a00">
+      <strong>Add these two items to maximize results:</strong> 1 oz walnuts daily (omega-3, reduces LDL 5%) · ¼ tsp turmeric in any savory dressing (curcumin reduces LDL oxidation). Both pair perfectly with this plan.
+    </div>
+  </div>
   <div class="master-dressing">
     <h3>The Master Dressing Formula</h3>
     <p>All 14 dressings are built on this base — adjust the spice profile per the day</p>
@@ -732,6 +771,19 @@ body {
     </div>
   </div>
 
+
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:32px">
+    <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--green-deep);margin-bottom:8px">Daily protein breakdown <span style="font-size:14px;font-weight:400;color:var(--muted)">(per person · 1 serving of each daily salad)</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-bottom:12px">
+      <div style="background:var(--green-wash);border-radius:8px;padding:10px 14px;font-size:13px"><span style="font-weight:700;color:var(--green-deep)">~14g</span><br><span style="color:var(--muted)">Tofu (105g + 70g)</span></div>
+      <div style="background:var(--green-wash);border-radius:8px;padding:10px 14px;font-size:13px"><span style="font-weight:700;color:var(--green-deep)">~6g</span><br><span style="color:var(--muted)">Nutritional yeast (2 tbsp)</span></div>
+      <div style="background:var(--green-wash);border-radius:8px;padding:10px 14px;font-size:13px"><span style="font-weight:700;color:var(--green-deep)">~4g</span><br><span style="color:var(--muted)">Chickpeas or black beans</span></div>
+      <div style="background:var(--green-wash);border-radius:8px;padding:10px 14px;font-size:13px"><span style="font-weight:700;color:var(--green-deep)">~3g</span><br><span style="color:var(--muted)">Wheat germ + flax + sprouts</span></div>
+      <div style="background:var(--green-wash);border-radius:8px;padding:10px 14px;font-size:13px"><span style="font-weight:700;color:var(--green-deep)">~3g</span><br><span style="color:var(--muted)">Greens + vegetables</span></div>
+      <div style="background:var(--green-deep);border-radius:8px;padding:10px 14px;font-size:13px"><span style="font-weight:700;color:var(--terra-light)">~30g total</span><br><span style="color:var(--green-pale);font-size:12px">Already at your target ✓</span></div>
+    </div>
+    <div style="font-size:12.5px;color:var(--muted)">Tofu is split <strong>105g (savory salad)</strong> + <strong>70g (fruit/lighter salad)</strong> per person per day. Sunday gut-reset uses 105g + 70g = same total. Amounts are already calibrated to ~30g protein per person per day from these two salads.</div>
+  </div>
   <div class="section-title" style="font-size:22px;margin-bottom:12px">Daily Dozen Coverage</div>
   <div class="dozen-grid">
     <div class="dozen-item"><div class="dozen-check check-full">✓</div>Beans — every savory salad</div>
@@ -778,6 +830,7 @@ body {
           <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Oregano</td></tr>
           <tr><td><span class="amt" data-base="3" data-unit="tbsp">3 tbsp</span></td><td>ACV</td></tr>
           <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Tamari (low sodium)</td></tr>
+          <tr><td><span class="amt" data-base="8" data-unit="clove">8 cloves</span></td><td>Garlic, finely minced (raw — let sit 10 min)</td></tr>
           <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Broccoli sprouts</td></tr>
           <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
           <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
@@ -940,6 +993,7 @@ body {
           <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Cumin powder</td></tr>
           <tr><td><span class="amt" data-base="3" data-unit="tbsp">3 tbsp</span></td><td>ACV</td></tr>
           <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Tamari</td></tr>
+          <tr><td><span class="amt" data-base="8" data-unit="clove">8 cloves</span></td><td>Garlic, finely minced (raw — let sit 10 min)</td></tr>
           <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Methi sprouts</td></tr>
           <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
           <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
@@ -974,6 +1028,7 @@ body {
           <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Miso paste</td></tr>
           <tr><td><span class="amt" data-base="3" data-unit="tbsp">3 tbsp</span></td><td>ACV</td></tr>
           <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Tamari</td></tr>
+          <tr><td><span class="amt" data-base="8" data-unit="clove">8 cloves</span></td><td>Garlic, finely minced (raw — let sit 10 min)</td></tr>
           <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Broccoli sprouts</td></tr>
           <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
           <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
@@ -1020,6 +1075,7 @@ body {
           <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Tamari</td></tr>
           <tr><td><span class="amt" data-base="2" data-unit="tbsp">2 tbsp</span></td><td>ACV</td></tr>
           <tr><td><span class="amt" data-base="2" data-unit="tbsp">2 tbsp</span></td><td>Purple cabbage brine (from jar)</td></tr>
+          <tr><td><span class="amt" data-base="8" data-unit="clove">8 cloves</span></td><td>Garlic, finely minced (raw — let sit 10 min)</td></tr>
           <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Broccoli sprouts</td></tr>
           <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
           <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
@@ -1103,6 +1159,7 @@ body {
           <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>South Indian spice blend</td></tr>
           <tr><td><span class="amt" data-base="3" data-unit="tbsp">3 tbsp</span></td><td>ACV</td></tr>
           <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Tamari</td></tr>
+          <tr><td><span class="amt" data-base="8" data-unit="clove">8 cloves</span></td><td>Garlic, finely minced (raw — let sit 10 min)</td></tr>
           <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Methi sprouts</td></tr>
           <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
           <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
@@ -1142,6 +1199,7 @@ body {
           <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Wheat germ</td></tr>
           <tr><td><span class="amt" data-base="4" data-unit="tsp">4 tsp</span></td><td>Ground flax</td></tr>
           <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Tamari</td></tr>
+          <tr><td><span class="amt" data-base="8" data-unit="clove">8 cloves</span></td><td>Garlic, finely minced (raw — let sit 10 min)</td></tr>
         </table>
         <div class="section-label">Method</div>
         <ol class="steps-list">
@@ -1185,6 +1243,7 @@ body {
           <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Coriander powder</td></tr>
           <tr><td><span class="amt" data-base="3" data-unit="tbsp">3 tbsp</span></td><td>ACV</td></tr>
           <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Tamari</td></tr>
+          <tr><td><span class="amt" data-base="8" data-unit="clove">8 cloves</span></td><td>Garlic, finely minced (raw — let sit 10 min)</td></tr>
           <tr><td><span class="amt" data-base="1" data-unit="cup">1 cup</span></td><td>Broccoli sprouts</td></tr>
           <tr><td><span class="amt" data-base="4" data-unit="tbsp">4 tbsp</span></td><td>Nutritional yeast</td></tr>
           <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
@@ -1268,6 +1327,7 @@ body {
           <tr><td><span class="amt" data-base="2" data-unit="tbsp">2 tbsp</span></td><td>ACV</td></tr>
           <tr><td><span class="amt" data-base="2" data-unit="tbsp">2 tbsp</span></td><td>Purple cabbage brine</td></tr>
           <tr><td><span class="amt" data-base="1" data-unit="tsp">1 tsp</span></td><td>Tamari</td></tr>
+          <tr><td><span class="amt" data-base="12" data-unit="clove">12 cloves</span></td><td>Garlic, finely minced (raw — let sit 10 min)</td></tr>
           <tr><td><span class="amt" data-base="1.5" data-unit="cup">1½ cups</span></td><td>Broccoli + radish + methi sprouts (all 3)</td></tr>
           <tr><td><span class="amt" data-base="5" data-unit="tbsp">5 tbsp</span></td><td>Nutritional yeast</td></tr>
           <tr><td><span class="amt" data-base="2" data-unit="tsp">2 tsp</span></td><td>Amla powder</td></tr>
@@ -1375,9 +1435,10 @@ body {
       </div>
     </div>
     <div class="shop-category">
-      <div class="shop-cat-header">🌿 Herbs</div>
+      <div class="shop-cat-header">🌿 Herbs & Aromatics</div>
       <div class="shop-items">
         <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Cilantro × 2 bunches</span></div>
+        <div class="shop-item" onclick="toggleCheck(this)"><div class="shop-cb"></div><span>Garlic — 2 heads (used almost daily, raw)</span></div>
       </div>
     </div>
     <div class="shop-category">
