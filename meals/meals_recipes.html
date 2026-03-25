@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#0f1a0e">
+<title>Recipes · Our Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f1a0e; --bg2:#162018; --bg3:#1e2e1c;
+  --card:#1a2a18; --card2:#223020;
+  --gold:#d4a843; --gold2:#f0c860; --goldp:#2a2010;
+  --terra:#c4622d; --terrap:#2a1208;
+  --cream:#f5ede0; --cream2:#fdf8f0;
+  --green:#4a9a5a; --greenl:#7ab878; --greenp:#0e200c;
+  --ink:#e8e0d4; --mu:#8a9a88; --border:#2a3828;
+  --pu:#9d6fe8; --pup:#1a0e2a;
+  --nv:#5a8ad4; --nvp:#0a1428;
+  --red:#e05040; --redp:#2a0e0a;
+  --nav-h:64px; --top-h:52px;
+  --safe-b:env(safe-area-inset-bottom,0px);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{background:var(--bg)}
+body{
+  font-family:'Lato',sans-serif;background:var(--bg);color:var(--ink);
+  font-size:15px;line-height:1.6;
+  padding-top:var(--top-h);
+  padding-bottom:calc(var(--nav-h) + var(--safe-b) + 8px);
+  min-height:100vh;
+}
+
+/* ── TOPBAR ── */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:300;height:var(--top-h);
+  background:rgba(15,26,14,.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:12px;padding:0 16px;
+}
+.back-btn{
+  width:34px;height:34px;border-radius:10px;border:1px solid var(--border);
+  background:var(--card);color:var(--ink);font-size:18px;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  flex-shrink:0;
+}
+.topbar-title{font-family:'Playfair Display',serif;font-size:17px;color:var(--cream);flex:1}
+.topbar-title em{color:var(--gold);font-style:italic}
+
+/* ── BOTTOM NAV ── */
+.bottomnav{
+  position:fixed;bottom:0;left:0;right:0;z-index:300;
+  background:rgba(15,26,14,.96);backdrop-filter:blur(12px);
+  border-top:1px solid var(--border);
+  height:calc(var(--nav-h) + var(--safe-b));
+  padding-bottom:var(--safe-b);display:flex;
+}
+.nav-item{
+  flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:3px;border:none;background:transparent;
+  cursor:pointer;color:var(--mu);font-family:'Lato',sans-serif;
+  font-size:10px;font-weight:700;letter-spacing:.04em;padding:8px 4px 4px;
+  text-decoration:none;text-transform:uppercase;
+}
+.nav-item.active{color:var(--green)}
+.nav-item .ni{font-size:20px;line-height:1}
+
+/* ── INDEX PAGE ── */
+#pageIndex{padding:16px 14px 0}
+.search-wrap{position:relative;margin-bottom:14px}
+.search-input{
+  width:100%;padding:12px 16px 12px 42px;
+  background:var(--card);border:1px solid var(--border);border-radius:14px;
+  color:var(--ink);font-family:'Lato',sans-serif;font-size:14px;
+  outline:none;transition:border .2s;
+}
+.search-input:focus{border-color:var(--green)}
+.search-input::placeholder{color:var(--mu)}
+.search-ico{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:17px;pointer-events:none}
+.filter-row{display:flex;gap:7px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;margin-bottom:16px}
+.filter-row::-webkit-scrollbar{display:none}
+.filter-pill{
+  flex-shrink:0;padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);
+  background:transparent;color:var(--mu);font-family:'Lato',sans-serif;
+  font-size:12px;font-weight:700;cursor:pointer;transition:all .15s;
+  letter-spacing:.03em;
+}
+.filter-pill.active{color:var(--bg);border-color:transparent}
+.filter-pill.active.all{background:var(--gold)}
+.filter-pill.active.kootu{background:var(--gold)}
+.filter-pill.active.curry{background:var(--terra)}
+.filter-pill.active.gravy{background:var(--green)}
+.filter-pill.active.kids{background:var(--pu)}
+.filter-pill.active.base{background:var(--nv)}
+
+/* ── RECIPE GRID ── */
+.recipe-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-bottom:8px}
+.recipe-thumb{
+  background:var(--card);border:1px solid var(--border);border-radius:14px;
+  overflow:hidden;cursor:pointer;transition:transform .15s,border-color .15s;
+  position:relative;
+}
+.recipe-thumb:active{transform:scale(.97)}
+.recipe-thumb:hover{border-color:var(--green)}
+.rt-header{
+  padding:14px 13px 10px;
+  border-bottom:1px solid var(--border);
+  min-height:80px;display:flex;flex-direction:column;justify-content:space-between;
+}
+.rt-cat{
+  display:inline-block;font-size:9px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;padding:2px 7px;border-radius:6px;margin-bottom:6px;
+}
+.rt-cat.kootu{background:var(--goldp);color:var(--gold)}
+.rt-cat.curry{background:var(--terrap);color:var(--terra)}
+.rt-cat.gravy{background:var(--greenp);color:var(--greenl)}
+.rt-cat.kids{background:var(--pup);color:var(--pu)}
+.rt-cat.base{background:var(--nvp);color:var(--nv)}
+.rt-en{font-family:'Playfair Display',serif;font-size:13px;color:var(--cream);line-height:1.3;margin-bottom:3px}
+.rt-ta{font-size:10px;color:var(--mu)}
+.rt-footer{padding:8px 13px;display:flex;justify-content:space-between;align-items:center}
+.rt-time{font-size:10px;color:var(--mu);font-family:'DM Mono',monospace}
+.rt-macros{display:flex;gap:5px}
+.macro-chip{font-size:9px;font-weight:700;padding:2px 6px;border-radius:5px}
+.macro-chip.c{background:rgba(212,168,67,.15);color:var(--gold)}
+.macro-chip.p{background:rgba(74,154,90,.15);color:var(--greenl)}
+
+/* ── RECIPE DETAIL PAGE ── */
+#pageDetail{display:none;padding:0}
+.detail-hero{
+  padding:22px 18px 18px;
+  background:linear-gradient(160deg,var(--bg3) 0%,var(--bg) 100%);
+  border-bottom:1px solid var(--border);
+}
+.dh-cat{display:inline-flex;align-items:center;gap:6px;margin-bottom:10px}
+.dh-ta{font-size:12px;color:var(--mu);margin-bottom:8px;font-style:italic}
+.dh-en{font-family:'Playfair Display',serif;font-size:26px;color:var(--cream);line-height:1.2;margin-bottom:4px}
+.dh-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.dh-meta-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--mu)}
+.dh-meta-item strong{color:var(--ink);font-weight:700}
+
+/* ── APPEARS IN ── */
+.appears-in{
+  display:flex;gap:6px;flex-wrap:wrap;padding:12px 18px;
+  border-bottom:1px solid var(--border);background:var(--bg2);
+}
+.ai-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);width:100%;margin-bottom:2px}
+.ai-chip{font-size:11px;background:var(--card);border:1px solid var(--border);color:var(--mu);padding:3px 9px;border-radius:8px}
+
+/* ── NUTRITION PANEL ── */
+.nut-panel{
+  padding:16px 18px;border-bottom:1px solid var(--border);
+  background:var(--bg2);
+}
+.np-title{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);margin-bottom:12px}
+.np-main{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.npm-item{text-align:center}
+.npm-val{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;color:var(--cream);line-height:1}
+.npm-unit{font-size:9px;color:var(--mu);margin-top:1px}
+.npm-lbl{font-size:9px;color:var(--mu);margin-top:3px;letter-spacing:.04em;text-transform:uppercase}
+.np-fat{background:var(--card);border-radius:10px;padding:10px 12px}
+.np-fat-row{display:flex;justify-content:space-between;font-size:12px;color:var(--mu);padding:2px 0}
+.np-fat-row span:last-child{color:var(--ink);font-weight:700;font-family:'DM Mono',monospace}
+.np-fat-lbl{font-size:10px;font-weight:700;color:var(--mu);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+
+/* ── DETAIL SECTIONS ── */
+.det-section{padding:16px 18px;border-bottom:1px solid var(--border)}
+.det-section-title{
+  font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  margin-bottom:12px;display:flex;align-items:center;gap:8px;
+}
+.det-section-title.gold{color:var(--gold)}
+.det-section-title.green{color:var(--greenl)}
+.det-section-title.terra{color:var(--terra)}
+
+/* ── INGREDIENTS ── */
+.ing-table{width:100%;border-collapse:collapse}
+.ing-row{border-bottom:1px solid rgba(255,255,255,.04)}
+.ing-row:last-child{border-bottom:none}
+.ing-row td{padding:8px 0;vertical-align:top}
+.ing-amount{font-family:'DM Mono',monospace;font-size:13px;color:var(--gold);font-weight:500;width:80px;flex-shrink:0;padding-right:12px}
+.ing-name{font-size:13px;color:var(--cream);font-weight:400}
+.ing-note{font-size:11px;color:var(--mu);margin-top:1px}
+.ing-flag{display:inline-block;font-size:10px;margin-right:4px;vertical-align:middle}
+
+/* ── CHEF NOTE ── */
+.chef-note{
+  background:var(--goldp);border-left:3px solid var(--gold);
+  border-radius:0 10px 10px 0;padding:10px 13px;margin:10px 0;
+}
+.chef-note-lbl{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.chef-note-txt{font-size:12px;color:#d4c090;line-height:1.5}
+
+.beginner-note{
+  background:rgba(155,110,232,.12);border-left:3px solid var(--pu);
+  border-radius:0 10px 10px 0;padding:9px 12px;margin:8px 0;
+  display:none;
+}
+.beginner-note.show{display:block}
+.bn-lbl{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pu);margin-bottom:3px}
+.bn-txt{font-size:12px;color:#c4b0e8;line-height:1.5}
+
+/* ── STEPS ── */
+.step-item{
+  display:flex;gap:14px;padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,.04);
+  align-items:flex-start;
+}
+.step-item:last-child{border-bottom:none}
+.step-num{
+  width:28px;height:28px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Mono',monospace;font-size:12px;font-weight:500;
+  flex-shrink:0;margin-top:1px;
+  background:var(--card2);color:var(--mu);border:1px solid var(--border);
+}
+.step-num.critical{background:rgba(212,168,67,.2);color:var(--gold);border-color:rgba(212,168,67,.4)}
+.step-body{flex:1}
+.step-text{font-size:13px;color:var(--ink);line-height:1.6}
+.step-flag{
+  display:inline-flex;align-items:center;gap:3px;
+  padding:1px 7px;border-radius:6px;font-size:10px;font-weight:700;
+  margin-right:5px;margin-bottom:3px;vertical-align:middle;
+}
+.step-flag.kalonji{background:rgba(0,0,0,.4);color:#e0d0ff;border:1px solid rgba(200,180,255,.2)}
+.step-flag.omam{background:rgba(255,255,220,.08);color:#e8e4c0;border:1px solid rgba(220,210,160,.2)}
+.step-flag.amla{background:rgba(60,160,40,.15);color:#a0e890;border:1px solid rgba(80,180,60,.2)}
+.step-flag.flax{background:rgba(100,60,20,.3);color:#d4b080;border:1px solid rgba(160,100,40,.2)}
+.step-flag.critical{background:rgba(212,168,67,.15);color:var(--gold);border:1px solid rgba(212,168,67,.3)}
+.step-timer-btn{
+  display:inline-flex;align-items:center;gap:5px;
+  margin-top:6px;padding:5px 11px;border-radius:8px;border:none;
+  background:rgba(74,154,90,.2);color:var(--greenl);
+  font-family:'Lato',sans-serif;font-size:11px;font-weight:700;
+  cursor:pointer;letter-spacing:.04em;
+}
+
+/* ── SCIENCE CARD ── */
+.science-card{
+  background:var(--greenp);border:1px solid rgba(74,154,90,.25);
+  border-radius:12px;padding:13px 15px;
+}
+.sc-lbl{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--greenl);margin-bottom:6px}
+.sc-txt{font-size:12px;color:#a0c8a0;line-height:1.6}
+
+/* ── ACTION BAR ── */
+.action-bar{
+  position:sticky;bottom:calc(var(--nav-h) + var(--safe-b));
+  left:0;right:0;z-index:200;
+  padding:10px 14px;
+  background:rgba(15,26,14,.96);backdrop-filter:blur(12px);
+  border-top:1px solid var(--border);
+  display:flex;gap:10px;
+}
+.cook-btn{
+  flex:1;padding:14px;border-radius:14px;border:none;
+  background:linear-gradient(135deg,var(--green),var(--greenl));
+  color:#fff;font-family:'Lato',sans-serif;font-size:15px;font-weight:700;
+  cursor:pointer;letter-spacing:.03em;
+}
+.beginner-toggle{
+  padding:14px 16px;border-radius:14px;border:1px solid var(--border);
+  background:var(--card);color:var(--pu);font-family:'Lato',sans-serif;
+  font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;
+}
+.beginner-toggle.on{background:rgba(155,110,232,.15);border-color:rgba(155,110,232,.4)}
+
+/* ══ COOKING MODE OVERLAY ══ */
+#cookMode{
+  display:none;position:fixed;inset:0;z-index:500;
+  background:var(--bg);flex-direction:column;
+}
+#cookMode.active{display:flex}
+.cm-top{
+  background:var(--bg2);border-bottom:1px solid var(--border);
+  padding:14px 16px;display:flex;align-items:center;justify-content:space-between;
+  flex-shrink:0;padding-top:max(14px, env(safe-area-inset-top));
+}
+.cm-close{
+  width:36px;height:36px;border-radius:10px;border:1px solid var(--border);
+  background:var(--card);color:var(--ink);font-size:20px;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+}
+.cm-recipe-name{font-family:'Playfair Display',serif;font-size:15px;color:var(--cream);flex:1;text-align:center;padding:0 8px}
+.cm-body{flex:1;overflow:hidden;display:flex;flex-direction:column;padding:20px 20px 8px}
+.cm-progress{
+  display:flex;gap:4px;margin-bottom:20px;flex-shrink:0;
+}
+.cm-prog-dot{
+  height:3px;flex:1;border-radius:2px;background:var(--border);transition:background .3s;
+}
+.cm-prog-dot.done{background:var(--green)}
+.cm-prog-dot.current{background:var(--gold)}
+.cm-step-num{
+  font-family:'DM Mono',monospace;font-size:12px;color:var(--mu);
+  text-align:center;margin-bottom:8px;flex-shrink:0;
+  letter-spacing:.1em;text-transform:uppercase;
+}
+.cm-step-main{
+  flex:1;display:flex;flex-direction:column;justify-content:center;
+  overflow-y:auto;
+}
+.cm-step-flags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.cm-step-text{
+  font-family:'Playfair Display',serif;font-size:clamp(20px,5vw,28px);
+  color:var(--cream);line-height:1.45;flex:1;
+}
+.cm-step-bignote{
+  background:var(--goldp);border-left:3px solid var(--gold);
+  border-radius:0 10px 10px 0;padding:12px 14px;margin-top:14px;
+  font-size:13px;color:#d4c090;line-height:1.5;
+}
+.cm-step-bignote .cn-lbl{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+
+/* TIMER */
+.cm-timer{
+  flex-shrink:0;
+  display:none;align-items:center;justify-content:center;
+  flex-direction:column;margin:16px 0;
+}
+.cm-timer.show{display:flex}
+.timer-ring{position:relative;width:90px;height:90px}
+.timer-ring svg{width:90px;height:90px;transform:rotate(-90deg)}
+.timer-ring circle{fill:none;stroke-width:4;stroke-linecap:round}
+.tr-bg{stroke:var(--border)}
+.tr-fill{stroke:var(--gold);transition:stroke-dashoffset .9s linear}
+.timer-display{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:'DM Mono',monospace;font-size:22px;font-weight:500;color:var(--gold);
+}
+.timer-btns{display:flex;gap:8px;margin-top:8px}
+.tbtn{
+  padding:7px 16px;border-radius:10px;border:1px solid var(--border);
+  background:var(--card);color:var(--mu);font-family:'Lato',sans-serif;
+  font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.04em;
+}
+.tbtn.start-t{background:rgba(74,154,90,.2);color:var(--greenl);border-color:rgba(74,154,90,.3)}
+.tbtn.skip{border:none;background:transparent;color:var(--mu)}
+
+/* NAV BUTTONS */
+.cm-nav{
+  flex-shrink:0;display:flex;gap:10px;padding:12px 0;
+  padding-bottom:max(12px, env(safe-area-inset-bottom));
+}
+.cm-prev{
+  width:56px;height:56px;border-radius:16px;border:1px solid var(--border);
+  background:var(--card);color:var(--ink);font-size:24px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.cm-prev:disabled{opacity:.3}
+.cm-next{
+  flex:1;height:56px;border-radius:16px;border:none;
+  background:linear-gradient(135deg,var(--green),var(--greenl));
+  color:#fff;font-family:'Lato',sans-serif;font-size:16px;font-weight:700;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.cm-next.finish{background:linear-gradient(135deg,var(--gold),#f0c060);color:var(--bg)}
+.cm-screen-on{font-size:10px;color:var(--mu);text-align:center;padding:6px 0 0;flex-shrink:0;letter-spacing:.06em;text-transform:uppercase}
+
+/* ══ KEEP SCREEN AWAKE ══ */
+.wakelock-notice{font-size:10px;color:var(--mu);text-align:center;padding:4px 0}
+
+/* ── EMPTY STATE ── */
+.empty-state{text-align:center;padding:50px 20px;color:var(--mu)}
+.empty-state .es-ico{font-size:44px;margin-bottom:12px}
+.empty-state p{font-size:13px;line-height:1.6}
+
+@media(min-width:480px){
+  .recipe-grid{grid-template-columns:repeat(3,1fr)}
+  #pageIndex{max-width:520px;margin:0 auto}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar" id="topbar">
+  <div class="back-btn" onclick="goBack()" style="display:none" id="backBtn">←</div>
+  <div class="topbar-title" id="topTitle">Recipe <em>Cards</em></div>
+</div>
+
+<!-- INDEX PAGE -->
+<div id="pageIndex">
+  <div class="search-wrap">
+    <span class="search-ico">🔍</span>
+    <input class="search-input" type="search" placeholder="Search recipes…" oninput="filterRecipes()" id="searchInput" autocomplete="off">
+  </div>
+  <div class="filter-row" id="filterRow"></div>
+  <div class="recipe-grid" id="recipeGrid"></div>
+  <div class="empty-state" id="emptyState" style="display:none">
+    <div class="es-ico">🌿</div>
+    <p>No recipes match that search.<br>Try a different keyword.</p>
+  </div>
+</div>
+
+<!-- DETAIL PAGE -->
+<div id="pageDetail"></div>
+
+<!-- COOKING MODE -->
+<div id="cookMode">
+  <div class="cm-top">
+    <div class="cm-close" onclick="closeCookMode()">✕</div>
+    <div class="cm-recipe-name" id="cmName"></div>
+    <div style="width:36px"></div>
+  </div>
+  <div class="cm-body">
+    <div class="cm-progress" id="cmProgress"></div>
+    <div class="cm-step-num" id="cmStepNum"></div>
+    <div class="cm-step-main">
+      <div class="cm-step-flags" id="cmFlags"></div>
+      <div class="cm-step-text" id="cmStepText"></div>
+      <div class="cm-step-bignote" id="cmNote" style="display:none">
+        <div class="cn-lbl">Chef's note</div>
+        <div id="cmNoteText"></div>
+      </div>
+    </div>
+    <div class="cm-timer" id="cmTimer">
+      <div class="timer-ring">
+        <svg viewBox="0 0 90 90"><circle class="tr-bg" cx="45" cy="45" r="38"/><circle class="tr-fill" cx="45" cy="45" r="38" id="timerArc"/></svg>
+        <div class="timer-display" id="timerDisplay">0:00</div>
+      </div>
+      <div class="timer-btns">
+        <button class="tbtn start-t" id="timerStartBtn" onclick="toggleTimer()">Start</button>
+        <button class="tbtn" onclick="resetTimer()">Reset</button>
+      </div>
+    </div>
+  </div>
+  <div class="cm-nav">
+    <button class="cm-prev" id="cmPrev" onclick="cmStep(-1)">←</button>
+    <button class="cm-next" id="cmNext" onclick="cmStep(1)">Next →</button>
+  </div>
+  <div class="cm-screen-on">Keep screen on while cooking</div>
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="bottomnav">
+  <a class="nav-item" href="index.html"><span class="ni">🏠</span>Today</a>
+  <button class="nav-item active"><span class="ni">🃏</span>Recipes</button>
+  <a class="nav-item" href="shopping.html"><span class="ni">🛒</span>Shop</a>
+  <a class="nav-item" href="sprouting.html"><span class="ni">🌱</span>Sprouts</a>
+  <button class="nav-item"><span class="ni">⋯</span>More</button>
+</nav>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════
+// FLAGS — inline markers in steps
+// ═══════════════════════════════════════════════════════════════════
+const F = {
+  kalonji:'<span class="step-flag kalonji">🖤 Kalonji</span>',
+  omam:'<span class="step-flag omam">⚪ Omam</span>',
+  amla:'<span class="step-flag amla">🟢 Amla</span>',
+  flax:'<span class="step-flag flax">🌾 Flaxseed</span>',
+  crit:'<span class="step-flag critical">⭐ Chef's key</span>',
+};
+
+// ═══════════════════════════════════════════════════════════════════
+// RECIPE DATA
+// Each recipe: {id, cat, en, ta, time, serves, appears[], nut{}, fat{}, ing[], steps[], chef, science, begNotes{}}
+// Step: {t(text), note(chef note opt), timer(secs opt), flags[]}
+// ═══════════════════════════════════════════════════════════════════
+const RECIPES = [
+
+// ─────────────────────────────────────────────────────────
+// BASE TECHNIQUES
+// ─────────────────────────────────────────────────────────
+{id:'base-sesame', cat:'base', en:'Sunday Sesame Paste', ta:'கிஞ்சு விழுது — ஞாயிறு batch',
+ time:'15 min', serves:'Enough for 7 kootus',
+ appears:['Used in every kootu all week'],
+ nut:{c:8,p:5,f:14,kcal:160,fibre:2},
+ fat:{total:14,sat:2,mufa:5.5,pufa:5.5},
+ ing:[
+   {a:'200g',n:'White sesame seeds',note:'1 full cup — do not use black for this'},
+   {a:'80–100ml',n:'Warm water',note:'From dal cooking pot, not plain water — adds depth'},
+   {a:'½ tsp',n:'Salt',note:''},
+ ],
+ steps:[
+   {t:'Spread sesame seeds in a wide, dry iron pan on medium heat. Do not add oil.',flags:['crit']},
+   {t:'Stir continuously. After 3 minutes you will hear a popping sound — like tiny fireworks. Watch for the colour to shift from chalk-white to warm sand.',timer:180,flags:['crit'],note:'The moment the first seeds begin jumping in the pan and you smell something nutty and rich — that is the exact moment. Remove immediately. Over-roasted sesame turns bitter and ruins every kootu you make with it.'},
+   {t:'Immediately pour onto a cool plate. Spread out. Allow to cool completely — at least 10 minutes. Hot sesame + blender = steam explosion and poor paste.',timer:600},
+   {t:'Transfer cooled sesame to a small blender or wet grinder. Add warm dal water 1 tbsp at a time.',flags:['crit'],note:'Use the water from cooking your dal (toor or moong). It contains dissolved starch that binds the paste and adds a quiet, rounded savouriness you cannot get from plain water.'},
+   {t:'Grind to a thick, smooth paste — consistency of hummus, not runny. It should hold shape when spooned.',flags:['crit']},
+   {t:'Transfer to a clean glass jar. Cover surface with a thin layer of water to prevent oxidation. Refrigerate.',note:'Stays fresh 5 days refrigerated. Make Sunday, use through Friday. If it smells nutty and rich when you open it, it is good. If it smells rancid, start again.'},
+   {t:'Each kootu uses 1½–2 tbsp of this paste. From 200g sesame you get exactly 7 full-size kootu portions.'},
+ ],
+ science:'White sesame contains sesamin and sesamolin — lignans that lower LDL cholesterol by up to 10% in RCTs. Unlike coconut, all fats here are MUFA/PUFA. Replacing coconut with sesame paste removes ~8g saturated fat per kootu serving.',
+ begNotes:{
+   'Roasting test':'Hold your hand 5cm above the pan — if it feels hot quickly, the pan is ready. Put one seed in: if it jumps within 5 seconds, proceed.',
+   'Blender trick':'Add water ONE tablespoon at a time. Wait 10 seconds between additions. If you add too much water at once, you get tahini-soup, not paste.',
+ }
+},
+
+// ─────────────────────────────────────────────────────────
+// KOOTUS
+// ─────────────────────────────────────────────────────────
+{id:'kootu-moong-pumpkin', cat:'kootu', en:'Moong Dal & Yellow Pumpkin Kootu', ta:'மூங் பருப்பு மஞ்சள் பூசணி கூட்டு',
+ time:'30 min', serves:'4',
+ appears:['W1 Mon','W3 Mon','W4 Mon','W4 Fri'],
+ nut:{c:18,p:9,f:7,kcal:165,fibre:5},
+ fat:{total:7,sat:0.9,mufa:2.8,pufa:3.1},
+ ing:[
+   {a:'200g',n:'Yellow pumpkin (manjal poosani)',note:'Peel, cut into 2cm cubes — not smaller, they dissolve'},
+   {a:'120g',n:'Moong dal (split yellow)',note:'Rinsed 3 times until water runs clear'},
+   {a:'2 tbsp',n:'Sesame paste',note:'Sunday batch — room temperature',flag:'base'},
+   {a:'1 tbsp',n:'Ground flaxseed',note:'Add AFTER heat is off and pan has cooled 30 sec',flag:'flax'},
+   {a:'¼ tsp',n:'Kalonji seeds (nigella sativa)',note:'Added to DRY pan FIRST — before everything',flag:'kalonji'},
+   {a:'½ tsp',n:'Mustard seeds'},
+   {a:'1 sprig',n:'Curry leaves',note:'12–15 leaves, fresh not dried'},
+   {a:'1 tsp',n:'Coconut oil',note:'Replaced: 1 tsp avocado oil'},
+   {a:'¼ tsp',n:'Turmeric'},
+   {a:'½ tsp',n:'Cumin seeds'},
+   {a:'1',n:'Dried red chili',note:'Break in half — releases more heat'},
+   {a:'¾ tsp',n:'Salt',note:'Add in two stages'},
+ ],
+ steps:[
+   {t:'Pressure cook moong dal with 400ml water and ¼ tsp turmeric — 2 whistles on medium heat. Dal should be cooked but still hold some shape (not mushy). Drain and reserve the cooking water.',timer:480,flags:['crit'],note:'The dal cooking water is your secret weapon. It has dissolved starch and natural umami from the dal. Use it to loosen the kootu later — it unifies the dish in a way plain water never can.'},
+   {t:'In a separate pot, boil pumpkin cubes in salted water until just tender — a skewer should go through with a little resistance. About 8 minutes. Drain.',timer:480,note:'You want pumpkin that holds its shape in the finished kootu. If it is already completely soft at this stage, it will dissolve into mush when you combine everything.'},
+   {t:'Set a dry iron kadai on medium-high flame. Let it heat for 60 full seconds — it should feel very hot when you hold your palm 8cm away.',timer:60,flags:['crit']},
+   {t:F.kalonji+'Add kalonji seeds to the completely DRY, hot pan. No oil. Stir for 30 seconds until you hear a quiet crackle and catch a scent like warm oregano meeting onion.',timer:30,flags:['crit'],note:'This step is non-negotiable. Kalonji\'s active compound thymoquinone requires dry heat to volatilise. In oil, it never fully activates. In a dry hot pan, it transforms. This is the difference between a kootu that smells alive and one that tastes flat.'},
+   {t:'Now add avocado oil. Immediately add mustard seeds. Wait for them to splutter and pop — about 20 seconds.',timer:20},
+   {t:'Add cumin seeds, dried red chili (broken), and curry leaves. Stand back slightly — the curry leaves will spit. Cook 15 seconds.',timer:15},
+   {t:'Add the cooked pumpkin. Toss to coat with the spiced oil. Add ¼ tsp salt. Cook 2 minutes on medium heat, stirring occasionally.',timer:120},
+   {t:'Add the cooked moong dal. Stir gently — you want to keep some dal pieces whole for texture.',flags:['crit']},
+   {t:'Add sesame paste and stir through. Add reserved dal cooking water, 2–3 tbsp at a time, to reach a thick porridge consistency — it should coat the back of a spoon heavily but not be watery.',note:'The consistency test: drag a spoon through the kootu. The channel should hold for 3–4 seconds before slowly closing. Too thick = add more dal water. Too thin = cook on high 2 min uncovered.'},
+   {t:'Taste. Adjust salt. Cook on medium 3 minutes to marry flavours.',timer:180},
+   {t:'Turn off heat. Wait 30 seconds for the temperature to drop below boiling.',timer:30,flags:['crit']},
+   {t:F.flax+'Add ground flaxseed. Stir well. The residual heat is enough to incorporate it without destroying the omega-3 fats or cyanide-forming compounds.',note:'Ground flaxseed must NEVER hit boiling liquid. At 100°C the beneficial lignans and omega-3s degrade rapidly. 30 seconds off heat is enough to drop below 85°C — the safe zone.'},
+ ],
+ science:'Horse gram aside, moong dal has the highest ratio of lysine to arginine among all dals — a profile associated with lower cholesterol synthesis. Yellow pumpkin\'s beta-carotene converts to vitamin A (400mcg per serving here). Sesame lignans lower LDL by 6–10% in 4-week trials (Miyahara et al., 2001).',
+ begNotes:{
+   'Is my pan hot enough?':'Flick a few drops of water from your fingers. If they skitter and evaporate in 1 second, the pan is ready. If they pool and steam, wait 30 more seconds.',
+   'Kalonji looks like what?':'Small black seeds, slightly irregular, like tiny tear-drops. They smell faintly of pepper and herbs. You buy them labelled "nigella sativa" or "kalonji" at Indian grocery stores.',
+   'The kootu tastes bitter':'You over-roasted the kalonji or the sesame seeds. Both turn bitter past their optimal toast point. Start again — it is faster than ruining the whole pot.',
+ }
+},
+
+{id:'kootu-kollu-pumpkin', cat:'kootu', en:'Horse Gram & White Pumpkin Kootu', ta:'கொள்ளு வெள்ளை பூசணி கூட்டு',
+ time:'35 min (+ 4hr soak)', serves:'4',
+ appears:['W1 Wed','W3 Wed','W4 Sat'],
+ nut:{c:20,p:12,f:7,kcal:188,fibre:7},
+ fat:{total:7,sat:0.9,mufa:2.8,pufa:3.1},
+ ing:[
+   {a:'150g',n:'Horse gram (kollu)',note:'Soaked minimum 4 hours, ideally overnight. This is not optional.'},
+   {a:'250g',n:'White pumpkin (ash gourd / vellai poosani)',note:'Peeled, cut 2cm cubes — very low carb, very cooling'},
+   {a:'2 tbsp',n:'Sesame paste (Sunday batch)',flag:'base'},
+   {a:'1 tbsp',n:'Ground flaxseed',flag:'flax'},
+   {a:'¼ tsp',n:'Kalonji seeds',flag:'kalonji'},
+   {a:'½ tsp',n:'Mustard seeds'},
+   {a:'1 sprig',n:'Curry leaves'},
+   {a:'1 tsp',n:'Avocado oil'},
+   {a:'¼ tsp',n:'Turmeric'},
+   {a:'1 tsp',n:'Cumin seeds'},
+   {a:'¾ tsp',n:'Salt'},
+   {a:'2 cloves',n:'Garlic',note:'Crushed flat — not minced. Crushed releases different compounds.'},
+ ],
+ steps:[
+   {t:'Drain soaked horse gram. Pressure cook with 500ml fresh water — 4 whistles on medium heat. Open after pressure drops naturally.',timer:900,flags:['crit'],note:'NEVER discard this cooking water. It is deep reddish-brown, intensely flavoured, and contains every cholesterol-fighting compound kollu has to offer. This is your flavour base, your binder, and your medicine.'},
+   {t:'Boil white pumpkin cubes in lightly salted water until just tender — 6 minutes. It will be very soft. Drain, but keep 100ml of this water too.',timer:360},
+   {t:'Set dry kadai on medium-high heat. Heat 60 seconds.',timer:60},
+   {t:F.kalonji+'Add kalonji to dry hot pan. 30 seconds — hear the crackle, smell the change.',timer:30,flags:['crit']},
+   {t:'Add avocado oil, crushed garlic. Stir 20 seconds until garlic turns pale gold at edges — not brown.',timer:20,flags:['crit'],note:'Crushed garlic releases allicin differently from minced. The flavour is milder, more rounded, and doesn\'t dominate the delicate white pumpkin.'},
+   {t:'Add mustard seeds, cumin, curry leaves. Let mustard pop fully.',timer:25},
+   {t:'Add white pumpkin. Stir gently — it is fragile. Add ¼ tsp salt. Cook 2 minutes.',timer:120},
+   {t:'Add cooked horse gram. Pour in 100ml of the horse gram cooking water (that deep reddish liquid). Stir.',flags:['crit']},
+   {t:'Add sesame paste. Stir through. Add more horse gram water as needed for kootu consistency.',note:'This kootu is slightly thinner than pumpkin-based ones because white pumpkin releases moisture. The horse gram water should give it body. Do not over-thicken.'},
+   {t:'Taste. Adjust salt. Simmer 3 minutes.',timer:180},
+   {t:'Off heat. 30 seconds.',timer:30},
+   {t:F.flax+'Add ground flaxseed. Stir well.',flags:['flax']},
+ ],
+ science:'Horse gram reduces LDL cholesterol by up to 52 mg/dL in 3 weeks of daily consumption (Tharkar et al., 2018). It contains the highest tannin and polyphenol content of any common legume. White pumpkin (ash gourd) is >96% water, making it one of the lowest-carb vegetables in existence (2.9g per 100g). It is also rich in flavonoids with demonstrated anti-inflammatory activity.',
+ begNotes:{
+   'How do I know horse gram is cooked?':'Pick one up and press between your thumb and finger. It should squash easily with no hard centre. If there is any resistance, cook 2 more whistles.',
+   'The cooking water is really dark and strange-looking':'Yes. That is exactly what it should look like. The tannins and polyphenols that make horse gram so powerful are in that water. It is safe, healthy, and delicious.',
+ }
+},
+
+{id:'kootu-chana-peerkangai', cat:'kootu', en:'Chana Dal & Ridge Gourd Kootu', ta:'கடலைப் பருப்பு பீர்க்கங்காய் கூட்டு',
+ time:'30 min', serves:'4',
+ appears:['W1 Tue','W1 Sat','W2 Sun','W3 Tue','W3 Sat','W4 Thu'],
+ nut:{c:17,p:10,f:7,kcal:170,fibre:5},
+ fat:{total:7,sat:0.9,mufa:2.8,pufa:3.1},
+ ing:[
+   {a:'120g',n:'Chana dal (split Bengal gram)',note:'Rinsed well'},
+   {a:'300g',n:'Ridge gourd (peerkangai)',note:'Peel the ridges only — leave most skin. Cut 2cm rounds.'},
+   {a:'2 tbsp',n:'Sesame paste'},
+   {a:'1 tbsp',n:'Ground flaxseed',flag:'flax'},
+   {a:'¼ tsp',n:'Kalonji',flag:'kalonji'},
+   {a:'½ tsp',n:'Mustard seeds'},
+   {a:'1 tsp',n:'Cumin seeds'},
+   {a:'1 sprig',n:'Curry leaves'},
+   {a:'1 tsp',n:'Avocado oil'},
+   {a:'¼ tsp',n:'Turmeric'},
+   {a:'¾ tsp',n:'Salt'},
+   {a:'1 tsp',n:'Fresh ginger',note:'Grated fine — ginger and ridge gourd are natural partners'},
+ ],
+ steps:[
+   {t:'Pressure cook chana dal with 400ml water, turmeric — 3 whistles. Chana takes longer than moong. It should be fully soft. Reserve cooking water.',timer:720,note:'Chana dal cooked to the right softness becomes almost creamy when combined with sesame paste. Under-cooked chana stays grainy and gritty — the texture will ruin the kootu.'},
+   {t:'Ridge gourd cooks very fast — it goes from raw to dissolved in 4 minutes. Boil it in lightly salted water for just 3 minutes. You want it tender but not collapsing.',timer:180,flags:['crit'],note:'Ridge gourd\'s cell walls break down quickly. The moment it turns from opaque to slightly translucent, it is done. Test a piece — it should have the texture of ripe avocado.'},
+   {t:'Dry heat kadai. ',timer:60},
+   {t:F.kalonji+'Kalonji to dry pan, 30 seconds.',timer:30},
+   {t:'Add avocado oil, grated ginger. Stir 15 seconds — ginger should sizzle and turn pale.',timer:15},
+   {t:'Mustard seeds, cumin, curry leaves — full pop.',timer:20},
+   {t:'Add cooked ridge gourd pieces. Toss 1 minute.',timer:60},
+   {t:'Add cooked chana dal and sesame paste. Stir. Add dal water to reach consistency.',note:'Chana dal kootu can absorb more liquid than moong — add dal water generously. The final texture should be thick but pourable, like lava.'},
+   {t:'Adjust salt. Cook 3 minutes.',timer:180},
+   {t:'Off heat. 30 seconds.',timer:30},
+   {t:F.flax+'Add ground flaxseed. Stir.',flags:['flax']},
+ ],
+ science:'Ridge gourd (peerkangai) is rich in zinc (1.7mg/100g — 15% daily value), dietary folate, and vitamin B6. It contains cucurbitacins — compounds that research has linked to anti-tumour activity. Chana dal has one of the lowest glycaemic indices of all legumes (GI = 8).',
+ begNotes:{
+   'The gourd feels slimy when I cut it':'That is normal — ridge gourd releases mucilage. This is actually beneficial and helps the kootu achieve its characteristic texture.',
+ }
+},
+
+{id:'kootu-toor-carrot', cat:'kootu', en:'Toor Dal & Carrot Kootu', ta:'துவரம் பருப்பு கேரட் கூட்டு',
+ time:'30 min', serves:'4',
+ appears:['W1 Thu','W4 Thu'],
+ nut:{c:19,p:9,f:7,kcal:172,fibre:6},
+ fat:{total:7,sat:0.9,mufa:2.8,pufa:3.1},
+ ing:[
+   {a:'120g',n:'Toor dal (split pigeon peas)'},
+   {a:'300g',n:'Carrots',note:'Cut into small batons, 1cm × 3cm — not rounds'},
+   {a:'2 tbsp',n:'Sesame paste'},
+   {a:'1 tbsp',n:'Ground flaxseed',flag:'flax'},
+   {a:'¼ tsp',n:'Kalonji',flag:'kalonji'},
+   {a:'½ tsp',n:'Mustard seeds'},
+   {a:'1 tsp',n:'Urad dal (black gram, split)',note:'Adds crunch and nutty depth to tadka'},
+   {a:'1 sprig',n:'Curry leaves'},
+   {a:'1 tsp',n:'Avocado oil'},
+   {a:'¼ tsp',n:'Turmeric'},
+   {a:'½ tsp',n:'Black pepper, coarsely cracked'},
+   {a:'¾ tsp',n:'Salt'},
+ ],
+ steps:[
+   {t:'Pressure cook toor dal with 400ml water, turmeric — 4 whistles until very soft and almost dissolving. Reserve cooking water.',timer:840,note:'Toor dal in kootu should be softer than in sambar. You want it to almost melt into the kootu, creating creaminess.'},
+   {t:'Boil carrot batons in lightly salted water until just tender — 8 minutes. Carrots should bend slightly under pressure but not snap.',timer:480,flags:['crit'],note:'Batons rather than rounds means more surface area for the tadka to coat. And they look beautiful — like little logs stacked in the kootu.'},
+   {t:'Dry kadai, 60 seconds high heat.',timer:60},
+   {t:F.kalonji+'Kalonji to dry pan. 30 seconds.',timer:30},
+   {t:'Add avocado oil. Add urad dal first — it takes longer. Stir until it turns pale gold.',timer:30,flags:['crit'],note:'Urad dal in the tadka is a textural gift. It becomes small, crunchy, nutty pieces scattered through the kootu. Do not let it turn brown — pale gold is perfect.'},
+   {t:'Add mustard seeds, curry leaves. Full pop.',timer:20},
+   {t:'Add carrot batons. Add cracked black pepper. Toss to coat — 2 minutes.',timer:120},
+   {t:'Add toor dal and sesame paste. Stir. Add dal water for consistency.',},
+   {t:'Taste and adjust salt. Simmer 3 minutes.',timer:180},
+   {t:'Off heat. 30 seconds.',timer:30},
+   {t:F.flax+'Ground flaxseed in. Stir.',flags:['flax']},
+ ],
+ science:'Carrots provide beta-carotene (8285 mcg per 100g raw) — one of the highest concentrations of any common vegetable. Beta-carotene is fat-soluble, meaning the small amount of avocado oil in this recipe significantly increases its absorption. Toor dal is the richest source of folate among all dals.',
+ begNotes:{
+   'My toor dal is very watery':'Toor dal absorbs a lot of water. If yours is soupy after pressure cooking, cook it uncovered on medium heat for 3–4 minutes before adding to the kootu.'},
+},
+
+// ─────────────────────────────────────────────────────────
+// DRY CURRIES
+// ─────────────────────────────────────────────────────────
+{id:'curry-vendakkai', cat:'curry', en:'Vendakkai (Okra) Fry', ta:'வெண்டைக்காய் வறுவல்',
+ time:'25 min (+ dry time)', serves:'4',
+ appears:['W1 Mon','W2 Mon','W3 Tue','W4 Mon'],
+ nut:{c:7,p:2,f:5,kcal:78,fibre:3},
+ fat:{total:5,sat:0.7,mufa:3.6,pufa:0.5},
+ ing:[
+   {a:'500g',n:'Okra (vendakkai)',note:'Wash the NIGHT BEFORE and air dry on a clean towel. Morning: completely dry.'},
+   {a:'2 tbsp',n:'Avocado oil',note:'More than usual — okra absorbs oil. Do not reduce.'},
+   {a:'¼ tsp',n:'Kalonji seeds',flag:'kalonji'},
+   {a:'½ tsp',n:'Mustard seeds'},
+   {a:'1 sprig',n:'Curry leaves'},
+   {a:'¼ tsp',n:'Turmeric'},
+   {a:'½ tsp',n:'Red chili powder'},
+   {a:'¾ tsp',n:'Salt',note:'Add LAST — salt draws moisture, which creates steam'},
+   {a:'½ tsp',n:'Amchur (dry mango powder)',note:'Added at the end — brightness without moisture'},
+ ],
+ steps:[
+   {t:'THE NIGHT BEFORE: Wash okra thoroughly. Spread in a single layer on a clean kitchen towel. Leave uncovered at room temperature overnight. By morning, each piece should be completely dry to the touch.',flags:['crit'],note:'Moisture is the enemy of crisp okra. Any water on the surface turns to steam in the pan and creates the sliminess everyone fears. Bone-dry okra = no slime, just caramelization.'},
+   {t:'Cut dry okra into 1.5cm rounds. Do not wash again. Cut immediately before cooking — do not let cut okra sit.',flags:['crit']},
+   {t:'Heat your widest heavy-bottomed pan (iron or thick stainless) on high heat — 90 seconds minimum. The pan must be genuinely hot.',timer:90,flags:['crit'],note:'Most home cooks use too small a pan and too low heat. Okra needs space and high heat to fry rather than steam. If your pan is crowded, cook in two batches. Crowded okra sweats and becomes slimy.'},
+   {t:F.kalonji+'Add kalonji seeds to the dry hot pan. No oil yet. 30 seconds — the crackle, the aroma.',timer:30,flags:['crit']},
+   {t:'Add avocado oil. Add mustard seeds. Wait for full pop.',timer:20},
+   {t:'Add curry leaves.',timer:10},
+   {t:'Add all the okra AT ONCE in a single layer. Add turmeric and chili powder. DO NOT STIR for 3 full minutes.',timer:180,flags:['crit'],note:'This is where most people go wrong. Stirring too early prevents the Maillard reaction — the browning that creates flavour. Leave it completely alone for 3 minutes. You will hear it sizzling loudly. That is correct.'},
+   {t:'After 3 minutes, stir from the bottom — you should see golden-brown patches on the underside. Spread again. Wait 2 more minutes.',timer:120},
+   {t:'Stir, reduce to medium-high. Continue cooking, stirring every 2 minutes, for another 8–10 minutes total. The okra should be shrunken, edges dark, and completely non-slimy.',timer:480},
+   {t:'LAST STEP: Add salt and amchur together. Toss well. Cook 1 more minute. Serve immediately.',timer:60,flags:['crit'],note:'Salt added early would have released moisture and created steam. Added at the very end, it seasons without any damage to texture.'},
+ ],
+ science:'Okra (vendakkai) is rich in mucilaginous soluble fibre — the same class of fibre that binds bile acids and removes them from circulation, forcing the liver to convert more cholesterol to bile. Regular okra consumption reduces LDL by 8–14% in 8-week studies. The pods also contain quercetin (22.5mg/100g) and kaempferol — both powerful anti-inflammatory flavonoids.',
+ begNotes:{
+   'How do I know the pan is hot enough?':'Flick a few drops of water — they should instantly skitter across the surface and evaporate within 1–2 seconds.',
+   'My okra is still slimy':'You either had wet okra, stirred too early, or used too small a pan. All three causes the same problem: steam instead of fry. Start again with dry okra in a large pan.',
+   'Can I use a non-stick pan?':'For okra, no. Non-stick doesn\'t get hot enough for the Maillard browning that makes this dish great.',
+ }
+},
+
+{id:'curry-kathrikkai', cat:'curry', en:'Kathrikkai (Brinjal) Fry', ta:'கத்திரிக்காய் வறுவல்',
+ time:'30 min', serves:'4',
+ appears:['W1 Tue','W2 Thu','W3 Sat','W4 Thu'],
+ nut:{c:6,p:2,f:6,kcal:82,fibre:3},
+ fat:{total:6,sat:0.8,mufa:4.2,pufa:0.6},
+ ing:[
+   {a:'500g',n:'Brinjal (kathrikkai)',note:'Medium-large, firm, shiny skin — not wrinkled. Purple or striped variety.'},
+   {a:'2 tbsp',n:'Avocado oil'},
+   {a:'¼ tsp',n:'Kalonji seeds',flag:'kalonji'},
+   {a:'½ tsp',n:'Mustard seeds'},
+   {a:'1 sprig',n:'Curry leaves'},
+   {a:'1½ tsp',n:'Sambar powder',note:'Good quality — it is doing a lot of work here'},
+   {a:'1 tsp',n:'Tamarind paste (thick)',note:'Extract from a small ball soaked in 2 tbsp warm water. Should be very thick.'},
+   {a:'¼ tsp',n:'Turmeric'},
+   {a:'½ tsp',n:'Salt'},
+   {a:'½ tsp',n:'Jaggery or date paste',note:'A tiny amount — rounds the tamarind acid without sweetening'},
+ ],
+ steps:[
+   {t:'Cut brinjal into 1cm rounds. Lay on a rack or plate in a single layer. Sprinkle ¼ tsp salt over both sides. Rest 8 minutes.',timer:480,flags:['crit'],note:'Salt draws out excess moisture — the natural bitterness and water content that prevents caramelization. After 8 minutes, you will see small droplets on the surface.'},
+   {t:'Pat every round aggressively dry with kitchen paper — both sides. Press firmly. This step is as important as the cooking itself.',flags:['crit'],note:'Moisture on the surface of brinjal creates steam, not browning. The drier the surface, the faster and better the caramelization.'},
+   {t:'Mix tamarind paste + jaggery/date paste together in a small bowl. This is your glaze.',note:'The jaggery molecule is complex — it rounds tamarind acid without adding sweetness you can taste. Think of it as a volume knob that takes the sharpness down.'},
+   {t:'Heat your widest pan on medium-high — 60 seconds.',timer:60},
+   {t:F.kalonji+'Kalonji to dry pan. 30 seconds.',timer:30},
+   {t:'Add avocado oil. Mustard seeds, curry leaves. Full pop.',timer:20},
+   {t:'Lay brinjal rounds in the pan in a SINGLE LAYER. If they do not all fit, cook in two batches. Add turmeric. DO NOT TOUCH for 4 full minutes.',timer:240,flags:['crit'],note:'Four minutes undisturbed on medium-high heat creates a dark, fragrant crust on the underside — the Maillard reaction working. Touching disrupts this. Resist.'},
+   {t:'Using a flat spatula, carefully flip each round. You will see deep golden-brown — almost mahogany — on the cooked side.',flags:['crit'],note:'If you see pale yellow, the heat was too low or you didn\'t wait long enough. If you see black, reduce heat and flip faster next time. Mahogany is perfect.'},
+   {t:'Sprinkle sambar powder over the top. Then drizzle the tamarind-jaggery glaze over all the rounds. Do not stir — let it soak in.',timer:60},
+   {t:'Cook 4 more minutes without stirring. The bottom side should also be deep golden now.',timer:240},
+   {t:'Turn heat to low. Stir gently. Cook 2 more minutes to marry all flavours. Taste — adjust salt. Serve.',timer:120},
+ ],
+ science:'Brinjal (kathrikkai) contains nasunin — a rare anthocyanin in the purple skin that is one of the most potent brain antioxidants known. It specifically protects lipids in brain cell membranes from free-radical damage. Nasunin is fat-soluble — the avocado oil in this recipe significantly increases its absorption. Tamarind provides hydroxycitric acid, which inhibits ATP-citrate lyase — an enzyme involved in fat synthesis.',
+ begNotes:{
+   'Why is my brinjal absorbing all the oil?':'Brinjal is a sponge. The salt-and-rest step reduces this — it draws out some of the air from the cells. Also, do not add more oil. After cooking begins, the cells close and stop absorbing.',
+   'The sambar powder burned':'Your heat was too high after flipping. When you add sambar powder to a very hot dry surface, it burns. The brinjal rounds should be slightly moist on the uncooked side — the sambar powder should stick to that moisture.'},
+},
+
+{id:'curry-cauliflower', cat:'curry', en:'Cauliflower Curry', ta:'காலிஃப்ளவர் கறி',
+ time:'20 min', serves:'4',
+ appears:['W1 Wed','W2 Tue','W3 Wed','W4 Tue'],
+ nut:{c:9,p:3,f:5,kcal:88,fibre:3},
+ fat:{total:5,sat:0.6,mufa:3.6,pufa:0.5},
+ ing:[
+   {a:'500g',n:'Cauliflower',note:'Cut into small florets, maximum 3cm. Shake off any moisture. Pat dry if needed.'},
+   {a:'1 tbsp',n:'Avocado oil'},
+   {a:'¼ tsp',n:'Kalonji',flag:'kalonji'},
+   {a:'½ tsp',n:'Cumin seeds'},
+   {a:'1 tsp',n:'Coriander powder'},
+   {a:'½ tsp',n:'Cumin powder'},
+   {a:'¼ tsp',n:'Turmeric'},
+   {a:'½ tsp',n:'Red chili powder'},
+   {a:'½ tsp',n:'Black pepper, coarsely cracked'},
+   {a:'¾ tsp',n:'Salt'},
+   {a:'1 tbsp',n:'Lemon juice',note:'Squeezed at the very end, off heat'},
+ ],
+ steps:[
+   {t:'Toss cauliflower florets in a dry iron kadai on high heat for 2 minutes — no oil. Stir constantly. This evaporates any surface moisture and starts the browning process.',timer:120,flags:['crit'],note:'Dry-searing cauliflower before adding oil is a restaurant technique. It dries the surface and starts Maillard browning before oil is introduced, resulting in a more roasted, less steamed flavour.'},
+   {t:F.kalonji+'Push florets to one side. In the cleared space, add kalonji seeds. 30 seconds dry.',timer:30},
+   {t:'Add avocado oil to the kalonji space. Add cumin seeds. Wait for sizzle.',timer:15},
+   {t:'Toss everything together. Add all dry spices: coriander, cumin powder, turmeric, chili powder, cracked pepper. Toss to coat every floret.',note:'Add all spices at once — they toast in the residual oil and heat simultaneously. Staggering them at this stage creates uneven, muddy flavour.'},
+   {t:'Cover the pan with a lid. Medium heat. 3 minutes — the florets will steam-fry in their own moisture.',timer:180,flags:['crit']},
+   {t:'Remove lid. High heat. Add salt. Stir and cook uncovered for 5–8 minutes until edges turn deep golden and some tips are slightly charred.',timer:420,flags:['crit'],note:'This uncovered high-heat finish is everything. The char on the tips of the florets provides a bitterness that balances the sweetness of cauliflower and the warmth of the spices. Pale yellow cauliflower curry is sad. Golden-tipped curry is joyful.'},
+   {t:'Off heat. Squeeze lemon juice over. Toss once. Serve.',note:'Lemon juice at the end lifts all the flavours. It does not make the dish sour — it makes every other flavour brighter.'},
+ ],
+ science:'Cauliflower is a glucosinolate powerhouse — sulforaphane precursors that activate NRF2 pathways (the body\'s master antioxidant switch). Consuming cauliflower 4+ times weekly is associated with 40% reduced risk of certain cancers in epidemiological studies. As a base in lieu of rice, cauliflower reduces the glycaemic load of the meal by approximately 85%.',
+ begNotes:{
+   'How small should the florets be?':'Aim for pieces roughly the size of a large grape. Too large and the outside burns before the inside cooks. Too small and they turn mushy.',
+ }
+},
+
+{id:'curry-beetroot', cat:'curry', en:'Beetroot Fry', ta:'பீட்ரூட் வறுவல்',
+ time:'25 min', serves:'4',
+ appears:['W1 Sat','W3 Fri','W4 Sat'],
+ nut:{c:11,p:2,f:4,kcal:86,fibre:2},
+ fat:{total:4,sat:0.5,mufa:2.9,pufa:0.4},
+ ing:[
+   {a:'500g',n:'Beetroot',note:'Peeled. Cut into VERY small dice — 5mm cubes (brunoise). This is the chef secret.'},
+   {a:'1 tbsp',n:'Avocado oil'},
+   {a:'¼ tsp',n:'Kalonji',flag:'kalonji'},
+   {a:'½ tsp',n:'Mustard seeds'},
+   {a:'10',n:'Curry leaves'},
+   {a:'¼ tsp',n:'Turmeric'},
+   {a:'½ tsp',n:'Cumin seeds'},
+   {a:'¾ tsp',n:'Salt'},
+   {a:'½ tsp',n:'Black pepper, cracked'},
+ ],
+ steps:[
+   {t:'Cut beetroot into 5mm dice (brunoise). The small dice dramatically increases surface area, allowing faster caramelization of beet sugars — transforming the raw earthiness into something sweet and complex.',flags:['crit'],note:'Large beet pieces taste like boiled beet. Small dice, caramelized at high heat, taste like something else entirely — almost candy-like, with dark edges and concentrated sweetness.'},
+   {t:'Dry kadai, high heat, 60 seconds.',timer:60},
+   {t:F.kalonji+'Kalonji to dry pan. 30 seconds.',timer:30},
+   {t:'Add avocado oil. Cumin seeds, mustard seeds. Full pop. Curry leaves.',timer:25},
+   {t:'Add beet dice. Add turmeric. Stir to coat with spiced oil. Spread in an even layer.',},
+   {t:'Medium heat. Cook UNCOVERED for 15–18 minutes, stirring every 3 minutes.',timer:900,flags:['crit'],note:'Patience here is rewarded. The beet sugars take time to caramelise. Do not rush on high heat — the outside chars before the inside cooks. Medium heat, slow and steady, creates deeply sweet beet with slightly dark, almost jammy edges.'},
+   {t:'Add salt and cracked pepper in the last 2 minutes. Stir well.',timer:120,flags:['crit'],note:'Late salt addition prevents the beet from releasing its moisture early and steaming instead of frying.'},
+   {t:'Ready when beet pieces have shrunken by about 30%, edges are slightly dark, and the pan has a sticky, concentrated beet residue on the bottom. Deglaze with 1 tbsp water, scrape up this residue — it is flavour gold.',flags:['crit']},
+ ],
+ science:'Beetroot contains betalains (betacyanins and betaxanthins) — pigments with exceptional antioxidant activity that also inhibit LDL oxidation. Dietary nitrates in beetroot convert to nitric oxide, which dilates blood vessels and reduces blood pressure (demonstrated 10–15 mmHg reduction in meta-analyses). The caramelization in this recipe increases bioavailability of betalains compared to boiling.',
+ begNotes:{
+   'How to cut brunoise without cutting fingers':'Cut the beet into slabs first, then into sticks (julienne), then across into tiny cubes. Work slowly. A sharp knife is safer than a blunt one.',
+ }
+},
+
+{id:'curry-broad-beans', cat:'curry', en:'Avarakkai (Broad Beans) Fry', ta:'அவரைக்காய் வறுவல்',
+ time:'20 min', serves:'4',
+ appears:['W1 Thu','W2 Wed','W3 Thu','W4 Wed'],
+ nut:{c:10,p:5,f:4,kcal:93,fibre:5},
+ fat:{total:4,sat:0.5,mufa:2.9,pufa:0.4},
+ ing:[
+   {a:'500g',n:'Avarakkai (broad beans / flat beans)',note:'String-removed. Cut into 3cm pieces diagonally.'},
+   {a:'1 tbsp',n:'Avocado oil'},
+   {a:'¼ tsp',n:'Kalonji',flag:'kalonji'},
+   {a:'½ tsp',n:'Mustard seeds'},
+   {a:'1 tsp',n:'Urad dal'},
+   {a:'1 sprig',n:'Curry leaves'},
+   {a:'¼ tsp',n:'Turmeric'},
+   {a:'½ tsp',n:'Chili powder'},
+   {a:'¾ tsp',n:'Salt'},
+   {a:'¼ tsp',n:'Black pepper'},
+ ],
+ steps:[
+   {t:'String both edges of the beans — run a knife along each seam. Cut diagonally into 3cm pieces. The diagonal cut increases surface area and looks elegant.',},
+   {t:'Dry kadai, high heat.',timer:60},
+   {t:F.kalonji+'Kalonji dry, 30 sec.',timer:30},
+   {t:'Oil, urad dal first — stir until pale gold.',timer:25,flags:['crit'],note:'Urad dal in the tadka adds nutty crunch. It must go before mustard seeds because it takes longer to colour.'},
+   {t:'Mustard seeds, curry leaves. Full pop.',timer:20},
+   {t:'Add beans. Toss with spices. Stir well. Medium-high heat.',},
+   {t:'Cover. Cook 5 minutes.',timer:300},
+   {t:'Remove lid. Add salt + chili powder + pepper. High heat. Cook uncovered 5–6 minutes, stirring every 90 seconds, until beans are tender and slightly blistered.',timer:330,flags:['crit'],note:'The uncovered high-heat finish blisters and chars the beans in places — these caramelized spots are where all the flavour lives.'},
+ ],
+ science:'Broad beans are rich in L-DOPA, a dopamine precursor. They also provide 7g protein per 100g and are among the highest-fibre vegetables available. The soluble fibre in flat beans specifically binds bile acids, reducing cholesterol reabsorption.',
+ begNotes:{
+   'How do I know they are cooked?':'Pierce one with a fork. It should go through with light pressure, not pop. If it snaps, cook 3 more minutes covered.'},
+},
+
+{id:'curry-sweet-potato', cat:'curry', en:'Sweet Potato Curry', ta:'சர்க்கரைவள்ளிக்கிழங்கு கறி',
+ time:'25 min', serves:'4',
+ appears:['W1 Fri','W2 Fri','W3 Sun','W4 Sun'],
+ nut:{c:18,p:2,f:4,kcal:114,fibre:3},
+ fat:{total:4,sat:0.5,mufa:2.9,pufa:0.4},
+ ing:[
+   {a:'500g',n:'Sweet potato',note:'Peeled. Cut into 2cm cubes. Uniform size = even cooking.'},
+   {a:'1 tbsp',n:'Avocado oil'},
+   {a:'¼ tsp',n:'Kalonji',flag:'kalonji'},
+   {a:'½ tsp',n:'Cumin seeds'},
+   {a:'½ tsp',n:'Mustard seeds'},
+   {a:'1 tsp',n:'Coriander powder'},
+   {a:'½ tsp',n:'Cumin powder'},
+   {a:'¼ tsp',n:'Turmeric'},
+   {a:'½ tsp',n:'Chili powder'},
+   {a:'¾ tsp',n:'Salt'},
+   {a:'1 tsp',n:'Lime juice',note:'Off heat, at the end'},
+ ],
+ steps:[
+   {t:'Dry kadai, high heat, 60 seconds.',timer:60},
+   {t:F.kalonji+'Kalonji, dry, 30 seconds.',timer:30},
+   {t:'Oil. Cumin seeds + mustard seeds. Full pop.',timer:20},
+   {t:'Add sweet potato cubes. Toss well. Add all dry spices together. Stir to coat every piece.',},
+   {t:'Add 3 tbsp water. Cover. Medium heat. Cook 8 minutes.',timer:480,flags:['crit'],note:'The initial covered cooking with a small amount of water steam-cooks the sweet potato through without burning the spices. This is a two-stage technique: steam first to cook, then fry to caramelise.'},
+   {t:'Remove lid. High heat. Cook 6–8 minutes, stirring every 2 minutes, until all moisture is evaporated and pieces are golden at edges.',timer:420,flags:['crit'],note:'Sweet potato caramelises at lower temperatures than other vegetables because of its high natural sugar content. Watch carefully in this stage — it goes from golden to burnt in 60 seconds.'},
+   {t:'Add salt last 2 minutes. Off heat, lime juice. Toss.',timer:120},
+ ],
+ science:'Sweet potato provides 941 mcg beta-carotene per 100g — one of the richest food sources available. Unlike white potato, sweet potato has a moderate glycaemic index (54 vs 78) and significant resistant starch when cooled. As a roasted veg in your adult dinner, a ½ cup serving is only 13g net carbs with 2g fibre and 3g protein.',
+ begNotes:{
+   'The sweet potato is burning before it\'s cooked through':'Your cubes are too large or heat too high. Reduce to medium and add 2 more tbsp water, cover again for 3 more minutes.'},
+},
+
+// ─────────────────────────────────────────────────────────
+// GRAVIES
+// ─────────────────────────────────────────────────────────
+{id:'gravy-kollu-rasam', cat:'gravy', en:'Kollu (Horse Gram) Rasam', ta:'கொள்ளு ரசம்',
+ time:'30 min (+ soak)', serves:'4',
+ appears:['W1 Sat','W2 Sat','W3 Tue','W4 Sat'],
+ nut:{c:8,p:5,f:2,kcal:68,fibre:3},
+ fat:{total:2,sat:0.3,mufa:1.2,pufa:0.3},
+ ing:[
+   {a:'100g',n:'Horse gram (kollu)',note:'Soaked overnight. This is the base — no shortcuts.'},
+   {a:'2',n:'Tomatoes (medium)',note:'Roughly chopped. Add LATE — keeps freshness.'},
+   {a:'1 tsp',n:'Black peppercorns (whole)',note:'Coarsely cracked in a mortar — not fine powder'},
+   {a:'1 tsp',n:'Cumin seeds (whole)',note:'Coarsely cracked with pepper'},
+   {a:'¼ tsp',n:'Omam seeds (ajwain / carom)',flag:'omam'},
+   {a:'½ tsp',n:'Amla powder',flag:'amla'},
+   {a:'2',n:'Dried red chili'},
+   {a:'1 sprig',n:'Curry leaves'},
+   {a:'1 tsp',n:'Avocado oil'},
+   {a:'¼ tsp',n:'Turmeric'},
+   {a:'¾ tsp',n:'Salt'},
+   {a:'1 tsp',n:'Tamarind paste (thin)',note:'Optional — just a small amount for depth'},
+ ],
+ steps:[
+   {t:'Drain and pressure cook soaked horse gram with 600ml water — 3 whistles. Open when pressure drops naturally. You will see deep, reddish-brown liquid. DO NOT STRAIN.',timer:720,flags:['crit'],note:'This liquid IS the rasam base. Every drop of it. The colour, the depth, the cholesterol-fighting tannins — all in this water. Straining it and using plain water would make this just another rasam. Keeping it makes it extraordinary.'},
+   {t:'Strain out the whole horse gram kernels (save for another use or discard). Keep ONLY the red cooking water. Add turmeric + thin tamarind paste if using.',},
+   {t:'In a mortar, coarsely crack black peppercorns and cumin seeds together. You want uneven pieces — some fine dust, some larger fragments. This layered texture is what makes rasam complex.',flags:['crit'],note:'Fine-ground pepper in rasam tastes flat and hot. Coarsely cracked gives you initial heat, then releasing more heat as you chew — a more interesting, more nuanced experience.'},
+   {t:'Bring horse gram water to a simmer on medium heat. Add chopped tomatoes. Cook 5 minutes.',timer:300,note:'Tomatoes go in LATE — not from the beginning like some cooks do. Early tomatoes dissolve into the liquid and lose their fresh acidity. Late tomatoes soften but retain a bright note that contrasts the deep earthiness of the kollu base.'},
+   {t:'Add the cracked pepper-cumin mixture. Stir. Simmer 5 more minutes.',timer:300},
+   {t:'Taste. Season with salt. The rasam should be thin, fragrant, with layers of heat.',},
+   {t:'For the tempering: heat a small pan (iron ladle or small kadai) until very hot.',},
+   {t:F.omam+'Add omam seeds first to the dry hot pan — exactly 10 seconds. They will puff, darken, and release a sharp, thyme-oregano-pepper aroma.',timer:10,flags:['crit'],note:'Omam (ajwain/carom seeds) burns in 12 seconds on high heat. Watch it constantly. Over-burnt omam tastes intensely bitter and medicinal. At exactly 10 seconds — golden, aromatic — it tastes like a sophisticated herbal bloom.'},
+   {t:'Add avocado oil. Dried red chilies. Curry leaves. They will spit — stand back.',timer:15},
+   {t:'Pour the tempering over the hot rasam. Cover the pot IMMEDIATELY to trap the aromas.',flags:['crit']},
+   {t:'Wait 2 minutes covered. Then uncover.',timer:120},
+   {t:'Turn off heat completely. Wait 30 full seconds for temperature to drop.',timer:30},
+   {t:F.amla+'Add amla powder. Stir well. This is the most important moment — amla must not boil.',flags:['crit'],note:'Amla\'s vitamin C degrades above 70°C almost instantly. Its polyphenols, which reduce LDL by up to 35% in clinical trials, are also heat-sensitive. Patience here — 30 seconds off heat — protects everything you are trying to consume.'},
+   {t:'Taste final time. Serve hot in small bowls alongside the kootu.'},
+ ],
+ science:'Kollu rasam is the most LDL-reducing item in this entire meal plan. Horse gram water contains L-DOPA precursors, polyphenols, tannins, and saponins — the combination shown in controlled trials to reduce LDL by up to 52 mg/dL in 3 weeks of daily consumption (Tharkar et al., 2018). Black pepper enhances absorption of turmeric curcumin by 2000%. Omam (ajwain) contains thymol — a compound with demonstrated bile-acid sequestrant properties.',
+ begNotes:{
+   'The rasam smells too strong of horse gram':'This is correct. It is a robust, earthy, deep-flavoured rasam — not delicate like tomato rasam. The tartness from tamarind and brightness from amla balance it. Drink it like a broth.'},
+},
+
+{id:'gravy-vetha-kuzhambu', cat:'gravy', en:'Vetha Kuzhambu', ta:'வேத குழம்பு',
+ time:'35 min', serves:'4',
+ appears:['W1 Thu','W2 Thu','W3 Thu','W4 Thu'],
+ nut:{c:10,p:2,f:3,kcal:73,fibre:2},
+ fat:{total:3,sat:0.4,mufa:2.2,pufa:0.3},
+ ing:[
+   {a:'2 tbsp',n:'Tamarind paste (thick)',note:'From a good-sized ball soaked in ½ cup warm water — squeeze every drop'},
+   {a:'400ml',n:'Water'},
+   {a:'15',n:'Small onions (shallots)',note:'Peeled but kept whole — they slowly caramelise in the kuzhambu'},
+   {a:'2 tsp',n:'Sambar powder',note:'Good quality — this dish has no dal buffer, so the sambar powder carries everything'},
+   {a:'1 tbsp',n:'Sundried brinjal pieces (yathal)',note:'Or sundried mango (vathal), or sun-dried tomato — these are the "vetha" (dried things)'},
+   {a:'¼ tsp',n:'Omam seeds',flag:'omam'},
+   {a:'½ tsp',n:'Amla powder',flag:'amla'},
+   {a:'½ tsp',n:'Mustard seeds'},
+   {a:'10',n:'Curry leaves'},
+   {a:'1 tbsp',n:'Avocado oil'},
+   {a:'¼ tsp',n:'Turmeric'},
+   {a:'¼ tsp',n:'Jaggery (optional)',note:'A tiny pinch at the end — rounds the tamarind acid'},
+   {a:'1 tsp',n:'Salt'},
+ ],
+ steps:[
+   {t:'Heat avocado oil in a heavy-bottomed kadai on medium heat.',},
+   {t:'Add sundried brinjal/vathal pieces first — they need 2 minutes to puff and darken in the oil. Stir continuously until they expand and turn a shade darker.',timer:120,flags:['crit'],note:'The vathal (dried pieces) frying in oil is the defining flavour note of vetha kuzhambu. They release a deeply concentrated, almost smoky flavour into the oil. If you skip this step or rush it, the dish loses its identity.'},
+   {t:F.omam+'Add omam to the same hot oil. 8 seconds only.',timer:8,flags:['crit']},
+   {t:'Add mustard seeds and curry leaves. Full pop.',timer:20},
+   {t:'Add whole shallots. Cook 4 minutes stirring occasionally until they turn golden at edges and soften.',timer:240,note:'Whole shallots slowly caramelise in the tamarind gravy — they become almost jammy and sweet. This is a textural gift in each spoonful.'},
+   {t:'Add sambar powder + turmeric. Stir with the oil and shallots — toast the powder in the oil for 30 seconds.',timer:30,flags:['crit'],note:'Toasting sambar powder in oil before adding liquid transforms the raw spice smell into a rounded, deep flavour. This is why restaurant kuzhambu smells different from home cooking — this one step.'},
+   {t:'Pour in the thick tamarind water. Mix well. Bring to a boil. Reduce heat to medium-low.',},
+   {t:'Simmer uncovered for 15–20 minutes, stirring every 3 minutes. This is the reduction — the kuzhambu should reduce to about 60% of its volume.',timer:1080,flags:['crit'],note:'The consistency test: lift the spoon and let the kuzhambu drip. It should flow in a steady, somewhat thick stream — not water-thin, not syrup-thick. Think: the consistency of thin caramel sauce. A drop placed on a tilted plate should flow slowly.'},
+   {t:'Add tiny pinch of jaggery if using. Stir.',},
+   {t:'Taste and adjust salt. Add a little more tamarind paste if acidity is not assertive enough.',},
+   {t:'Turn off heat. Wait 30 seconds.',timer:30},
+   {t:F.amla+'Add amla powder. Stir gently.',flags:['amla'],note:'Off heat. Always. The compounds in amla that reduce LDL by 35% in clinical trials are completely destroyed at boiling temperature.'},
+ ],
+ science:'Vetha kuzhambu contains no dal but is rich in polyphenols from tamarind (hydroxycitric acid — inhibits de novo lipogenesis), shallots (quercetin — anti-inflammatory, LDL-reducing), and the sundried vathal. The concentrated tamarind reduction is one of the most digestive, liver-supportive preparations in traditional Tamil medicine. Omam (ajwain) contains thymol which increases digestive enzyme secretion by up to 70%.',
+ begNotes:{
+   'My kuzhambu is too sour':'Add more water and cook 5 more minutes. The jaggery also helps — add just a pinch more.',
+   'The vathal/sundried pieces — where do I buy them?':'Indian grocery stores carry sun-dried brinjal pieces, drumstick, and other vathals in small packets. They keep for months in an airtight container.'},
+},
+
+{id:'gravy-murungakkai-sambar', cat:'gravy', en:'Murungakkai Sambar', ta:'முருங்கைக்காய் சாம்பார்',
+ time:'35 min', serves:'4',
+ appears:['W1 Mon','W1 Sun','W3 Mon','W3 Sun','W4 Mon','W4 Fri'],
+ nut:{c:12,p:6,f:2,kcal:88,fibre:4},
+ fat:{total:2,sat:0.3,mufa:1.2,pufa:0.3},
+ ing:[
+   {a:'100g',n:'Toor dal',note:'Rinsed'},
+   {a:'3',n:'Drumstick (murungakkai)',note:'Cut into 5cm pieces. This is the star — do not reduce.'},
+   {a:'1',n:'Tomato (medium)',note:'Quartered'},
+   {a:'2 tbsp',n:'Tamarind paste (medium-thick)'},
+   {a:'600ml',n:'Water'},
+   {a:'2 tsp',n:'Sambar powder'},
+   {a:'¼ tsp',n:'Omam seeds',flag:'omam'},
+   {a:'½ tsp',n:'Amla powder',flag:'amla'},
+   {a:'½ tsp',n:'Mustard seeds'},
+   {a:'1 tsp',n:'Cumin seeds'},
+   {a:'10',n:'Curry leaves'},
+   {a:'2',n:'Dried red chili'},
+   {a:'1 tsp',n:'Avocado oil'},
+   {a:'¼ tsp',n:'Turmeric'},
+   {a:'1 tsp',n:'Salt'},
+ ],
+ steps:[
+   {t:'Pressure cook toor dal with 250ml water, turmeric — 4 whistles. Until very soft, almost falling apart. Whisk to smooth. Set aside.',timer:900},
+   {t:'In a large pot, bring tamarind paste + 400ml water + tomato to boil. Add drumstick pieces. Add sambar powder + turmeric.',},
+   {t:'Cook drumstick in the tamarind water for 12–15 minutes on a rolling boil.',timer:780,flags:['crit'],note:'Drumstick needs more cooking time than you think. The flesh inside should be completely tender — press the side of the piece and the flesh should yield and come away from the fibrous outer core easily. Under-cooked drumstick is fibrous and unpleasant to eat.'},
+   {t:'Test drumstick: press a piece between thumb and finger. The inner flesh should slide out of the fibrous skin cleanly, like butter from a mold.',flags:['crit']},
+   {t:'Add the whisked toor dal to the boiling tamarind-drumstick water. Stir well.',},
+   {t:'Bring back to boil. Taste. Adjust salt and tamarind. Cook 5 more minutes for flavours to merge.',timer:300},
+   {t:'For tempering: heat small pan until very hot.',},
+   {t:F.omam+'Dry pan first. Omam seeds — 10 seconds max.',timer:10,flags:['crit']},
+   {t:'Add avocado oil. Mustard + cumin seeds + dried red chili + curry leaves. Full pop.',timer:20},
+   {t:'Pour tempering into sambar. Cover immediately. 2 minutes.',timer:120},
+   {t:'Turn off heat. 30 seconds.',timer:30},
+   {t:F.amla+'Add amla powder off heat. Stir.',flags:['amla']},
+ ],
+ science:'Drumstick (moringa / murungakkai) contains 7 times more vitamin C than oranges, 4 times more calcium than milk, and 3 times more potassium than bananas — per 100g. It is the most nutritionally dense vegetable in this entire plan. Drumstick leaves contain isothiocyanates that directly inhibit LDL oxidation. Toor dal provides complete protein when combined with the rice consumed by children.',
+ begNotes:{
+   'How to eat drumstick':'You do not eat the outer fibrous skin. Hold the piece vertically over your bowl, bite the end, and drag your teeth along the length — the soft flesh and seeds inside come out. Leave the fibrous husk.'},
+},
+
+{id:'gravy-pepper-sambar', cat:'gravy', en:'Milagu (Pepper) Sambar', ta:'மிளகு சாம்பார்',
+ time:'30 min', serves:'4',
+ appears:['W1 Wed','W2 Wed','W3 Wed','W4 Wed'],
+ nut:{c:11,p:6,f:2,kcal:82,fibre:3},
+ fat:{total:2,sat:0.3,mufa:1.1,pufa:0.3},
+ ing:[
+   {a:'100g',n:'Toor dal'},
+   {a:'1 tbsp',n:'Black peppercorns, whole',note:'Dry roast separately — critical step'},
+   {a:'1 tsp',n:'Cumin seeds, whole',note:'Dry roast with the pepper'},
+   {a:'2 tbsp',n:'Tamarind paste (medium)'},
+   {a:'500ml',n:'Water'},
+   {a:'1 tsp',n:'Sambar powder'},
+   {a:'¼ tsp',n:'Omam',flag:'omam'},
+   {a:'½ tsp',n:'Amla powder',flag:'amla'},
+   {a:'½ tsp',n:'Mustard seeds'},
+   {a:'10',n:'Curry leaves'},
+   {a:'1 tsp',n:'Avocado oil'},
+   {a:'¼ tsp',n:'Turmeric'},
+   {a:'1 tsp',n:'Salt'},
+ ],
+ steps:[
+   {t:'In a small DRY pan, roast peppercorns and cumin seeds TOGETHER over medium heat for 3 minutes, stirring constantly. They are ready when you smell a deep, toasty aroma and the cumin seeds turn one shade darker.',timer:180,flags:['crit'],note:'Separately pre-roasting the pepper and cumin before grinding them creates an entirely different flavour profile than adding raw ground spices. The heat caramelises their surface oils and transforms them from sharp to rounded, complex, and deeply fragrant.'},
+   {t:'Allow to cool 2 minutes. Coarsely crack in a mortar. Some pieces fine, some larger — the texture variation is intentional.',timer:120},
+   {t:'Pressure cook toor dal with 250ml water, turmeric — 4 whistles. Whisk to smooth.',timer:900},
+   {t:'Boil tamarind + 350ml water. Add the cracked pepper-cumin and sambar powder. Boil 8 minutes.',timer:480},
+   {t:'Add whisked dal. Stir. Bring to simmer.',},
+   {t:'Taste — this sambar should have a real pepper heat, earthy cumin base, and bright tamarind. Adjust salt.',},
+   {t:'Cook 5 more minutes together.',timer:300},
+   {t:'Tempering: dry pan, very hot.',},
+   {t:F.omam+'Omam dry, 10 seconds.',timer:10},
+   {t:'Oil, mustard, curry leaves. Pour over sambar. Cover 2 min.',timer:120},
+   {t:'Off heat 30 sec.',timer:30},
+   {t:F.amla+'Amla off heat.',flags:['amla']},
+ ],
+ science:'This sambar is built around black pepper — piperine, the compound responsible for pepper\'s heat, increases bioavailability of curcumin (turmeric) by 2000%. But piperine also independently activates thermogenesis and inhibits adipogenesis (fat cell formation). Cumin contains cuminaldehyde and thymoquinone — both demonstrated cholesterol-lowering agents in RCTs. Together, roasted and cracked, they are more bioavailable than ground and unroasted.',
+ begNotes:{
+   'How hot should this be?':'Quite hot — more than regular sambar. The pepper is the star. If your family finds it too hot, reduce peppercorns to 1½ tsp. But the heat is doing important work.'},
+},
+
+// ─────────────────────────────────────────────────────────
+// KIDS ADD-ONS
+// ─────────────────────────────────────────────────────────
+{id:'kids-oat-dosai', cat:'kids', en:'Oat-Wheat Dosai (Overnight Batter)', ta:'ஓட்ஸ் கோதுமை தோசை',
+ time:'Batter 12–16hr · Cook 20 min', serves:'4 (10–12 dosai)',
+ appears:['Kids dinner — Tue, Thu, Sat'],
+ nut:{c:22,p:5,f:1,kcal:116,fibre:2},
+ fat:{total:1,sat:0.2,mufa:0.4,pufa:0.2},
+ ing:[
+   {a:'200g',n:'Whole wheat flour (atta)',note:'Not maida. The fibre is important.'},
+   {a:'100g',n:'Rolled oats',note:'Blended to fine powder before measuring'},
+   {a:'½ tsp',n:'Salt'},
+   {a:'Water',n:'Enough to make batter consistency of thin cream'},
+   {a:'For tawa',n:'Iron or cast iron tawa, well-seasoned'},
+ ],
+ steps:[
+   {t:'THE NIGHT BEFORE (8–9pm): Blend rolled oats to fine powder in a dry blender.',timer:60},
+   {t:'Mix oat powder + wheat flour + salt in a wide bowl. Add water gradually, whisking, until you have a smooth batter — consistency of thin pouring cream.',note:'The batter should pour off a ladle in a thin, continuous stream. Too thick = thick, cakey dosai. Too thin = dosai tears when you try to flip it.'},
+   {t:'Cover the bowl with a clean cloth (not airtight). Leave at room temperature — on the counter, not in the fridge. 12–16 hours.',timer:43200,flags:['crit'],note:'Room temperature fermentation is the difference between dosai and chapati batter. The wild yeasts and bacteria in the flour and air create mild lactic acid — the slight sourness, the small bubbles, and the dosai\'s ability to crisp on the edges. Refrigerating kills this process.'},
+   {t:'NEXT MORNING: Check batter — it should be slightly bubbly, smell mildly sour (like yogurt), and have expanded slightly. Stir from the bottom.',flags:['crit'],note:'If it smells sharp and alcoholic, it has over-fermented. Thin it with water and cook immediately. Slightly sour is perfect. Flat with no bubbles means the room was too cold — leave 2 more hours.'},
+   {t:'COOKING: Heat iron tawa on medium-high for 2 full minutes. The water test: flick 3 drops — they should skitter and vanish in under 2 seconds.',timer:120,flags:['crit']},
+   {t:'Reduce heat to medium. Pour one ladle of batter onto the center of the tawa. Using the back of the ladle, spiral outward from center to spread into a thin circle.',flags:['crit'],note:'The spiral pour from center outward is the technique. Do NOT pour all the batter then spread with pressure — this compresses the batter and prevents crisping. Light pressure, continuous outward spiral motion.'},
+   {t:'Watch the edges — when they turn from white to slightly golden and begin to lift naturally from the tawa, the dosai is 90% done. Do not flip until this happens.',timer:90,flags:['crit']},
+   {t:'Flip gently. Cook 30 seconds on the second side.',timer:30},
+   {t:'Remove. Serve immediately. Iron tawa cools slightly between dosai — re-heat each time before pouring.',},
+ ],
+ science:'Oat flour adds beta-glucan — the soluble fibre that has the strongest clinical evidence for LDL reduction (reduces LDL by 5–10% with 3g/day). Combined with whole wheat\'s phytosterols and B vitamins, this is significantly more nutritious than traditional rice-urad dal dosai batter while maintaining the fermentation that produces beneficial short-chain fatty acids.',
+ begNotes:{
+   'My dosai is tearing when I flip it':'Either the tawa is not hot enough or the dosai is not ready to flip. If the edges are still white and soft, wait. The dosai tells you when it is ready — it lifts at the edges on its own.',
+   'The batter is lumpy':'Blend your oats more finely. Or soak them in water for 10 minutes before blending — they become smoother.'},
+},
+
+{id:'kids-wheat-roti', cat:'kids', en:'Whole Wheat Roti', ta:'கோதுமை சப்பாத்தி',
+ time:'20 min', serves:'4 (8 roti)',
+ appears:['Kids dinner — Mon, Wed, Thu, Sun most days'],
+ nut:{c:20,p:4,f:1,kcal:103,fibre:2},
+ fat:{total:1,sat:0.2,mufa:0.3,pufa:0.3},
+ ing:[
+   {a:'240g',n:'Whole wheat flour (atta)',note:'Good quality — fresh. Stale flour makes crumbly roti.'},
+   {a:'1 tsp',n:'Wheat germ',note:'Add to the flour — vitamin E, folate, zinc'},
+   {a:'½ tsp',n:'Salt'},
+   {a:'130–150ml',n:'Warm water',note:'Not hot, not cold — warm as a bath'},
+ ],
+ steps:[
+   {t:'Mix flour + wheat germ + salt in a wide bowl. Create a well in the center.',},
+   {t:'Add warm water gradually, mixing with your fingers from the center outward. You want a soft, pliable dough — not sticky, not stiff.',flags:['crit'],note:'The exact water amount varies with flour. Start with 130ml. If the dough cracks when you fold it, add more water 1 tbsp at a time.'},
+   {t:'Knead for 5 full minutes — push forward with the heel of your palm, fold back, rotate. The dough should become smooth and elastic.',timer:300,flags:['crit'],note:'Proper kneading develops gluten — the structure that allows roti to puff. Under-kneaded dough tears when rolled and never puffs. 5 minutes of real effort here pays off.'},
+   {t:'Cover with a damp cloth. Rest 15 minutes. This is not optional.',timer:900,note:'Resting allows the gluten strands to relax. Well-rested dough rolls out much more easily and evenly.'},
+   {t:'Divide into 8 equal balls — golf ball size. Keep covered while working.',},
+   {t:'Roll one ball into a thin circle, 20cm diameter. Dust with flour as needed.',flags:['crit'],note:'Roll from center outward in all directions — rotate the roti ¼ turn between each roll. This keeps it circular and even thickness. Uneven thickness = parts burn before others cook.'},
+   {t:'Heat iron tawa on high until very hot. Place roti. Cook 30–40 seconds until you see bubbles forming on the top surface.',timer:35,flags:['crit']},
+   {t:'Flip. Cook 20 seconds. Flip again. If using a gas flame, hold directly over flame with tongs — it should puff immediately.',timer:20,flags:['crit'],note:'The puff is the sign of perfect roti. The steam inside creates pressure and inflates it. A fully puffed roti means evenly cooked and light. If it doesn\'t puff, the heat was not high enough.'},
+   {t:'Remove. If desired, apply a light swipe of water (not oil) on top for softness.',},
+ ],
+ science:'Whole wheat roti retains the bran and germ that white flour processing removes — including the majority of its fibre, B vitamins, iron, zinc, and vitamin E. Adding wheat germ specifically increases folate content, important for DNA synthesis and repair. The combination of fibre and protein (4g/roti) provides slower gastric emptying compared to refined flour — reducing the post-meal glucose spike.',
+ begNotes:{
+   'How do I know the tawa is ready?':'Hold your palm about 10cm above it. If you need to pull away within 2 seconds, it\'s ready.',
+   'My roti is hard':'Either the dough was too stiff (add water), you rolled it too thick, or the tawa was not hot enough. All three cause hard roti.'},
+},
+];// end RECIPES
+
+// ═══════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════
+let currentRecipeId = null;
+let beginnerMode = false;
+let filterCat = 'all';
+let cmCurrentStep = 0;
+let cmSteps = [];
+let timerInterval = null;
+let timerSeconds = 0;
+let timerTotal = 0;
+let timerRunning = false;
+let wakeLock = null;
+
+// ═══════════════════════════════════════════════════════════
+// FILTER DATA
+// ═══════════════════════════════════════════════════════════
+const FILTERS = [
+  {id:'all', label:'All', cls:'all'},
+  {id:'base', label:'🔧 Base Techniques', cls:'base'},
+  {id:'kootu', label:'🫘 Kootu', cls:'kootu'},
+  {id:'curry', label:'🥘 Dry Curries', cls:'curry'},
+  {id:'gravy', label:'🍲 Gravy', cls:'gravy'},
+  {id:'kids', label:'🎒 Kids', cls:'kids'},
+];
+
+// ═══════════════════════════════════════════════════════════
+// BUILD INDEX
+// ═══════════════════════════════════════════════════════════
+function buildFilterRow(){
+  const c = document.getElementById('filterRow');
+  c.innerHTML = FILTERS.map(f=>
+    `<button class="filter-pill active ${f.cls}" id="fp-${f.id}" onclick="setFilter('${f.id}')">${f.label}</button>`
+  ).join('');
+  setFilter('all');
+}
+
+function setFilter(cat){
+  filterCat = cat;
+  document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));
+  document.getElementById('fp-'+cat).classList.add('active');
+  filterRecipes();
+}
+
+function filterRecipes(){
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const catMap = {'all':null,'base':'base','kootu':'kootu','curry':'curry','gravy':'gravy','kids':'kids'};
+  const catFilter = catMap[filterCat];
+  const results = RECIPES.filter(r=>{
+    const matchCat = !catFilter || r.cat === catFilter;
+    const matchQ = !q || r.en.toLowerCase().includes(q) || r.ta.includes(q) || r.cat.includes(q);
+    return matchCat && matchQ;
+  });
+  renderGrid(results);
+}
+
+function renderGrid(recipes){
+  const grid = document.getElementById('recipeGrid');
+  const empty = document.getElementById('emptyState');
+  if(recipes.length === 0){
+    grid.innerHTML=''; empty.style.display='block'; return;
+  }
+  empty.style.display='none';
+  const CAT_LABELS = {base:'Base Technique',kootu:'Kootu',curry:'Dry Curry',gravy:'Gravy',kids:'Kids'};
+  grid.innerHTML = recipes.map(r=>`
+    <div class="recipe-thumb" onclick="openRecipe('${r.id}')">
+      <div class="rt-header">
+        <div class="rt-cat ${r.cat}">${CAT_LABELS[r.cat]||r.cat}</div>
+        <div class="rt-en">${r.en}</div>
+        <div class="rt-ta">${r.ta}</div>
+      </div>
+      <div class="rt-footer">
+        <span class="rt-time">⏱ ${r.time}</span>
+        <div class="rt-macros">
+          <span class="macro-chip c">${r.nut.c}g C</span>
+          <span class="macro-chip p">${r.nut.p}g P</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ═══════════════════════════════════════════════════════════
+// OPEN RECIPE DETAIL
+// ═══════════════════════════════════════════════════════════
+function openRecipe(id){
+  const r = RECIPES.find(x=>x.id===id);
+  if(!r) return;
+  currentRecipeId = id;
+  beginnerMode = false;
+
+  const CAT_LABELS={base:'Base Technique',kootu:'Kootu',curry:'Dry Curry',gravy:'Gravy',kids:'Kids'};
+  const det = document.getElementById('pageDetail');
+
+  det.innerHTML = `
+    <div class="detail-hero">
+      <div class="dh-cat">
+        <span class="rt-cat ${r.cat}">${CAT_LABELS[r.cat]}</span>
+      </div>
+      <div class="dh-ta">${r.ta}</div>
+      <div class="dh-en">${r.en}</div>
+      <div class="dh-meta">
+        <div class="dh-meta-item">⏱ <strong>${r.time}</strong></div>
+        <div class="dh-meta-item">👨‍👩‍👧‍👦 Serves <strong>${r.serves}</strong></div>
+      </div>
+    </div>
+
+    <div class="appears-in">
+      <div class="ai-lbl">Appears in meal plan</div>
+      ${r.appears.map(a=>`<span class="ai-chip">${a}</span>`).join('')}
+    </div>
+
+    <div class="nut-panel">
+      <div class="np-title">Nutrition per serving</div>
+      <div class="np-main">
+        <div class="npm-item"><div class="npm-val">${r.nut.c}</div><div class="npm-unit">g</div><div class="npm-lbl">Net carbs</div></div>
+        <div class="npm-item"><div class="npm-val">${r.nut.p}</div><div class="npm-unit">g</div><div class="npm-lbl">Protein</div></div>
+        <div class="npm-item"><div class="npm-val">${r.nut.kcal}</div><div class="npm-unit">kcal</div><div class="npm-lbl">Calories</div></div>
+        <div class="npm-item"><div class="npm-val">${r.nut.fibre}</div><div class="npm-unit">g</div><div class="npm-lbl">Fibre</div></div>
+      </div>
+      <div class="np-fat">
+        <div class="np-fat-lbl">Fat breakdown (${r.fat.total}g total)</div>
+        <div class="np-fat-row"><span>Saturated fat</span><span>${r.fat.sat}g</span></div>
+        <div class="np-fat-row"><span>Monounsaturated (MUFA)</span><span>${r.fat.mufa}g</span></div>
+        <div class="np-fat-row"><span>Polyunsaturated (PUFA)</span><span>${r.fat.pufa}g</span></div>
+      </div>
+    </div>
+
+    <div class="det-section">
+      <div class="det-section-title gold">🧪 Ingredients</div>
+      <table class="ing-table">
+        ${r.ing.map(i=>`
+          <tr class="ing-row">
+            <td class="ing-amount">${i.a}</td>
+            <td><div class="ing-name">${i.n}</div>${i.note?`<div class="ing-note">${i.note}</div>`:''}</td>
+          </tr>
+        `).join('')}
+      </table>
+    </div>
+
+    <div class="det-section">
+      <div class="det-section-title green">👨‍🍳 Method</div>
+      ${r.steps.map((s,i)=>`
+        <div class="step-item">
+          <div class="step-num ${s.flags&&(s.flags.includes('crit'))? 'critical':''}">${i+1}</div>
+          <div class="step-body">
+            <div class="step-text">${s.t}</div>
+            ${s.timer?`<button class="step-timer-btn" onclick="quickTimer(${s.timer},event)">⏱ Set ${fmtTime(s.timer)} timer</button>`:''}
+            ${s.note?`<div class="chef-note"><div class="chef-note-lbl">Chef's note</div><div class="chef-note-txt">${s.note}</div></div>`:''}
+            ${i in (r.begNotes||{}) ? '' : ''}
+          </div>
+        </div>
+      `).join('')}
+      ${Object.keys(r.begNotes||{}).length ? `
+        <div class="beginner-note ${beginnerMode?'show':''}" id="beginnerSection">
+          <div class="bn-lbl">👩‍🍳 Beginner Notes</div>
+          ${Object.entries(r.begNotes).map(([k,v])=>`<div style="margin-bottom:8px"><strong style="font-size:12px;color:var(--pu)">${k}:</strong><div class="bn-txt" style="margin-top:2px">${v}</div></div>`).join('')}
+        </div>
+      ` : ''}
+    </div>
+
+    <div class="det-section" style="border-bottom:none;padding-bottom:100px">
+      <div class="det-section-title" style="color:var(--greenl)">🔬 Why We Eat This</div>
+      <div class="science-card">
+        <div class="sc-lbl">Dr. Greger · Evidence</div>
+        <div class="sc-txt">${r.science}</div>
+      </div>
+    </div>
+
+    <div class="action-bar">
+      <button class="beginner-toggle" id="beginnerBtn" onclick="toggleBeginner()">
+        👩‍🍳 Beginner
+      </button>
+      <button class="cook-btn" onclick="startCookMode()">
+        ▶ Start Cooking
+      </button>
+    </div>
+  `;
+
+  document.getElementById('pageIndex').style.display='none';
+  det.style.display='block';
+  document.getElementById('backBtn').style.display='flex';
+  document.getElementById('topTitle').innerHTML = `<em>${r.en}</em>`;
+  window.scrollTo({top:0});
+}
+
+function goBack(){
+  document.getElementById('pageDetail').style.display='none';
+  document.getElementById('pageIndex').style.display='block';
+  document.getElementById('backBtn').style.display='none';
+  document.getElementById('topTitle').innerHTML = 'Recipe <em>Cards</em>';
+  currentRecipeId = null;
+}
+
+function toggleBeginner(){
+  beginnerMode = !beginnerMode;
+  const sec = document.getElementById('beginnerSection');
+  const btn = document.getElementById('beginnerBtn');
+  if(sec) sec.classList.toggle('show', beginnerMode);
+  if(btn) btn.classList.toggle('on', beginnerMode);
+}
+
+// ═══════════════════════════════════════════════════════════
+// COOKING MODE
+// ═══════════════════════════════════════════════════════════
+function startCookMode(){
+  const r = RECIPES.find(x=>x.id===currentRecipeId);
+  if(!r) return;
+  cmSteps = r.steps;
+  cmCurrentStep = 0;
+  document.getElementById('cmName').textContent = r.en;
+  document.getElementById('cookMode').classList.add('active');
+  renderCmStep();
+  requestWakeLock();
+}
+
+function renderCmStep(){
+  const s = cmSteps[cmCurrentStep];
+  const total = cmSteps.length;
+
+  // Progress dots
+  let dots = '';
+  for(let i=0;i<total;i++){
+    let cls = i<cmCurrentStep?'done':i===cmCurrentStep?'current':'';
+    dots += `<div class="cm-prog-dot ${cls}"></div>`;
+  }
+  document.getElementById('cmProgress').innerHTML = dots;
+  document.getElementById('cmStepNum').textContent = `Step ${cmCurrentStep+1} of ${total}`;
+
+  // Clean step text (remove flag HTML for cooking mode — show as labels)
+  let txt = s.t;
+  const flagLabels = [];
+  if(s.flags && s.flags.includes('crit')) flagLabels.push({cls:'critical',lbl:'⭐ Key Step'});
+  const flagMatches = txt.match(/<span[^>]*>.*?<\/span>/g)||[];
+  txt = txt.replace(/<span[^>]*>.*?<\/span>/g,'');
+  // Also add flags from step flags array
+  if(s.t.includes('kalonji') || s.t.toLowerCase().includes('kalonji')) flagLabels.push({cls:'kalonji',lbl:'🖤 Kalonji Moment'});
+  if(s.t.includes('omam') || s.t.toLowerCase().includes('omam')) flagLabels.push({cls:'omam',lbl:'⚪ Omam'});
+  if(s.t.includes('amla') || s.t.toLowerCase().includes('amla')) flagLabels.push({cls:'amla',lbl:'🟢 Amla — off heat only'});
+  if(s.t.includes('flaxseed') || s.t.includes('Flaxseed')) flagLabels.push({cls:'flax',lbl:'🌾 Flaxseed — off heat only'});
+
+  document.getElementById('cmFlags').innerHTML = [...new Set(flagLabels.map(f=>f.lbl))].map(l=>`<span class="cm-step-flags" style="display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:700;background:rgba(212,168,67,.15);color:var(--gold);border:1px solid rgba(212,168,67,.25)">${l}</span>`).join('');
+  document.getElementById('cmStepText').textContent = txt.replace(/<[^>]*>/g,'').trim();
+
+  // Chef note
+  const noteEl = document.getElementById('cmNote');
+  const noteTxt = document.getElementById('cmNoteText');
+  if(s.note){
+    noteTxt.textContent = s.note;
+    noteEl.style.display='block';
+  } else {
+    noteEl.style.display='none';
+  }
+
+  // Timer
+  const timerEl = document.getElementById('cmTimer');
+  clearInterval(timerInterval);
+  timerRunning = false;
+  document.getElementById('timerStartBtn').textContent='Start';
+  if(s.timer){
+    timerSeconds = s.timer;
+    timerTotal = s.timer;
+    timerEl.classList.add('show');
+    updateTimerDisplay();
+  } else {
+    timerEl.classList.remove('show');
+  }
+
+  // Nav
+  document.getElementById('cmPrev').disabled = cmCurrentStep === 0;
+  const nextBtn = document.getElementById('cmNext');
+  if(cmCurrentStep === total-1){
+    nextBtn.textContent = '✓ Done!';
+    nextBtn.classList.add('finish');
+  } else {
+    nextBtn.innerHTML = 'Next →';
+    nextBtn.classList.remove('finish');
+  }
+}
+
+function cmStep(dir){
+  if(dir > 0 && cmCurrentStep === cmSteps.length-1){
+    closeCookMode(); return;
+  }
+  cmCurrentStep = Math.max(0, Math.min(cmSteps.length-1, cmCurrentStep+dir));
+  clearInterval(timerInterval);
+  timerRunning = false;
+  renderCmStep();
+}
+
+function closeCookMode(){
+  clearInterval(timerInterval);
+  document.getElementById('cookMode').classList.remove('active');
+  releaseWakeLock();
+}
+
+// ── TIMER ──
+function fmtTime(s){
+  const m = Math.floor(s/60);
+  const sec = s%60;
+  return m>0 ? `${m}:${sec.toString().padStart(2,'0')}` : `${sec}s`;
+}
+
+function updateTimerDisplay(){
+  document.getElementById('timerDisplay').textContent = fmtTime(timerSeconds);
+  const circ = 2*Math.PI*38;
+  const pct = timerTotal>0 ? timerSeconds/timerTotal : 1;
+  const arc = document.getElementById('timerArc');
+  arc.style.strokeDasharray = circ;
+  arc.style.strokeDashoffset = circ*(1-pct);
+  arc.style.stroke = pct > 0.5 ? 'var(--gold)' : pct > 0.25 ? 'var(--terra)' : 'var(--red)';
+}
+
+function toggleTimer(){
+  if(timerRunning){
+    clearInterval(timerInterval);
+    timerRunning = false;
+    document.getElementById('timerStartBtn').textContent='Resume';
+  } else {
+    timerRunning = true;
+    document.getElementById('timerStartBtn').textContent='Pause';
+    timerInterval = setInterval(()=>{
+      timerSeconds--;
+      updateTimerDisplay();
+      if(timerSeconds <= 0){
+        clearInterval(timerInterval);
+        timerRunning = false;
+        document.getElementById('timerStartBtn').textContent='Done';
+        // Vibrate if supported
+        try{ navigator.vibrate && navigator.vibrate([400,100,400]); } catch(e){}
+      }
+    },1000);
+  }
+}
+
+function resetTimer(){
+  clearInterval(timerInterval);
+  timerRunning = false;
+  timerSeconds = timerTotal;
+  document.getElementById('timerStartBtn').textContent='Start';
+  updateTimerDisplay();
+}
+
+function quickTimer(secs, evt){
+  evt.stopPropagation();
+  timerSeconds = secs;
+  timerTotal = secs;
+  timerRunning = true;
+  const display = document.createElement('div');
+  display.style.cssText='position:fixed;bottom:80px;right:16px;background:#1a2a18;border:1px solid var(--green);border-radius:12px;padding:10px 16px;color:var(--gold);font-family:DM Mono,monospace;font-size:16px;z-index:250;min-width:80px;text-align:center';
+  display.id='quickTimerDisplay';
+  document.body.appendChild(display);
+  const update=()=>{ const d=document.getElementById('quickTimerDisplay'); if(d) d.textContent='⏱ '+fmtTime(timerSeconds); };
+  update();
+  const iv = setInterval(()=>{
+    timerSeconds--;
+    update();
+    if(timerSeconds<=0){
+      clearInterval(iv);
+      try{ navigator.vibrate && navigator.vibrate([400,100,400]); }catch(e){}
+      setTimeout(()=>{const d=document.getElementById('quickTimerDisplay');if(d)d.remove();},2000);
+    }
+  },1000);
+  // Tap to dismiss
+  display.onclick=()=>{ clearInterval(iv); display.remove(); };
+}
+
+// ── WAKE LOCK ──
+async function requestWakeLock(){
+  try{
+    if('wakeLock' in navigator){
+      wakeLock = await navigator.wakeLock.request('screen');
+    }
+  } catch(e){}
+}
+async function releaseWakeLock(){
+  try{ if(wakeLock){ await wakeLock.release(); wakeLock=null; } } catch(e){}
+}
+
+// ═══════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════
+buildFilterRow();
+filterRecipes();
+</script>
+</body>
+</html>
