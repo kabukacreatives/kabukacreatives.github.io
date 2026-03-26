@@ -50,6 +50,17 @@ body{font-family:'Lato',sans-serif;background:var(--bg);color:var(--ink);font-si
 .filter-pill.active.kids{background:var(--pu)}
 .filter-pill.active.base{background:var(--nv)}
 .filter-pill.active.special{background:var(--saffron)}
+.filter-pill.active.family{background:#7a4a9a}
+.rt-cat.family{background:#1e0e2a;color:#b888e8}
+.family-note{background:rgba(120,70,180,.15);border-left:3px solid #9a60d0;border-radius:0 10px 10px 0;padding:10px 13px;margin:10px 0}
+.family-note-lbl{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#b888e8;margin-bottom:4px}
+.family-note-txt{font-size:12px;color:#c0a0e0;line-height:1.5}
+.key-tips{background:rgba(196,98,45,.12);border:1px solid rgba(196,98,45,.3);border-radius:12px;padding:12px 14px;margin:12px 0}
+.key-tips-lbl{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);margin-bottom:8px}
+.key-tip-row{display:flex;gap:8px;font-size:12px;color:#d4a080;padding:3px 0}
+.goes-well{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.gw-chip{font-size:11px;background:var(--card2);border:1px solid var(--border);color:var(--mu);padding:3px 10px;border-radius:8px}
+.macro-chip.f{background:rgba(90,140,212,.15);color:var(--nv)}
 .recipe-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-bottom:8px}
 .recipe-thumb{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .15s,border-color .15s;position:relative}
 .recipe-thumb:active{transform:scale(.97)}
@@ -261,9 +272,643 @@ const CHOP_ALERT = `<div class="chop-alert">
 </div>`;
 
 const RECIPES = [
-// ════════════════════════════════════════════════════════
-// ── PASTE ALL YOUR EXISTING RECIPES FROM recipes.html HERE ──
-// (base-sesame, kootu-moong-pumpkin, etc.)
+// ─── BASE TECHNIQUES ─────────────────────────────────────
+{id:'base-sesame',cat:'base',en:'Sunday Sesame Paste',ta:'கிஞ்சு விழுது — ஞாயிறு batch',
+ time:'15 min',serves:'Enough for 7 kootus',
+ appears:['Used in every kootu all week'],
+ nut:{c:8,p:5,f:14,kcal:160,fibre:2},
+ fat:{total:14,sat:2,mufa:5.5,pufa:5.5},chop40:false,
+ ing:[
+  {a:'200g',n:'White sesame seeds',note:'1 full cup — do not use black for this'},
+  {a:'80–100ml',n:'Warm water',note:'From dal cooking pot, not plain water — adds depth'},
+  {a:'½ tsp',n:'Salt'},
+ ],
+ steps:[
+  {t:'Spread sesame seeds in a wide, dry iron pan on medium heat. Do not add oil.',flags:['crit']},
+  {t:'Stir continuously. After 3 minutes you will hear popping. Watch for colour to shift from chalk-white to warm sand.',timer:180,flags:['crit'],note:'The moment the first seeds begin jumping and you smell something nutty and rich — that is the exact moment. Remove immediately. Over-roasted sesame turns bitter and ruins every kootu.'},
+  {t:'Immediately pour onto a cool plate. Spread out. Cool completely — at least 10 minutes.',timer:600},
+  {t:'Transfer cooled sesame to a small blender. Add warm dal water 1 tbsp at a time.',flags:['crit'],note:'Use water from cooking your dal. It contains dissolved starch that binds the paste and adds quiet savouriness.'},
+  {t:'Grind to a thick smooth paste — consistency of hummus. Should hold shape when spooned.',flags:['crit']},
+  {t:'Transfer to a clean glass jar. Cover surface with a thin layer of water. Refrigerate.',note:'Stays fresh 5 days refrigerated. Each kootu uses 1½–2 tbsp. From 200g sesame you get exactly 7 full-size kootu portions.'},
+ ],
+ science:'White sesame contains sesamin and sesamolin — lignans that lower LDL by up to 10% in RCTs. Unlike coconut, all fats here are MUFA/PUFA. Replacing coconut with sesame paste removes ~8g saturated fat per kootu serving.',
+ begNotes:{'Roasting test':'Hold your hand 5cm above the pan. Put one seed in: if it jumps within 5 seconds, proceed.','Blender trick':'Add water ONE tablespoon at a time. If you add too much at once you get tahini-soup, not paste.'}
+},
+{id:'base-purple-cabbage',cat:'base',en:'Purple Cabbage Brine',ta:'கடும்சிவப்பு முட்டைக்கோஸ் உவர் நீர்',
+ time:'20 min active · 3–5 days ferment',serves:'1 jar · lasts 3 weeks refrigerated',
+ appears:['Make every 3 weeks','Add 2 tbsp to dinner salad daily','Use as fermented item'],
+ nut:{c:2,p:1,f:0,kcal:12,fibre:1},
+ fat:{total:0,sat:0,mufa:0,pufa:0},chop40:false,
+ ing:[
+  {a:'500g',n:'Purple cabbage',note:'About ½ a medium head — more purple = more anthocyanins'},
+  {a:'1 tbsp',n:'Non-iodized salt',note:'Iodized salt kills beneficial bacteria. Sea salt or kosher salt only.'},
+  {a:'1 tsp',n:'Black peppercorns',note:'Optional but adds depth'},
+  {a:'1',n:'Bay leaf',note:'Optional'},
+  {a:'1',n:'Clean 1-litre mason jar with lid'},
+ ],
+ steps:[
+  {t:'Remove the outer 2 leaves of the cabbage. Set one aside to use as a weight.',flags:['crit']},
+  {t:'Shred cabbage thinly — 2–3mm strips. Uniform thickness means uniform fermentation.',flags:['crit'],note:'Thinner shred = faster fermentation and more surface area for beneficial bacteria.'},
+  {t:'Place shredded cabbage in a large bowl. Add salt. Massage firmly with both hands for 8–10 minutes without stopping.',timer:540,flags:['crit'],note:'After 8 minutes you will see a significant pool of purple liquid — this is the brine the cabbage makes from its own water. It is what makes this ferment work without added vinegar.'},
+  {t:'Add peppercorns and bay leaf. Toss through.',},
+  {t:'Pack cabbage very tightly into the jar. Press firmly after each handful. Brine should rise above cabbage level.',flags:['crit'],note:'The cabbage must be submerged below the brine. Exposed cabbage may develop mould.'},
+  {t:'Roll a reserved outer leaf into a cylinder and push into jar opening as a plug.',flags:['crit']},
+  {t:'If brine does not fully cover, mix ¼ tsp salt in 100ml water and add enough to submerge everything.',},
+  {t:'Close lid loosely — not airtight. Carbon dioxide needs to escape. Place jar on a small plate.',note:'A loose lid, folded cloth, or fermentation lid — all work. Airtight will cause pressure buildup.'},
+  {t:'Leave at room temperature, away from sunlight. Check daily — press down the plug. Taste from Day 3.',timer:0,flags:['crit'],note:'Day 3: slightly sour, still crunchy — ideal moment. Day 5+: more complex and tangy. Refrigerate when flavour suits you.'},
+  {t:'When flavour suits you, seal tightly and refrigerate. Good for 3 weeks.',note:'The purple brine is as valuable as the cabbage. Use it in salad dressings or add a splash to rasam.'},
+ ],
+ science:'Purple cabbage contains anthocyanins at 8× the concentration of green cabbage. Cyanidin-3-glucoside crosses the blood-brain barrier and improves memory and cognitive function in long-term studies. Lacto-fermentation produces Lactobacillus strains that produce GABA, reducing cortisol. Fermentation increases bioavailability of all nutrients by 20–30%.',
+ begNotes:{'What if it smells too sour?':'Fermented vegetables smell sour — that is the lactic acid. If it smells putrid, discard and restart.','White film on top?':'Thin white film (kahm yeast) is harmless — skim it off. Fuzzy coloured mould means discard.'}
+},
+// ─── KOOTUS ──────────────────────────────────────────────
+{id:'kootu-moong-pumpkin',cat:'kootu',en:'Moong Dal & Yellow Pumpkin Kootu',ta:'மூங் பருப்பு மஞ்சள் பூசணி கூட்டு',
+ time:'30 min',serves:'4',
+ appears:['W1 Mon','W3 Mon','W4 Mon','W4 Fri'],
+ nut:{c:18,p:9,f:7,kcal:165,fibre:5},
+ fat:{total:7,sat:0.9,mufa:2.8,pufa:3.1},chop40:false,
+ ing:[
+  {a:'200g',n:'Yellow pumpkin',note:'Peeled, cut into 2cm cubes — not smaller, they dissolve'},
+  {a:'120g',n:'Moong dal (split yellow)',note:'Rinsed 3 times until water runs clear'},
+  {a:'2 tbsp',n:'Sesame paste (Sunday batch)',note:'Room temperature'},
+  {a:'1 tbsp',n:'Ground flaxseed',note:'Add AFTER heat is off',flag:'flax'},
+  {a:'¼ tsp',n:'Kalonji seeds',note:'Added to DRY pan FIRST',flag:'kalonji'},
+  {a:'½ tsp',n:'Mustard seeds'},{a:'1 sprig',n:'Curry leaves'},
+  {a:'1 tsp',n:'Avocado oil'},{a:'¼ tsp',n:'Turmeric'},{a:'½ tsp',n:'Cumin seeds'},
+  {a:'1',n:'Dried red chilli',note:'Break in half'},{a:'¾ tsp',n:'Salt'},
+ ],
+ steps:[
+  {t:'Pressure cook moong dal with 400ml water and ¼ tsp turmeric — 2 whistles. Should hold some shape, not mushy. Reserve cooking water.',timer:480,flags:['crit'],note:'The dal cooking water is your secret weapon. It has dissolved starch and natural umami. Use it to loosen the kootu — it unifies the dish in a way plain water never can.'},
+  {t:'Boil pumpkin cubes in salted water until just tender — 8 minutes. Drain.',timer:480,note:'You want pumpkin that holds its shape. If already completely soft, it will dissolve into mush when combined.'},
+  {t:'Set a dry iron kadai on medium-high flame. Heat 60 full seconds.',timer:60,flags:['crit']},
+  {t:F.kalonji+'Add kalonji seeds to the completely DRY, hot pan. No oil. Stir 30 seconds until you hear a quiet crackle and smell warm oregano meeting onion.',timer:30,flags:['crit'],note:'Kalonji\'s thymoquinone requires dry heat to activate. In oil it never fully activates. In a dry hot pan, it transforms.'},
+  {t:'Add avocado oil. Add mustard seeds. Wait for full pop — about 20 seconds.',timer:20},
+  {t:'Add cumin seeds, dried red chilli (broken), and curry leaves. Cook 15 seconds.',timer:15},
+  {t:'Add cooked pumpkin. Toss to coat. Add ¼ tsp salt. Cook 2 minutes.',timer:120},
+  {t:'Add cooked moong dal. Stir gently — keep some dal pieces whole for texture.',flags:['crit']},
+  {t:'Add sesame paste and stir through. Add reserved dal cooking water, 2–3 tbsp at a time, to reach thick porridge consistency.',note:'Drag a spoon through. The channel should hold for 3–4 seconds before slowly closing.'},
+  {t:'Taste. Adjust salt. Cook on medium 3 minutes to marry flavours.',timer:180},
+  {t:'Turn off heat. Wait 30 seconds.',timer:30,flags:['crit']},
+  {t:F.flax+'Add ground flaxseed. Stir well.',flags:['flax'],note:'Ground flaxseed must NEVER hit boiling liquid. 30 seconds off heat drops below 85°C — the safe zone for omega-3s and lignans.'},
+ ],
+ science:'Moong dal has the highest ratio of lysine to arginine among all dals — associated with lower cholesterol synthesis. Yellow pumpkin provides 400mcg beta-carotene per serving. Sesame lignans lower LDL by 6–10% in 4-week trials.',
+ begNotes:{'Is my pan hot enough?':'Flick water drops — they should skitter and evaporate in 1 second.','Kalonji looks like what?':'Small black seeds, slightly irregular. Labelled "nigella sativa" at Indian grocery stores.','The kootu tastes bitter':'You over-roasted the kalonji or sesame. Both turn bitter past their optimal toast point.'}
+},
+{id:'kootu-kollu-pumpkin',cat:'kootu',en:'Horse Gram & White Pumpkin Kootu',ta:'கொள்ளு வெள்ளை பூசணி கூட்டு',
+ time:'35 min (+ 4hr soak)',serves:'4',
+ appears:['W1 Wed','W3 Wed','W4 Sat'],
+ nut:{c:20,p:12,f:7,kcal:188,fibre:7},
+ fat:{total:7,sat:0.9,mufa:2.8,pufa:3.1},chop40:false,
+ ing:[
+  {a:'150g',n:'Horse gram (kollu)',note:'Soaked minimum 4 hours — not optional'},
+  {a:'250g',n:'White pumpkin (ash gourd / vellai poosani)',note:'Peeled, 2cm cubes'},
+  {a:'2 tbsp',n:'Sesame paste (Sunday batch)'},
+  {a:'1 tbsp',n:'Ground flaxseed',flag:'flax'},
+  {a:'¼ tsp',n:'Kalonji',flag:'kalonji'},{a:'½ tsp',n:'Mustard seeds'},
+  {a:'1 sprig',n:'Curry leaves'},{a:'1 tsp',n:'Avocado oil'},{a:'¼ tsp',n:'Turmeric'},
+  {a:'1 tsp',n:'Cumin seeds'},{a:'¾ tsp',n:'Salt'},
+  {a:'2 cloves',n:'Garlic',note:'Crushed flat — not minced'},
+ ],
+ steps:[
+  {t:'Drain soaked horse gram. Pressure cook with 500ml fresh water — 4 whistles. Open after pressure drops naturally.',timer:900,flags:['crit'],note:'NEVER discard this cooking water. Deep reddish-brown, intensely flavoured. Every cholesterol-fighting compound kollu has is in this water.'},
+  {t:'Strain out whole horse gram kernels (save for another use). Keep ONLY the red cooking water. Add turmeric.',},
+  {t:'Boil white pumpkin in lightly salted water for 6 minutes. Very soft. Drain, keep 100ml of this water too.',timer:360},
+  {t:'Dry kadai, high heat, 60 seconds.',timer:60},
+  {t:F.kalonji+'Kalonji to dry hot pan. 30 seconds — crackle, aroma.',timer:30,flags:['crit']},
+  {t:'Add avocado oil, crushed garlic. Stir 20 seconds until garlic turns pale gold at edges.',timer:20,flags:['crit'],note:'Crushed garlic releases allicin differently from minced. Flavour is milder, more rounded.'},
+  {t:'Add mustard seeds, cumin, curry leaves. Let mustard pop fully.',timer:25},
+  {t:'Add white pumpkin. Stir gently. Add ¼ tsp salt. Cook 2 minutes.',timer:120},
+  {t:'Add cooked horse gram. Pour in 100ml of the horse gram cooking water.',flags:['crit']},
+  {t:'Add sesame paste. Stir through. Add more horse gram water as needed for kootu consistency.',note:'This kootu is slightly thinner than pumpkin-based ones — horse gram water gives it body.'},
+  {t:'Taste. Adjust salt. Simmer 3 minutes.',timer:180},
+  {t:'Off heat. 30 seconds.',timer:30},
+  {t:F.flax+'Add ground flaxseed. Stir.',flags:['flax']},
+ ],
+ science:'Horse gram reduces LDL by up to 52 mg/dL in 3 weeks of daily consumption (Tharkar et al., 2018). White pumpkin (ash gourd) is >96% water — one of the lowest-carb vegetables in existence at 2.9g per 100g. Rich in flavonoids with demonstrated anti-inflammatory activity.',
+ begNotes:{'How do I know horse gram is cooked?':'Press one between thumb and finger. Should squash with no hard centre.','The cooking water is dark and strange-looking':'Yes. That is exactly right. The tannins and polyphenols are in that water.'}
+},
+{id:'kootu-chana-peerkangai',cat:'kootu',en:'Chana Dal & Ridge Gourd Kootu',ta:'கடலைப் பருப்பு பீர்க்கங்காய் கூட்டு',
+ time:'30 min',serves:'4',
+ appears:['W1 Tue','W1 Sat','W2 Sun','W3 Tue','W3 Sat','W4 Thu'],
+ nut:{c:17,p:10,f:7,kcal:170,fibre:5},
+ fat:{total:7,sat:0.9,mufa:2.8,pufa:3.1},chop40:false,
+ ing:[
+  {a:'120g',n:'Chana dal (split Bengal gram)',note:'Rinsed well'},
+  {a:'300g',n:'Ridge gourd (peerkangai)',note:'Peel the ridges only — leave most skin. Cut 2cm rounds.'},
+  {a:'2 tbsp',n:'Sesame paste'},{a:'1 tbsp',n:'Ground flaxseed',flag:'flax'},
+  {a:'¼ tsp',n:'Kalonji',flag:'kalonji'},{a:'½ tsp',n:'Mustard seeds'},
+  {a:'1 tsp',n:'Cumin seeds'},{a:'1 sprig',n:'Curry leaves'},
+  {a:'1 tsp',n:'Avocado oil'},{a:'¼ tsp',n:'Turmeric'},{a:'¾ tsp',n:'Salt'},
+  {a:'1 tsp',n:'Fresh ginger',note:'Grated fine — ginger and ridge gourd are natural partners'},
+ ],
+ steps:[
+  {t:'Pressure cook chana dal with 400ml water, turmeric — 3 whistles. Fully soft. Reserve cooking water.',timer:720,note:'Chana cooked to the right softness becomes almost creamy when combined with sesame paste. Under-cooked chana stays grainy.'},
+  {t:'Ridge gourd cooks very fast. Boil in lightly salted water for just 3 minutes. Test a piece — should have the texture of ripe avocado.',timer:180,flags:['crit'],note:'Ridge gourd goes from raw to dissolved in 4 minutes. The moment it turns slightly translucent, it is done.'},
+  {t:'Dry kadai, high heat, 60 seconds.',timer:60},
+  {t:F.kalonji+'Kalonji to dry pan. 30 seconds.',timer:30},
+  {t:'Add avocado oil, grated ginger. Stir 15 seconds.',timer:15},
+  {t:'Mustard seeds, cumin, curry leaves — full pop.',timer:20},
+  {t:'Add cooked ridge gourd pieces. Toss 1 minute.',timer:60},
+  {t:'Add cooked chana dal and sesame paste. Stir. Add dal water to reach lava-like consistency.',},
+  {t:'Adjust salt. Cook 3 minutes.',timer:180},
+  {t:'Off heat. 30 seconds.',timer:30},
+  {t:F.flax+'Add ground flaxseed. Stir.',flags:['flax']},
+ ],
+ science:'Ridge gourd is rich in zinc (1.7mg/100g — 15% daily value), dietary folate, and vitamin B6. Contains cucurbitacins linked to anti-tumour activity. Chana dal has one of the lowest glycaemic indices of all legumes (GI = 8).',
+ begNotes:{'The gourd feels slimy when I cut it':'Normal — ridge gourd releases mucilage. This is beneficial and helps the kootu achieve its characteristic texture.'}
+},
+{id:'kootu-toor-carrot',cat:'kootu',en:'Toor Dal & Carrot Kootu',ta:'துவரம் பருப்பு கேரட் கூட்டு',
+ time:'30 min',serves:'4',
+ appears:['W1 Thu','W4 Thu'],
+ nut:{c:19,p:9,f:7,kcal:172,fibre:6},
+ fat:{total:7,sat:0.9,mufa:2.8,pufa:3.1},chop40:false,
+ ing:[
+  {a:'120g',n:'Toor dal (split pigeon peas)'},
+  {a:'300g',n:'Carrots',note:'Cut into small batons, 1cm × 3cm — not rounds'},
+  {a:'2 tbsp',n:'Sesame paste'},{a:'1 tbsp',n:'Ground flaxseed',flag:'flax'},
+  {a:'¼ tsp',n:'Kalonji',flag:'kalonji'},{a:'½ tsp',n:'Mustard seeds'},
+  {a:'1 tsp',n:'Urad dal (black gram, split)',note:'Adds crunch and nutty depth to tadka'},
+  {a:'1 sprig',n:'Curry leaves'},{a:'1 tsp',n:'Avocado oil'},
+  {a:'¼ tsp',n:'Turmeric'},{a:'½ tsp',n:'Black pepper, coarsely cracked'},{a:'¾ tsp',n:'Salt'},
+ ],
+ steps:[
+  {t:'Pressure cook toor dal with 400ml water, turmeric — 4 whistles until very soft, almost falling apart. Whisk smooth. Set aside.',timer:840,note:'Toor dal in kootu should be softer than in sambar — it almost melts into the kootu, creating creaminess.'},
+  {t:'Boil carrot batons in lightly salted water until just tender — 8 minutes. Should bend slightly under pressure but not snap.',timer:480,flags:['crit'],note:'Batons rather than rounds = more surface area for the tadka to coat. They look beautiful too — like little logs stacked in the kootu.'},
+  {t:'Dry kadai, 60 seconds high heat.',timer:60},
+  {t:F.kalonji+'Kalonji to dry pan. 30 seconds.',timer:30},
+  {t:'Add avocado oil. Add urad dal first — stir until pale gold.',timer:30,flags:['crit'],note:'Urad dal in the tadka becomes small, crunchy, nutty pieces. Do not let it turn brown — pale gold is perfect.'},
+  {t:'Add mustard seeds, curry leaves. Full pop.',timer:20},
+  {t:'Add carrot batons. Add cracked black pepper. Toss — 2 minutes.',timer:120},
+  {t:'Add toor dal and sesame paste. Stir. Add dal water for consistency.',},
+  {t:'Taste and adjust salt. Simmer 3 minutes.',timer:180},
+  {t:'Off heat. 30 seconds.',timer:30},
+  {t:F.flax+'Ground flaxseed in. Stir.',flags:['flax']},
+ ],
+ science:'Carrots provide 8285 mcg beta-carotene per 100g raw — fat-soluble, meaning the avocado oil significantly increases its absorption. Toor dal is the richest source of folate among all dals.',
+ begNotes:{'My toor dal is very watery':'Cook it uncovered on medium heat for 3–4 minutes before adding to the kootu.'}
+},
+// ─── DRY CURRIES ─────────────────────────────────────────
+{id:'curry-vendakkai',cat:'curry',en:'Vendakkai (Okra) Fry',ta:'வெண்டைக்காய் வறுவல்',
+ time:'25 min (+ dry time)',serves:'4',
+ appears:['W1 Mon','W2 Mon','W3 Tue','W4 Mon'],
+ nut:{c:7,p:2,f:5,kcal:78,fibre:3},
+ fat:{total:5,sat:0.7,mufa:3.6,pufa:0.5},chop40:false,
+ ing:[
+  {a:'500g',n:'Okra (vendakkai)',note:'Wash the NIGHT BEFORE and air dry on a clean towel. Morning: completely dry.'},
+  {a:'2 tbsp',n:'Avocado oil',note:'More than usual — okra absorbs oil. Do not reduce.'},
+  {a:'¼ tsp',n:'Kalonji',flag:'kalonji'},{a:'½ tsp',n:'Mustard seeds'},
+  {a:'1 sprig',n:'Curry leaves'},{a:'¼ tsp',n:'Turmeric'},{a:'½ tsp',n:'Red chilli powder'},
+  {a:'¾ tsp',n:'Salt',note:'Add LAST — salt draws moisture which creates steam'},
+  {a:'½ tsp',n:'Amchur (dry mango powder)',note:'Added at the end — brightness without moisture'},
+ ],
+ steps:[
+  {t:'THE NIGHT BEFORE: Wash okra thoroughly. Spread in a single layer on a clean kitchen towel. Leave uncovered at room temperature overnight.',flags:['crit'],note:'Moisture is the enemy of crisp okra. Any water on the surface turns to steam and creates sliminess. Bone-dry okra = no slime, just caramelization.'},
+  {t:'Cut dry okra into 1.5cm rounds immediately before cooking — do not let cut okra sit.',flags:['crit']},
+  {t:'Heat your widest heavy-bottomed pan on high heat — 90 seconds minimum.',timer:90,flags:['crit'],note:'Most home cooks use too small a pan and too low heat. Okra needs space and high heat to fry rather than steam.'},
+  {t:F.kalonji+'Add kalonji seeds to the dry hot pan. No oil yet. 30 seconds.',timer:30,flags:['crit']},
+  {t:'Add avocado oil. Add mustard seeds. Wait for full pop.',timer:20},
+  {t:'Add curry leaves.',timer:10},
+  {t:'Add all okra AT ONCE in a single layer. Add turmeric and chilli powder. DO NOT STIR for 3 full minutes.',timer:180,flags:['crit'],note:'This is where most people go wrong. Stirring too early prevents the Maillard reaction. Leave it completely alone.'},
+  {t:'After 3 minutes, stir from the bottom — you should see golden-brown patches. Spread again. Wait 2 more minutes.',timer:120},
+  {t:'Continue cooking, stirring every 2 minutes, for another 8–10 minutes total.',timer:480},
+  {t:'LAST STEP: Add salt and amchur together. Toss well. Cook 1 more minute. Serve immediately.',timer:60,flags:['crit'],note:'Salt added early releases moisture and creates steam. Added at the very end, it seasons without damage to texture.'},
+ ],
+ science:'Okra soluble fibre binds bile acids and forces the liver to convert more cholesterol to bile. Regular okra consumption reduces LDL by 8–14% in 8-week studies. Contains quercetin (22.5mg/100g) and kaempferol — powerful anti-inflammatory flavonoids.',
+ begNotes:{'How do I know the pan is hot enough?':'Flick water drops — they should instantly skitter and evaporate within 1–2 seconds.','My okra is still slimy':'Wet okra, stirred too early, or too small a pan. All three causes the same problem: steam instead of fry.','Can I use non-stick?':'For okra, no. Non-stick doesn\'t get hot enough for the Maillard browning.'}
+},
+{id:'curry-kathrikkai',cat:'curry',en:'Kathrikkai (Brinjal) Fry',ta:'கத்திரிக்காய் வறுவல்',
+ time:'30 min',serves:'4',
+ appears:['W1 Tue','W2 Thu','W3 Sat','W4 Thu'],
+ nut:{c:6,p:2,f:6,kcal:82,fibre:3},
+ fat:{total:6,sat:0.8,mufa:4.2,pufa:0.6},chop40:false,
+ ing:[
+  {a:'500g',n:'Brinjal (kathrikkai)',note:'Medium-large, firm, shiny skin. Purple or striped variety.'},
+  {a:'2 tbsp',n:'Avocado oil'},{a:'¼ tsp',n:'Kalonji',flag:'kalonji'},
+  {a:'½ tsp',n:'Mustard seeds'},{a:'1 sprig',n:'Curry leaves'},
+  {a:'1½ tsp',n:'Sambar powder',note:'Good quality — doing a lot of work here'},
+  {a:'1 tsp',n:'Tamarind paste (thick)',note:'Very thick — extract from a small ball soaked in 2 tbsp warm water'},
+  {a:'¼ tsp',n:'Turmeric'},{a:'½ tsp',n:'Salt'},
+  {a:'½ tsp',n:'Jaggery or date paste',note:'A tiny amount — rounds the tamarind acid'},
+ ],
+ steps:[
+  {t:'Cut brinjal into 1cm rounds. Sprinkle ¼ tsp salt over both sides. Rest 8 minutes.',timer:480,flags:['crit'],note:'Salt draws out excess moisture and the natural bitterness. After 8 minutes you will see small droplets on the surface.'},
+  {t:'Pat every round aggressively dry with kitchen paper — both sides. Press firmly.',flags:['crit'],note:'Moisture on the surface creates steam, not browning.'},
+  {t:'Mix tamarind paste + jaggery together. This is your glaze.',note:'Jaggery rounds tamarind acid without adding detectable sweetness. Think of it as a volume knob.'},
+  {t:'Heat your widest pan on medium-high — 60 seconds.',timer:60},
+  {t:F.kalonji+'Kalonji to dry pan. 30 seconds.',timer:30},
+  {t:'Add avocado oil. Mustard seeds, curry leaves. Full pop.',timer:20},
+  {t:'Lay brinjal rounds in a SINGLE LAYER. Add turmeric. DO NOT TOUCH for 4 full minutes.',timer:240,flags:['crit'],note:'Four minutes undisturbed on medium-high creates a dark, fragrant crust — mahogany brown is perfect.'},
+  {t:'Carefully flip each round. Sprinkle sambar powder. Drizzle the tamarind-jaggery glaze.',timer:60,flags:['crit']},
+  {t:'Cook 4 more minutes without stirring.',timer:240},
+  {t:'Turn heat to low. Stir gently. Cook 2 more minutes. Taste and adjust salt.',timer:120},
+ ],
+ science:'Brinjal contains nasunin — a rare anthocyanin in the purple skin that protects lipids in brain cell membranes. Nasunin is fat-soluble — the avocado oil significantly increases its absorption. Tamarind provides hydroxycitric acid, which inhibits ATP-citrate lyase — an enzyme involved in fat synthesis.',
+ begNotes:{'Why is my brinjal absorbing all the oil?':'Brinjal is a sponge. The salt-and-rest step reduces this. Do not add more oil.','The sambar powder burned':'Your heat was too high after flipping. The brinjal rounds should be slightly moist on the uncooked side.'}
+},
+{id:'curry-cauliflower',cat:'curry',en:'Cauliflower Curry',ta:'காலிஃப்ளவர் கறி',
+ time:'20 min',serves:'4',
+ appears:['W1 Wed','W2 Tue','W3 Wed','W4 Tue'],
+ nut:{c:9,p:3,f:5,kcal:88,fibre:3},
+ fat:{total:5,sat:0.6,mufa:3.6,pufa:0.5},chop40:true,
+ ing:[
+  {a:'500g',n:'Cauliflower',note:'Cut into small florets max 3cm. Chop 40 minutes before cooking.'},
+  {a:'1 tbsp',n:'Avocado oil'},{a:'¼ tsp',n:'Kalonji',flag:'kalonji'},
+  {a:'½ tsp',n:'Cumin seeds'},{a:'1 tsp',n:'Coriander powder'},
+  {a:'½ tsp',n:'Cumin powder'},{a:'¼ tsp',n:'Turmeric'},
+  {a:'½ tsp',n:'Red chilli powder'},{a:'½ tsp',n:'Black pepper, coarsely cracked'},
+  {a:'¾ tsp',n:'Salt'},{a:'1 tbsp',n:'Lemon juice',note:'Squeezed at the very end, off heat'},
+ ],
+ steps:[
+  {t:'Toss cauliflower florets in a dry iron kadai on high heat for 2 minutes — no oil. Stir constantly.',timer:120,flags:['crit'],note:'Dry-searing cauliflower before adding oil is a restaurant technique. Evaporates surface moisture and starts browning before oil is introduced.'},
+  {t:F.kalonji+'Push florets to one side. In the cleared space, add kalonji. 30 seconds dry.',timer:30},
+  {t:'Add avocado oil to the kalonji space. Add cumin seeds. Wait for sizzle.',timer:15},
+  {t:'Toss everything together. Add all dry spices at once. Toss to coat every floret.',note:'All spices at once — they toast in the residual oil simultaneously. Staggering them at this stage creates uneven, muddy flavour.'},
+  {t:'Cover with lid. Medium heat. 3 minutes — the florets will steam-fry in their own moisture.',timer:180,flags:['crit']},
+  {t:'Remove lid. High heat. Add salt. Cook uncovered 5–8 minutes until edges turn deep golden.',timer:420,flags:['crit'],note:'This uncovered high-heat finish is everything. The char on the tips provides bitterness that balances the sweetness of cauliflower. Pale yellow curry is sad. Golden-tipped curry is joyful.'},
+  {t:'Off heat. Squeeze lemon juice over. Toss once. Serve.',note:'Lemon juice at the end lifts all the flavours. It does not make the dish sour — it makes every other flavour brighter.'},
+ ],
+ science:'Cauliflower glucosinolates activate NRF2 pathways — the body\'s master antioxidant switch. Consuming cauliflower 4+ times weekly is associated with 40% reduced risk of certain cancers. The 40-minute chop rule maximises sulforaphane formation.',
+ begNotes:{'How small should the florets be?':'Roughly the size of a large grape. Too large = outside burns before inside cooks. Too small = mushy.'}
+},
+{id:'curry-beetroot',cat:'curry',en:'Beetroot Fry',ta:'பீட்ரூட் வறுவல்',
+ time:'25 min',serves:'4',
+ appears:['W1 Sat','W3 Fri','W4 Sat'],
+ nut:{c:11,p:2,f:4,kcal:86,fibre:2},
+ fat:{total:4,sat:0.5,mufa:2.9,pufa:0.4},chop40:false,
+ ing:[
+  {a:'500g',n:'Beetroot',note:'Peeled. Cut into 5mm dice (brunoise) — the chef\'s secret'},
+  {a:'1 tbsp',n:'Avocado oil'},{a:'¼ tsp',n:'Kalonji',flag:'kalonji'},
+  {a:'½ tsp',n:'Mustard seeds'},{a:'10',n:'Curry leaves'},
+  {a:'¼ tsp',n:'Turmeric'},{a:'½ tsp',n:'Cumin seeds'},
+  {a:'¾ tsp',n:'Salt'},{a:'½ tsp',n:'Black pepper, cracked'},
+ ],
+ steps:[
+  {t:'Cut beetroot into 5mm dice (brunoise). The small dice dramatically increases surface area, allowing faster caramelization of beet sugars.',flags:['crit'],note:'Large beet pieces taste like boiled beet. Small dice, caramelized at high heat, taste like something else entirely — almost candy-like with dark edges.'},
+  {t:'Dry kadai, high heat, 60 seconds.',timer:60},
+  {t:F.kalonji+'Kalonji to dry pan. 30 seconds.',timer:30},
+  {t:'Add avocado oil. Cumin seeds, mustard seeds. Full pop. Curry leaves.',timer:25},
+  {t:'Add beet dice. Add turmeric. Stir to coat. Spread in an even layer.',},
+  {t:'Medium heat. Cook UNCOVERED for 15–18 minutes, stirring every 3 minutes.',timer:900,flags:['crit'],note:'Patience here is rewarded. The beet sugars need time to caramelise. Medium heat, slow and steady, creates deeply sweet beet with slightly dark, almost jammy edges.'},
+  {t:'Add salt and cracked pepper in the last 2 minutes.',timer:120,flags:['crit']},
+  {t:'Ready when beet pieces have shrunken by ~30% and edges are slightly dark. Deglaze with 1 tbsp water, scrape up the sticky residue — it is flavour gold.',flags:['crit']},
+ ],
+ science:'Beetroot contains betalains — pigments that inhibit LDL oxidation. Dietary nitrates convert to nitric oxide, dilating blood vessels and reducing blood pressure (demonstrated 10–15 mmHg reduction in meta-analyses). Caramelization increases bioavailability of betalains compared to boiling.',
+ begNotes:{'How to cut brunoise without cutting fingers':'Cut the beet into slabs first, then into sticks, then across into tiny cubes. Work slowly.'}
+},
+{id:'curry-broad-beans',cat:'curry',en:'Avarakkai (Broad Beans) Fry',ta:'அவரைக்காய் வறுவல்',
+ time:'20 min',serves:'4',
+ appears:['W1 Thu','W2 Wed','W3 Thu','W4 Wed'],
+ nut:{c:10,p:5,f:4,kcal:93,fibre:5},
+ fat:{total:4,sat:0.5,mufa:2.9,pufa:0.4},chop40:false,
+ ing:[
+  {a:'500g',n:'Avarakkai (broad beans / flat beans)',note:'String removed. Cut into 3cm pieces diagonally.'},
+  {a:'1 tbsp',n:'Avocado oil'},{a:'¼ tsp',n:'Kalonji',flag:'kalonji'},
+  {a:'½ tsp',n:'Mustard seeds'},{a:'1 tsp',n:'Urad dal'},
+  {a:'1 sprig',n:'Curry leaves'},{a:'¼ tsp',n:'Turmeric'},
+  {a:'½ tsp',n:'Chilli powder'},{a:'¾ tsp',n:'Salt'},{a:'¼ tsp',n:'Black pepper'},
+ ],
+ steps:[
+  {t:'String both edges of the beans. Cut diagonally into 3cm pieces.',},
+  {t:'Dry kadai, high heat.',timer:60},
+  {t:F.kalonji+'Kalonji dry, 30 sec.',timer:30},
+  {t:'Oil, urad dal first — stir until pale gold.',timer:25,flags:['crit'],note:'Urad dal must go before mustard seeds — it takes longer to colour.'},
+  {t:'Mustard seeds, curry leaves. Full pop.',timer:20},
+  {t:'Add beans. Toss with spices. Medium-high heat.',},
+  {t:'Cover. Cook 5 minutes.',timer:300},
+  {t:'Remove lid. Add salt + chilli powder + pepper. High heat. Cook uncovered 5–6 minutes, stirring every 90 seconds.',timer:330,flags:['crit'],note:'The uncovered high-heat finish blisters and chars the beans — these caramelized spots are where all the flavour lives.'},
+ ],
+ science:'Broad beans are rich in L-DOPA, a dopamine precursor. Provide 7g protein per 100g. The soluble fibre specifically binds bile acids, reducing cholesterol reabsorption.',
+ begNotes:{'How do I know they are cooked?':'Pierce one with a fork — should go through with light pressure, not pop.'}
+},
+{id:'curry-sweet-potato',cat:'curry',en:'Sweet Potato Curry',ta:'சர்க்கரைவள்ளிக்கிழங்கு கறி',
+ time:'25 min',serves:'4',
+ appears:['W1 Fri','W2 Fri','W3 Sun','W4 Sun'],
+ nut:{c:18,p:2,f:4,kcal:114,fibre:3},
+ fat:{total:4,sat:0.5,mufa:2.9,pufa:0.4},chop40:false,
+ ing:[
+  {a:'500g',n:'Sweet potato',note:'Peeled. Cut into 2cm cubes. Uniform size = even cooking.'},
+  {a:'1 tbsp',n:'Avocado oil'},{a:'¼ tsp',n:'Kalonji',flag:'kalonji'},
+  {a:'½ tsp',n:'Cumin seeds'},{a:'½ tsp',n:'Mustard seeds'},
+  {a:'1 tsp',n:'Coriander powder'},{a:'½ tsp',n:'Cumin powder'},
+  {a:'¼ tsp',n:'Turmeric'},{a:'½ tsp',n:'Chilli powder'},
+  {a:'¾ tsp',n:'Salt'},{a:'1 tsp',n:'Lime juice',note:'Off heat, at the end'},
+ ],
+ steps:[
+  {t:'Dry kadai, high heat, 60 seconds.',timer:60},
+  {t:F.kalonji+'Kalonji, dry, 30 seconds.',timer:30},
+  {t:'Oil. Cumin seeds + mustard seeds. Full pop.',timer:20},
+  {t:'Add sweet potato cubes. Toss well. Add all dry spices. Stir to coat every piece.',},
+  {t:'Add 3 tbsp water. Cover. Medium heat. Cook 8 minutes.',timer:480,flags:['crit'],note:'Steam first to cook, then fry to caramelise — the two-stage technique.'},
+  {t:'Remove lid. High heat. Cook 6–8 minutes, stirring every 2 minutes, until moisture evaporated and edges golden.',timer:420,flags:['crit'],note:'Sweet potato caramelises at lower temperatures because of its high natural sugar. Watch carefully — goes from golden to burnt in 60 seconds.'},
+  {t:'Add salt last 2 minutes. Off heat, lime juice. Toss.',timer:120},
+ ],
+ science:'Sweet potato provides 941 mcg beta-carotene per 100g — one of the richest food sources available. Glycaemic index of 54 vs white potato\'s 78. As roasted veg in adult dinner, a ½ cup serving is only 13g net carbs with 2g fibre.',
+ begNotes:{'The sweet potato is burning before cooked through':'Cubes too large or heat too high. Reduce to medium and add 2 more tbsp water, cover again 3 minutes.'}
+},
+// ─── GRAVIES ─────────────────────────────────────────────
+{id:'gravy-kollu-rasam',cat:'gravy',en:'Kollu (Horse Gram) Rasam',ta:'கொள்ளு ரசம்',
+ time:'30 min (+ soak)',serves:'4',
+ appears:['W1 Sat','W2 Sat','W3 Tue','W4 Sat'],
+ nut:{c:8,p:5,f:2,kcal:68,fibre:3},
+ fat:{total:2,sat:0.3,mufa:1.2,pufa:0.3},chop40:false,
+ ing:[
+  {a:'100g',n:'Horse gram (kollu)',note:'Soaked overnight. Not optional.'},
+  {a:'2',n:'Tomatoes (medium)',note:'Roughly chopped. Add LATE.'},
+  {a:'1 tsp',n:'Black peppercorns (whole)',note:'Coarsely cracked in a mortar — not fine powder'},
+  {a:'1 tsp',n:'Cumin seeds (whole)',note:'Coarsely cracked with pepper'},
+  {a:'¼ tsp',n:'Omam seeds (ajwain / carom)',flag:'omam'},
+  {a:'½ tsp',n:'Amla powder',flag:'amla'},
+  {a:'2',n:'Dried red chilli'},{a:'1 sprig',n:'Curry leaves'},
+  {a:'1 tsp',n:'Avocado oil'},{a:'¼ tsp',n:'Turmeric'},{a:'¾ tsp',n:'Salt'},
+  {a:'1 tsp',n:'Tamarind paste (thin)',note:'Optional — just a small amount for depth'},
+ ],
+ steps:[
+  {t:'Drain and pressure cook soaked horse gram with 600ml water — 3 whistles. Open when pressure drops naturally.',timer:720,flags:['crit'],note:'NEVER discard this cooking water. It is deep reddish-brown, intensely flavoured, and contains every cholesterol-fighting compound kollu offers.'},
+  {t:'Strain out whole horse gram kernels (save for another use). Keep ONLY the red cooking water. Add turmeric + thin tamarind paste if using.',},
+  {t:'In a mortar, coarsely crack black peppercorns and cumin seeds together. Uneven pieces — some fine dust, some larger fragments.',flags:['crit'],note:'Fine-ground pepper tastes flat and hot. Coarsely cracked gives you initial heat then more heat as you chew — more nuanced.'},
+  {t:'Bring horse gram water to simmer. Add chopped tomatoes. Cook 5 minutes.',timer:300,note:'Tomatoes go in LATE — they retain bright acidity that contrasts the deep earthiness of the kollu base.'},
+  {t:'Add the cracked pepper-cumin mixture. Stir. Simmer 5 more minutes.',timer:300},
+  {t:'Taste. Season with salt. The rasam should be thin, fragrant, with layers of heat.',},
+  {t:'Tempering: heat a small pan until very hot.',},
+  {t:F.omam+'Add omam seeds first to the dry hot pan — exactly 10 seconds.',timer:10,flags:['crit'],note:'Omam burns in 12 seconds on high heat. At exactly 10 seconds — golden, aromatic — it tastes like a sophisticated herbal bloom.'},
+  {t:'Add avocado oil. Dried red chilies. Curry leaves. Pour tempering over rasam. Cover IMMEDIATELY.',timer:15},
+  {t:'Wait 2 minutes covered.',timer:120},
+  {t:'Turn off heat. Wait 30 full seconds.',timer:30},
+  {t:F.amla+'Add amla powder. Stir well.',flags:['amla'],note:'Amla must not boil. Patience — 30 seconds off heat drops below the destruction temperature of its polyphenols.'},
+ ],
+ science:'Kollu rasam is the most LDL-reducing item in this entire plan. Horse gram water contains polyphenols, tannins, and saponins — shown in controlled trials to reduce LDL by up to 52 mg/dL in 3 weeks. Black pepper enhances turmeric curcumin absorption by 2000%. Omam thymol has demonstrated bile-acid sequestrant properties.',
+ begNotes:{'The rasam smells too strong of horse gram':'This is correct. It is a robust, earthy rasam. Tamarind and amla balance it. Drink it like a broth.'}
+},
+{id:'gravy-vetha-kuzhambu',cat:'gravy',en:'Vetha Kuzhambu',ta:'வேத குழம்பு',
+ time:'35 min',serves:'4',
+ appears:['Every Thursday — weekly feature'],
+ nut:{c:10,p:2,f:3,kcal:73,fibre:2},
+ fat:{total:3,sat:0.4,mufa:2.2,pufa:0.3},chop40:false,
+ ing:[
+  {a:'2 tbsp',n:'Tamarind paste (thick)',note:'From a good-sized ball soaked in ½ cup warm water'},
+  {a:'400ml',n:'Water'},
+  {a:'15',n:'Small onions (shallots)',note:'Peeled but kept whole — they slowly caramelise'},
+  {a:'2 tsp',n:'Sambar powder'},{a:'¼ tsp',n:'Omam seeds',flag:'omam'},
+  {a:'½ tsp',n:'Amla powder',flag:'amla'},
+  {a:'1 tbsp',n:'Sundried brinjal pieces (yathal)',note:'Or sundried mango (vathal) — these are the "vetha" (dried things)'},
+  {a:'½ tsp',n:'Mustard seeds'},{a:'10',n:'Curry leaves'},
+  {a:'1 tbsp',n:'Avocado oil'},{a:'¼ tsp',n:'Turmeric'},
+  {a:'¼ tsp',n:'Jaggery (optional)'},{a:'1 tsp',n:'Salt'},
+ ],
+ steps:[
+  {t:'Heat avocado oil in a heavy-bottomed kadai on medium heat.',},
+  {t:'Add sundried brinjal/vathal pieces first — 2 minutes to puff and darken in the oil. Stir continuously.',timer:120,flags:['crit'],note:'The vathal frying in oil is the defining flavour note of vetha kuzhambu. They release deeply concentrated, almost smoky flavour. Rush this step and the dish loses its identity.'},
+  {t:F.omam+'Add omam to the hot oil. 8 seconds only.',timer:8,flags:['crit']},
+  {t:'Add mustard seeds and curry leaves. Full pop.',timer:20},
+  {t:'Add whole shallots. Cook 4 minutes until golden at edges and softened.',timer:240,note:'Whole shallots become almost jammy and sweet as they caramelise in the tamarind gravy.'},
+  {t:'Add sambar powder + turmeric. Stir with the oil and shallots — toast 30 seconds.',timer:30,flags:['crit'],note:'Toasting sambar powder in oil before adding liquid transforms the raw spice smell into rounded, deep flavour.'},
+  {t:'Pour in tamarind water. Mix well. Bring to boil. Reduce to medium-low.',},
+  {t:'Simmer uncovered for 15–20 minutes, stirring every 3 minutes. Reduce to about 60% of its volume.',timer:1080,flags:['crit'],note:'Consistency test: spoon drip should flow in a steady thick stream — not water-thin, not syrup-thick.'},
+  {t:'Add tiny pinch of jaggery if using. Adjust salt. Add more tamarind if needed.',},
+  {t:'Turn off heat. Wait 30 seconds.',timer:30},
+  {t:F.amla+'Add amla powder. Stir gently.',flags:['amla']},
+ ],
+ science:'Vetha kuzhambu contains tamarind (hydroxycitric acid — inhibits lipogenesis), shallots (quercetin — anti-inflammatory), and concentrated vathal. Omam thymol increases digestive enzyme secretion by up to 70%.',
+ begNotes:{'My kuzhambu is too sour':'Add more water and cook 5 more minutes. A pinch more jaggery also helps.','The vathal — where do I buy them?':'Indian grocery stores carry sun-dried brinjal, drumstick, and other vathals in small packets. Keep for months in airtight container.'}
+},
+{id:'gravy-murungakkai-sambar',cat:'gravy',en:'Murungakkai Sambar',ta:'முருங்கைக்காய் சாம்பார்',
+ time:'35 min',serves:'4',
+ appears:['W1 Mon','W1 Sun','W3 Mon','W3 Sun','W4 Mon','W4 Fri'],
+ nut:{c:12,p:6,f:2,kcal:88,fibre:4},
+ fat:{total:2,sat:0.3,mufa:1.2,pufa:0.3},chop40:false,
+ ing:[
+  {a:'100g',n:'Toor dal',note:'Rinsed'},
+  {a:'3',n:'Drumstick (murungakkai)',note:'Cut into 5cm pieces. This is the star — do not reduce.'},
+  {a:'1',n:'Tomato (medium)',note:'Quartered'},
+  {a:'2 tbsp',n:'Tamarind paste (medium-thick)'},
+  {a:'600ml',n:'Water'},{a:'2 tsp',n:'Sambar powder'},
+  {a:'¼ tsp',n:'Omam seeds',flag:'omam'},{a:'½ tsp',n:'Amla powder',flag:'amla'},
+  {a:'½ tsp',n:'Mustard seeds'},{a:'1 tsp',n:'Cumin seeds'},
+  {a:'10',n:'Curry leaves'},{a:'2',n:'Dried red chilli'},
+  {a:'1 tsp',n:'Avocado oil'},{a:'¼ tsp',n:'Turmeric'},{a:'1 tsp',n:'Salt'},
+ ],
+ steps:[
+  {t:'Pressure cook toor dal with 250ml water, turmeric — 4 whistles. Until very soft. Whisk smooth. Set aside.',timer:900},
+  {t:'In a large pot, bring tamarind paste + 400ml water + tomato to boil. Add drumstick pieces. Add sambar powder + turmeric.',},
+  {t:'Cook drumstick in the tamarind water for 12–15 minutes on a rolling boil.',timer:780,flags:['crit'],note:'Drumstick needs more cooking time than you think. The flesh inside should be completely tender — press the side and the flesh should yield and come away from the fibrous outer core easily.'},
+  {t:'Test drumstick: press a piece. The inner flesh should slide out of the fibrous skin cleanly.',flags:['crit']},
+  {t:'Add whisked toor dal. Stir well. Bring back to boil.',},
+  {t:'Taste. Adjust salt and tamarind. Cook 5 more minutes.',timer:300},
+  {t:'Tempering: heat small pan until very hot.',},
+  {t:F.omam+'Dry pan first. Omam — 10 seconds max.',timer:10,flags:['crit']},
+  {t:'Add avocado oil. Mustard + cumin seeds + dried red chilli + curry leaves. Full pop.',timer:20},
+  {t:'Pour tempering into sambar. Cover immediately. 2 minutes.',timer:120},
+  {t:'Turn off heat. 30 seconds.',timer:30},
+  {t:F.amla+'Add amla powder off heat. Stir.',flags:['amla']},
+ ],
+ science:'Drumstick (moringa) contains 7× more vitamin C than oranges, 4× more calcium than milk, and 3× more potassium than bananas per 100g. The most nutritionally dense vegetable in this plan. Drumstick leaves contain isothiocyanates that directly inhibit LDL oxidation.',
+ begNotes:{'How to eat drumstick':'Hold the piece vertically over your bowl, bite the end, and drag your teeth along the length — the soft flesh and seeds come out. Leave the fibrous husk.'}
+},
+{id:'gravy-pepper-sambar',cat:'gravy',en:'Milagu (Pepper) Sambar',ta:'மிளகு சாம்பார்',
+ time:'30 min',serves:'4',
+ appears:['W1 Wed','W2 Wed','W3 Wed','W4 Wed'],
+ nut:{c:11,p:6,f:2,kcal:82,fibre:3},
+ fat:{total:2,sat:0.3,mufa:1.1,pufa:0.3},chop40:false,
+ ing:[
+  {a:'100g',n:'Toor dal'},
+  {a:'1 tbsp',n:'Black peppercorns, whole',note:'Dry roast separately — critical step'},
+  {a:'1 tsp',n:'Cumin seeds, whole',note:'Dry roast with the pepper'},
+  {a:'2 tbsp',n:'Tamarind paste (medium)'},{a:'500ml',n:'Water'},
+  {a:'1 tsp',n:'Sambar powder'},{a:'¼ tsp',n:'Omam',flag:'omam'},
+  {a:'½ tsp',n:'Amla powder',flag:'amla'},
+  {a:'½ tsp',n:'Mustard seeds'},{a:'10',n:'Curry leaves'},
+  {a:'1 tsp',n:'Avocado oil'},{a:'¼ tsp',n:'Turmeric'},{a:'1 tsp',n:'Salt'},
+ ],
+ steps:[
+  {t:'In a small DRY pan, roast peppercorns and cumin seeds TOGETHER on medium heat for 3 minutes, stirring constantly. Ready when you smell a deep toasty aroma.',timer:180,flags:['crit'],note:'Pre-roasting before grinding creates an entirely different flavour profile. Heat caramelises their surface oils and transforms them from sharp to rounded, complex, and deeply fragrant.'},
+  {t:'Allow to cool 2 minutes. Coarsely crack in a mortar. Some fine, some larger.',timer:120},
+  {t:'Pressure cook toor dal with 250ml water, turmeric — 4 whistles. Whisk smooth.',timer:900},
+  {t:'Boil tamarind + 350ml water. Add the cracked pepper-cumin and sambar powder. Boil 8 minutes.',timer:480},
+  {t:'Add whisked dal. Stir. Bring to simmer.',},
+  {t:'Taste — real pepper heat, earthy cumin base, bright tamarind. Adjust salt.',},
+  {t:'Cook 5 more minutes together.',timer:300},
+  {t:'Tempering: dry pan, very hot.',},
+  {t:F.omam+'Omam dry, 10 seconds.',timer:10},
+  {t:'Oil, mustard, curry leaves. Pour over sambar. Cover 2 min.',timer:120},
+  {t:'Off heat 30 sec.',timer:30},
+  {t:F.amla+'Amla off heat.',flags:['amla']},
+ ],
+ science:'Piperine in black pepper increases bioavailability of turmeric curcumin by 2000%. Piperine also independently activates thermogenesis and inhibits adipogenesis. Cumin contains cuminaldehyde — a demonstrated cholesterol-lowering agent in RCTs.',
+ begNotes:{'How hot should this be?':'Quite hot — the pepper is the star. If too hot for the family, reduce peppercorns to 1½ tsp.'}
+},
+// ─── KIDS ────────────────────────────────────────────────
+{id:'kids-oat-dosai',cat:'kids',en:'Oat-Wheat Dosai (Overnight Batter)',ta:'ஓட்ஸ் கோதுமை தோசை',
+ time:'Batter 12–16hr · Cook 20 min',serves:'4 (10–12 dosai)',
+ appears:['Kids dinner — Tue, Thu, Sat'],
+ nut:{c:22,p:5,f:1,kcal:116,fibre:2},
+ fat:{total:1,sat:0.2,mufa:0.4,pufa:0.2},chop40:false,
+ ing:[
+  {a:'200g',n:'Whole wheat flour (atta)',note:'Not maida. The fibre is important.'},
+  {a:'100g',n:'Rolled oats',note:'Blended to fine powder before measuring'},
+  {a:'½ tsp',n:'Salt'},{a:'Water',n:'Enough to make batter thin as pouring cream'},
+ ],
+ steps:[
+  {t:'THE NIGHT BEFORE (8–9pm): Blend rolled oats to fine powder in a dry blender.',timer:60},
+  {t:'Mix oat powder + wheat flour + salt. Add water gradually, whisking, until smooth — consistency of thin pouring cream.',note:'Too thick = thick cakey dosai. Too thin = dosai tears when you flip.'},
+  {t:'Cover with a clean cloth (not airtight). Leave at room temperature 12–16 hours.',timer:43200,flags:['crit'],note:'Room temperature fermentation creates mild lactic acid — the slight sourness, small bubbles, and ability to crisp on the edges. Refrigerating kills this process.'},
+  {t:'NEXT MORNING: Check batter — slightly bubbly, mild sour smell, slightly expanded. Stir from the bottom.',flags:['crit'],note:'Flat with no bubbles = room was too cold, leave 2 more hours. Smells alcoholic = over-fermented, thin with water and cook immediately.'},
+  {t:'COOKING: Heat iron tawa on medium-high for 2 full minutes.',timer:120,flags:['crit']},
+  {t:'Reduce to medium. Pour one ladle onto center. Using back of ladle, spiral outward to spread into a thin circle.',flags:['crit'],note:'Spiral pour from center outward. Do NOT pour all batter then spread with pressure — this compresses it and prevents crisping.'},
+  {t:'Watch the edges — when they turn from white to golden and begin to lift naturally, the dosai is 90% done.',timer:90,flags:['crit']},
+  {t:'Flip gently. Cook 30 seconds on the second side.',timer:30},
+  {t:'Remove. Re-heat tawa between each dosai.',},
+ ],
+ science:'Oat flour adds beta-glucan — the soluble fibre with the strongest clinical evidence for LDL reduction (reduces LDL by 5–10% with 3g/day). Combined with whole wheat phytosterols and B vitamins, significantly more nutritious than traditional rice-urad dal batter.',
+ begNotes:{'My dosai is tearing when I flip it':'Tawa not hot enough or dosai not ready. Wait until edges lift on their own.','The batter is lumpy':'Soak oats in water for 10 minutes before blending.'}
+},
+{id:'kids-wheat-roti',cat:'kids',en:'Whole Wheat Roti',ta:'கோதுமை சப்பாத்தி',
+ time:'20 min',serves:'4 (8 roti)',
+ appears:['Kids dinner — Mon, Wed, Thu, Sun most days'],
+ nut:{c:20,p:4,f:1,kcal:103,fibre:2},
+ fat:{total:1,sat:0.2,mufa:0.3,pufa:0.3},chop40:false,
+ ing:[
+  {a:'240g',n:'Whole wheat flour (atta)',note:'Good quality — fresh. Stale flour makes crumbly roti.'},
+  {a:'1 tsp',n:'Wheat germ',note:'Add to the flour — vitamin E, folate, zinc'},
+  {a:'½ tsp',n:'Salt'},{a:'130–150ml',n:'Warm water',note:'Not hot, not cold — warm as a bath'},
+ ],
+ steps:[
+  {t:'Mix flour + wheat germ + salt. Create a well in the center.',},
+  {t:'Add warm water gradually, mixing with fingers from center outward. Soft, pliable dough — not sticky, not stiff.',flags:['crit'],note:'Start with 130ml. If the dough cracks when you fold it, add more water 1 tbsp at a time.'},
+  {t:'Knead for 5 full minutes — push forward with heel of palm, fold back, rotate.',timer:300,flags:['crit'],note:'Proper kneading develops gluten. Under-kneaded dough tears when rolled and never puffs.'},
+  {t:'Cover with a damp cloth. Rest 15 minutes. Not optional.',timer:900,note:'Resting allows gluten strands to relax. Well-rested dough rolls out much more easily.'},
+  {t:'Divide into 8 equal balls. Keep covered while working.',},
+  {t:'Roll one ball into a thin circle, 20cm diameter. Rotate ¼ turn between each roll.',flags:['crit'],note:'Roll from center outward in all directions. Uneven thickness = parts burn before others cook.'},
+  {t:'Heat iron tawa on high until very hot. Place roti. Cook 30–40 seconds until bubbles form on top.',timer:35,flags:['crit']},
+  {t:'Flip. Cook 20 seconds. Flip again — hold directly over gas flame with tongs to puff.',timer:20,flags:['crit'],note:'A fully puffed roti means evenly cooked and light. If it doesn\'t puff, heat was not high enough.'},
+ ],
+ science:'Whole wheat roti retains bran and germ — including fibre, B vitamins, iron, zinc, and vitamin E removed by white flour processing. Adding wheat germ specifically increases folate content. The combination of fibre and protein (4g/roti) provides slower gastric emptying, reducing post-meal glucose spike.',
+ begNotes:{'How do I know the tawa is ready?':'Hold palm 10cm above — if you need to pull away within 2 seconds, it\'s ready.','My roti is hard':'Dough was too stiff, rolled too thick, or tawa not hot enough.'}
+},
+{id:'kids-millet-kichdi',cat:'kids',en:'Foxtail Millet Kichdi',ta:'தினை கிச்சடி',
+ time:'25 min',serves:'4 kids portions',
+ appears:['Kids dinner — Tue W1','Kids dinner — Fri W2','Kids dinner — Fri W3'],
+ nut:{c:32,p:8,f:4,kcal:192,fibre:4},
+ fat:{total:4,sat:0.5,mufa:2.8,pufa:0.5},chop40:false,
+ ing:[
+  {a:'200g dry',n:'Foxtail millet (thinai)',note:'Rinse 3 times. Lower glycaemic index than rice.'},
+  {a:'1 cup',n:'Mixed vegetables',note:'Carrot + peas + green beans + potato optional'},
+  {a:'1 tbsp',n:'Avocado oil'},{a:'1 tsp',n:'Cumin seeds'},
+  {a:'½ tsp',n:'Mustard seeds'},{a:'1',n:'Onion medium',note:'Chopped'},
+  {a:'1 tsp',n:'Ginger',note:'Grated'},{a:'¼ tsp',n:'Turmeric'},
+  {a:'½ tsp',n:'Cumin-coriander powder'},{a:'1 tsp',n:'Salt'},{a:'500ml',n:'Water'},
+ ],
+ steps:[
+  {t:'Heat oil. Mustard seeds — pop. Cumin seeds.',timer:20},
+  {t:'Add onion. Cook 3 minutes until softened.',timer:180},
+  {t:'Add ginger. Stir 30 seconds.',timer:30},
+  {t:'Add vegetables. Add turmeric + cumin-coriander powder. Toss to coat.',},
+  {t:'Add rinsed millet. Stir to coat with the spices — 1 minute.',timer:60,note:'Toasting the millet briefly with spices before adding water creates a nutty flavour and keeps grains separate.'},
+  {t:'Add water + salt. Bring to boil. Reduce to medium-low. Cover.',},
+  {t:'Cook covered 15 minutes.',timer:900,flags:['crit']},
+  {t:'Turn off heat. Rest covered 5 minutes.',timer:300},
+  {t:'Fluff with a fork. Taste and adjust salt.',},
+ ],
+ science:'Foxtail millet glycaemic index of 50–55 vs white rice at 72–78. Rich in iron (2.8mg/100g), zinc, and calcium. Provides 8g fibre per 100g. An excellent nutritional upgrade for teenage growth years.',
+ begNotes:{'The millet is sticking to the bottom':'Reduce heat and add 3 tbsp more water. Foxtail millet absorbs water faster than rice.'}
+},
+// ─── SPECIAL ─────────────────────────────────────────────
+{id:'special-biryani-kids',cat:'special',en:"Kids' Saffron Brown Rice Biryani",ta:'குழந்தைகள் குங்குமப்பூ பிரியாணி',
+ time:'50 min',serves:'4 (kids portions)',
+ appears:['Friday dinner — kids','Weekly saffron dose'],
+ nut:{c:42,p:8,f:4,kcal:232,fibre:3},
+ fat:{total:4,sat:0.5,mufa:2.8,pufa:0.5},chop40:false,
+ ing:[
+  {a:'300g dry',n:'Brown rice (basmati style)',note:'Rinse 5 times. Soak 30 minutes.'},
+  {a:'1 pinch',n:'Saffron (about 15–20 threads)',note:'The weekly dose. Bloom in warm water only.'},
+  {a:'3 tbsp',n:'Warm water',note:'For blooming saffron — NOT hot, not cold'},
+  {a:'1',n:'Onion medium',note:'Thinly sliced'},{a:'1',n:'Tomato medium',note:'Chopped'},
+  {a:'1 cup',n:'Mixed vegetables',note:'Peas + carrot + beans'},
+  {a:'1 tbsp',n:'Avocado oil'},{a:'2',n:'Bay leaves'},{a:'4',n:'Cloves'},
+  {a:'4',n:'Green cardamom pods',note:'Lightly crushed'},{a:'1 stick',n:'Cinnamon (5cm)'},
+  {a:'1 tsp',n:'Cumin seeds'},{a:'1 tsp',n:'Ginger-garlic paste'},
+  {a:'½ tsp',n:'Turmeric'},{a:'1 tsp',n:'Biryani masala or garam masala'},
+  {a:'Handful',n:'Fresh mint leaves'},{a:'Handful',n:'Fresh coriander'},
+  {a:'1½ tsp',n:'Salt'},
+ ],
+ steps:[
+  {t:'BLOOM THE SAFFRON: Place saffron threads in a small bowl. Add 3 tbsp warm water. Stir once. Leave undisturbed 15 minutes minimum.',timer:900,flags:['crit'],note:'Saffron blooming is chemistry, not speed. Cold water extracts poorly. Boiling water destroys safranal compounds. Warm water (40–50°C) is correct. After 15 minutes the water will be deep amber-gold.'},
+  {t:'Drain and rinse soaked brown rice 2 more times.',},
+  {t:'Heat avocado oil in a heavy pot on medium heat.',},
+  {t:'Add whole spices: bay leaves, cloves, cardamom, cinnamon, cumin. Stir 30 seconds.',timer:30},
+  {t:'Add sliced onion. Cook 8–10 minutes, stirring regularly, until deep golden-brown.',timer:540,flags:['crit'],note:'The caramelised onion is the flavour base. Under-caramelised = flat vegetable-water flavour. Patience: 8 minutes minimum.'},
+  {t:'Add ginger-garlic paste. Stir 2 minutes.',timer:120},
+  {t:'Add tomato + turmeric + biryani masala. Cook until tomato breaks down — 4 minutes.',timer:240},
+  {t:'Add vegetables. Toss. Cook 2 minutes.',timer:120},
+  {t:'Add drained brown rice. Stir to coat with the masala for 2 minutes.',timer:120,flags:['crit'],note:'Toasting the rice briefly in masala creates a protective coating on each grain, preventing clumping.'},
+  {t:'Add 600ml water + salt. Bring to a rolling boil.',},
+  {t:'Pour bloomed saffron water in a spiral pattern over the rice.',flags:['crit'],note:'The spiral pour distributes saffron visually — pale rice interspersed with gold patches.'},
+  {t:'Add mint and coriander on top. Cover with a tight lid. Reduce to lowest heat.',},
+  {t:'Cook on lowest heat for 25 minutes. Do not open the lid.',timer:1500,flags:['crit']},
+  {t:'Turn off heat. Rest covered 10 minutes.',timer:600,note:'The resting period is as important as the cooking. Opening early releases steam and results in uneven cooking.'},
+  {t:'Open. Fluff gently with a fork — lift from the bottom. Serve.',},
+ ],
+ science:'Saffron contains safranal, crocin, and crocetin — compounds shown in multiple RCTs to improve mood, reduce anxiety, and improve memory recall, with effects comparable to low-dose SSRIs in mild depression. Brown rice provides resistant starch and 3× the fibre of white rice.',
+ begNotes:{'How do I know the biryani is cooked?':'Press a single grain against the roof of your mouth. Should yield completely with no hard centre.','The rice at the bottom is slightly stuck':'That\'s the socarrat — a thin layer of caramelised rice. Not burnt, flavourful.'}
+},
+{id:'special-av-sambar',cat:'special',en:'Arachu Vitta (AV) Sambar',ta:'அரைத்து விட்ட சாம்பார்',
+ time:'60 min (+ podi if from scratch)',serves:'4 (quart)',
+ appears:['Occasional family dish — not in weekly rotation','Sunday special or guest meals'],
+ nut:{c:18,p:7,f:8,kcal:168,fibre:5},
+ fat:{total:8,sat:5.2,mufa:2,pufa:0.6},chop40:false,
+ ing:[
+  {a:'— VEGETABLES —',n:'',note:''},{a:'1½ cups',n:'Ash gourd (pooshnikkai)',note:'2cm cubes'},
+  {a:'1 cup',n:'Pumpkin (parangikkai)',note:'2cm cubes'},
+  {a:'½ cup',n:'Capsicum',note:'Chopped — chop 40 min before cooking'},
+  {a:'1 cup',n:'Okra (vendakkai)',note:'Sliced — chop 40 min before cooking'},
+  {a:'1 cup',n:'Raw banana (vazhaikkai)',note:'Peeled, cubed, kept in water until use'},
+  {a:'1½ cups',n:'Tomato (3 medium)',note:'Chopped'},{a:'½ cup',n:'Onion (optional)',note:'Chopped'},
+  {a:'— GROUND MASALA —',n:'',note:'Roast each separately'},
+  {a:'3',n:'Whole red chilli (Byadgi)',note:'Roast until fragrant, not dark'},
+  {a:'3 tbsp',n:'Coriander seeds (dhania)',note:'Roast until golden and aromatic'},
+  {a:'3 tbsp',n:'Chana dal',note:'Roast until golden — takes longest'},
+  {a:'1 tsp',n:'Methi seeds (vendhyam)',note:'Add to center of pan with tiny oil — goes golden fast'},
+  {a:'¼ tsp',n:'Black mustard seeds (pinch)'},{a:'2 sprigs',n:'Curry leaves',note:'Add last, dry-roast briefly'},
+  {a:'½ tsp',n:'Black pepper'},{a:'1 cup',n:'Fresh/frozen grated coconut',note:'Added raw when grinding'},
+  {a:'— TOOR DAL —',n:'',note:''},
+  {a:'½ cup',n:'Toor dal'},{a:'1¾ cups',n:'Water'},
+  {a:'¼ tsp',n:'Turmeric'},{a:'1 tsp',n:'Olive oil'},
+  {a:'— TEMPERING —',n:'',note:'Coconut oil stays in this recipe'},
+  {a:'1½ tbsp',n:'Coconut oil',note:'Traditional — kept as-is for this occasional dish'},
+  {a:'1 tsp',n:'Mustard seeds'},{a:'¼ tsp',n:'Methi seeds'},
+  {a:'1 sprig',n:'Curry leaves'},{a:'¼ tsp',n:'Asafoetida (perungayam)'},
+  {a:'1–2 tbsp',n:'Cilantro stems',note:'Chopped'},
+  {a:'— OTHER —',n:'',note:''},
+  {a:'1½ tbsp',n:'Thick tamarind extract'},{a:'½ tsp',n:'Amla powder',flag:'amla'},
+  {a:'2–2½ tsp',n:'Salt'},
+ ],
+ steps:[
+  {t:'BEFORE ANYTHING: Chop okra and capsicum. Set a timer. 40 minutes at room temperature for sulforaphane.',timer:2400,flags:['crit']},
+  {t:'Cook toor dal: Low Pressure, Normal, 9 minutes, natural release. Mash well.',timer:540},
+  {t:'MAKE MASALA: Dry roast chana dal, stirring constantly, until golden. Remove.',timer:240},
+  {t:'Roast coriander seeds until golden and fragrant. Remove.',timer:120},
+  {t:'Roast Byadgi red chillies until they puff and darken slightly. Remove.',timer:60,flags:['crit'],note:'Byadgi chillies give colour more than heat. If unavailable, Kashmiri red chilli works.'},
+  {t:'Make a well in center of pan. Add tiny oil. Add methi seeds only in the oiled center. Stir constantly — golden in 30 seconds.',timer:30,flags:['crit'],note:'Methi burns in 30 seconds. Over-cooked methi is intensely bitter and will ruin the entire sambar. Golden = perfect.'},
+  {t:'Add a pinch of mustard seeds. Add curry leaves. Remove immediately.',timer:15},
+  {t:'Cool all roasted ingredients completely.',timer:600,flags:['crit']},
+  {t:'Grind cooled masala with fresh coconut and a little water to a very smooth paste.',note:'Smoother paste = better sambar. At least 3–4 minutes in the blender.'},
+  {t:'COOKING: Heat coconut oil. Mustard seeds — pop.',timer:20},
+  {t:'Add methi seeds, curry leaves, cilantro stems, asafoetida.',timer:15},
+  {t:'Add onion + capsicum (40-min chopped). Sauté 2–3 minutes.',timer:180},
+  {t:'Add okra (40-min chopped). Sauté 2–3 minutes.',timer:180},
+  {t:'Add tomatoes + turmeric + pinch of salt. Sauté until tomatoes soften and oil appears.',timer:240},
+  {t:'Add remaining vegetables. Toss well.',},
+  {t:'Add 3½–4 cups hot water + tamarind extract + remaining salt. Bring to boil.',},
+  {t:'Simmer uncovered 20–25 minutes until all vegetables are cooked.',timer:1350},
+  {t:'Add the ground masala paste. Stir through. Simmer 5 minutes on LOW — do not boil hard.',timer:300,flags:['crit'],note:'Boiling hard after adding the coconut-masala paste splits the emulsion and gives a grainy texture.'},
+  {t:'Add mashed toor dal. Stir. Simmer 5 more minutes.',timer:300},
+  {t:'Turn off heat. Rest 10 minutes covered.',timer:600},
+  {t:'Add cilantro garnish.',},
+  {t:F.amla+'Add amla ½ tsp off heat. Stir.',flags:['amla']},
+ ],
+ science:'Methi seeds (fenugreek) contain trigonelline — shown in RCTs to reduce post-meal blood glucose by 25–50% and lower LDL cholesterol. The arachu vitta technique — grinding fresh masala rather than using stored powder — retains volatile aromatic compounds lost during powder production.',
+ begNotes:{'What is the difference from regular sambar?':'AV sambar uses freshly ground masala with coconut — richer, creamier, restaurant-quality. The coconut binds the sambar and gives it a thicker body.','Can I make the podi in advance?':'Yes — dry podi keeps 3–4 months refrigerated, 6+ months frozen. Grind 6–7 tbsp with 1 cup coconut + 1 cup toor dal fresh each time.'}
+},
+// ─── FAMILY RECIPES ──────────────────────────────────────
   // ─── 1. VENGAYA MANATHAKKALI VETHA KUZHAMBU ──────────
 {id:'gravy-manathakkali-vetha', cat:'family',
  en:'Vengaya Manathakkali Vetha Kuzhambu',
@@ -483,202 +1128,6 @@ const RECIPES = [
    'Can I substitute turnip with other vegetables?':'Yes — this recipe works with chow chow (chayote), raw banana, ash gourd (white pumpkin), or any firm white vegetable. The technique and coconut paste remain identical.'},
 },
 ];
-// ════════════════════════════════════════════════════════
-
-// ─── NEW: BASE TECHNIQUES ───────────────────────────────
-{id:'base-purple-cabbage', cat:'base', en:'Purple Cabbage Brine', ta:'கடும்சிவப்பு முட்டைக்கோஸ் உவர் நீர்',
- time:'20 min active · 3–5 days ferment', serves:'1 jar · lasts 3 weeks refrigerated',
- appears:['Make every 3 weeks','Add 2 tbsp to dinner salad daily','Use as fermented item'],
- nut:{c:2,p:1,f:0,kcal:12,fibre:1},
- fat:{total:0,sat:0,mufa:0,pufa:0},
- chop40:false,
- ing:[
-   {a:'500g',n:'Purple cabbage',note:'About ½ a medium head — more purple = more anthocyanins'},
-   {a:'1 tbsp',n:'Non-iodized salt',note:'Iodized salt kills the beneficial bacteria. Sea salt or kosher salt only.'},
-   {a:'1 tsp',n:'Black peppercorns',note:'Optional but adds depth'},
-   {a:'1',n:'Bay leaf',note:'Optional'},
-   {a:'1 clean',n:'1-litre mason jar with lid'},
- ],
- steps:[
-   {t:'Remove the outer 2 leaves of the cabbage. Set aside — you will use one as a weight later.',flags:['crit']},
-   {t:'Shred the cabbage thinly — ideally 2–3mm strips. A mandoline is ideal; a sharp knife works well. Uniform thickness means uniform fermentation.',flags:['crit'],note:'The thinner the shred, the faster it ferments and the more surface area for the beneficial bacteria. Irregular thick chunks ferment unevenly — some parts will be soft and sour before others.'},
-   {t:'Place shredded cabbage in a large mixing bowl. Add salt. Massage firmly with both hands for 8–10 minutes without stopping.',timer:540,flags:['crit'],note:'This is not mixing — this is aggressive squeezing and pressing. You are breaking down the cell walls to release water. After 8 minutes you will see a significant pool of purple liquid in the bowl. This is the brine the cabbage makes from its own water. It is stunning in colour and is what makes this ferment work without added vinegar.'},
-   {t:'Add peppercorns and bay leaf if using. Toss through.',},
-   {t:'Pack the cabbage very tightly into your clean 1-litre mason jar. Press it down firmly with your fist or a wooden spoon after each handful. The brine should rise above the cabbage level.',flags:['crit'],note:'The cabbage must be submerged below the brine. Any cabbage above the brine will be exposed to oxygen and may develop mould. Pack it so tightly it almost does not fit.'},
-   {t:'Roll one of the reserved outer leaves into a tight cylinder and push it into the jar opening as a plug — it holds the shredded cabbage below the brine.',flags:['crit']},
-   {t:'If the brine doesn\'t fully cover the cabbage, mix ¼ tsp non-iodized salt in 100ml water and add enough to submerge everything.',},
-   {t:'Close the lid loosely — not airtight. Carbon dioxide from fermentation needs to escape. Place the jar on a small plate (it will bubble over slightly).',timer:0,note:'A loose lid, a folded cloth with a rubber band, or a dedicated fermentation lid — all work. An airtight lid will create pressure and could cause the jar to crack or lid to pop.'},
-   {t:'Leave at room temperature, away from direct sunlight. Check daily — press down the cabbage plug to keep everything submerged. Taste from Day 3.',timer:0,flags:['crit'],note:'Day 1–2: No change visible. Day 3: Slightly sour, still crunchy — this is the ideal moment. Day 4–5: More sour, more complex. Day 5+: Very tangy, deeply fermented. Use your taste to decide when to refrigerate. There is no wrong answer.'},
-   {t:'When the flavour suits you, seal the jar tightly and refrigerate. Fermentation slows dramatically in the fridge. The brine stays good 3 weeks.',note:'The purple brine is as valuable as the cabbage itself. Use it in salad dressings, add a splash to your rasam, or drink a small glass as a probiotic shot.'},
- ],
- science:'Purple cabbage contains anthocyanins — particularly cyanidin-3-glucoside — at concentrations 8× higher than green cabbage. Anthocyanins cross the blood-brain barrier and have been shown to improve memory and reduce cognitive decline in long-term studies. Lacto-fermented cabbage produces Lactobacillus strains that produce GABA, directly reducing cortisol. The fermentation process increases bioavailability of all nutrients by 20–30% compared to raw cabbage.',
- begNotes:{
-   'What if it smells too sour?':'That is correct. Fermented vegetables smell sour — that is the lactic acid. If it smells putrid, rotten, or strongly unpleasant (as opposed to sharply sour), discard and restart.',
-   'White film on top?':'A thin white film (kahm yeast) is harmless — just skim it off. Fuzzy mould in pink, black, or green means the cabbage was exposed to air — discard the top layer and check if the cabbage below is still good.',
-   'The purple colour bleeds into everything':'Yes. This is the anthocyanin. Your hands will be purple for a day. Your cutting board will be stained. Embrace it — it is the most powerful brain food in this recipe.',
- }
-},
-
-// ─── NEW: SPECIAL RECIPES ───────────────────────────────
-{id:'special-biryani-kids', cat:'special', en:'Kids\' Saffron Brown Rice Biryani', ta:'குழந்தைகள் குங்குமப்பூ பிரியாணி',
- time:'50 min', serves:'4 (kids portions)',
- appears:['Friday dinner — kids','Weekly saffron dose'],
- nut:{c:42,p:8,f:4,kcal:232,fibre:3},
- fat:{total:4,sat:0.5,mufa:2.8,pufa:0.5},
- chop40:false,
- ing:[
-   {a:'300g dry',n:'Brown rice (basmati style)',note:'Rinse 5 times. Soak 30 minutes. Brown basmati has nuttier flavour and more fibre than white.'},
-   {a:'1 pinch',n:'Saffron (about 15–20 threads)',note:'The weekly dose. Bloom in warm water — never add dry directly.'},
-   {a:'3 tbsp',n:'Warm water',note:'For blooming saffron — NOT hot, not cold'},
-   {a:'1',n:'Onion medium',note:'Thinly sliced'},
-   {a:'1',n:'Tomato medium',note:'Chopped'},
-   {a:'1 cup',n:'Mixed vegetables',note:'Peas + carrot + beans — whatever is available'},
-   {a:'1 tbsp',n:'Avocado oil'},
-   {a:'2',n:'Bay leaves'},
-   {a:'4',n:'Cloves'},
-   {a:'4',n:'Green cardamom pods',note:'Lightly crushed'},
-   {a:'1 stick',n:'Cinnamon (5cm)'},
-   {a:'1 tsp',n:'Cumin seeds'},
-   {a:'1 tsp',n:'Ginger-garlic paste',note:'Fresh — 1cm ginger + 2 cloves garlic, ground'},
-   {a:'½ tsp',n:'Turmeric'},
-   {a:'1 tsp',n:'Biryani masala or garam masala'},
-   {a:'Handful',n:'Fresh mint leaves'},
-   {a:'Handful',n:'Fresh coriander'},
-   {a:'1½ tsp',n:'Salt'},
- ],
- steps:[
-   {t:'BLOOM THE SAFFRON: Place saffron threads in a small bowl. Add 3 tbsp warm (not hot) water. Stir once. Leave undisturbed 15 minutes minimum.',timer:900,flags:['crit'],note:'Saffron blooming is chemistry, not speed. Cold water extracts poorly. Boiling water destroys the safranal compounds that give saffron its flavour and the crocin compounds responsible for its mood and memory benefits. Warm water (40–50°C — like a comfortable bath) is the correct temperature. After 15 minutes the water will be a deep amber-gold and the aroma will be unmistakable.'},
-   {t:'Drain and rinse soaked brown rice 2 more times.',},
-   {t:'Heat avocado oil in a heavy pot on medium heat.',},
-   {t:'Add whole spices: bay leaves, cloves, cardamom, cinnamon stick, cumin seeds. Stir 30 seconds until fragrant.',timer:30},
-   {t:'Add sliced onion. Cook 8–10 minutes, stirring regularly, until deep golden-brown.',timer:540,flags:['crit'],note:'This caramelised onion is the flavour base of the entire biryani. Under-caramelised onion = a flat, vegetable-water flavour. The onion needs patience — stirring every 2 minutes, medium heat, watching for deep amber colour. It is done when it smells sweet and slightly nutty.'},
-   {t:'Add ginger-garlic paste. Stir 2 minutes until raw smell disappears.',timer:120},
-   {t:'Add tomato + turmeric + biryani masala. Cook until tomato completely breaks down — 4 minutes.',timer:240},
-   {t:'Add vegetables. Toss. Cook 2 minutes.',timer:120},
-   {t:'Add drained brown rice. Stir to coat with the masala for 2 minutes.',timer:120,flags:['crit'],note:'Toasting the rice briefly in the masala before adding water creates a protective coating on each grain, preventing clumping. This is why restaurant biryani grains are separate.'},
-   {t:'Add 600ml water + salt. Bring to a rolling boil.',},
-   {t:'Add the bloomed saffron water — pour it in a spiral pattern over the rice.',flags:['crit'],note:'The spiral pour distributes the saffron visually and aromatically throughout the biryani without you needing to stir it in. The colour gradient from the pour creates the characteristic biryani look — pale rice interspersed with saffron-gold patches.'},
-   {t:'Add mint and coriander on top. Cover with a tight-fitting lid. Reduce heat to lowest setting.',},
-   {t:'Cook on lowest heat for 25 minutes. Do not open the lid.',timer:1500,flags:['crit']},
-   {t:'After 25 minutes, turn off heat. Rest covered 10 minutes.',timer:600,note:'The resting period is as important as the cooking. The trapped steam continues cooking the top layer while the bottom dries slightly. Opening early releases this steam and results in undercooked top rice and stodgy bottom.'},
-   {t:'Open. Fluff gently with a fork — lift from the bottom. Serve.',},
- ],
- science:'Saffron (Crocus sativus) contains safranal, crocin, and crocetin — compounds shown in multiple RCTs to improve mood, reduce anxiety, and improve memory recall, with effects comparable to low-dose SSRIs in mild depression. The active dose used in trials is 30mg saffron extract — equivalent to a generous daily pinch. One pinch per week is below the therapeutic dose but accumulates benefit over time. Brown rice provides resistant starch and 3× the fibre of white rice, significantly reducing the post-meal glucose spike. The whole spices — cloves, cardamom, cinnamon — are among the highest antioxidant-density ingredients available.',
- begNotes:{
-   'How do I know the biryani is cooked?':'Press a single grain of rice against the roof of your mouth with your tongue. It should yield completely with no hard centre. If you feel any resistance, add 3 tbsp water, cover, and cook 8 more minutes.',
-   'The rice at the bottom is slightly stuck':'This is called "socarrat" in Spanish cooking — it is considered a delicacy in many cultures. A thin layer of caramelised rice at the bottom of the pot is not burnt — it is flavourful. If it is dark brown and smells burnt, your heat was too high.',
- }
-},
-
-{id:'special-av-sambar', cat:'special', en:'Arachu Vitta (AV) Sambar', ta:'அரைத்து விட்ட சாம்பார்',
- time:'60 min (+ podi if making from scratch)', serves:'4 (quart)',
- appears:['Occasional family dish — not in weekly rotation','Sunday special or guest meals'],
- nut:{c:18,p:7,f:8,kcal:168,fibre:5},
- fat:{total:8,sat:5.2,mufa:2,pufa:0.6},
- chop40:false,
- ing:[
-   {a:'— VEGETABLES —',n:'',note:''},
-   {a:'1½ cups',n:'Ash gourd (pooshnikkai)',note:'2cm cubes'},
-   {a:'1 cup',n:'Pumpkin (parangikkai)',note:'2cm cubes'},
-   {a:'½ cup',n:'Capsicum',note:'Chopped — chop 40 min before cooking'},
-   {a:'1 cup',n:'Okra (vendakkai)',note:'Sliced — chop 40 min before cooking'},
-   {a:'1 cup',n:'Raw banana (vazhaikkai)',note:'Peeled, cubed, kept in water until use'},
-   {a:'1½ cups',n:'Tomato (3 medium)',note:'Chopped'},
-   {a:'½ cup',n:'Onion (optional)',note:'Chopped'},
-   {a:'— GROUND MASALA —',n:'',note:'Roast each separately'},
-   {a:'3',n:'Whole red chilli (Byadgi)',note:'Roast until fragrant, not dark'},
-   {a:'3 tbsp',n:'Coriander seeds (dhania)',note:'Roast until golden and aromatic'},
-   {a:'3 tbsp',n:'Chana dal',note:'Roast until golden — takes longest'},
-   {a:'1 tsp',n:'Methi seeds (vendhyam)',note:'Add to center of pan with tiny oil — goes golden fast, watch carefully'},
-   {a:'¼ tsp',n:'Black mustard seeds (pinch)',note:'Roast briefly'},
-   {a:'2 sprigs',n:'Curry leaves',note:'Add last, dry-roast briefly'},
-   {a:'½ tsp',n:'Black pepper',note:''},
-   {a:'1 cup',n:'Fresh/frozen grated coconut',note:'Added raw when grinding — not roasted'},
-   {a:'— TOOR DAL —',n:'',note:''},
-   {a:'½ cup',n:'Toor dal',note:''},
-   {a:'1¾ cups',n:'Water',note:'For Instant Pot: Low Pressure, Normal, 9 min, natural release'},
-   {a:'¼ tsp',n:'Turmeric',note:''},
-   {a:'— TEMPERING —',n:'',note:'⚠️ Traditional recipe uses coconut oil — this is kept as-is for AV sambar'},
-   {a:'1½ tbsp',n:'Coconut oil',note:'Coconut oil stays in this recipe — it is an occasional dish and the flavour is integral'},
-   {a:'1 tsp',n:'Mustard seeds',note:''},
-   {a:'¼ tsp',n:'Methi seeds',note:''},
-   {a:'1 sprig',n:'Curry leaves',note:''},
-   {a:'¼ tsp',n:'Asafoetida (perungayam)',note:''},
-   {a:'1–2 tbsp',n:'Cilantro stems',note:'Chopped'},
-   {a:'— OTHER —',n:'',note:''},
-   {a:'1½ tbsp',n:'Thick tamarind extract',note:'From lemon-sized ball soaked in warm water'},
-   {a:'½ tsp',n:'Amla powder',note:'Added strictly off heat at end — not in the original recipe but added here'},
-   {a:'2–2½ tsp',n:'Salt',note:'Add in stages'},
- ],
- steps:[
-   {t:'BEFORE ANYTHING: Chop okra and capsicum. Set a timer. They need 40 minutes at room temperature for sulforaphane to form before heat is applied.',timer:2400,flags:['crit']},
-   {t:'Cook toor dal in Instant Pot: Low Pressure, Normal, 9 minutes, natural release. Mash well and set aside.',timer:540},
-   {t:'MAKE THE MASALA: In a dry pan on medium heat, roast chana dal, stirring constantly, until golden. Remove.',timer:240},
-   {t:'In the same pan, roast coriander seeds until golden and fragrant. Remove.',timer:120},
-   {t:'Add the Byadgi red chillies — roast until they puff and darken slightly. Remove.',timer:60,flags:['crit'],note:'Byadgi chillies are a specific variety from Karnataka — they give colour more than heat. If you cannot find them, Kashmiri red chilli works. Regular dry red chilli will make the sambar hotter and darker.'},
-   {t:'Make a tiny well in the center of the pan. Add a few drops of oil. Add methi seeds only in this oiled center. Stir constantly — they go golden in 30 seconds. Watch closely.',timer:30,flags:['crit'],note:'Methi seeds are the most heat-sensitive ingredient in this masala. Over-cooked methi turns intensely bitter and will ruin the entire sambar. Golden = perfect. Dark brown = too far.'},
-   {t:'Add a pinch of mustard seeds. Add curry leaves (they will spit). Remove immediately.',timer:15},
-   {t:'Cool all roasted ingredients completely — do not rush this.',timer:600,flags:['crit']},
-   {t:'Grind cooled masala ingredients with fresh coconut and a little water to a very smooth paste.',note:'The smoother the paste, the better the sambar. Take time with grinding — at least 3–4 minutes in the blender. Add water gradually.'},
-   {t:'COOKING: Heat coconut oil in a heavy vessel. Add mustard seeds — let pop.',timer:20},
-   {t:'Add methi seeds, curry leaves, cilantro stems, asafoetida.',timer:15},
-   {t:'Add onion + capsicum (40-min chopped). Sauté 2–3 minutes.',timer:180},
-   {t:'Add okra (40-min chopped). Sauté 2–3 minutes.',timer:180},
-   {t:'Add tomatoes + turmeric + pinch of salt. Sauté until tomatoes soften and oil appears.',timer:240},
-   {t:'Add remaining vegetables. Toss well.',},
-   {t:'Add 3½ to 4 cups hot water + tamarind extract + remaining salt. Bring to boil.',},
-   {t:'Simmer uncovered 20–25 minutes until all vegetables are completely cooked.',timer:1350},
-   {t:'Add the ground masala paste. Stir through. Simmer 5 minutes on LOW — do not boil hard.',timer:300,flags:['crit'],note:'Boiling hard after adding the coconut-masala paste splits the emulsion and gives a grainy texture. Gentle simmering keeps it smooth, creamy, and unified.'},
-   {t:'Add mashed toor dal. Stir well. Simmer 5 more minutes.',timer:300},
-   {t:'Turn off heat. Rest 10 minutes covered.',timer:600},
-   {t:'Add cilantro garnish.',},
-   {t:F.amla+'Add amla ½ tsp off heat. Stir. This is an addition to the original recipe — it survives the temperature of the rested sambar.',flags:['amla'],note:'The sambar will be around 65–70°C after resting 10 minutes — safe for amla\'s vitamin C and polyphenols. Adding earlier would destroy both.'},
- ],
- science:'This is an occasional dish and retains coconut for authentic flavour. The ground coconut provides medium-chain triglycerides. The combination of methi seeds (fenugreek), Byadgi chillies, and black pepper creates a sambar with high levels of trigonelline (fenugreek compound shown to reduce post-meal blood glucose by 25–50% in RCTs). The arachu vitta technique — grinding fresh masala rather than using stored powder — retains volatile aromatic compounds that are lost during powder production and storage.',
- begNotes:{
-   'What is the difference between AV sambar and regular sambar?':'Regular sambar uses stored sambar powder. AV sambar uses freshly ground masala with coconut — this is a more elaborate, richer, restaurant-quality preparation. The coconut binds the sambar and gives it a thicker, creamier body.',
-   'Can I make the podi in advance?':'Yes — the podi (dry version of the masala without coconut) keeps 3–4 months refrigerated, 6+ months frozen. Make a large batch using the podi recipe (40 chillies, 2 cups each dhania and chana dal, etc.), then grind 6–7 tbsp with 1 cup coconut + 1 cup toor dal fresh each time you make AV sambar.',
- }
-},
-
-// ─── UPDATED: KIDS BROWN RICE BIRYANI (with saffron note) ───
-// (This replaces the simple biryani reference in the kids add-on)
-{id:'kids-millet-kichdi', cat:'kids', en:'Foxtail Millet Kichdi', ta:'தினை கிச்சடி',
- time:'25 min', serves:'4 kids portions',
- appears:['Kids dinner — Tue W1','Kids dinner — Fri W2','Kids dinner — Fri W3'],
- nut:{c:32,p:8,f:4,kcal:192,fibre:4},
- fat:{total:4,sat:0.5,mufa:2.8,pufa:0.5},
- chop40:false,
- ing:[
-   {a:'200g dry',n:'Foxtail millet (thinai)',note:'Rinse 3 times. Foxtail millet has lower glycaemic index than rice.'},
-   {a:'1 cup',n:'Mixed vegetables',note:'Carrot + peas + green beans + potato optional'},
-   {a:'1 tbsp',n:'Avocado oil'},
-   {a:'1 tsp',n:'Cumin seeds'},
-   {a:'½ tsp',n:'Mustard seeds'},
-   {a:'1',n:'Onion medium',note:'Chopped'},
-   {a:'1 tsp',n:'Ginger',note:'Grated'},
-   {a:'¼ tsp',n:'Turmeric'},
-   {a:'½ tsp',n:'Cumin-coriander powder'},
-   {a:'1 tsp',n:'Salt'},
-   {a:'500ml',n:'Water'},
- ],
- steps:[
-   {t:'Heat oil in a pot. Add mustard seeds — pop. Add cumin seeds.',timer:20},
-   {t:'Add onion. Cook 3 minutes until softened.',timer:180},
-   {t:'Add ginger. Stir 30 seconds.',timer:30},
-   {t:'Add vegetables. Add turmeric + cumin-coriander powder. Toss to coat.',},
-   {t:'Add rinsed millet. Stir to coat with the spices — 1 minute.',timer:60,note:'Toasting the millet briefly with the spices before adding water creates a nutty flavour and keeps the grains separate.'},
-   {t:'Add water + salt. Bring to boil. Reduce to medium-low. Cover.',},
-   {t:'Cook covered 15 minutes. Check — millet should have absorbed all water.',timer:900,flags:['crit']},
-   {t:'Turn off heat. Rest covered 5 minutes.',timer:300},
-   {t:'Fluff with a fork. Taste and adjust salt.',},
- ],
- science:'Foxtail millet (thinai) has a glycaemic index of 50–55 compared to white rice at 72–78. It is rich in iron (2.8mg/100g), zinc, and calcium. Unlike rice, it provides significant fibre (8g/100g) and contains silicon — a trace mineral important for bone and connective tissue health. An excellent nutritional upgrade for teenage growth years.',
- begNotes:{
-   'The millet is sticking to the bottom':'Reduce heat and add 3 tbsp more water. Foxtail millet absorbs water faster than rice — watch it carefully after 12 minutes.',
- }
-},
-];
 
 // ═══════════════════════════════════════════════════════════
 // FILTERS — added 'special' category
@@ -691,13 +1140,13 @@ const FILTERS = [
   {id:'gravy',label:'🍲 Gravy',cls:'gravy'},
   {id:'kids',label:'🎒 Kids',cls:'kids'},
   {id:'special',label:'✨ Special',cls:'special'},
-    {id:'family',label:'✨ Family',cls:'family'},
+    {id:'family',label:'🏠 Family',cls:'family'},
 ];
 
 // ═══════════════════════════════════════════════════════════
 // RENDER — updated to include chop alert and saffron notes
 // ═══════════════════════════════════════════════════════════
-const CAT_LABELS={base:'Base Technique',kootu:'Kootu',curry:'Dry Curry',gravy:'Gravy',kids:'Kids',special:'Special'};
+const CAT_LABELS={base:'Base Technique',kootu:'Kootu',curry:'Dry Curry',gravy:'Gravy',kids:'Kids',special:'Special',family:'Family Recipe'};
 
 let currentRecipeId=null,beginnerMode=false,filterCat='all';
 let cmCurrentStep=0,cmSteps=[];
@@ -710,7 +1159,7 @@ function buildFilterRow(){
 }
 function setFilter(cat){
   filterCat=cat;
-  document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active','all','kootu','curry','gravy','kids','base','special'));
+  document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active','all','kootu','curry','gravy','kids','base','special','family'));
   const btn=document.getElementById('fp-'+cat);
   if(btn){btn.classList.add('active');btn.classList.add(cat);}
   filterRecipes();
@@ -741,6 +1190,7 @@ function renderGrid(recipes){
         <div class="rt-macros">
           <span class="macro-chip c">${r.nut.c}g C</span>
           <span class="macro-chip p">${r.nut.p}g P</span>
+          <span class="macro-chip f">${r.fat.total}g F</span>
         </div>
       </div>
     </div>`).join('');
@@ -766,11 +1216,12 @@ function openRecipe(id){
     </div>
     <div class="nut-panel">
       <div class="np-title">Nutrition per serving</div>
-      <div class="np-main">
+      <div class="np-main" style="grid-template-columns:repeat(5,1fr)">
         <div class="npm-item"><div class="npm-val">${r.nut.c}</div><div class="npm-unit">g</div><div class="npm-lbl">Net carbs</div></div>
         <div class="npm-item"><div class="npm-val">${r.nut.p}</div><div class="npm-unit">g</div><div class="npm-lbl">Protein</div></div>
-        <div class="npm-item"><div class="npm-val">${r.nut.kcal}</div><div class="npm-unit">kcal</div><div class="npm-lbl">Calories</div></div>
+        <div class="npm-item"><div class="npm-val">${r.fat.total}</div><div class="npm-unit">g</div><div class="npm-lbl">Fat</div></div>
         <div class="npm-item"><div class="npm-val">${r.nut.fibre}</div><div class="npm-unit">g</div><div class="npm-lbl">Fibre</div></div>
+        <div class="npm-item"><div class="npm-val">${r.nut.kcal}</div><div class="npm-unit">kcal</div><div class="npm-lbl">Calories</div></div>
       </div>
       <div class="np-fat">
         <div class="np-fat-lbl">Fat breakdown (${r.fat.total}g total)</div>
@@ -781,7 +1232,9 @@ function openRecipe(id){
     </div>
     <div class="det-section">
       <div class="det-section-title gold">🧪 Ingredients</div>
-      ${r.chop40!==false&&r.chop40!==undefined?CHOP_ALERT:''}
+      ${r.cat==='family'?`<div class="family-note"><div class="family-note-lbl">Family Recipe</div><div class="family-note-txt">Original family recipe preserved as written. Health additions (amla off heat, kalonji in tadka, flaxseed off heat) have been added. Core technique and flavour profile unchanged.</div></div>`:''}
+      ${r.keyTips&&r.keyTips.length?`<div class="key-tips"><div class="key-tips-lbl">⭐ Do Not Skip These</div>${r.keyTips.map(t=>`<div class="key-tip-row"><span style="flex-shrink:0">→</span><span>${t}</span></div>`).join('')}</div>`:''}
+      ${r.chop40?CHOP_ALERT:''}
       <table class="ing-table">
         ${r.ing.map(i=>i.a.includes('—')?`<tr><td colspan="2" style="padding:12px 0 4px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mu)">${i.a}</td></tr>`:`
           <tr class="ing-row">
@@ -789,6 +1242,7 @@ function openRecipe(id){
             <td><div class="ing-name">${i.n}</div>${i.note&&!i.a.includes('—')?`<div class="ing-note">${i.note}</div>`:''}</td>
           </tr>`).join('')}
       </table>
+      ${r.goesWith&&r.goesWith.length?`<div style="margin-top:12px"><div style="font-size:10px;color:var(--mu);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Goes well with</div><div class="goes-well">${r.goesWith.map(g=>`<span class="gw-chip">${g}</span>`).join('')}</div></div>`:''}
     </div>
     <div class="det-section">
       <div class="det-section-title green">👨‍🍳 Method</div>
