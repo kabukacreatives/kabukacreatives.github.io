@@ -106,9 +106,9 @@ body{font-family:'Work Sans',sans-serif;background:var(--bg);color:var(--ink);fo
 .np-fat-lbl{font-size:11px;font-weight:700;color:var(--mu);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
 .det-section{padding:16px 18px;border-bottom:1.5px solid var(--border);background:#faf7f2}
 .det-section-title{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.det-section-title.gold{color:#9a6200}
-.det-section-title.green{color:#1e6a1e}
-.det-section-title.terra{color:#a02a08}
+.det-section-title.gold{color:var(--gold)}
+.det-section-title.green{color:var(--greenl)}
+.det-section-title.terra{color:var(--terra)}
 .ing-table{width:100%;border-collapse:collapse}
 .ing-row{border-bottom:1px solid var(--border)}
 .ing-row:last-child{border-bottom:none}
@@ -178,7 +178,7 @@ body{font-family:'Work Sans',sans-serif;background:var(--bg);color:var(--ink);fo
 .timer-display{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:24px;font-weight:500;color:#e0b030}
 .timer-btns{display:flex;gap:8px;margin-top:8px}
 .tbtn{padding:7px 16px;border-radius:10px;border:1px solid #3a5438;background:#1e3020;color:#90c088;font-family:'Work Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.04em}
-.tbtn.start-t{background:rgba(74,154,90,.2);color:var(--greenl);border-color:rgba(74,154,90,.3)}
+.tbtn.start-t{background:rgba(58,138,26,.3);color:#7ec63b;border-color:rgba(58,138,26,.4)}
 .cm-nav{flex-shrink:0;display:flex;gap:10px;padding:12px 0;padding-bottom:max(12px,env(safe-area-inset-bottom))}
 .cm-prev{width:56px;height:56px;border-radius:16px;border:1px solid #3a5438;background:#1e3020;color:#c0e0b8;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .cm-prev:disabled{opacity:.3}
@@ -189,19 +189,20 @@ body{font-family:'Work Sans',sans-serif;background:var(--bg);color:var(--ink);fo
 .empty-state .es-ico{font-size:44px;margin-bottom:12px}
 .empty-state p{font-size:13px;line-height:1.6}
 
-/* NO-COCONUT PANEL */
-.no-coco-toggle{display:inline-flex;align-items:center;gap:6px;margin:10px 0;padding:7px 14px;border-radius:20px;border:1.5px solid #b0d890;background:#eaf4e0;color:#1e5a1e;font-family:'Work Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.03em}
-.no-coco-toggle .nct-ico{font-size:14px;transition:transform .2s}
-.no-coco-toggle.open .nct-ico{transform:rotate(90deg)}
-.no-coco-panel{display:none;background:#f5fff5;border:1.5px solid #a0c890;border-radius:12px;padding:13px 15px;margin:4px 0 12px}
-.no-coco-panel.show{display:block}
-.no-coco-title{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1e5a1e;margin-bottom:10px}
-.no-coco-row{display:flex;gap:8px;padding:7px 0;border-bottom:1px solid #c0e0b0;font-size:13px;align-items:flex-start}
-.no-coco-row:last-child{border-bottom:none}
-.no-coco-from{color:#7a3010;text-decoration:line-through;min-width:110px;flex-shrink:0;font-size:12px;padding-top:1px}
-.no-coco-to{color:#1a1a1a;font-weight:500;flex:1}
-.no-coco-note{font-size:11px;color:#3a6a3a;margin-top:3px;line-height:1.5}
-.no-coco-science{background:#dff8df;border-left:3px solid #4a9a4a;border-radius:0 8px 8px 0;padding:9px 12px;margin-top:10px;font-size:12px;color:#1a4a1a;line-height:1.55}
+/* ── PAIRS WELL WITH SECTION ─────────────────────────────── */
+.pairs-section{padding:14px 18px;border-bottom:1.5px solid var(--border);background:#f8fcf5}
+.pairs-title{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#1e5a1e;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.pair-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #d0e8c8;align-items:flex-start}
+.pair-item:last-child{border-bottom:none}
+.pair-badge{flex-shrink:0;padding:3px 9px;border-radius:8px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;margin-top:2px}
+.pair-badge.gravy{background:var(--greenp);color:#1e5a1e}
+.pair-badge.curry{background:var(--terrap);color:var(--terra)}
+.pair-badge.kootu{background:var(--goldp);color:#8a5a00}
+.pair-body{flex:1;min-width:0}
+.pair-name{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.pair-why{font-size:12px;color:#2a4a28;line-height:1.55}
+.pair-icons{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+.pair-icon{font-size:10px;padding:1px 6px;border-radius:4px;background:#e0f0d8;color:#2a5a2a;font-weight:600;border:1px solid #b0d8a0}
 
 @media(min-width:480px){.recipe-grid{grid-template-columns:repeat(3,1fr)}#pageIndex{max-width:520px;margin:0 auto}}
 </style>
@@ -367,6 +368,12 @@ const RECIPES = [
   {t:'Turn off heat. Wait 30 seconds.',timer:30,flags:['crit']},
   {t:F.flax+'Add ground flaxseed. Stir well.',flags:['flax'],note:'Ground flaxseed must NEVER hit boiling liquid. 30 seconds off heat drops below 85°C — the safe zone for omega-3s and lignans.'},
  ],
+ goesWith:[
+  {n:'Milagu (Pepper) Sambar',cat:'gravy',why:'Piperine in black pepper boosts beta-carotene absorption from yellow pumpkin by approximately 2× — beta-carotene is fat-soluble and needs both fat (avocado oil) and piperine for maximum uptake. Zinc from moong benefits from piperine too.',tags:['Beta-carotene↑','Zinc↑','Anti-inflam']},
+  {n:'Murungakkai Sambar',cat:'gravy',why:'Drumstick has 7× the vitamin C of oranges — this directly enhances non-heme iron absorption from moong dal. Moringa isothiocyanates and moong zinc work complementarily for immune and thyroid function.',tags:['Iron↑','Folate↑','Immune']},
+  {n:'Vendakkai (Okra) Fry',cat:'curry',why:'Okra mucilage (soluble fiber) + moong soluble fiber creates a powerful dual bile acid binding effect in the gut — clinically, this combination reduces LDL reabsorption more than either alone.',tags:['LDL↓','Cholesterol↓','Bile↓']},
+  {n:'Kollu (Horse Gram) Rasam',cat:'gravy',why:'Double soluble fiber day — horse gram tannins + moong fiber together attack LDL from two pathways simultaneously. The Saturday kollu rasam landing with moong kootu is the highest single-day LDL intervention in this plan.',tags:['LDL↓','Tannins','Sat fiber']},
+ ],
  science:'Moong dal has the highest ratio of lysine to arginine among all dals — associated with lower cholesterol synthesis. Yellow pumpkin provides 400mcg beta-carotene per serving. Sesame lignans lower LDL by 6–10% in 4-week trials.',
  begNotes:{'Is my pan hot enough?':'Flick water drops — they should skitter and evaporate in 1 second.','Kalonji looks like what?':'Small black seeds, slightly irregular. Labelled "nigella sativa" at Indian grocery stores.','The kootu tastes bitter':'You over-roasted the kalonji or sesame. Both turn bitter past their optimal toast point.'}
 },
@@ -400,6 +407,11 @@ const RECIPES = [
   {t:'Off heat. 30 seconds.',timer:30},
   {t:F.flax+'Add ground flaxseed. Stir.',flags:['flax']},
  ],
+ goesWith:[
+  {n:'Milagu (Pepper) Sambar',cat:'gravy',why:'Piperine enhances quercetin and flavonoid absorption from horse gram significantly. Horse gram polyphenols that fight LDL oxidation need fat and piperine to maximise bioavailability — this is the #1 nutritional pairing for this kootu.',tags:['Quercetin↑','LDL-ox↓','Polyphenol↑']},
+  {n:'Cauliflower Curry',cat:'curry',why:'The highest anti-cancer meal combination in this plan. Sulforaphane from cauliflower + isoflavones from horse gram together activate Phase II liver detoxification enzymes synergistically — the combined NRF2 pathway induction is significantly stronger than either alone.',tags:['Sulforaphane+','NRF2↑','Phase II']},
+  {n:'Vendakkai (Okra) Fry',cat:'curry',why:'The most powerful single-meal LDL combination in the 28-day plan. Horse gram tannins bind bile acids in the upper gut AND okra mucilage binds them again in the lower gut — two independent mechanisms, double the effect. Horse gram alone reduces LDL 52 mg/dL in 3 weeks of daily use.',tags:['LDL↓↓','Bile↓↓','Sat fiber²']},
+ ],
  science:'Horse gram reduces LDL by up to 52 mg/dL in 3 weeks of daily consumption (Tharkar et al., 2018). White pumpkin (ash gourd) is >96% water — one of the lowest-carb vegetables in existence at 2.9g per 100g. Rich in flavonoids with demonstrated anti-inflammatory activity.',
  begNotes:{'How do I know horse gram is cooked?':'Press one between thumb and finger. Should squash with no hard centre.','The cooking water is dark and strange-looking':'Yes. That is exactly right. The tannins and polyphenols are in that water.'}
 },
@@ -429,6 +441,12 @@ const RECIPES = [
   {t:'Adjust salt. Cook 3 minutes.',timer:180},
   {t:'Off heat. 30 seconds.',timer:30},
   {t:F.flax+'Add ground flaxseed. Stir.',flags:['flax']},
+ ],
+ goesWith:[
+  {n:'Milagu (Pepper) Sambar',cat:'gravy',why:'Piperine activates digestive enzymes that physically release zinc from phytate complexes in chana dal — phytate is the main reason plant zinc is poorly absorbed. Piperine increases zinc bioavailability from chana by up to 60%. Ridge gourd zinc also benefits.',tags:['Zinc↑↑','Phytate↓','Enzyme↑']},
+  {n:'Murungakkai Sambar',cat:'gravy',why:'Moringa vitamin C (7× that of oranges) enhances both zinc and iron absorption from chana dal. The isothiocyanates in drumstick complement the cucurbitacins in ridge gourd — both have anti-inflammatory and anti-proliferative activity.',tags:['Zinc↑','VitC','Iron↑']},
+  {n:'Kathrikkai (Brinjal) Fry',cat:'curry',why:'Nasunin (brinjal anthocyanin) + cucurbitacins (ridge gourd) together provide double protection against LDL oxidation — two distinct antioxidant classes addressing the same pathway from different angles.',tags:['LDL-ox↓','Nasunin','Cucurbit']},
+  {n:'Beetroot Fry',cat:'curry',why:'Chlorogenic acid from ridge gourd + betalains from beetroot — both independently inhibit LDL oxidation but via different molecular mechanisms, creating an additive antioxidant load. Plus chana GI 8 blunts beetroot\'s moderate glycaemic response.',tags:['LDL-ox↓','GI blunt','Betalains+']},
  ],
  science:'Ridge gourd is rich in zinc (1.7mg/100g — 15% daily value), dietary folate, and vitamin B6. Contains cucurbitacins linked to anti-tumour activity. Chana dal has one of the lowest glycaemic indices of all legumes (GI = 8).',
  begNotes:{'The gourd feels slimy when I cut it':'Normal — ridge gourd releases mucilage. This is beneficial and helps the kootu achieve its characteristic texture.'}
@@ -460,6 +478,12 @@ const RECIPES = [
   {t:'Off heat. 30 seconds.',timer:30},
   {t:F.flax+'Ground flaxseed in. Stir.',flags:['flax']},
  ],
+ goesWith:[
+  {n:'Milagu (Pepper) Sambar',cat:'gravy',why:'The single most important pairing for this kootu. Piperine dramatically increases beta-carotene absorption from carrots — beta-carotene is fat-soluble and piperine inhibits P-glycoprotein efflux pumps, keeping carotenoids in the intestinal cell longer for conversion. Avocado oil provides the fat needed for absorption.',tags:['Beta-carotene↑↑','VitA↑','Piperine+']},
+  {n:'Murungakkai Sambar',cat:'gravy',why:'Double beta-carotene source: drumstick leaves are also rich in carotenoids, and drumstick vitamin C critically enhances non-heme iron absorption from toor dal. Toor is the richest dal for folate — moringa folate stacks with it.',tags:['Beta-carotene↑','Iron↑','Folate+']},
+  {n:'Avarakkai (Broad Beans) Fry',cat:'curry',why:'Complementary amino acid profiles — toor + broad beans together form the highest combined essential amino acid score of any kootu-curry pairing. Broad beans L-DOPA precursor + toor folate supports the full dopamine synthesis pathway.',tags:['Protein complete','Amino acid↑','L-DOPA']},
+  {n:'Beetroot Fry',cat:'curry',why:'Folate in toor dal + dietary nitrates in beetroot = dual cardiovascular protection. Folate lowers homocysteine (cardiovascular risk marker) and nitrates lower blood pressure — two independent mechanisms protecting the same organ.',tags:['Folate↑','Nitrate↑','BP↓','Homocys↓']},
+ ],
  science:'Carrots provide 8285 mcg beta-carotene per 100g raw — fat-soluble, meaning the avocado oil significantly increases its absorption. Toor dal is the richest source of folate among all dals.',
  begNotes:{'My toor dal is very watery':'Cook it uncovered on medium heat for 3–4 minutes before adding to the kootu.'}
 },
@@ -488,6 +512,12 @@ const RECIPES = [
   {t:'After 3 minutes, stir from the bottom — you should see golden-brown patches. Spread again. Wait 2 more minutes.',timer:120},
   {t:'Continue cooking, stirring every 2 minutes, for another 8–10 minutes total.',timer:480},
   {t:'LAST STEP: Add salt and amchur together. Toss well. Cook 1 more minute. Serve immediately.',timer:60,flags:['crit'],note:'Salt added early releases moisture and creates steam. Added at the very end, it seasons without damage to texture.'},
+ ],
+ goesWith:[
+  {n:'Murungakkai Sambar',cat:'gravy',why:'Drumstick has 7× the vitamin C of oranges — this directly maximises non-heme iron absorption from okra. Drumstick isothiocyanates and okra flavonoids (quercetin, kaempferol) are complementary antioxidants. Moringa isothiocyanates specifically inhibit LDL oxidation.',tags:['Iron↑↑','VitC max','LDL-ox↓']},
+  {n:'Moong Dal & Yellow Pumpkin Kootu',cat:'kootu',why:'Okra mucilage + moong soluble fiber = dual bile acid binding. This is the most potent single LDL-lowering meal combination available in the 28-day plan when measured by total bile acid binding capacity.',tags:['LDL↓↓','Bile↓↓','Cholest↓']},
+  {n:'Kollu (Horse Gram) Rasam',cat:'gravy',why:'Horse gram tannins + okra mucilage = the double cholesterol mechanism. Tannins bind bile acids in the upper intestine; okra mucilage catches them again in the lower intestine. Vitamin C in rasam also enhances okra iron. The Saturday pairing is particularly powerful.',tags:['LDL↓↓','Dual mech','Sat benefit']},
+  {n:'Spinach Kootu',cat:'kootu',why:'Spinach iron + okra folate + combined vitamin C (if served with tamarind gravy) = one of the most micronutrient-dense meal combinations. Okra and spinach are both high in quercetin, amplifying anti-inflammatory load.',tags:['Iron+','Folate+','Quercetin²']},
  ],
  science:'Okra soluble fibre binds bile acids and forces the liver to convert more cholesterol to bile. Regular okra consumption reduces LDL by 8–14% in 8-week studies. Contains quercetin (22.5mg/100g) and kaempferol — powerful anti-inflammatory flavonoids.',
  begNotes:{'How do I know the pan is hot enough?':'Flick water drops — they should instantly skitter and evaporate within 1–2 seconds.','My okra is still slimy':'Wet okra, stirred too early, or too small a pan. All three causes the same problem: steam instead of fry.','Can I use non-stick?':'For okra, no. Non-stick doesn\'t get hot enough for the Maillard browning.'}
@@ -518,6 +548,12 @@ const RECIPES = [
   {t:'Cook 4 more minutes without stirring.',timer:240},
   {t:'Turn heat to low. Stir gently. Cook 2 more minutes. Taste and adjust salt.',timer:120},
  ],
+ goesWith:[
+  {n:'Milagu (Pepper) Sambar',cat:'gravy',why:'Piperine in Milagu sambar enhances chlorogenic acid absorption from brinjal by approximately 2×. Chlorogenic acid is one of the most potent inhibitors of LDL oxidation — keeping it in your system longer directly reduces vascular inflammation.',tags:['Chlorogenic↑','LDL-ox↓','Piperine+']},
+  {n:'Kollu (Horse Gram) Rasam',cat:'gravy',why:'Horse gram tannins + brinjal nasunin (anthocyanin) = double LDL oxidation prevention via two independent mechanisms. Tannins intercept bile-transported LDL; nasunin protects cell membranes from oxidative LDL damage. Flavor: the earthy astringency of kollu rasam complements brinjal beautifully.',tags:['LDL-ox↓','Nasunin+','Tannin+']},
+  {n:'Chana Dal & Ridge Gourd Kootu',cat:'kootu',why:'Chana dal GI 8 + brinjal = one of the lowest-glycaemic combinations in this plan. Brinjals natural compounds also reduce post-meal glucose by inhibiting glucosidase enzymes. Combined glycaemic impact is very significantly blunted — excellent for days when kids are eating white rice.',tags:['GI↓↓','Glucose↓','Insulin blunt']},
+  {n:'Vetha Kuzhambu',cat:'gravy',why:'Tamarind vitamin C enhances chlorogenic acid bioavailability from brinjal. Shallot quercetin in VK + brinjal nasunin = complementary flavonoid layers. Flavor harmony: the deep sourness of VK and the slight bitterness of brinjal are a classic Tamil pairing.',tags:['Chlorogenic↑','Quercetin+','Tamil classic']},
+ ],
  science:'Brinjal contains nasunin — a rare anthocyanin in the purple skin that protects lipids in brain cell membranes. Nasunin is fat-soluble — the avocado oil significantly increases its absorption. Tamarind provides hydroxycitric acid, which inhibits ATP-citrate lyase — an enzyme involved in fat synthesis.',
  begNotes:{'Why is my brinjal absorbing all the oil?':'Brinjal is a sponge. The salt-and-rest step reduces this. Do not add more oil.','The sambar powder burned':'Your heat was too high after flipping. The brinjal rounds should be slightly moist on the uncooked side.'}
 },
@@ -542,6 +578,12 @@ const RECIPES = [
   {t:'Cover with lid. Medium heat. 3 minutes — the florets will steam-fry in their own moisture.',timer:180,flags:['crit']},
   {t:'Remove lid. High heat. Add salt. Cook uncovered 5–8 minutes until edges turn deep golden.',timer:420,flags:['crit'],note:'This uncovered high-heat finish is everything. The char on the tips provides bitterness that balances the sweetness of cauliflower. Pale yellow curry is sad. Golden-tipped curry is joyful.'},
   {t:'Off heat. Squeeze lemon juice over. Toss once. Serve.',note:'Lemon juice at the end lifts all the flavours. It does not make the dish sour — it makes every other flavour brighter.'},
+ ],
+ goesWith:[
+  {n:'Milagu (Pepper) Sambar',cat:'gravy',why:'THE critical pairing for cauliflower. Piperine specifically inhibits glucosidase enzymes that would otherwise compete with myrosinase for the same glucosinolate substrate — this increases sulforaphane yield from cauliflower by a meaningful margin. Milagu sambar is the single most important thing you can pair with the 40-minute-chopped cauliflower.',tags:['Sulforaphane↑↑','Piperine crit','NRF2↑']},
+  {n:'Horse Gram & White Pumpkin Kootu',cat:'kootu',why:'Sulforaphane from cauliflower + horse gram isoflavones = synergistic Phase II enzyme induction. These two compounds activate different receptor sites on the same NRF2 gene pathway, creating an amplified effect. This is the most powerful detoxification + anti-cancer meal in the 28-day plan.',tags:['Phase II↑','NRF2 synerg','Anti-cancer↑']},
+  {n:'Toor Dal & Carrot Kootu',cat:'kootu',why:'Sulforaphane\'s HDAC inhibition (epigenetic mechanism) + toor folate = double epigenetic protection. Sulforaphane silences cancer-associated genes while folate supports correct DNA methylation — two complementary epigenetic interventions in one meal.',tags:['Epigenetic','HDAC inhib','Methylation+']},
+  {n:'Moong Dal & Yellow Pumpkin Kootu',cat:'kootu',why:'Light moong kootu lets cauliflower\'s nutrition dominate. Moong zinc + cauliflower sulforaphane supports the thyroid T4→T3 conversion pathway (selenium-zinc-sulforaphane axis). Particularly relevant given your Free T3 result.',tags:['Thyroid↑','Zinc+','T3 convert']},
  ],
  science:'Cauliflower glucosinolates activate NRF2 pathways — the body\'s master antioxidant switch. Consuming cauliflower 4+ times weekly is associated with 40% reduced risk of certain cancers. The 40-minute chop rule maximises sulforaphane formation.',
  begNotes:{'How small should the florets be?':'Roughly the size of a large grape. Too large = outside burns before inside cooks. Too small = mushy.'}
@@ -568,6 +610,12 @@ const RECIPES = [
   {t:'Add salt and cracked pepper in the last 2 minutes.',timer:120,flags:['crit']},
   {t:'Ready when beet pieces have shrunken by ~30% and edges are slightly dark. Deglaze with 1 tbsp water, scrape up the sticky residue — it is flavour gold.',flags:['crit']},
  ],
+ goesWith:[
+  {n:'Kollu (Horse Gram) Rasam',cat:'gravy',why:'Vitamin C from tamarind + tomato in kollu rasam is the key that unlocks beetroot iron — non-heme iron is poorly absorbed without vitamin C. Horse gram polyphenols also enhance Bifidobacterium that produce short-chain fatty acids feeding colonic cells. Betalains + kollu polyphenols = combined gut microbiome support.',tags:['Iron↑↑','VitC key','Bifido+']},
+  {n:'Chana Dal & Ridge Gourd Kootu',cat:'kootu',why:'Chana dal has the lowest GI of any legume at 8. Beetroot has a moderate GI of 64. Pairing them blunts the beetroot glucose response significantly — critical on white rice days for the kids. Ridge gourd cucurbitacins + betalains = double anti-inflammatory.',tags:['GI blunt↑','Glucose↓','Anti-inflam²']},
+  {n:'Milagu (Pepper) Sambar',cat:'gravy',why:'Piperine enhances betalain absorption from beetroot — betalains are water-soluble pigments but are poorly transported across intestinal membranes without absorption enhancers. Piperine activates SGLT1 transporters that carry betalains into systemic circulation.',tags:['Betalain↑','Piperine+','Bioavail↑']},
+  {n:'Toor Dal & Carrot Kootu',cat:'kootu',why:'Folate from toor dal + dietary nitrates from beetroot = dual cardiovascular protection via two distinct pathways. Folate reduces homocysteine (independent cardiovascular risk factor); nitrates lower blood pressure via NO synthesis. Both are particularly important given your hs-CRP of 4.7.',tags:['Folate↑','Nitrate↑','BP↓','Homocys↓']},
+ ],
  science:'Beetroot contains betalains — pigments that inhibit LDL oxidation. Dietary nitrates convert to nitric oxide, dilating blood vessels and reducing blood pressure (demonstrated 10–15 mmHg reduction in meta-analyses). Caramelization increases bioavailability of betalains compared to boiling.',
  begNotes:{'How to cut brunoise without cutting fingers':'Cut the beet into slabs first, then into sticks, then across into tiny cubes. Work slowly.'}
 },
@@ -593,6 +641,11 @@ const RECIPES = [
   {t:'Cover. Cook 5 minutes.',timer:300},
   {t:'Remove lid. Add salt + chilli powder + pepper. High heat. Cook uncovered 5–6 minutes, stirring every 90 seconds.',timer:330,flags:['crit'],note:'The uncovered high-heat finish blisters and chars the beans — these caramelized spots are where all the flavour lives.'},
  ],
+ goesWith:[
+  {n:'Vetha Kuzhambu',cat:'gravy',why:'THE critical pairing for avarakkai. Tamarind is rich in tartaric acid and vitamin C — both dramatically enhance non-heme iron absorption from broad beans. Broad beans have meaningful iron content but it is almost entirely non-heme and requires acid/vitamin C. VKs thick tamarind provides both in high concentration.',tags:['Iron↑↑↑','VitC crit','Tamarind+']},
+  {n:'Murungakkai Sambar',cat:'gravy',why:'Drumstick vitamin C (7× oranges) + avarakkai iron = maximum iron absorption. Moringa compounds and broad bean compounds are both in the leguminous family — their combined anti-inflammatory and lipid-modifying effects are additive. Double leguminous meal with the highest combined anti-inflammatory load.',tags:['Iron↑↑','Inflam↓²','Double legume']},
+  {n:'Toor Dal & Carrot Kootu',cat:'kootu',why:'Complementary amino acid profiles between toor and avarakkai — together they form a complete protein superior to either alone. Avarakkai L-DOPA + toor folate = the dopamine synthesis pathway from B-vitamin support through neurotransmitter precursor. Relevant to mood and motivation.',tags:['Protein complete','L-DOPA','Dopamine path']},
+ ],
  science:'Broad beans are rich in L-DOPA, a dopamine precursor. Provide 7g protein per 100g. The soluble fibre specifically binds bile acids, reducing cholesterol reabsorption.',
  begNotes:{'How do I know they are cooked?':'Pierce one with a fork — should go through with light pressure, not pop.'}
 },
@@ -617,6 +670,11 @@ const RECIPES = [
   {t:'Add 3 tbsp water. Cover. Medium heat. Cook 8 minutes.',timer:480,flags:['crit'],note:'Steam first to cook, then fry to caramelise — the two-stage technique.'},
   {t:'Remove lid. High heat. Cook 6–8 minutes, stirring every 2 minutes, until moisture evaporated and edges golden.',timer:420,flags:['crit'],note:'Sweet potato caramelises at lower temperatures because of its high natural sugar. Watch carefully — goes from golden to burnt in 60 seconds.'},
   {t:'Add salt last 2 minutes. Off heat, lime juice. Toss.',timer:120},
+ ],
+ goesWith:[
+  {n:'Horse Gram & White Pumpkin Kootu',cat:'kootu',why:'This is the most important glycaemic pairing in the plan. Horse gram soluble fiber physically slows gastric emptying and starch digestion — in clinical trials, horse gram reduces post-meal glucose by up to 40% when eaten with a starchy food. Sweet potatos moderate GI is significantly blunted by kollu soluble fiber. Critical for insulin stability.',tags:['GI↓↓','Insulin↓','Glucose↓ 40%']},
+  {n:'Chana Dal & Ridge Gourd Kootu',cat:'kootu',why:'Chana dal GI 8 + sweet potato = meaningful glycaemic buffering. The soluble fibre in chana slows starch digestion from sweet potato. On kids white rice days this combination reduces the overall meal GI substantially. Ridge gourd zinc + sweet potato beta-carotene = complementary micronutrients.',tags:['GI buffer','Kids optimal','Zinc+Beta-car']},
+  {n:'Milagu (Pepper) Sambar',cat:'gravy',why:'Piperine dramatically enhances beta-carotene (provitamin A) absorption from sweet potato — sweet potato is the highest beta-carotene curry in this plan, and piperine specifically increases the conversion of beta-carotene to active vitamin A in the intestinal cell. This meal has the highest vitamin A yield of any combination in the 28-day plan.',tags:['Beta-car↑↑','VitA↑↑','Piperine+']},
  ],
  science:'Sweet potato provides 941 mcg beta-carotene per 100g — one of the richest food sources available. Glycaemic index of 54 vs white potato\'s 78. As roasted veg in adult dinner, a ½ cup serving is only 13g net carbs with 2g fibre.',
  begNotes:{'The sweet potato is burning before cooked through':'Cubes too large or heat too high. Reduce to medium and add 2 more tbsp water, cover again 3 minutes.'}
@@ -652,6 +710,12 @@ const RECIPES = [
   {t:'Turn off heat. Wait 30 full seconds.',timer:30},
   {t:F.amla+'Add amla powder. Stir well.',flags:['amla'],note:'Amla must not boil. Patience — 30 seconds off heat drops below the destruction temperature of its polyphenols.'},
  ],
+ goesWith:[
+  {n:'Spinach Kootu (Ramya)',cat:'kootu',why:'Tamarind vitamin C in this rasam is critical for spinach iron absorption. Kollu tannins also bind oxalate from spinach, reducing the competition between oxalate and iron for absorption sites. The most important therapeutic pairing for the iron-deficiency risk inherent in a plant-based diet.',tags:['Iron↑↑↑','Oxalate↓','VitC crit']},
+  {n:'Vendakkai (Okra) Fry',cat:'curry',why:'Horse gram tannins + okra mucilage = the double LDL mechanism. Used on Saturday (kollu rasam day), pairing with okra curry makes Saturday the highest LDL-intervention day of the week. This combination alone can reduce LDL meaningfully over 4 weeks.',tags:['LDL↓↓','Bile↓²','Saturday max']},
+  {n:'Beetroot Fry',cat:'curry',why:'Vitamin C from tamarind + tomato enhances beetroot iron absorption. Betalains (beetroot) + kollu polyphenols both feed beneficial gut bacteria including Bifidobacterium. Combined effect on gut microbiome diversity is additive.',tags:['Iron↑','Bifido+','Gut diversity']},
+  {n:'Turnip Kootu',cat:'kootu',why:'Vitamin C in rasam boosts glucosinolate bioavailability in turnip. Kollu tannins partially offset coconut sat fat in turnip kootu (family version). Mild flavor profile of turnip kootu complements the assertive flavor of kollu rasam harmoniously.',tags:['Glucosin↑','VitC','Sat fat↓','Flavor']},
+ ],
  science:'Kollu rasam is the most LDL-reducing item in this entire plan. Horse gram water contains polyphenols, tannins, and saponins — shown in controlled trials to reduce LDL by up to 52 mg/dL in 3 weeks. Black pepper enhances turmeric curcumin absorption by 2000%. Omam thymol has demonstrated bile-acid sequestrant properties.',
  begNotes:{'The rasam smells too strong of horse gram':'This is correct. It is a robust, earthy rasam. Tamarind and amla balance it. Drink it like a broth.'}
 },
@@ -683,6 +747,12 @@ const RECIPES = [
   {t:'Add tiny pinch of jaggery if using. Adjust salt. Add more tamarind if needed.',},
   {t:'Turn off heat. Wait 30 seconds.',timer:30},
   {t:F.amla+'Add amla powder. Stir gently.',flags:['amla']},
+ ],
+ goesWith:[
+  {n:'Spinach Kootu (Ramya)',cat:'kootu',why:'The most important flavor and nutritional pairing for Vetha Kuzhambu. Tamarind provides vitamin C that critically enhances non-heme iron from spinach. The sharp sourness of VK provides a counterpoint to the earthy richness of spinach kootu — this is why these two appear together in traditional Tamil Brahmin menus.',tags:['Iron↑↑↑','VitC max','Traditional']},
+  {n:'Kathrikkai (Brinjal) Fry',cat:'curry',why:'Tamarind vitamin C enhances chlorogenic acid bioavailability from brinjal. VKs shallot quercetin + brinjal nasunin = layered flavonoid protection. This is the classic Tamil pairing — the sustained sourness of VK and the slight bitterness of brinjal are designed for each other.',tags:['Chlorogenic↑','Quercetin+','Classic Tamil']},
+  {n:'Avarakkai (Broad Beans) Fry',cat:'curry',why:'Tamarind vitamin C is critical for broad beans non-heme iron — this is the #1 iron-absorption pairing for avarakkai. Flavor: the slight bitterness of broad beans against the sour-sweet VK creates excellent contrast.',tags:['Iron↑↑','VitC crit','Flavor+']},
+  {n:'Moong Dal & Yellow Pumpkin Kootu',cat:'kootu',why:'Mild moong kootu provides necessary protein and soluble fiber without competing with VKs strong flavor profile. The tamarind in VK enhances iron absorption from moong. This pairing respects the principle of not serving two strong-flavored dishes together.',tags:['Balance','Iron↑','Mild+Strong']},
  ],
  science:'Vetha kuzhambu contains tamarind (hydroxycitric acid — inhibits lipogenesis), shallots (quercetin — anti-inflammatory), and concentrated vathal. Omam thymol increases digestive enzyme secretion by up to 70%.',
  begNotes:{'My kuzhambu is too sour':'Add more water and cook 5 more minutes. A pinch more jaggery also helps.','The vathal — where do I buy them?':'Indian grocery stores carry sun-dried brinjal, drumstick, and other vathals in small packets. Keep for months in airtight container.'}
@@ -717,6 +787,12 @@ const RECIPES = [
   {t:'Turn off heat. 30 seconds.',timer:30},
   {t:F.amla+'Add amla powder off heat. Stir.',flags:['amla']},
  ],
+ goesWith:[
+  {n:'Toor Dal & Carrot Kootu',cat:'kootu',why:'Drumstick and carrot are both high in beta-carotene — double provitamin A on the same plate. Drumstick vitamin C maximises iron absorption from toor dal. Moringa folate stacks with toors folate (highest among dals) for homocysteine protection.',tags:['Beta-car↑↑','Iron↑','Folate²']},
+  {n:'Vendakkai (Okra) Fry',cat:'curry',why:'Drumstick vitamin C (7× oranges) + okra iron + okra folate = three major micronutrients maximised simultaneously. Moringa isothiocyanates + okra flavonoids (quercetin, kaempferol) = complementary antioxidant protection. Double anti-inflammatory vegetable day.',tags:['VitC max','Iron↑','Folate+','Inflam↓²']},
+  {n:'Avarakkai (Broad Beans) Fry',cat:'curry',why:'Moringa vitamin C + avarakkai iron = maximum iron absorption — the second-best iron pairing in this plan after VK+spinach. Moringa + broad bean = double leguminous anti-inflammatory combination. Combined folate content of this meal is among the highest of any pairing.',tags:['Iron↑↑','Folate max','Double legume']},
+  {n:'Moong Dal & Yellow Pumpkin Kootu',cat:'kootu',why:'Drumstick vitamin C enhances moong iron. Moringa calcium + pumpkin beta-carotene = double complementary micronutrients. Flavor: the light moong-pumpkin kootu complements the tomato-based sambar without flavor clash.',tags:['Iron↑','VitC','Calcium+Beta-car']},
+ ],
  science:'Drumstick (moringa) contains 7× more vitamin C than oranges, 4× more calcium than milk, and 3× more potassium than bananas per 100g. The most nutritionally dense vegetable in this plan. Drumstick leaves contain isothiocyanates that directly inhibit LDL oxidation.',
  begNotes:{'How to eat drumstick':'Hold the piece vertically over your bowl, bite the end, and drag your teeth along the length — the soft flesh and seeds come out. Leave the fibrous husk.'}
 },
@@ -748,6 +824,12 @@ const RECIPES = [
   {t:'Oil, mustard, curry leaves. Pour over sambar. Cover 2 min.',timer:120},
   {t:'Off heat 30 sec.',timer:30},
   {t:F.amla+'Amla off heat.',flags:['amla']},
+ ],
+ goesWith:[
+  {n:'Cauliflower Curry',cat:'curry',why:'The single most important meal pairing in this entire plan from a nutritional chemistry standpoint. Piperine in Milagu sambar is the #1 enhancer of sulforaphane production from cauliflower glucosinolates — it works by inhibiting enzymes that compete for the same substrate as myrosinase. Do not make cauliflower curry without this sambar.',tags:['Sulforaphane↑↑','Piperine crit','NRF2 max']},
+  {n:'Sweet Potato Curry',cat:'curry',why:'Piperine doubles beta-carotene absorption from sweet potato — the highest provitamin A curry in this plan. Piperine inhibits P-glycoprotein efflux in intestinal cells, keeping beta-carotene inside the cell long enough for conversion to retinol. This meal produces the highest vitamin A yield of any combination in the plan.',tags:['Beta-car↑↑','VitA max','Piperine+']},
+  {n:'Toor Dal & Carrot Kootu',cat:'kootu',why:'Triple beta-carotene day: carrots + piperine enhancement = maximum carotenoid absorption. Toor folate + piperine-enhanced curcumin from sambar powder = double anti-inflammatory nutritional hit. Piperine alone increases curcumin bioavailability by 2000%.',tags:['Beta-car max','Curcumin↑','Folate+']},
+  {n:'Kathrikkai (Brinjal) Fry',cat:'curry',why:'Piperine enhances chlorogenic acid absorption from brinjal by approximately 2×, keeping this powerful LDL oxidation inhibitor in systemic circulation longer. Milagu sambar + brinjal is the pairing for maximum LDL oxidation prevention in the plan.',tags:['Chlorogenic↑','LDL-ox↓','Piperine+']},
  ],
  science:'Piperine in black pepper increases bioavailability of turmeric curcumin by 2000%. Piperine also independently activates thermogenesis and inhibits adipogenesis. Cumin contains cuminaldehyde — a demonstrated cholesterol-lowering agent in RCTs.',
  begNotes:{'How hot should this be?':'Quite hot — the pepper is the star. If too hot for the family, reduce peppercorns to 1½ tsp.'}
@@ -921,13 +1003,9 @@ const RECIPES = [
   {t:'Add cilantro garnish.',},
   {t:F.amla+'Add amla ½ tsp off heat. Stir.',flags:['amla']},
  ],
- noCoconut:{
-  swap:[
-   {from:'1 cup grated coconut',to:'6 tbsp almond meal + 2 tbsp flax meal',note:'Blend with 5 tbsp warm water into a smooth paste before grinding with the roasted masala. Use exactly where the recipe says to grind coconut with masala.'},
-   {from:'1½ tbsp coconut oil',to:'1½ tbsp avocado oil',note:'Same quantity, same tempering technique. Mustard seeds pop identically.'},
-  ],
-  science:'Almond meal provides oleic acid (MUFA) and vitamin E — both reduce LDL oxidation. Flax meal adds ALA omega-3 and lignans that lower LDL. The paste thickens the sambar identically to coconut paste. Sat fat drops from approximately 14g to 1.5g per serving while MUFA rises significantly.',
- },
+ goesWith:[
+  {n:'Moong Dal & Yellow Pumpkin Kootu',cat:'kootu',why:'AV sambar is the flavor centerpiece — a mild moong kootu provides protein and texture contrast without competing. Moongs clean flavor lets the complex ground masala of AV sambar be the star. Nutritionally, moong zinc complements the rich antioxidant load of AV sambar\'s fresh coconut masala.',tags:['Flavor balance','Let AV shine','Zinc+']},
+ ],
  science:'Methi seeds (fenugreek) contain trigonelline — shown in RCTs to reduce post-meal blood glucose by 25–50% and lower LDL cholesterol. The arachu vitta technique — grinding fresh masala rather than using stored powder — retains volatile aromatic compounds lost during powder production.',
  begNotes:{'What is the difference from regular sambar?':'AV sambar uses freshly ground masala with coconut — richer, creamier, restaurant-quality. The coconut binds the sambar and gives it a thicker body.','Can I make the podi in advance?':'Yes — dry podi keeps 3–4 months refrigerated, 6+ months frozen. Grind 6–7 tbsp with 1 cup coconut + 1 cup toor dal fresh each time.'}
 },
@@ -949,7 +1027,7 @@ const RECIPES = [
  goesWith:['Beans curry','Beetroot fry','Cabbage poriyal','Keerai (greens)'],
  ing:[
    {a:'2 medium',n:'Onions',note:'Sliced thin solai solai — long vertical strips, not rings or half-moons. The long cut caramelises more evenly.'},
-   {a:'1 tbsp',n:'Coconut oil (or avocado oil — see No Coconut option)',note:'For the base — authentic version uses coconut oil. Avocado oil substitutes cleanly.'},
+   {a:'1 tbsp',n:'Coconut oil',note:'For the base — authentic and needed here'},
    {a:'4 cups',n:'Water'},
    {a:'2 tbsp',n:'Puli (tamarind) paste, thick'},
    {a:'2 heaped tsp',n:'Sambar powder'},
@@ -995,12 +1073,10 @@ const RECIPES = [
    {t:F.amla+'Add amla ½ tsp off heat. Stir gently. This is an addition to the original recipe — it does not alter the taste at the resting temperature.',flags:['amla']},
    {t:'Rest 5 minutes before serving. The flavour deepens as it stands.',timer:300},
  ],
- noCoconut:{
-  swap:[
-   {from:'1 tbsp coconut oil',to:'1 tbsp avocado oil',note:'Same quantity. Use for the base heating step only — the rest of this recipe has no coconut. Flavour is neutral rather than subtly sweet — the tamarind and manathakkali carry the dish completely.'},
-  ],
-  science:'Swapping coconut oil for avocado oil here reduces saturated fat by 11g per tablespoon and replaces it with oleic acid (MUFA). Given this recipe appears every Thursday, the cumulative impact over 4 weeks is significant. The sesame oil stays unchanged — it is a non-negotiable flavour element and already provides MUFA and sesamol antioxidants.',
- },
+ goesWith:[
+  {n:'Moong Dal & Yellow Pumpkin Kootu',cat:'kootu',why:'Mild moong kootu is the ideal companion for this intensely medicinal gravy — it provides the protein and fiber needed without overwhelming the medicinal alkaloids in manathakkali. Moong zinc supports the healing properties of black nightshade. The flavor: mild against intense, which is exactly right.',tags:['Balance','Zinc+','Mild+Medicinal']},
+  {n:'Vendakkai (Okra) Fry',cat:'curry',why:'Both manathakkali and okra have alkaloid-type medicinal compounds with gut-protective properties. Manathakkali specifically protects the gastric mucosa — okra mucilage simultaneously coats the intestinal lining. Combined gut protection effect is additive. Thursday manathakkali + okra = maximum gut healing day.',tags:['Gut protect','Mucosa+','Alkaloid+']},
+ ],
  science:'Manathakkali (black nightshade / Solanum nigrum) is one of the most medicinally documented plants in Siddha medicine. The ripe dried berries contain solanine glycosides and solasonine — compounds with demonstrated hepatoprotective (liver-protecting) properties in clinical studies. They are used specifically for ulcers, liver inflammation, and intestinal health. Fenugreek (vendayam) powder contains trigonelline — shown in RCTs to reduce post-meal blood glucose by 25–50% and lower LDL cholesterol. The jaggery addition provides trace minerals (iron, zinc, potassium) absent from white sugar. Tamarind contains hydroxycitric acid, an inhibitor of the enzyme ATP-citrate lyase involved in fat synthesis.',
  begNotes:{
    'What is manathakkali?':'Small dark purple-black berries, slightly larger than mustard seeds. Commonly called black nightshade or turkey berry. Find them in Indian grocery stores, dried or in brine. The dried version is what you want for this recipe.',
@@ -1048,6 +1124,12 @@ const RECIPES = [
    {t:'Turn off heat. Wait 30 seconds.',timer:30},
    {t:F.flax+'Add ground flaxseed. Stir.',flags:['flax']},
    {t:F.amla+'Add amla powder. Stir.',flags:['amla']},
+ ],
+ goesWith:[
+  {n:'Vetha Kuzhambu',cat:'gravy',why:'THE most important pairing in this plan for iron. Tamarind in Vetha Kuzhambu is one of the highest vitamin C sources in Tamil cuisine — and vitamin C is the single most effective enhancer of non-heme iron absorption from spinach, increasing it by 2–3×. Spinach iron is notoriously poorly absorbed without acid/vitamin C present.',tags:['Iron↑↑↑','VitC crit','Non-heme Fe']},
+  {n:'Kollu (Horse Gram) Rasam',cat:'gravy',why:'Horse gram contains tannins that specifically bind oxalate in the gut — spinach is high in oxalate which normally competes with and blocks its own iron from being absorbed. Kollu tannins reduce this competition. Plus double LDL-lowering on the same day.',tags:['Oxalate↓','Iron↑','LDL↓']},
+  {n:'Vendakkai (Okra) Fry',cat:'curry',why:'Spinach non-heme iron + okra folate = two of the most important nutrients for perimenopausal cardiovascular protection. Okra mucilage simultaneously binds bile acids, addressing the lipid issue while spinach addresses the iron issue.',tags:['Iron+','Folate+','LDL↓','Menopause']},
+  {n:'Beetroot Fry',cat:'curry',why:'Both spinach and beetroot are high in dietary nitrates — their blood pressure lowering effect is genuinely amplified together. Spinach magnesium + beetroot potassium = dual electrolyte cardiovascular protection.',tags:['Nitrate↑↑','BP↓↓','Mg+K+']},
  ],
  science:'This simple kootu delivers more absorbable iron than almost any other preparation in this plan. Spinach iron (non-haem iron) is poorly absorbed on its own — typically only 2–7%. Combined with the vitamin C in tomatoes and the acids from tamarind-adjacent cooking, absorption increases to 15–20%. The garlic contains allicin and ajoene — compounds shown to reduce LDL by 9–12% in meta-analyses. Moong dal is the highest-lysine dal — the amino acid most associated with cholesterol reduction. At only 12g net carbs per serving, this is one of the lowest-carb, highest-protein kootus in the plan.',
  begNotes:{
@@ -1105,13 +1187,11 @@ const RECIPES = [
    {t:'Off heat. 30 seconds.',timer:30},
    {t:F.flax+'Add 1 tbsp ground flaxseed. Stir.',flags:['flax']},
  ],
- noCoconut:{
-  swap:[
-   {from:'½ cup grated coconut',to:'4 tbsp almond meal + 1 tbsp flax meal',note:'Blend with 3 tbsp warm water to a smooth paste. Use exactly as you would the ground coconut paste — add when combining vegetables and dal.'},
-   {from:'1 tsp coconut oil (tempering)',to:'1 tsp avocado oil',note:'Same technique. Mustard seeds pop identically in avocado oil.'},
-  ],
-  science:'Family recipes are preserved exactly. This no-coconut version is offered as a daily-use variant — the family original remains intact for occasions. Almond meal replicates the thickening function and fat content of coconut. Flax meal adds omega-3 and lignan content. The paste texture and kootu consistency are identical. Sat fat per serving drops from ~7g to ~1g.',
- },
+ goesWith:[
+  {n:'Kollu (Horse Gram) Rasam',cat:'gravy',why:'When this coconut-based kootu is on the menu, horse gram rasam is the most important counterbalance. Kollu tannins compete with dietary saturated fat for bile acid binding — they partially intercept coconut saturated fat before intestinal absorption. The most protective pairing for this higher-sat-fat family recipe.',tags:['Sat fat↓','Bile bind','LDL protect']},
+  {n:'Vendakkai (Okra) Fry',cat:'curry',why:'Okra mucilage is clinically demonstrated to bind dietary saturated fatty acids in the intestine, reducing their absorption. Pairing okra with a coconut-based kootu is one of the most practical interventions for reducing coconuts LDL impact without removing it.',tags:['Sat fat bind','LDL↓','Mucilage']},
+  {n:'Milagu (Pepper) Sambar',cat:'gravy',why:'Piperine activates lipase enzymes that improve fat digestion efficiency, meaning less undigested saturated fat available for LDL synthesis. Pepper also reduces post-meal triglycerides in some studies.',tags:['Fat digest','TG↓','Piperine']},
+ ],
  science:'This is the family template kootu — the foundation that every other kootu in this plan builds on. The coconut in this recipe provides medium-chain triglycerides (MCTs) that are metabolised differently from long-chain saturated fats — they go directly to the liver for energy rather than circulating in the blood. This is an occasional family recipe and the coconut quantity per serving (approx 1–2 tbsp split across 4–6 portions) is modest. The cumin in the coconut paste contains cuminaldehyde — a compound shown to inhibit HMG-CoA reductase (the same enzyme targeted by statin drugs). Combined with the legumes\' soluble fibre and the turmeric, this kootu is genuinely functional medicine.',
  begNotes:{
    'The paste went oily when I ground it':'You over-ground the coconut. The fat cells in coconut rupture after prolonged blending and release oil. Stop grinding the moment it looks like a smooth creamy paste. If it\'s already oily, use it anyway — it just won\'t be as silky.',
@@ -1158,13 +1238,12 @@ const RECIPES = [
    {t:'Off heat. 30 seconds.',timer:30},
    {t:F.flax+'Ground flaxseed in. Stir.',flags:['flax']},
  ],
- noCoconut:{
-  swap:[
-   {from:'⅔ cup grated coconut',to:'5 tbsp almond meal + 1½ tbsp flax meal',note:'Dry-roast the almond meal in a pan for 2 minutes for a deeper flavour before blending. Blend with 4 tbsp warm water to a smooth paste — use exactly where the coconut paste goes.'},
-   {from:'1 tsp coconut oil (tempering)',to:'1 tsp avocado oil',note:'Same quantity and technique.'},
-  ],
-  science:'Almond meal at this quantity provides approximately 8g protein and 14g MUFA per full batch. Lightly roasting it replicates the flavour depth of roasted coconut. Flax meal adds ALA omega-3 and enterolignans. Sat fat drops from about 9g to under 1g for the whole batch.',
- },
+ goesWith:[
+  {n:'Milagu (Pepper) Sambar',cat:'gravy',why:'The most important pairing for this cruciferous kootu. Turnip is rich in glucosinolates and piperine in Milagu sambar specifically inhibits the competing glucosidase enzymes that would otherwise degrade isothiocyanate formation — piperine effectively amplifies the cancer-protective glucosinolate pathway in turnip.',tags:['Glucosin↑','ITC↑','NRF2↑']},
+  {n:'Cauliflower Curry',cat:'curry',why:'Double cruciferous day — the highest single-meal glucosinolate load in the 28-day plan. Turnip and cauliflower have complementary glucosinolate profiles (sinigrin + glucoraphanin) meaning you activate two different arms of the NRF2 detoxification pathway simultaneously. Requires the 40-minute chop rule for both.',tags:['Glucosin↑↑','NRF2 dual','Anti-cancer']},
+  {n:'Kollu (Horse Gram) Rasam',cat:'gravy',why:'Vitamin C in tamarind + tomato boosts glucosinolate bioavailability in turnip. Kollu tannins also partially offset the coconut saturated fat in this family recipe version of the kootu.',tags:['VitC','Glucosin↑','Sat fat↓']},
+  {n:'Beetroot Fry',cat:'curry',why:'Root vegetable combination day — betalains (beetroot) + glucosinolates (turnip) represent dual anti-cancer mechanisms. Nitrates lower blood pressure while glucosinolates support liver detoxification — cardiovascular and anti-cancer protection in one meal.',tags:['Nitrate+','Anti-cancer↑','Liver detox']},
+ ],
  science:'Turnip is one of the most nutritionally underrated vegetables in Indian cooking. At only 6g net carbs per cup (lower than carrot at 9g, much lower than potato at 15g), it is an excellent bulk vegetable for low-carb cooking. Turnip contains glucosinolates — including gluconapin, which the body converts to the same class of sulforaphane precursors found in broccoli. It is a mild cruciferous vegetable that benefits from the 40-minute chop rule even though it is typically pressure-cooked (chop, leave 40 min, then cook). Turnip is rich in vitamin C (21mg per 100g) and provides meaningful amounts of calcium, potassium, and folate. Per batch nutritional yield: 494 kcal, 20g protein, 70g total carbs, 14.5g fat across the full 8-cup batch.',
  begNotes:{
    'Turnip tastes sharp raw':'Yes — raw turnip has a distinctive peppery bite. This completely disappears under pressure cooking. The cooked turnip becomes mild, slightly sweet, and very willing to take on whatever flavour the coconut paste and spices bring.',
@@ -1320,12 +1399,6 @@ const RECIPES = [
   {t:'Scatter alfalfa sprouts over the top.',},
   {t:'Add torn cilantro. Serve immediately.',note:'The blackberry dressing will turn the paler vegetables pink as it sits. This is beautiful for serving but means the salad changes appearance over 20 minutes. Dress just before serving.'},
  ],
- noCoconut:{
-  swap:[
-   {from:'¼ cup coconut cream',to:'2 tbsp almond butter + 2 tbsp warm water',note:'Whisk almond butter with warm water until smooth and creamy before adding to the dressing. The consistency is identical to coconut cream. Use exactly the same way in the dressing.'},
-  ],
-  science:'Almond butter dressing provides oleic acid (MUFA) and vitamin E instead of saturated fat. The blackberry-almond dressing is slightly nuttier than the coconut version and pairs beautifully with the mango and kiwi. Sat fat drops from ~5g to ~0.5g per serving.',
- },
  science:'This salad is a polyphenol spectrum — every fruit and vegetable represents a different class of antioxidant. Mango provides quercetin and beta-carotene. Kiwi is one of the highest vitamin C sources by weight. Red pepper provides capsanthin. The blackberry dressing delivers anthocyanins identical to those in your purple cabbage brine. Alfalfa sprouts contain saponins and phytoestrogens — mildly relevant given the perimenopause context, though at these quantities the effect is minor. The cumin provides thymoquinone, the same active compound as your kalonji seeds.',
  begNotes:{
   'The dressing looks curdled':'The coconut cream and vinegar can separate if the coconut cream is very cold. Warm the coconut cream to room temperature before whisking the dressing, then it will emulsify smoothly.',
@@ -1411,12 +1484,6 @@ const RECIPES = [
   {t:'Pour hot tadka immediately over the salad. Toss once to distribute the sizzling oil through the coconut and vegetables.',flags:['crit'],note:'The hot oil hitting the cold raw vegetables creates a brief moment of cooking just at the surface — you will hear a gentle sizzle. This tempered flavour is what makes this distinctly South Indian rather than just a raw salad. The tadka must be served hot for this to work.'},
   {t:'Serve immediately. This salad is best within 20 minutes of adding the tadka.',},
  ],
- noCoconut:{
-  swap:[
-   {from:'450g (16oz) fresh/frozen grated coconut',to:'200g extra grated jicama + 4 tbsp almond meal + 1 tbsp flax meal',note:'Grate the extra jicama and toss it with almond meal and flax meal before combining. The almond meal provides the fat and richness that coconut normally contributes. Mix dry, then add the tadka as usual.'},
-  ],
-  science:'This is the most significant substitution in the collection — coconut is the structural body here. The no-coconut version is a genuinely different dish (lighter, crunchier, with more prebiotic jicama) but retains the Tamil flavour profile through the tadka. Almond meal and flax meal together provide MUFA, omega-3, and protein that coconut does not. Sat fat drops from ~22g to ~1.5g per serving.',
- },
  science:'Jicama is one of the highest prebiotic inulin vegetables available — 10–11g inulin per 100g, significantly higher than garlic or onion. Kohlrabi is a cruciferous vegetable whose glucosinolates convert to sulforaphane through the same pathway as cauliflower. Together they make this the most Bifidobacterium-feeding salad in this collection. Pottukadalai (roasted chickpeas) provides resistant starch in a form that remains resistant even after the brief tadka heat. Coconut in this quantity (roughly 2 tbsp per serving) is modest and provides MCTs; the context of this as an occasional dish makes the saturated fat completely acceptable.',
  begNotes:{
   'Where to find jicama':'Indian grocery stores and Asian supermarkets carry jicama (yam bean). Chayote or turnip can substitute in a pinch — similar crunchy neutral flavour.','Knol khol is very hard to peel':'Use a sharp vegetable peeler and peel thickly — the outer green skin runs deeper than on a carrot. Once peeled, the interior is tender and easy to grate.',
@@ -1511,6 +1578,17 @@ function openRecipe(id){
       <div class="ai-lbl">When to make this</div>
       ${r.appears.map(a=>`<span class="ai-chip">${a}</span>`).join('')}
     </div>
+    ${r.goesWith&&r.goesWith.length?`<div class="pairs-section">
+      <div class="pairs-title">🤝 Pairs Well With — Nutritional Synergies</div>
+      ${r.goesWith.map(p=>`<div class="pair-item">
+        <span class="pair-badge ${p.cat}">${p.cat}</span>
+        <div class="pair-body">
+          <div class="pair-name">${p.n}</div>
+          <div class="pair-why">${p.why}</div>
+          <div class="pair-icons">${p.tags.map(t=>`<span class="pair-icon">${t}</span>`).join('')}</div>
+        </div>
+      </div>`).join('')}
+    </div>`:''}
     <div class="nut-panel">
       <div class="np-title">Nutrition per serving</div>
       <div class="np-main" style="grid-template-columns:repeat(5,1fr)">
@@ -1531,7 +1609,6 @@ function openRecipe(id){
       <div class="det-section-title gold">🧪 Ingredients</div>
       ${r.cat==='family'?`<div class="family-note"><div class="family-note-lbl">Family Recipe</div><div class="family-note-txt">Original family recipe preserved as written. Health additions (amla off heat, kalonji in tadka, flaxseed off heat) have been added. Core technique and flavour profile unchanged.</div></div>`:''}
       ${r.keyTips&&r.keyTips.length?`<div class="key-tips"><div class="key-tips-lbl">⭐ Do Not Skip These</div>${r.keyTips.map(t=>`<div class="key-tip-row"><span style="flex-shrink:0">→</span><span>${t}</span></div>`).join('')}</div>`:''}
-      ${r.noCoconut?`<button class="no-coco-toggle" id="noCocoBtn" onclick="toggleNoCoco()"><span class="nct-ico">▶</span>No Coconut? — Flax &amp; Almond Swaps</button><div class="no-coco-panel" id="noCocoPanel"><div class="no-coco-title">🥥 Coconut-Free Substitutions</div>${r.noCoconut.swap.map(s=>`<div class="no-coco-row"><div class="no-coco-from">${s.from}</div><div><div class="no-coco-to">${s.to}</div><div class="no-coco-note">${s.note}</div></div></div>`).join('')}<div class="no-coco-science">${r.noCoconut.science}</div></div>`:''}
       ${r.chop40?CHOP_ALERT:''}
       <table class="ing-table">
         ${r.ing.map(i=>i.a.includes('—')?`<tr><td colspan="2" style="padding:12px 0 4px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mu)">${i.a}</td></tr>`:`
@@ -1580,13 +1657,6 @@ function goBack(){
   document.getElementById('backBtn').style.display='none';
   document.getElementById('topTitle').innerHTML='Recipe <em>Cards</em>';
   currentRecipeId=null;
-}
-function toggleNoCoco(){
-  const panel=document.getElementById('noCocoPanel');
-  const btn=document.getElementById('noCocoBtn');
-  if(!panel)return;
-  const open=panel.classList.toggle('show');
-  if(btn)btn.classList.toggle('open',open);
 }
 function toggleBeginner(){
   beginnerMode=!beginnerMode;
@@ -1661,6 +1731,14 @@ function quickTimer(secs,evt){
 async function requestWakeLock(){try{if('wakeLock'in navigator)wakeLock=await navigator.wakeLock.request('screen');}catch(e){}}
 async function releaseWakeLock(){try{if(wakeLock){await wakeLock.release();wakeLock=null;}}catch(e){}}
 
+function renderPairs(r){
+  if(!r.goesWith||!r.goesWith.length)return '';
+  var items=r.goesWith.map(function(p){
+    var tags=p.tags.map(function(t){return '<span class="pair-icon">'+t+'</span>';}).join('');
+    return '<div class="pair-item"><span class="pair-badge '+p.cat+'">'+p.cat+'</span><div class="pair-body"><div class="pair-name">'+p.n+'</div><div class="pair-why">'+p.why+'</div><div class="pair-icons">'+tags+'</div></div></div>';
+  }).join('');
+  return '<div class="pairs-section"><div class="pairs-title">&#129309; Pairs Well With — Nutritional Synergies</div>'+items+'</div>';
+}
 buildFilterRow();filterRecipes();
 </script>
 </body>
