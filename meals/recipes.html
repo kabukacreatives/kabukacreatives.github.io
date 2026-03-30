@@ -106,9 +106,9 @@ body{font-family:'Work Sans',sans-serif;background:var(--bg);color:var(--ink);fo
 .np-fat-lbl{font-size:11px;font-weight:700;color:var(--mu);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
 .det-section{padding:16px 18px;border-bottom:1.5px solid var(--border);background:#faf7f2}
 .det-section-title{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.det-section-title.gold{color:var(--gold)}
-.det-section-title.green{color:var(--greenl)}
-.det-section-title.terra{color:var(--terra)}
+.det-section-title.gold{color:#9a6200}
+.det-section-title.green{color:#1e6a1e}
+.det-section-title.terra{color:#a02a08}
 .ing-table{width:100%;border-collapse:collapse}
 .ing-row{border-bottom:1px solid var(--border)}
 .ing-row:last-child{border-bottom:none}
@@ -127,7 +127,7 @@ body{font-family:'Work Sans',sans-serif;background:var(--bg);color:var(--ink);fo
 /* SAFFRON BADGE */
 .saffron-note{background:var(--saffronp);border-left:3px solid var(--saffron);border-radius:0 10px 10px 0;padding:9px 12px;margin:8px 0}
 .saffron-note-lbl{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--saffron);margin-bottom:3px}
-.saffron-note-txt{font-size:12px;color:#e8c080;line-height:1.5}
+.saffron-note-txt{font-size:12px;color:#7a4800;line-height:1.5}
 .beginner-note{background:#f5f0ff;border-left:3px solid #7c3aed;border-radius:0 10px 10px 0;padding:9px 12px;margin:8px 0;display:none}
 .beginner-note.show{display:block}
 .bn-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pu);margin-bottom:3px}
@@ -139,12 +139,12 @@ body{font-family:'Work Sans',sans-serif;background:var(--bg);color:var(--ink);fo
 .step-body{flex:1}
 .step-text{font-size:15px;color:var(--ink);line-height:1.65}
 .step-flag{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700;margin-right:5px;margin-bottom:3px;vertical-align:middle}
-.step-flag.kalonji{background:rgba(0,0,0,.4);color:#e0d0ff;border:1px solid rgba(200,180,255,.2)}
-.step-flag.omam{background:rgba(255,255,220,.08);color:#e8e4c0;border:1px solid rgba(220,210,160,.2)}
-.step-flag.amla{background:rgba(60,160,40,.15);color:#a0e890;border:1px solid rgba(80,180,60,.2)}
-.step-flag.flax{background:rgba(100,60,20,.3);color:#d4b080;border:1px solid rgba(160,100,40,.2)}
+.step-flag.kalonji{background:#2a1a4a;color:#d8c8ff;border:1px solid #4a3a7a}
+.step-flag.omam{background:#4a4010;color:#f0e890;border:1px solid #8a7a30}
+.step-flag.amla{background:#1a4010;color:#90d870;border:1px solid #3a7020}
+.step-flag.flax{background:#3a2010;color:#e8c880;border:1px solid #7a5030}
 .step-flag.critical{background:rgba(212,168,67,.15);color:var(--gold);border:1px solid rgba(212,168,67,.3)}
-.step-timer-btn{display:inline-flex;align-items:center;gap:5px;margin-top:6px;padding:5px 11px;border-radius:8px;border:none;background:rgba(74,154,90,.2);color:var(--greenl);font-family:'Work Sans',sans-serif;font-size:11px;font-weight:700;cursor:pointer;letter-spacing:.04em}
+.step-timer-btn{display:inline-flex;align-items:center;gap:5px;margin-top:6px;padding:5px 11px;border-radius:8px;border:none;background:#d8f0d0;color:#1a5a1a;font-family:'Work Sans',sans-serif;font-size:11px;font-weight:700;cursor:pointer;letter-spacing:.04em}
 .science-card{background:#eaf4e0;border:1.5px solid #b0d890;border-radius:12px;padding:13px 15px}
 .sc-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--greenl);margin-bottom:6px}
 .sc-txt{font-size:13px;color:#1e4a1e;line-height:1.7}
@@ -155,39 +155,54 @@ body{font-family:'Work Sans',sans-serif;background:var(--bg);color:var(--ink);fo
 #cookMode{display:none;position:fixed;inset:0;z-index:500;background:#0e1a0e;flex-direction:column}
 #cookMode.active{display:flex}
 .cm-top{background:#152016;border-bottom:1px solid #263624;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;padding-top:max(14px,env(safe-area-inset-top))}
-.cm-close{width:36px;height:36px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--ink);font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer}
-.cm-recipe-name{font-family:'Roca Two',serif;font-size:18px;color:var(--cream);flex:1;text-align:center;padding:0 8px}
+.cm-close{width:36px;height:36px;border-radius:10px;border:1px solid #3a5438;background:#1e3020;color:#c0e0b8;font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.cm-recipe-name{font-family:'Roca Two',serif;font-size:18px;color:#f0ece4;flex:1;text-align:center;padding:0 8px}
 .cm-body{flex:1;overflow:hidden;display:flex;flex-direction:column;padding:20px 20px 8px}
 .cm-progress{display:flex;gap:4px;margin-bottom:20px;flex-shrink:0}
 .cm-prog-dot{height:3px;flex:1;border-radius:2px;background:var(--border);transition:background .3s}
 .cm-prog-dot.done{background:var(--green)}
 .cm-prog-dot.current{background:var(--gold)}
-.cm-step-num{font-family:'DM Mono',monospace;font-size:13px;color:var(--mu);text-align:center;margin-bottom:8px;flex-shrink:0;letter-spacing:.1em;text-transform:uppercase}
+.cm-step-num{font-family:'DM Mono',monospace;font-size:13px;color:#8aaa88;text-align:center;margin-bottom:8px;flex-shrink:0;letter-spacing:.1em;text-transform:uppercase}
 .cm-step-main{flex:1;display:flex;flex-direction:column;justify-content:center;overflow-y:auto}
 .cm-step-flags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
-.cm-step-text{font-family:'Roca Two',serif;font-size:clamp(22px,5vw,30px);color:var(--cream);line-height:1.45;flex:1}
-.cm-step-bignote{background:var(--goldp);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:12px 14px;margin-top:14px;font-size:14px;color:#d4c090;line-height:1.5}
-.cm-step-bignote .cn-lbl{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.cm-step-text{font-family:'Roca Two',serif;font-size:clamp(22px,5vw,30px);color:#f0ece4;line-height:1.45;flex:1}
+.cm-step-bignote{background:#2a2010;border-left:3px solid #c8a030;border-radius:0 10px 10px 0;padding:12px 14px;margin-top:14px;font-size:14px;color:#d4c090;line-height:1.5}
+.cm-step-bignote .cn-lbl{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#c8a030;margin-bottom:4px}
 .cm-timer{flex-shrink:0;display:none;align-items:center;justify-content:center;flex-direction:column;margin:16px 0}
 .cm-timer.show{display:flex}
 .timer-ring{position:relative;width:90px;height:90px}
 .timer-ring svg{width:90px;height:90px;transform:rotate(-90deg)}
 .timer-ring circle{fill:none;stroke-width:4;stroke-linecap:round}
-.tr-bg{stroke:var(--border)}
+.tr-bg{stroke:#2a4028}
 .tr-fill{stroke:var(--gold);transition:stroke-dashoffset .9s linear}
-.timer-display{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:24px;font-weight:500;color:var(--gold)}
+.timer-display{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:24px;font-weight:500;color:#e0b030}
 .timer-btns{display:flex;gap:8px;margin-top:8px}
-.tbtn{padding:7px 16px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--mu);font-family:'Work Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.04em}
+.tbtn{padding:7px 16px;border-radius:10px;border:1px solid #3a5438;background:#1e3020;color:#90c088;font-family:'Work Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.04em}
 .tbtn.start-t{background:rgba(74,154,90,.2);color:var(--greenl);border-color:rgba(74,154,90,.3)}
 .cm-nav{flex-shrink:0;display:flex;gap:10px;padding:12px 0;padding-bottom:max(12px,env(safe-area-inset-bottom))}
-.cm-prev{width:56px;height:56px;border-radius:16px;border:1px solid var(--border);background:var(--card);color:var(--ink);font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cm-prev{width:56px;height:56px;border-radius:16px;border:1px solid #3a5438;background:#1e3020;color:#c0e0b8;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .cm-prev:disabled{opacity:.3}
 .cm-next{flex:1;height:56px;border-radius:16px;border:none;background:linear-gradient(135deg,var(--green),var(--greenl));color:#fff;font-family:'Work Sans',sans-serif;font-size:16px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
 .cm-next.finish{background:linear-gradient(135deg,var(--gold),#f0c060);color:var(--bg)}
-.cm-screen-on{font-size:10px;color:var(--mu);text-align:center;padding:6px 0 0;flex-shrink:0;letter-spacing:.06em;text-transform:uppercase}
+.cm-screen-on{font-size:10px;color:#6a8a68;text-align:center;padding:6px 0 0;flex-shrink:0;letter-spacing:.06em;text-transform:uppercase}
 .empty-state{text-align:center;padding:50px 20px;color:var(--mu)}
 .empty-state .es-ico{font-size:44px;margin-bottom:12px}
 .empty-state p{font-size:13px;line-height:1.6}
+
+/* NO-COCONUT PANEL */
+.no-coco-toggle{display:inline-flex;align-items:center;gap:6px;margin:10px 0;padding:7px 14px;border-radius:20px;border:1.5px solid #b0d890;background:#eaf4e0;color:#1e5a1e;font-family:'Work Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.03em}
+.no-coco-toggle .nct-ico{font-size:14px;transition:transform .2s}
+.no-coco-toggle.open .nct-ico{transform:rotate(90deg)}
+.no-coco-panel{display:none;background:#f5fff5;border:1.5px solid #a0c890;border-radius:12px;padding:13px 15px;margin:4px 0 12px}
+.no-coco-panel.show{display:block}
+.no-coco-title{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1e5a1e;margin-bottom:10px}
+.no-coco-row{display:flex;gap:8px;padding:7px 0;border-bottom:1px solid #c0e0b0;font-size:13px;align-items:flex-start}
+.no-coco-row:last-child{border-bottom:none}
+.no-coco-from{color:#7a3010;text-decoration:line-through;min-width:110px;flex-shrink:0;font-size:12px;padding-top:1px}
+.no-coco-to{color:#1a1a1a;font-weight:500;flex:1}
+.no-coco-note{font-size:11px;color:#3a6a3a;margin-top:3px;line-height:1.5}
+.no-coco-science{background:#dff8df;border-left:3px solid #4a9a4a;border-radius:0 8px 8px 0;padding:9px 12px;margin-top:10px;font-size:12px;color:#1a4a1a;line-height:1.55}
+
 @media(min-width:480px){.recipe-grid{grid-template-columns:repeat(3,1fr)}#pageIndex{max-width:520px;margin:0 auto}}
 </style>
 </head>
@@ -906,6 +921,13 @@ const RECIPES = [
   {t:'Add cilantro garnish.',},
   {t:F.amla+'Add amla ½ tsp off heat. Stir.',flags:['amla']},
  ],
+ noCoconut:{
+  swap:[
+   {from:'1 cup grated coconut',to:'6 tbsp almond meal + 2 tbsp flax meal',note:'Blend with 5 tbsp warm water into a smooth paste before grinding with the roasted masala. Use exactly where the recipe says to grind coconut with masala.'},
+   {from:'1½ tbsp coconut oil',to:'1½ tbsp avocado oil',note:'Same quantity, same tempering technique. Mustard seeds pop identically.'},
+  ],
+  science:'Almond meal provides oleic acid (MUFA) and vitamin E — both reduce LDL oxidation. Flax meal adds ALA omega-3 and lignans that lower LDL. The paste thickens the sambar identically to coconut paste. Sat fat drops from approximately 14g to 1.5g per serving while MUFA rises significantly.',
+ },
  science:'Methi seeds (fenugreek) contain trigonelline — shown in RCTs to reduce post-meal blood glucose by 25–50% and lower LDL cholesterol. The arachu vitta technique — grinding fresh masala rather than using stored powder — retains volatile aromatic compounds lost during powder production.',
  begNotes:{'What is the difference from regular sambar?':'AV sambar uses freshly ground masala with coconut — richer, creamier, restaurant-quality. The coconut binds the sambar and gives it a thicker body.','Can I make the podi in advance?':'Yes — dry podi keeps 3–4 months refrigerated, 6+ months frozen. Grind 6–7 tbsp with 1 cup coconut + 1 cup toor dal fresh each time.'}
 },
@@ -927,7 +949,7 @@ const RECIPES = [
  goesWith:['Beans curry','Beetroot fry','Cabbage poriyal','Keerai (greens)'],
  ing:[
    {a:'2 medium',n:'Onions',note:'Sliced thin solai solai — long vertical strips, not rings or half-moons. The long cut caramelises more evenly.'},
-   {a:'1 tbsp',n:'Coconut oil',note:'For the base — authentic and needed here'},
+   {a:'1 tbsp',n:'Coconut oil (or avocado oil — see No Coconut option)',note:'For the base — authentic version uses coconut oil. Avocado oil substitutes cleanly.'},
    {a:'4 cups',n:'Water'},
    {a:'2 tbsp',n:'Puli (tamarind) paste, thick'},
    {a:'2 heaped tsp',n:'Sambar powder'},
@@ -973,6 +995,12 @@ const RECIPES = [
    {t:F.amla+'Add amla ½ tsp off heat. Stir gently. This is an addition to the original recipe — it does not alter the taste at the resting temperature.',flags:['amla']},
    {t:'Rest 5 minutes before serving. The flavour deepens as it stands.',timer:300},
  ],
+ noCoconut:{
+  swap:[
+   {from:'1 tbsp coconut oil',to:'1 tbsp avocado oil',note:'Same quantity. Use for the base heating step only — the rest of this recipe has no coconut. Flavour is neutral rather than subtly sweet — the tamarind and manathakkali carry the dish completely.'},
+  ],
+  science:'Swapping coconut oil for avocado oil here reduces saturated fat by 11g per tablespoon and replaces it with oleic acid (MUFA). Given this recipe appears every Thursday, the cumulative impact over 4 weeks is significant. The sesame oil stays unchanged — it is a non-negotiable flavour element and already provides MUFA and sesamol antioxidants.',
+ },
  science:'Manathakkali (black nightshade / Solanum nigrum) is one of the most medicinally documented plants in Siddha medicine. The ripe dried berries contain solanine glycosides and solasonine — compounds with demonstrated hepatoprotective (liver-protecting) properties in clinical studies. They are used specifically for ulcers, liver inflammation, and intestinal health. Fenugreek (vendayam) powder contains trigonelline — shown in RCTs to reduce post-meal blood glucose by 25–50% and lower LDL cholesterol. The jaggery addition provides trace minerals (iron, zinc, potassium) absent from white sugar. Tamarind contains hydroxycitric acid, an inhibitor of the enzyme ATP-citrate lyase involved in fat synthesis.',
  begNotes:{
    'What is manathakkali?':'Small dark purple-black berries, slightly larger than mustard seeds. Commonly called black nightshade or turkey berry. Find them in Indian grocery stores, dried or in brine. The dried version is what you want for this recipe.',
@@ -1077,6 +1105,13 @@ const RECIPES = [
    {t:'Off heat. 30 seconds.',timer:30},
    {t:F.flax+'Add 1 tbsp ground flaxseed. Stir.',flags:['flax']},
  ],
+ noCoconut:{
+  swap:[
+   {from:'½ cup grated coconut',to:'4 tbsp almond meal + 1 tbsp flax meal',note:'Blend with 3 tbsp warm water to a smooth paste. Use exactly as you would the ground coconut paste — add when combining vegetables and dal.'},
+   {from:'1 tsp coconut oil (tempering)',to:'1 tsp avocado oil',note:'Same technique. Mustard seeds pop identically in avocado oil.'},
+  ],
+  science:'Family recipes are preserved exactly. This no-coconut version is offered as a daily-use variant — the family original remains intact for occasions. Almond meal replicates the thickening function and fat content of coconut. Flax meal adds omega-3 and lignan content. The paste texture and kootu consistency are identical. Sat fat per serving drops from ~7g to ~1g.',
+ },
  science:'This is the family template kootu — the foundation that every other kootu in this plan builds on. The coconut in this recipe provides medium-chain triglycerides (MCTs) that are metabolised differently from long-chain saturated fats — they go directly to the liver for energy rather than circulating in the blood. This is an occasional family recipe and the coconut quantity per serving (approx 1–2 tbsp split across 4–6 portions) is modest. The cumin in the coconut paste contains cuminaldehyde — a compound shown to inhibit HMG-CoA reductase (the same enzyme targeted by statin drugs). Combined with the legumes\' soluble fibre and the turmeric, this kootu is genuinely functional medicine.',
  begNotes:{
    'The paste went oily when I ground it':'You over-ground the coconut. The fat cells in coconut rupture after prolonged blending and release oil. Stop grinding the moment it looks like a smooth creamy paste. If it\'s already oily, use it anyway — it just won\'t be as silky.',
@@ -1123,6 +1158,13 @@ const RECIPES = [
    {t:'Off heat. 30 seconds.',timer:30},
    {t:F.flax+'Ground flaxseed in. Stir.',flags:['flax']},
  ],
+ noCoconut:{
+  swap:[
+   {from:'⅔ cup grated coconut',to:'5 tbsp almond meal + 1½ tbsp flax meal',note:'Dry-roast the almond meal in a pan for 2 minutes for a deeper flavour before blending. Blend with 4 tbsp warm water to a smooth paste — use exactly where the coconut paste goes.'},
+   {from:'1 tsp coconut oil (tempering)',to:'1 tsp avocado oil',note:'Same quantity and technique.'},
+  ],
+  science:'Almond meal at this quantity provides approximately 8g protein and 14g MUFA per full batch. Lightly roasting it replicates the flavour depth of roasted coconut. Flax meal adds ALA omega-3 and enterolignans. Sat fat drops from about 9g to under 1g for the whole batch.',
+ },
  science:'Turnip is one of the most nutritionally underrated vegetables in Indian cooking. At only 6g net carbs per cup (lower than carrot at 9g, much lower than potato at 15g), it is an excellent bulk vegetable for low-carb cooking. Turnip contains glucosinolates — including gluconapin, which the body converts to the same class of sulforaphane precursors found in broccoli. It is a mild cruciferous vegetable that benefits from the 40-minute chop rule even though it is typically pressure-cooked (chop, leave 40 min, then cook). Turnip is rich in vitamin C (21mg per 100g) and provides meaningful amounts of calcium, potassium, and folate. Per batch nutritional yield: 494 kcal, 20g protein, 70g total carbs, 14.5g fat across the full 8-cup batch.',
  begNotes:{
    'Turnip tastes sharp raw':'Yes — raw turnip has a distinctive peppery bite. This completely disappears under pressure cooking. The cooked turnip becomes mild, slightly sweet, and very willing to take on whatever flavour the coconut paste and spices bring.',
@@ -1278,6 +1320,12 @@ const RECIPES = [
   {t:'Scatter alfalfa sprouts over the top.',},
   {t:'Add torn cilantro. Serve immediately.',note:'The blackberry dressing will turn the paler vegetables pink as it sits. This is beautiful for serving but means the salad changes appearance over 20 minutes. Dress just before serving.'},
  ],
+ noCoconut:{
+  swap:[
+   {from:'¼ cup coconut cream',to:'2 tbsp almond butter + 2 tbsp warm water',note:'Whisk almond butter with warm water until smooth and creamy before adding to the dressing. The consistency is identical to coconut cream. Use exactly the same way in the dressing.'},
+  ],
+  science:'Almond butter dressing provides oleic acid (MUFA) and vitamin E instead of saturated fat. The blackberry-almond dressing is slightly nuttier than the coconut version and pairs beautifully with the mango and kiwi. Sat fat drops from ~5g to ~0.5g per serving.',
+ },
  science:'This salad is a polyphenol spectrum — every fruit and vegetable represents a different class of antioxidant. Mango provides quercetin and beta-carotene. Kiwi is one of the highest vitamin C sources by weight. Red pepper provides capsanthin. The blackberry dressing delivers anthocyanins identical to those in your purple cabbage brine. Alfalfa sprouts contain saponins and phytoestrogens — mildly relevant given the perimenopause context, though at these quantities the effect is minor. The cumin provides thymoquinone, the same active compound as your kalonji seeds.',
  begNotes:{
   'The dressing looks curdled':'The coconut cream and vinegar can separate if the coconut cream is very cold. Warm the coconut cream to room temperature before whisking the dressing, then it will emulsify smoothly.',
@@ -1363,6 +1411,12 @@ const RECIPES = [
   {t:'Pour hot tadka immediately over the salad. Toss once to distribute the sizzling oil through the coconut and vegetables.',flags:['crit'],note:'The hot oil hitting the cold raw vegetables creates a brief moment of cooking just at the surface — you will hear a gentle sizzle. This tempered flavour is what makes this distinctly South Indian rather than just a raw salad. The tadka must be served hot for this to work.'},
   {t:'Serve immediately. This salad is best within 20 minutes of adding the tadka.',},
  ],
+ noCoconut:{
+  swap:[
+   {from:'450g (16oz) fresh/frozen grated coconut',to:'200g extra grated jicama + 4 tbsp almond meal + 1 tbsp flax meal',note:'Grate the extra jicama and toss it with almond meal and flax meal before combining. The almond meal provides the fat and richness that coconut normally contributes. Mix dry, then add the tadka as usual.'},
+  ],
+  science:'This is the most significant substitution in the collection — coconut is the structural body here. The no-coconut version is a genuinely different dish (lighter, crunchier, with more prebiotic jicama) but retains the Tamil flavour profile through the tadka. Almond meal and flax meal together provide MUFA, omega-3, and protein that coconut does not. Sat fat drops from ~22g to ~1.5g per serving.',
+ },
  science:'Jicama is one of the highest prebiotic inulin vegetables available — 10–11g inulin per 100g, significantly higher than garlic or onion. Kohlrabi is a cruciferous vegetable whose glucosinolates convert to sulforaphane through the same pathway as cauliflower. Together they make this the most Bifidobacterium-feeding salad in this collection. Pottukadalai (roasted chickpeas) provides resistant starch in a form that remains resistant even after the brief tadka heat. Coconut in this quantity (roughly 2 tbsp per serving) is modest and provides MCTs; the context of this as an occasional dish makes the saturated fat completely acceptable.',
  begNotes:{
   'Where to find jicama':'Indian grocery stores and Asian supermarkets carry jicama (yam bean). Chayote or turnip can substitute in a pinch — similar crunchy neutral flavour.','Knol khol is very hard to peel':'Use a sharp vegetable peeler and peel thickly — the outer green skin runs deeper than on a carrot. Once peeled, the interior is tender and easy to grate.',
@@ -1411,7 +1465,7 @@ function filterRecipes(){
   const q=document.getElementById('searchInput').value.toLowerCase();
   const results=RECIPES.filter(r=>{
     const matchCat=filterCat==='all'||r.cat===filterCat;
-    const matchQ=!q||r.en.toLowerCase().includes(q)||r.ta.includes(q)||r.cat.includes(q);
+    const matchQ=!q||(r.en||"").toLowerCase().includes(q)||(r.ta||"").includes(q)||(r.cat||"").includes(q);
     return matchCat&&matchQ;
   });
   renderGrid(results);
@@ -1477,6 +1531,7 @@ function openRecipe(id){
       <div class="det-section-title gold">🧪 Ingredients</div>
       ${r.cat==='family'?`<div class="family-note"><div class="family-note-lbl">Family Recipe</div><div class="family-note-txt">Original family recipe preserved as written. Health additions (amla off heat, kalonji in tadka, flaxseed off heat) have been added. Core technique and flavour profile unchanged.</div></div>`:''}
       ${r.keyTips&&r.keyTips.length?`<div class="key-tips"><div class="key-tips-lbl">⭐ Do Not Skip These</div>${r.keyTips.map(t=>`<div class="key-tip-row"><span style="flex-shrink:0">→</span><span>${t}</span></div>`).join('')}</div>`:''}
+      ${r.noCoconut?`<button class="no-coco-toggle" id="noCocoBtn" onclick="toggleNoCoco()"><span class="nct-ico">▶</span>No Coconut? — Flax &amp; Almond Swaps</button><div class="no-coco-panel" id="noCocoPanel"><div class="no-coco-title">🥥 Coconut-Free Substitutions</div>${r.noCoconut.swap.map(s=>`<div class="no-coco-row"><div class="no-coco-from">${s.from}</div><div><div class="no-coco-to">${s.to}</div><div class="no-coco-note">${s.note}</div></div></div>`).join('')}<div class="no-coco-science">${r.noCoconut.science}</div></div>`:''}
       ${r.chop40?CHOP_ALERT:''}
       <table class="ing-table">
         ${r.ing.map(i=>i.a.includes('—')?`<tr><td colspan="2" style="padding:12px 0 4px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mu)">${i.a}</td></tr>`:`
@@ -1525,6 +1580,13 @@ function goBack(){
   document.getElementById('backBtn').style.display='none';
   document.getElementById('topTitle').innerHTML='Recipe <em>Cards</em>';
   currentRecipeId=null;
+}
+function toggleNoCoco(){
+  const panel=document.getElementById('noCocoPanel');
+  const btn=document.getElementById('noCocoBtn');
+  if(!panel)return;
+  const open=panel.classList.toggle('show');
+  if(btn)btn.classList.toggle('open',open);
 }
 function toggleBeginner(){
   beginnerMode=!beginnerMode;
