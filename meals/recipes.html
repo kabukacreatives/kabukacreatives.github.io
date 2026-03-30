@@ -51,6 +51,8 @@ body{font-family:'Lato',sans-serif;background:var(--bg);color:var(--ink);font-si
 .filter-pill.active.base{background:var(--nv)}
 .filter-pill.active.special{background:var(--saffron)}
 .filter-pill.active.family{background:#7a4a9a}
+.filter-pill.active.salad{background:#1d9e75}
+.rt-cat.salad{background:#04342c;color:#5dcaa5}
 .rt-cat.family{background:#1e0e2a;color:#b888e8}
 .family-note{background:rgba(120,70,180,.15);border-left:3px solid #9a60d0;border-radius:0 10px 10px 0;padding:10px 13px;margin:10px 0}
 .family-note-lbl{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#b888e8;margin-bottom:4px}
@@ -1127,6 +1129,247 @@ const RECIPES = [
    'Turnip tastes sharp raw':'Yes — raw turnip has a distinctive peppery bite. This completely disappears under pressure cooking. The cooked turnip becomes mild, slightly sweet, and very willing to take on whatever flavour the coconut paste and spices bring.',
    'Can I substitute turnip with other vegetables?':'Yes — this recipe works with chow chow (chayote), raw banana, ash gourd (white pumpkin), or any firm white vegetable. The technique and coconut paste remain identical.'},
 },
+,
+// ─── SALADS ──────────────────────────────────────────────
+{id:'salad-thai-papaya', cat:'salad',
+ en:'Thai Raw Papaya Salad', ta:'பச்சை பப்பாளி சாலட்',
+ time:'30 min', serves:'6–8',
+ appears:['Occasional — guest meals','Bring to potlucks'],
+ nut:{c:18,p:6,f:12,kcal:195,fibre:4},
+ fat:{total:12,sat:1.5,mufa:4.5,pufa:5.5},chop40:false,
+ ing:[
+  {a:'450g (1 lb)',n:'Green papaya',note:'Shred with Asian serrated peeler into thin long strips — do NOT grate'},
+  {a:'225g (½ lb)',n:'Carrots',note:'Same as papaya — thin long strips with knife or serrated peeler'},
+  {a:'3–4',n:'Flat long hyacinth beans (payathangai)',note:'String if needed. Cut into 5–7cm bits. Avarakkai or regular beans if unavailable.'},
+  {a:'450g (16oz)',n:'Cherry tomatoes',note:'Round and juicy — not grape tomatoes'},
+  {a:'1½ cups',n:'Roasted peanuts, mildly crushed',note:'Crush with rolling pin — chunky, not fine'},
+  {a:'½ cup',n:'Roasted peanuts, whole',note:'Half left whole for texture contrast'},
+  {a:'½ cup',n:'Roasted sesame seeds',note:'Mix of black and white. Dry roast until they begin to pop.'},
+  {a:'Handful',n:'Fresh basil or cilantro leaves'},
+  {a:'— DRESSING —',n:'',note:''},
+  {a:'3 tbsp',n:'Thick tamarind extract',note:'From a small lemon-sized ball soaked in warm water — squeeze every drop'},
+  {a:'2 tbsp',n:'Roasted sesame oil',note:'Asian roasted sesame oil (dark brown) — not regular sesame oil'},
+  {a:'1 tbsp',n:'Palm sugar or jaggery',note:'Grate or dissolve in 1 tsp warm water first'},
+  {a:'2–3',n:'Fresh ripe red Asian chillies',note:'Prik chi faa or Thai red chillies — slice thin on the diagonal'},
+  {a:'1 tsp',n:'Kosher salt'},
+  {a:'1 tsp',n:'Lime juice',note:'Added at the very end — freshness'},
+ ],
+ steps:[
+  {t:'Make the dressing first: combine tamarind extract, sesame oil, dissolved palm sugar, sliced red chillies, and salt. Stir until sugar is fully dissolved. Taste — it should be a sharp balance of sour, sweet, salty, and hot. Adjust each element until all four are present.',flags:['crit'],note:'Thai salad dressing balance is the whole dish. If one flavour dominates, the salad becomes one-dimensional. Add more tamarind for sour, more sugar for sweet, more salt, more chilli for heat. Taste it three times before it touches the vegetables.'},
+  {t:'Shred green papaya: peel, then use Asian serrated peeler or a sharp knife to create long thin strips. You want strips, not grated mush — the texture of the papaya is structural.',flags:['crit'],note:'The serrated peeler technique: hold the peeler at an angle and draw it down the papaya firmly. The serrations catch the flesh and release strips. If you only have a box grater, use the largest holes and accept slightly shorter strips.'},
+  {t:'Shred carrots the same way. Keep separate from papaya until ready to dress.',},
+  {t:'String the hyacinth beans. Cut into 5–7cm lengths on the diagonal.',},
+  {t:'Halve the cherry tomatoes.',},
+  {t:'Combine papaya, carrot, beans, and tomatoes in a large wide bowl.',},
+  {t:'Pour dressing over. Toss with your hands — mix thoroughly, pressing slightly so the vegetables absorb the dressing.',flags:['crit'],note:'The pressing motion is the Thai technique. Your hands are the tool. Pressing and squeezing the papaya gently with the dressing transforms it from dressed salad to something that has absorbed the flavour all the way through.'},
+  {t:'Add crushed peanuts and whole peanuts. Add sesame seeds. Toss gently — you want the nuts distributed but not broken down further.',},
+  {t:'Add lime juice. Scatter basil or cilantro leaves. Serve immediately.',note:'This salad softens significantly after 30 minutes as the tamarind and salt draw moisture from the papaya. It is best served within 20 minutes of dressing.'},
+ ],
+ science:'Green papaya contains papain — a proteolytic enzyme that aids protein digestion. The shredded raw vegetables retain their full glucosinolate content. Tamarind provides hydroxycitric acid. Sesame oil in this quantity provides sesamin lignans without the saturated fat concern of coconut. The peanuts provide resveratrol and complete protein alongside the beans.',
+ begNotes:{
+  'Where to buy green papaya':'Indian grocery stores consistently carry green papaya. Buy one that is completely firm with no yellow spots — any softness means it has started to ripen and will be too sweet.',
+  'The dressing tastes too sour':'Add more palm sugar ½ tsp at a time. The sour-sweet balance is the hardest to nail the first time. When it is right, the sour and sweet cancel each other out and you taste complexity rather than either flavour alone.',
+ }
+},
+
+{id:'salad-lebanese-kale', cat:'salad',
+ en:'Lebanese Kale Salad', ta:'லெபனீஸ் கேல் சாலட்',
+ time:'25 min', serves:'6–8',
+ appears:['Occasional — guest meals','Winter gatherings'],
+ nut:{c:22,p:7,f:16,kcal:248,fibre:5},
+ fat:{total:16,sat:4.5,mufa:6,pufa:4.5},chop40:false,
+ ing:[
+  {a:'2 large bunches',n:'Lacinato (Tuscan) or Red Russian kale',note:'Fresh from the store — do not use pre-chopped bagged versions. Do not let it wilt.'},
+  {a:'2',n:'Pink or green skinned soft pear',note:'Buy soft variety — not crunchy. Hard pears will not work.'},
+  {a:'4',n:'Soft Medjool dates',note:'Finely chopped — remove pits first'},
+  {a:'450g (16oz)',n:'Walnuts',note:'Warm in microwave 45 seconds or toast in dry pan. Chop roughly.'},
+  {a:'1 roll (115g)',n:'Goat cheese',note:'Plain variety — avoid garlic flavoured'},
+  {a:'1 medium',n:'Pomegranate',note:'Separate arils. Use bottled POM arils if pomegranate unavailable.'},
+  {a:'½ cup',n:'Chia seeds soaked in pomegranate or orange juice',note:'Soak chia seeds in 1 cup unsweetened pomegranate or orange juice for 2 hours. They will form a gel.'},
+  {a:'— DRESSING —',n:'',note:''},
+  {a:'2 tbsp',n:'Butter (unsalted)',note:'Warm, not hot — used to massage the kale'},
+  {a:'1 inch piece',n:'Fresh ginger',note:'Grated fine'},
+  {a:'Juice of 2',n:'Limes (about 3 tbsp)',},
+  {a:'½ tsp',n:'Black pepper, cracked'},
+  {a:'¾ tsp',n:'Salt'},
+ ],
+ steps:[
+  {t:'Strip kale leaves from their tough central stems. Discard stems. Tear or cut leaves into roughly 4cm pieces.',},
+  {t:'In a large bowl, combine warm butter, grated ginger, lime juice, salt, and pepper. Whisk together.',note:'The butter should be just warm — not melted and hot, not cold and solid. Warm enough to coat without cooking.'},
+  {t:'Add kale to the bowl. Massage firmly with both hands for 4–5 minutes without stopping.',timer:270,flags:['crit'],note:'This is the step that transforms kale from tough and bitter to silky and sweet. The acid from the lime, the fat from the butter, and the physical pressure break down the cellular structure of the kale. After 4 minutes you will see it has reduced in volume by half and turned a deeper, brighter green. This is correct. Do not rush this step — under-massaged kale is unpleasant to eat.'},
+  {t:'Taste the massaged kale. Adjust salt and lime.',},
+  {t:'Core and thinly slice pears. Finely chop dates.',},
+  {t:'Add pear slices, chopped dates, and roughly chopped toasted walnuts to the kale. Toss gently.',},
+  {t:'Add the soaked chia gel. Toss to distribute.',note:'The chia gel acts as a secondary dressing — it thickens the remaining dressing and coats every leaf.'},
+  {t:'Transfer to serving bowl. Crumble goat cheese over the top.',},
+  {t:'Scatter pomegranate arils generously. Serve within 30 minutes.',note:'Unlike most salads, this one actually improves over 20–30 minutes as the kale continues to absorb the dressing. It will not go limp. Do not dress more than 1 hour ahead.'},
+ ],
+ science:'Lacinato kale is one of the most nutrient-dense leaves available — higher in beta-carotene, vitamin K, and glucosinolates than curly kale. Massaging breaks down the goitrogenic oxalates that make raw kale difficult to digest. Walnuts provide alpha-linolenic acid (ALA omega-3) and ellagitannins converted by gut bacteria to urolithins — compounds with the strongest evidence for mitochondrial health. Pomegranate arils contain punicalagins, converted by Bifidobacterium to urolithin A. This salad feeds your gut bacteria while providing one of the most complete micronutrient profiles of any salad in this collection.',
+ begNotes:{
+  'The kale still tastes bitter after massaging':'Either the massaging time was too short or you used curly kale (which is more bitter). Lacinato and Red Russian varieties are essential for this recipe. Add a pinch more salt and another squeeze of lime — acid tames bitterness significantly.',
+ }
+},
+
+{id:'salad-asian-cabbage', cat:'salad',
+ en:'Asian Cabbage Salad', ta:'ஆசியன் முட்டைக்கோஸ் சாலட்',
+ time:'20 min', serves:'6–8',
+ appears:['Occasional — guest meals','Great alongside kootus'],
+ nut:{c:16,p:6,f:14,kcal:208,fibre:3},
+ fat:{total:14,sat:2.5,mufa:5.5,pufa:5.5},chop40:true,
+ ing:[
+  {a:'225g (½ lb)',n:'Green cabbage',note:'Finely and evenly shredded — thin uniform strips. Chop 40 minutes before serving.'},
+  {a:'225g (½ lb)',n:'Purple cabbage',note:'Same — finely and evenly shredded. Chop 40 minutes before serving.'},
+  {a:'½ cup',n:'Sliced almonds, with skin',note:'Toast in unsalted butter until fragrant and mildly golden — watch carefully, they burn fast'},
+  {a:'¼ cup',n:'White sesame seeds',note:'Toast in unsalted butter until fragrant and just beginning to pop'},
+  {a:'½ small packet',n:'Maggi instant noodles (veg masala variety)',note:'Veg masala is just for choosing a veg version — do NOT add the masala powder. Crumble dry noodles and toast in unsalted butter until fragrant and mildly golden.'},
+  {a:'— DRESSING —',n:'',note:''},
+  {a:'3 tbsp',n:'Peanut butter',note:'Smooth, unsweetened'},
+  {a:'2 tbsp',n:'Rice vinegar',},
+  {a:'2 tbsp',n:'Soy sauce (or tamari)',},
+  {a:'1 tbsp',n:'Palm jaggery or honey',note:'Dissolve in 1 tbsp warm water first'},
+  {a:'½ tsp',n:'Dried chilli flakes'},
+  {a:'½ tsp',n:'Salt'},
+  {a:'1–2 tbsp',n:'Warm water',note:'To thin dressing to pourable consistency'},
+ ],
+ steps:[
+  {t:'Shred both cabbages finely and evenly — uniform thin strips are important for texture. Chop 40 minutes before serving to activate the sulforaphane in both cruciferous vegetables.',timer:2400,flags:['crit']},
+  {t:'Make the dressing: whisk peanut butter, rice vinegar, soy sauce, dissolved jaggery, chilli flakes, and salt together. Add warm water 1 tbsp at a time until it pours easily.',note:'Peanut butter dressings seize up when cold. If you have refrigerated your peanut butter, warm it for 15 seconds first. The dressing should be thick but pourable — consistency of thin honey.'},
+  {t:'Toast the noodles: break the dry noodles into irregular shards. Melt ½ tsp butter in a pan over medium heat. Add noodle pieces. Stir constantly until golden and fragrant — about 3 minutes. Transfer to a plate to cool completely.',timer:180,flags:['crit'],note:'Hot noodles placed on dressed salad will wilt everything from the steam. They must be completely cool and crisp before adding. Make these first.'},
+  {t:'Toast sliced almonds in ½ tsp butter over medium heat until golden at the edges. Remove and cool.',timer:120},
+  {t:'Toast sesame seeds in ½ tsp butter over medium heat, stirring, until they begin to pop. Remove and cool.',timer:90},
+  {t:'Combine both cabbages in a large bowl.',},
+  {t:'Pour dressing over cabbage. Toss thoroughly.',},
+  {t:'Transfer to serving bowl. Add toasted noodles, almonds, and sesame seeds immediately before serving — not before. They must stay crisp.',flags:['crit'],},
+ ],
+ science:'Purple cabbage provides 8× the anthocyanins of green cabbage — your weekly fermented brine in a fresh-salad form. Both cabbages are cruciferous, and the 40-minute chop window applies here exactly as it does to cauliflower — maximum sulforaphane formation before the heat of your palate. The peanut butter provides resveratrol and niacin. The rice vinegar lowers the glycaemic impact of the crispy noodles by slowing gastric emptying.',
+ begNotes:{
+  'The crispy noodles went soft':'They absorbed moisture from the dressing. Always add them at the last possible moment — ideally each person adds their own portion at the table. Store leftover toasted noodles separately and add fresh to each serving.',
+ }
+},
+
+{id:'salad-colombian-fruit', cat:'salad',
+ en:'Colombian Fruit and Vegetable Salad', ta:'கொலம்பியன் பழ காய்கறி சாலட்',
+ time:'30 min', serves:'6–8',
+ appears:['Occasional — summer gatherings','Bright and festive'],
+ nut:{c:28,p:4,f:6,kcal:174,fibre:5},
+ fat:{total:6,sat:4,mufa:0.8,pufa:0.6},chop40:false,
+ ing:[
+  {a:'1 box',n:'Alfalfa sprouts (or any tender sprout)',note:'Just a handful per serving — light garnish'},
+  {a:'1 large',n:'Red bell pepper',note:'Remove seeds and white pith. Chop into 1.5cm squares.'},
+  {a:'450g (16oz) can',n:'Corn kernels',note:'Drain canned corn OR steam fresh and cool'},
+  {a:'1 firm',n:'Mango',note:'Peel and cut into 1.5cm cubes. Firm, slightly underripe — sweet-sour is ideal. Do not use soft ripe mango.'},
+  {a:'450g (16oz)',n:'Cherry or grape tomatoes'},
+  {a:'1 medium',n:'Red onion',note:'Finely chopped — do not use a food processor, hand-chop'},
+  {a:'1',n:'Green apple',note:'Cut into 1.5cm cubes with skin on. Toss immediately in lemon juice to prevent browning.'},
+  {a:'2',n:'Kiwi',note:'Peel and cut into 1.5cm cubes. Handle gently — do not crush.'},
+  {a:'— DRESSING —',n:'',note:''},
+  {a:'¼ cup',n:'Coconut cream (not coconut milk)',note:'The thick cream from top of a chilled can, or carton coconut cream'},
+  {a:'1 handful',n:'Fresh blackberries',note:'Mash lightly with a fork — they become part of the dressing, adding colour and tartness'},
+  {a:'1–2',n:'Pickled jalapeños or pickled peppers',note:'Finely chopped. Adjust to heat preference.'},
+  {a:'1 handful',n:'Fresh cilantro leaves',note:'Roughly torn'},
+  {a:'2 tbsp',n:'Sweet wine vinegar (or rice vinegar)',},
+  {a:'1 tsp',n:'Roasted cumin powder',note:'Dry roast whole cumin, then grind — or use good quality pre-ground'},
+  {a:'Juice of 1',n:'Lime (about 2 tbsp)'},
+  {a:'½ tsp',n:'Salt'},
+ ],
+ steps:[
+  {t:'Make the dressing: combine coconut cream, mashed blackberries, finely chopped pickled peppers, sweet wine vinegar, roasted cumin powder, lime juice, and salt. Whisk until smooth. Taste — it should be creamy, tangy, mildly spiced, with a visible purple-pink colour from the blackberries.',note:'The coconut cream carries the mashed blackberry through the dressing, creating a naturally pink-purple sauce. This is the visual signature of the salad.'},
+  {t:'Prepare all vegetables and fruit: chop red pepper, cube mango, halve tomatoes, finely chop red onion, cube green apple (coat in lemon juice immediately), cube kiwi.',},
+  {t:'Combine all vegetables and fruit in a wide serving bowl. Toss gently — you want even distribution without crushing the kiwi or mango.',},
+  {t:'Pour dressing over. Toss gently once more.',},
+  {t:'Scatter alfalfa sprouts over the top.',},
+  {t:'Add torn cilantro. Serve immediately.',note:'The blackberry dressing will turn the paler vegetables pink as it sits. This is beautiful for serving but means the salad changes appearance over 20 minutes. Dress just before serving.'},
+ ],
+ science:'This salad is a polyphenol spectrum — every fruit and vegetable represents a different class of antioxidant. Mango provides quercetin and beta-carotene. Kiwi is one of the highest vitamin C sources by weight. Red pepper provides capsanthin. The blackberry dressing delivers anthocyanins identical to those in your purple cabbage brine. Alfalfa sprouts contain saponins and phytoestrogens — mildly relevant given the perimenopause context, though at these quantities the effect is minor. The cumin provides thymoquinone, the same active compound as your kalonji seeds.',
+ begNotes:{
+  'The dressing looks curdled':'The coconut cream and vinegar can separate if the coconut cream is very cold. Warm the coconut cream to room temperature before whisking the dressing, then it will emulsify smoothly.',
+ }
+},
+
+{id:'salad-mediterranean-chickpea', cat:'salad',
+ en:'Mediterranean Chickpea Salad', ta:'மத்திய தரைக்கடல் கொண்டைக்கடலை சாலட்',
+ time:'30 min', serves:'8–10',
+ appears:['Occasional — substantial guest salad','Works as a light meal'],
+ nut:{c:32,p:11,f:10,kcal:252,fibre:7},
+ fat:{total:10,sat:1.2,mufa:6.8,pufa:1.5},chop40:false,
+ ing:[
+  {a:'900g (32oz)',n:'Cooked chickpeas',note:'Canned and drained, or soaked and cooked at home with salt. White kabuli chana preferred.'},
+  {a:'450g (16oz)',n:'Large couscous',note:'Cook to packet instructions. Cool completely before using. Flavoured works — avoid garlic.'},
+  {a:'225g (½ lb)',n:'Cucumber (English variety)',note:'Finely chopped with skin on — English cucumber has small seeds and less water. Persian also works.'},
+  {a:'225g (½ lb)',n:'Firm tomatoes',note:'Deseed and finely chop'},
+  {a:'2 stalks',n:'Leek (white stem only)',note:'Peel off outer layers, remove any fibrous parts, finely chop. Use only the tender white stem — not the tough dark green leaves.'},
+  {a:'1 bunch',n:'Spring onions',note:'Separate whites and greens. Finely chop both — use both in the salad.'},
+  {a:'2',n:'Ripe avocados',note:'Peel, remove pit, finely chop. Coat immediately with lemon juice to prevent browning.'},
+  {a:'225g (½ lb)',n:'Mixed mini peppers or coloured peppers',note:'Remove seeds and white pith. Finely chop.'},
+  {a:'225g (8oz)',n:'Pitted olives (green or Kalamata)',note:'Slice or leave whole depending on size'},
+  {a:'— DRESSING —',n:'',note:''},
+  {a:'Zest of 1',n:'Lemon (finely grated)',note:'Zest first, then juice'},
+  {a:'3 tbsp',n:'Fresh lemon juice (about 1 large lemon)'},
+  {a:'1 tsp',n:'Dijon mustard',},
+  {a:'4 tbsp',n:'Extra virgin olive oil',},
+  {a:'2 cloves',n:'Garlic, finely minced'},
+  {a:'1 tsp',n:'Honey or agave',},
+  {a:'¾ tsp',n:'Salt'},
+  {a:'½ tsp',n:'Black pepper, freshly cracked'},
+ ],
+ steps:[
+  {t:'Make the dressing: whisk lemon zest, lemon juice, Dijon mustard, and honey together first. Then slowly pour olive oil in while whisking continuously — this creates an emulsion. Add garlic, salt, and pepper. Taste — it should be bright, slightly sharp, rounded with olive oil.',note:'Adding the oil slowly while whisking is what keeps the dressing emulsified rather than separated. If you add it all at once it will split and stay oily on top. Slow pour + constant whisking.'},
+  {t:'Cook couscous to packet instructions. Spread on a wide plate or tray to cool completely — hot couscous on cold vegetables creates steam and wilts everything.',flags:['crit'],timer:600},
+  {t:'Drain and rinse chickpeas thoroughly.',},
+  {t:'Finely chop cucumber, deseeded tomatoes, leek whites, spring onion whites and greens.',},
+  {t:'Chop avocado and coat immediately with lemon juice.',},
+  {t:'Chop peppers and halve or slice olives.',},
+  {t:'Combine cooled couscous and chickpeas in a large bowl. Pour about half the dressing over and toss — the couscous absorbs dressing readily.',note:'Dressing the couscous and chickpeas first, before adding the fresh vegetables, means the grain absorbs flavour rather than the vegetables leaching water into an undressed base.'},
+  {t:'Add all chopped vegetables and olives. Toss gently.',},
+  {t:'Add avocado last and fold in carefully — you want it distributed without mashing.',},
+  {t:'Pour remaining dressing over. Taste and adjust salt, lemon, or mustard.',},
+  {t:'Let sit 10 minutes before serving. This is a salad that improves with a brief rest.',timer:600,note:'Unlike most salads, the 10-minute rest allows the couscous to absorb the dressing fully and the flavours to merge. It will not wilt. Serve at room temperature.'},
+ ],
+ science:'Chickpeas have the lowest glycaemic index of any legume at GI 10 and provide 7g fibre per 100g — including resistant starch that feeds Bifidobacterium directly. Combined with couscous this is a complete protein salad. Extra virgin olive oil provides oleocanthal — a natural COX inhibitor with anti-inflammatory activity equivalent to ibuprofen at the quantities used here. The lemon zest contains d-limonene, a potent cancer-preventive compound not present in the juice. Avocado contributes 2.5g of prebiotic fibre per half avocado and beta-sitosterol that directly competes with cholesterol for absorption — particularly relevant for your lipid profile.',
+ begNotes:{
+  'The couscous is clumping together':'It was dressed before it was fully cool, or it was not spread out to cool. Break up clumps with a fork before adding to the salad. Next time spread it in a thin layer on a wide plate and cool fully.','The avocado turned brown':'Coat more generously with lemon juice immediately after cutting. The acid inhibits the oxidation enzyme. Adding at the very last moment also helps.',
+ }
+},
+
+{id:'salad-indian-sampler', cat:'salad',
+ en:'Sampler Indian Salad', ta:'இந்திய சாம்பிளர் சாலட்',
+ time:'20 min', serves:'6–8',
+ appears:['Occasional — familiar Tamil flavours in salad form','No onion version'],
+ nut:{c:14,p:4,f:8,kcal:140,fibre:3},
+ fat:{total:8,sat:1.2,mufa:3,pufa:3.5},chop40:false,
+ ing:[
+  {a:'1 medium',n:'Jicama',note:'Peel and grate on large holes — chunky shreds, not fine mush'},
+  {a:'1 medium',n:'Kohlrabi (knol khol)',note:'Peel and grate on large holes — chunky shreds, not fine mush'},
+  {a:'225g (½ lb)',n:'Carrots',note:'Peel and grate on large holes — chunky shreds, not fine mush'},
+  {a:'1 cup',n:'Puffed chickpeas (pottukadalai)',note:'Peeled and halved — provide crunch and nuttiness'},
+  {a:'450g (16oz)',n:'Fresh or frozen grated coconut',note:'Thaw if frozen. This is the body of the salad.'},
+  {a:'— TADKA DRESSING —',n:'',note:''},
+  {a:'1 tbsp',n:'Peanut oil (or avocado oil)',},
+  {a:'½ tsp',n:'Mustard seeds',},
+  {a:'½ tsp',n:'Cumin seeds (jeera)',},
+  {a:'1 sprig',n:'Curry leaves (10–12 leaves)',},
+  {a:'2',n:'Green chillies',note:'Slit lengthwise — remove seeds for less heat'},
+  {a:'Juice of 1½',n:'Limes (about 2–3 tbsp)',},
+  {a:'1 handful',n:'Fresh cilantro',note:'Roughly chopped'},
+  {a:'¾ tsp',n:'Salt'},
+ ],
+ steps:[
+  {t:'Grate jicama, kohlrabi, and carrot on the large holes of a box grater. You want chunky, textured shreds — not fine pulp. If any vegetable releases a lot of water, squeeze gently in a clean cloth before using.',flags:['crit'],note:'Jicama and kohlrabi can be watery if grated too fine. Large-hole grating preserves texture and reduces water release. The salad should be crunchy throughout, not wet.'},
+  {t:'Combine grated vegetables, grated coconut, and puffed chickpeas in a large bowl.',},
+  {t:'Add lime juice, cilantro, and salt. Toss to combine. Taste and adjust lime and salt.',},
+  {t:'Make the tadka: heat peanut oil in a small pan over medium-high heat.',},
+  {t:'Add mustard seeds. Wait for full pop.',timer:20},
+  {t:'Add cumin seeds. Stir 10 seconds.',timer:10},
+  {t:'Add curry leaves — stand back, they will spit.',timer:5},
+  {t:'Add slit green chillies. Stir 15 seconds.',timer:15},
+  {t:'Pour hot tadka immediately over the salad. Toss once to distribute the sizzling oil through the coconut and vegetables.',flags:['crit'],note:'The hot oil hitting the cold raw vegetables creates a brief moment of cooking just at the surface — you will hear a gentle sizzle. This tempered flavour is what makes this distinctly South Indian rather than just a raw salad. The tadka must be served hot for this to work.'},
+  {t:'Serve immediately. This salad is best within 20 minutes of adding the tadka.',},
+ ],
+ science:'Jicama is one of the highest prebiotic inulin vegetables available — 10–11g inulin per 100g, significantly higher than garlic or onion. Kohlrabi is a cruciferous vegetable whose glucosinolates convert to sulforaphane through the same pathway as cauliflower. Together they make this the most Bifidobacterium-feeding salad in this collection. Pottukadalai (roasted chickpeas) provides resistant starch in a form that remains resistant even after the brief tadka heat. Coconut in this quantity (roughly 2 tbsp per serving) is modest and provides MCTs; the context of this as an occasional dish makes the saturated fat completely acceptable.',
+ begNotes:{
+  'Where to find jicama':'Indian grocery stores and Asian supermarkets carry jicama (yam bean). Chayote or turnip can substitute in a pinch — similar crunchy neutral flavour.','Knol khol is very hard to peel':'Use a sharp vegetable peeler and peel thickly — the outer green skin runs deeper than on a carrot. Once peeled, the interior is tender and easy to grate.',
+ }
+},
 ];
 
 // ═══════════════════════════════════════════════════════════
@@ -1141,12 +1384,13 @@ const FILTERS = [
   {id:'kids',label:'🎒 Kids',cls:'kids'},
   {id:'special',label:'✨ Special',cls:'special'},
     {id:'family',label:'🏠 Family',cls:'family'},
+  {id:'salad',label:'🥗 Salads',cls:'salad'},
 ];
 
 // ═══════════════════════════════════════════════════════════
 // RENDER — updated to include chop alert and saffron notes
 // ═══════════════════════════════════════════════════════════
-const CAT_LABELS={base:'Base Technique',kootu:'Kootu',curry:'Dry Curry',gravy:'Gravy',kids:'Kids',special:'Special',family:'Family Recipe'};
+const CAT_LABELS={base:'Base Technique',kootu:'Kootu',curry:'Dry Curry',gravy:'Gravy',kids:'Kids',special:'Special',family:'Family Recipe',salad:'Guest Salad'};
 
 let currentRecipeId=null,beginnerMode=false,filterCat='all';
 let cmCurrentStep=0,cmSteps=[];
@@ -1159,7 +1403,7 @@ function buildFilterRow(){
 }
 function setFilter(cat){
   filterCat=cat;
-  document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active','all','kootu','curry','gravy','kids','base','special','family'));
+  document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active','all','kootu','curry','gravy','kids','base','special','family','salad'));
   const btn=document.getElementById('fp-'+cat);
   if(btn){btn.classList.add('active');btn.classList.add(cat);}
   filterRecipes();
