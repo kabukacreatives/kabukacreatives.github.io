@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spice Blends — World Kitchen Reference</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1008;
+  --paper: #fdf8f0;
+  --spice1: #b5400a;
+  --spice2: #7a5c2e;
+  --spice3: #4a7c59;
+  --spice4: #2e5e7a;
+  --spice5: #6b3a6b;
+  --spice6: #7a2e2e;
+  --spice7: #3a5c3a;
+  --spice8: #c47c1a;
+  --rule: rgba(26,16,8,0.12);
+  --wet-accent: #2e6b8a;
+  --dry-accent: #b5400a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* ── SCREEN CHROME ── */
+.screen-only {
+  background: #1a1008;
+  color: var(--paper);
+  padding: 0.9rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.screen-only h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.print-btn {
+  background: var(--spice1);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.45rem 1rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ── FILTER BAR ── */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.8rem 1rem;
+  background: rgba(26,16,8,0.04);
+  border-bottom: 1px solid var(--rule);
+}
+
+.filter-btn {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  border: 1.5px solid var(--rule);
+  background: white;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.15s;
+  color: var(--ink);
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+/* ── DOCUMENT ── */
+.document {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+/* Page title (print header) */
+.doc-header {
+  text-align: center;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.doc-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.doc-header p {
+  font-size: 0.78rem;
+  color: var(--spice2);
+  margin-top: 0.2rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Style key */
+.style-key {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 1.8rem;
+  flex-wrap: wrap;
+}
+
+.style-key-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--spice2);
+}
+
+.dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+
+.dot.wet { background: var(--wet-accent); }
+.dot.dry { background: var(--dry-accent); }
+.dot.boost { background: #7a5c2e; }
+
+/* ── FLAVOR BOOSTER STRIP ── */
+.booster-strip {
+  margin-top: 0.9rem;
+  border-top: 1px dashed rgba(26,16,8,0.15);
+  padding-top: 0.7rem;
+  grid-column: 1 / -1;
+}
+
+.booster-label {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #c47c1a;
+  margin-bottom: 0.45rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.booster-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(196,124,26,0.25);
+}
+
+.booster-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.booster-item {
+  background: rgba(196,124,26,0.08);
+  border: 1px solid rgba(196,124,26,0.2);
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.booster-item strong {
+  display: block;
+  font-weight: 500;
+  color: #8a4a00;
+  font-size: 0.72rem;
+}
+
+.booster-item span {
+  color: var(--spice2);
+  font-size: 0.7rem;
+}
+
+/* ── BOOSTER REFERENCE SECTION ── */
+.booster-ref-card {
+  border: 1.5px solid rgba(196,124,26,0.35);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  background: rgba(253,248,240,0.6);
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.booster-ref-head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.75rem 1rem;
+  background: rgba(196,124,26,0.07);
+  border-bottom: 1px solid rgba(196,124,26,0.2);
+  cursor: pointer;
+}
+
+.booster-ref-head .blend-name { font-size: 1rem; }
+
+.booster-ref-body {
+  display: none;
+  padding: 0.9rem 1rem;
+}
+
+.booster-ref-card.open .booster-ref-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.6rem;
+}
+
+.bref-item {
+  background: white;
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  border-left: 3px solid #c47c1a;
+}
+
+.bref-item .bref-name {
+  font-weight: 500;
+  font-size: 0.82rem;
+  color: #7a3a00;
+  margin-bottom: 0.2rem;
+}
+
+.bref-item .bref-tamil {
+  font-size: 0.7rem;
+  color: var(--muted, #8a7060);
+  font-style: italic;
+  margin-bottom: 0.3rem;
+}
+
+.bref-item .bref-desc {
+  font-size: 0.75rem;
+  color: var(--ink);
+  line-height: 1.45;
+}
+
+.bref-item .bref-when {
+  font-size: 0.68rem;
+  color: var(--spice3, #4a7c59);
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+/* ── BLEND CARD ── */
+.blend-card {
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.blend-card[data-style="wet"] { border-left: 4px solid var(--wet-accent); }
+.blend-card[data-style="dry"] { border-left: 4px solid var(--dry-accent); }
+
+.blend-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: 0.7rem;
+  padding: 0.85rem 1rem 0.8rem;
+  background: rgba(26,16,8,0.025);
+  cursor: pointer;
+  border-bottom: 1px solid var(--rule);
+}
+
+.region-tag {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  color: white;
+  white-space: nowrap;
+  margin-top: 2px;
+}
+
+.blend-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.blend-meta {
+  font-size: 0.72rem;
+  color: var(--spice2);
+  margin-top: 0.1rem;
+}
+
+.style-pill {
+  font-size: 0.62rem;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-weight: 500;
+  white-space: nowrap;
+  margin-top: 2px;
+}
+
+.style-pill.wet { background: rgba(46,107,138,0.12); color: var(--wet-accent); }
+.style-pill.dry { background: rgba(181,64,10,0.12); color: var(--dry-accent); }
+
+.blend-body {
+  display: none;
+  padding: 0.9rem 1rem;
+}
+
+.blend-card.open .blend-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem 1.5rem; }
+
+.col-label {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--spice2);
+  margin-bottom: 0.4rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.2rem;
+}
+
+.ratio-table { width: 100%; border-collapse: collapse; }
+.ratio-table tr { border-bottom: 1px solid rgba(26,16,8,0.05); }
+.ratio-table td { padding: 0.25rem 0; font-size: 0.8rem; }
+.ratio-table td:first-child { font-weight: 400; flex: 1; }
+.ratio-table td:last-child {
+  text-align: right;
+  font-weight: 500;
+  color: var(--spice1);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem;
+  padding-left: 0.5rem;
+  white-space: nowrap;
+}
+
+.how-to {
+  font-size: 0.78rem;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.how-to strong {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+  color: var(--spice1);
+  font-size: 0.72rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.use-for {
+  font-size: 0.75rem;
+  color: var(--spice3);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* ── SECTION DIVIDER ── */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 1.6rem 0 0.8rem;
+}
+
+.section-divider span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.section-divider::before, .section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── PRINT ── */
+@media print {
+  .screen-only, .filter-bar { display: none !important; }
+  body { font-size: 11px; background: white; }
+  .document { padding: 0.5rem 0.5rem 1rem; max-width: 100%; }
+  .doc-header { margin-bottom: 1rem; }
+  .doc-header h2 { font-size: 1.6rem; }
+  .blend-card { page-break-inside: avoid; break-inside: avoid; margin-bottom: 0.6rem; }
+  .blend-body { display: grid !important; grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem; }
+  .blend-head { cursor: default; }
+  .blend-card.hidden { display: none; }
+  .section-divider { margin: 1rem 0 0.5rem; }
+  .style-key { margin-bottom: 1rem; }
+}
+
+@media (max-width: 600px) {
+  .blend-card.open .blend-body { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="screen-only">
+  <h1>🌶 Spice Blends Reference</h1>
+  <button class="print-btn" onclick="window.print()">🖨 Print / Save PDF</button>
+</div>
+
+<div class="filter-bar screen-only">
+  <button class="filter-btn active" onclick="filterCards('all', this)">All</button>
+  <button class="filter-btn" onclick="filterCards('wet', this)">🫕 Kootu / Wet</button>
+  <button class="filter-btn" onclick="filterCards('dry', this)">🍳 Dry Subzi</button>
+  <button class="filter-btn" onclick="filterCards('bengali', this)">Bengali</button>
+  <button class="filter-btn" onclick="filterCards('punjabi', this)">Punjabi</button>
+  <button class="filter-btn" onclick="filterCards('marathi', this)">Marathi</button>
+  <button class="filter-btn" onclick="filterCards('south-indian', this)">South Indian</button>
+  <button class="filter-btn" onclick="filterCards('moroccan', this)">Moroccan</button>
+  <button class="filter-btn" onclick="filterCards('asian', this)">Asian</button>
+  <button class="filter-btn" onclick="filterCards('other', this)">Other</button>
+  <button class="filter-btn" onclick="filterCards('boosters', this)">✨ Flavor Boosters</button>
+</div>
+
+<div class="document">
+
+  <div class="doc-header">
+    <h2>World Kitchen · Spice Blend Reference</h2>
+    <p>Ratios · Mix Method · Kootu &amp; Wet Style · Dry Subzi Style</p>
+  </div>
+
+  <div class="style-key">
+    <div class="style-key-item"><div class="dot wet"></div> Kootu / Wet / Curry (liquid-based)</div>
+    <div class="style-key-item"><div class="dot dry"></div> Dry Subzi / Roasted / Toss-style</div>
+    <div class="style-key-item"><div class="dot boost"></div> Flavor Boosters — applied at start, mid, or finish</div>
+  </div>
+
+  <!-- ══════════════ SOUTH INDIAN ══════════════ -->
+  <div class="section-divider"><span>South Indian</span></div>
+
+  <div class="blend-card" data-style="wet" data-region="south-indian" onclick="toggleCard(this)">
+    <div class="blend-head">
+      <span class="region-tag" style="background:#4a7c59">South Indian</span>
+      <div>
+        <div class="blend-name">Kootu Spice Blend</div>
+        <div class="blend-meta">Lentil + vegetable stew · coconut base · Tamil Nadu</div>
+      </div>
+      <span class="style-pill wet">Wet / Kootu</span>
+    </div>
+    <div class="blend-body">
+      <div>
+        <div class="col-label">Ratios (per 2 servings)</div>
+        <table class="ratio-table">
+          <tr><td>Coriander seeds (dry roast)</td><td>2 tsp</td></tr>
+          <tr><td>Cumin seeds</td><td>1 tsp</td></tr>
+          <tr><td>Black pepper</td><td>½ tsp</td></tr>
+          <tr><td>Dried red chili</td><td>2–3</td></tr>
+          <tr><td>Fresh/dried coconut</td><td>3 tbsp</td></tr>
+          <tr><td>Turmeric</td><td>¼ tsp</td></tr>
+          <tr><td>Urad dal (dry roast)</td><td>1 tsp</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="col-label">Method</div>
+        <div class="how-to">
+          <strong>Make the paste</strong>
+          Dry roast coriander, cumin, pepper, red chili, urad dal until fragrant (2 min). Cool, then grind with coconut + a little water into a coarse paste.
+          <strong>Cook</strong>
+          Cook lentils (chana dal or toor dal) + vegetables until soft. Add turmeric while cooking. Stir in ground paste, simmer 5 min. Temper: mustard seeds + curry leaves + dried red chili in coconut oil over the top.
+        </div>
+        <div class="use-for">Use for: drumstick, raw banana, yam, ash gourd, beans kootu</div>
+      </div>
+      <div class="booster-strip">
+        <div class="booster-label">✨ Flavor Boosters</div>
+        <div class="booster-items">
+          <div class="booster-item"><strong>Thalippu (தாளிப்பு) — START</strong><span>Mustard + urad dal + dried red chili + curry leaves in coconut oil. The foundational South Indian temper — goes in first, sets the entire flavor base.</span></div>
+          <div class="booster-item"><strong>Perungayam / Asafoetida (Hing) — START</strong><span>A pinch into hot oil before anything else. Adds deep allium-like savoriness. Especially important if cooking without onion/garlic.</span></div>
+          <div class="booster-item"><strong>Kothamalli (கொத்தமல்லி / Fresh Coriander) — FINISH</strong><span>Add raw, off heat. Brightens and lifts the whole dish. A generous handful, not a sprinkle.</span></div>
+          <div class="booster-item"><strong>Coconut oil drizzle — FINISH</strong><span>A small drizzle of raw cold-pressed coconut oil right before serving adds a distinct coastal South Indian aroma that cooked oil doesn't give.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blend-card" data-style="dry" data-region="south-indian" onclick="toggleCard(this)">
+    <div class="blend-head">
+      <span class="region-tag" style="background:#4a7c59">South Indian</span>
+      <div>
+        <div class="blend-name">Poriyal / Dry Subzi Blend</div>
+        <div class="blend-meta">Dry stir-fry · Tamil Nadu / Kerala style</div>
+      </div>
+      <span class="style-pill dry">Dry Subzi</span>
+    </div>
+    <div class="blend-body">
+      <div>
+        <div class="col-label">Ratios (per 2 servings)</div>
+        <table class="ratio-table">
+          <tr><td>Mustard seeds</td><td>½ tsp</td></tr>
+          <tr><td>Urad dal</td><td>1 tsp</td></tr>
+          <tr><td>Cumin seeds</td><td>½ tsp</td></tr>
+          <tr><td>Dried red chili</td><td>2</td></tr>
+          <tr><td>Turmeric</td><td>¼ tsp</td></tr>
+          <tr><td>Fresh grated coconut</td><td>2 tbsp</td></tr>
+          <tr><td>Curry leaves</td><td>8–10</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="col-label">Method</div>
+        <div class="how-to">
+          <strong>Temper first</strong>
+          Heat coconut oil. Add mustard — let it splutter. Add urad dal, fry golden. Add dried chili + curry leaves. Add cumin last.
+          <strong>Cook</strong>
+          Add par-cooked or raw vegetable + turmeric + salt. Stir-fry on medium-high until dry and slightly crisp. Finish with fresh coconut — toss and off heat.
+        </div>
+        <div class="use-for">Use for: cabbage, carrot, beetroot, green beans, raw banana poriyal</div>
+      </div>
+      <div class="booster-strip">
+        <div class="booster-label">✨ Flavor Boosters</div>
+        <div class="booster-items">
+          <div class="booster-item"><strong>Thalippu — START</strong><span>Mustard + urad dal + curry leaves spluttered in coconut oil. Non-negotiable for poriyal. The urad dal must turn golden — that nuttiness is the base flavor.</span></div>
+          <div class="booster-item"><strong>Hing (Perungayam) — START</strong><span>Pinch into the thalippu oil. Adds depth especially for cabbage and beans which can taste flat without it.</span></div>
+          <div class="booster-item"><strong>Fresh Coconut — FINISH</strong><span>Added raw at the very end off heat. Do not cook it — the fresh sweetness is the whole point. Toast it lightly if using dry coconut.</span></div>
+          <div class="booster-item"><strong>Lemon squeeze — FINISH</strong><span>Optional but bright — a small squeeze over beetroot or carrot poriyal right before serving lifts and balances the earthy sweetness.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ BENGALI ══════════════ -->
+  <div class="section-divider"><span>Bengali</span></div>
+
+  <div class="blend-card" data-style="wet" data-region="bengali" onclick="toggleCard(this)">
+    <div class="blend-head">
+      <span class="region-tag" style="background:#7a5c2e">Bengali</span>
+      <div>
+        <div class="blend-name">Panch Phoron Dal / Wet Curry</div>
+        <div class="blend-meta">Five-spice temper · mustard-forward · Bengal</div>
+      </div>
+      <span class="style-pill wet">Wet / Dal</span>
+    </div>
+    <div class="blend-body">
+      <div>
+        <div class="col-label">Panch Phoron Mix (equal parts)</div>
+        <table class="ratio-table">
+          <tr><td>Fenugreek seeds (methi)</td><td>1 part</td></tr>
+          <tr><td>Nigella seeds (kalonji)</td><td>1 part</td></tr>
+          <tr><td>Cumin seeds</td><td>1 part</td></tr>
+          <tr><td>Black mustard seeds</td><td>1 part</td></tr>
+          <tr><td>Fennel seeds</td><td>1 part</td></tr>
+          <tr><td>+ Turmeric (for curry)</td><td>¼ tsp</td></tr>
+          <tr><td>+ Green chili (fresh)</td><td>2 slit</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="col-label">Method</div>
+        <div class="how-to">
+          <strong>Pre-mix & store</strong>
+          Mix equal parts all 5 seeds. Store in a jar — this is your panch phoron. Use 1 tsp per dish.
+          <strong>Cook</strong>
+          Heat mustard oil until smoking, reduce heat. Add 1 tsp panch phoron — let splutter 30 sec. Add green chili. Add vegetables or cooked dal + turmeric + salt. For wet curry add water or tomato. Simmer 8–10 min.
+        </div>
+        <div class="use-for">Use for: masoor dal, aloo posto gravy, shukto, begun bhaja curry</div>
+      </div>
+      <div class="booster-strip">
+        <div class="booster-label">✨ Flavor Boosters</div>
+        <div class="booster-items">
+          <div class="booster-item"><strong>Panch Phoron Temper — START</strong><span>The 5-spice splutter in mustard oil IS the flavor foundation. Smoke the oil first — that raw pungency of mustard oil, slightly cooked, is distinctly Bengali.</span></div>
+          <div class="booster-item"><strong>Green Chili slit — START/MID</strong><span>Add slit (not chopped) green chili with the temper. The whole chili infuses gentle heat without sharp spice bursts.</span></div>
+          <div class="booster-item"><strong>Mustard paste (Kashundi) — MID</strong><span>Dissolve 1 tsp mustard paste in water, add mid-cook. Punchy, bitter-sharp. Signature Bengali flavor that nothing else replicates.</span></div>
+          <div class="booster-item"><strong>Raw mustard oil drizzle — FINISH</strong><span>A few drops of cold raw mustard oil just before serving. Adds the sharp, nose-clearing heat that defines Bengali cooking.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blend-card" data-style="dry" data-region="bengali" onclick="toggleCard(this)">
+    <div class="blend-head">
+      <span class="region-tag" style="background:#7a5c2e">Bengali</span>
+      <div>
+        <div class="blend-name">Aloo / Vegetable Chorchori</div>
+        <div class="blend-meta">Dry mixed vegetable medley · minimal water</div>
+      </div>
+      <span class="style-pill dry">Dry Subzi</span>
+    </div>
+    <div class="blend-body">
+      <div>
+        <div class="col-label">Ratios (per 2 servings)</div>
+        <table class="ratio-table">
+          <tr><td>Panch phoron</td><td>1 tsp</td></tr>
+          <tr><td>Turmeric</td><td>½ tsp</td></tr>
+          <tr><td>Dried red chili</td><td>2</td></tr>
+          <tr><td>Mustard paste (optional)</td><td>1 tsp</td></tr>
+          <tr><td>Nigella seeds (kalonji)</td><td>¼ tsp extra</td></tr>
+          <tr><td>Mustard oil</td><td>2 tbsp</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="col-label">Method</div>
+        <div class="how-to">
+          <strong>Temper</strong>
+          Smoke mustard oil, reduce. Add panch phoron + dried chili — splutter. Add nigella.
+          <strong>Cook dry</strong>
+          Add diced vegetables + turmeric + salt. Stir well. Cover and cook on low with NO water — the vegetables steam in their own moisture. Open and stir-fry last 3 min to dry out. Optional: add mustard paste dissolved in water for a punchy finish.
+        </div>
+        <div class="use-for">Use for: mixed veg chorchori, aloo phulkopi, potol (pointed gourd)</div>
+      </div>
+      <div class="booster-strip">
+        <div class="booster-label">✨ Flavor Boosters</div>
+        <div class="booster-items">
+          <div class="booster-item"><strong>Smoked mustard oil — START</strong><span>Heat to smoking point, cool slightly, then add panch phoron. That brief smoke transforms the oil's flavor entirely — this is not optional in Bengali dry cooking.</span></div>
+          <div class="booster-item"><strong>Hing — START</strong><span>A tiny pinch (less than ⅛ tsp) straight into the smoking oil. Its job is done in seconds — don't add too much or it overpowers.</span></div>
+          <div class="booster-item"><strong>Bhaja masala (dry-roasted cumin+chili powder) — FINISH</strong><span>Dry roast cumin + 1 dried red chili until dark. Grind coarsely. Sprinkle over any Bengali dry sabzi at the end — adds a smoky, roasted top note.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ PUNJABI ══════════════ -->
+  <div class="section-divider"><span>Punjabi</span></div>
+
+  <div class="blend-card" data-style="wet" data-region="punjabi" onclick="toggleCard(this)">
+    <div class="blend-head">
+      <span class="region-tag" style="background:#b5400a">Punjabi</span>
+      <div>
+        <div class="blend-name">Punjabi Masala Gravy Base</div>
+        <div class="blend-meta">Rich onion-tomato gravy · North Indian classic</div>
+      </div>
+      <span class="style-pill wet">Wet / Curry</span>
+    </div>
+    <div class="blend-body">
+      <div>
+        <div class="col-label">Ratios (per 2 servings)</div>
+        <table class="ratio-table">
+          <tr><td>Cumin seeds (temper)</td><td>1 tsp</td></tr>
+          <tr><td>Coriander powder</td><td>2 tsp</td></tr>
+          <tr><td>Cumin powder</td><td>1 tsp</td></tr>
+          <tr><td>Turmeric</td><td>½ tsp</td></tr>
+          <tr><td>Red chili powder</td><td>1 tsp</td></tr>
+          <tr><td>Garam masala (finish)</td><td>½ tsp</td></tr>
+          <tr><td>Kasuri methi (finish)</td><td>1 tsp</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="col-label">Method</div>
+        <div class="how-to">
+          <strong>Build the base</strong>
+          Temper cumin in oil. Add onion — cook until deep golden (8–10 min, don't rush). Add ginger-garlic paste, cook 2 min. Add tomato + turmeric + chili — cook until oil separates (5–7 min). This is your masala base.
+          <strong>Finish</strong>
+          Add coriander + cumin powder, stir 1 min. Add vegetable/protein + water. Simmer. Finish with garam masala + crushed kasuri methi off heat.
+        </div>
+        <div class="use-for">Use for: chana masala, rajma, matar paneer (tofu), dal makhani base</div>
+      </div>
+      <div class="booster-strip">
+        <div class="booster-label">✨ Flavor Boosters</div>
+        <div class="booster-items">
+          <div class="booster-item"><strong>Kasuri Methi (dried fenugreek) — FINISH</strong><span>Crush between palms and add off heat. This is the single biggest flavor difference between restaurant Punjabi and home cooking. Don't skip it — even ½ tsp transforms a curry.</span></div>
+          <div class="booster-item"><strong>Garam Masala — FINISH</strong><span>Added last, not during cooking. Cooking it kills the volatile aromatics. ¼–½ tsp stirred in at the end with the heat off.</span></div>
+          <div class="booster-item"><strong>Hing — START</strong><span>A pinch into the cumin temper before anything else. Creates savory depth. Critical for dal and lentil-based gravies.</span></div>
+          <div class="booster-item"><strong>Fresh ginger julienne — FINISH</strong><span>Thin matchsticks of raw ginger placed on top before serving. Adds a sharp, clean heat contrast to the rich cooked masala beneath.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blend-card" data-style="dry" data-region="punjabi" onclick="toggleCard(this)">
+    <div class="blend-head">
+      <span class="region-tag" style="background:#b5400a">Punjabi</span>
+      <div>
+        <div class="blend-name">Aloo Jeera / Dry Sabzi Blend</div>
+        <div class="blend-meta">Cumin-forward dry toss · Punjabi home style</div>
+      </div>
+      <span class="style-pill dry">Dry Subzi</span>
+    </div>
+    <div class="blend-body">
+      <div>
+        <div class="col-label">Ratios (per 2 servings)</div>
+        <table class="ratio-table">
+          <tr><td>Cumin seeds</td><td>1½ tsp</td></tr>
+          <tr><td>Turmeric</td><td>¼ tsp</td></tr>
+          <tr><td>Coriander powder</td><td>1 tsp</td></tr>
+          <tr><td>Amchur (dry mango powder)</td><td>½ tsp</td></tr>
+          <tr><td>Red chili powder</td><td>½ tsp</td></tr>
+          <tr><td>Garam masala</td><td>¼ tsp</td></tr>
+          <tr><td>Fresh ginger (julienne)</td><td>1 tsp</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="col-label">Method</div>
+        <div class="how-to">
+          <strong>Temper</strong>
+          Heat ghee or oil. Add cumin seeds — let them turn deep brown (key step — don't under-toast). Add ginger.
+          <strong>Dry cook</strong>
+          Add boiled/parcooked vegetable. Add all dry spices + salt. Toss on high heat 3–4 min until coated and slightly crisp. Amchur goes in last — it brightens everything. Finish with fresh coriander.
+        </div>
+        <div class="use-for">Use for: aloo jeera, gobhi sabzi, capsicum-onion stir fry, broccoli</div>
+      </div>
+      <div class="booster-strip">
+        <div class="booster-label">✨ Flavor Boosters</div>
+        <div class="booster-items">
+          <div class="booster-item"><strong>Deeply browned cumin — START</strong><span>Cumin must go dark brown, almost black in ghee — not just crackle. This toasted jeera flavor IS the dish. Under-toasted cumin is the most common mistake.</span></div>
+          <div class="booster-item"><strong>Amchur (dry mango powder) — FINISH</strong><span>Adds the bright, sour tang that makes aloo sabzi taste complete. Add very last — it turns bitter if cooked. ¼–½ tsp is all you need.</span></div>
+          <div class="booster-item"><strong>Fresh coriander + green chili — FINISH</strong><span>Coarsely chopped, added off heat. The raw herb freshness balances the rich, toasty spices underneath.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ MARATHI ══════════════ -->
+  <div class="section-divider"><span>Marathi</span></div>
+
+  <div class="blend-card" data-style="wet" data-region="marathi" onclick="toggleCard(this)">
+    <div class="blend-head">
+      <span class="region-tag" style="background:#6b3a6b">Marathi</span>
+      <div>
+        <div class="blend-name">Kala Masala Gravy (Vidarbha)</div>
+        <div class="blend-meta">Roasted dark spice blend · Maharashtra</div>
+      </div>
+      <span class="style-pill wet">Wet / Curry</span>
+    </div>
+    <div class="blend-body">
+      <div>
+        <div class="col-label">Kala Masala Blend</div>
+        <table class="ratio-table">
+          <tr><td>Coriander seeds (dry roast dark)</td><td>3 tsp</td></tr>
+          <tr><td>Cumin seeds</td><td>1 tsp</td></tr>
+          <tr><td>Sesame seeds</td><td>1 tsp</td></tr>
+          <tr><td>Dry coconut (khopra)</td><td>2 tbsp</td></tr>
+          <tr><td>Dried red chili (Kashmiri)</td><td>4–5</td></tr>
+          <tr><td>Black pepper</td><td>½ tsp</td></tr>
+          <tr><td>Cloves</td><td>3</td></tr>
+          <tr><td>Cinnamon</td><td>½" piece</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="col-label">Method</div>
+        <div class="how-to">
+          <strong>Roast & grind</strong>
+          Dry roast each spice separately until darker than usual — the "kala" (black) character comes from deep roasting, not burning. Roast dry coconut until golden brown. Grind all together with a little water into a thick paste.
+          <strong>Cook</strong>
+          Fry onion-tomato base in oil. Add kala masala paste — cook 3 min. Add vegetables, water. Simmer 15 min. The flavor deepens on standing. Finish with fresh coriander.
+        </div>
+        <div class="use-for">Use for: vataana usal, bharli vangi, matki curry, chickpea gravy</div>
+      </div>
+      <div class="booster-strip">
+        <div class="booster-label">✨ Flavor Boosters</div>
+        <div class="booster-items">
+          <div class="booster-item"><strong>Hing — START</strong><span>Into the oil before onion goes in. Essential for Marathi usal and dal-based gravies. Gives that earthy, savory backbone.</span></div>
+          <div class="booster-item"><strong>Goda Masala — MID</strong><span>Maharashtra's signature blend (star anise, bay leaf, stone flower). Add ½ tsp mid-cook along with the kala masala. Adds floral, warm complexity unique to Maharashtrian cooking.</span></div>
+          <div class="booster-item"><strong>Fresh coconut + coriander — FINISH</strong><span>Both added together off heat. The raw coconut sweetness balances the deep, dark roasted spices beautifully.</span></div>
+          <div class="booster-item"><strong>Kokum (instead of tamarind) — FINISH</strong><span>2–3 pieces of kokum soaked in warm water, added near end. Gives a uniquely Marathi-Konkan sourness — fruitier and less sharp than tamarind.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blend-card" data-style="dry" data-region="marathi" onclick="toggleCard(this)">
+    <div class="blend-head">
+      <span class="region-tag" style="background:#6b3a6b">Marathi</span>
+      <div>
+        <div class="blend-name">Sukha Masala Bhaji</div>
+        <div class="blend-meta">Dry coconut-sesame stir-fry · everyday Marathi</div>
+      </div>
+      <span class="style-pill dry">Dry Subzi</span>
+    </div>
+    <div class="blend-body">
+      <div>
+        <div class="col-label">Ratios (per 2 servings)</div>
+        <table class="ratio-table">
+          <tr><td>Mustard seeds</td><td>½ tsp</td></tr>
+          <tr><td>Cumin seeds</td><td>½ tsp</td></tr>
+          <tr><td>Turmeric</td><td>¼ tsp</td></tr>
+          <tr><td>Red chili powder</td><td>½ tsp</td></tr>
+          <tr><td>Goda masala</td><td>½ tsp</td></tr>
+          <tr><td>Sesame seeds</td><td>1 tsp</td></tr>
+          <tr><td>Fresh/dry coconut</td><td>2 tbsp</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="col-label">Method</div>
+        <div class="how-to">
+          <strong>Temper</strong>
+          Heat oil. Mustard + cumin — let pop. Add asafoetida (hing) + curry leaves. Add turmeric.
+          <strong>Dry cook</strong>
+          Add vegetable + salt. Cook covered on low until just done. Add chili powder + goda masala — toss. Dry roast sesame seeds separately, add with coconut at end. Toss on high 1 min. The sesame-coconut finish is the Marathi signature.
+        </div>
+        <div class="use-for">Use for: french beans, karela (bitter gourd), cabbage bhaji, snake gourd</div>
+      </div>
+      <div class="booster-strip">
+        <div class="booster-label">✨ Flavor Boosters</div>
+        <div class="booster-items">
+          <div class="booster-item"><strong>Sesame + coconut finish — FINISH</strong><span>The non-negotiable Marathi dry sabzi ending. Dry-roast sesame seeds separately until golden-fragrant. Add with coconut simultaneously off heat. This combo is the soul of Maharashtrian home cooking.</span></div>
+          <div class="booster-item"><strong>Hing — START</strong><span>A pinch in oil before the mustard-cumin temper. Especially key for bitter gourd and beans where it rounds out any harshness.</span></div>
+          <div class="booster-item"><strong>Curry leaves — START</strong><span>Add with the temper — let them crisp in the oil. They add a distinct toasty citrus note. Use generously — 10–12 leaves minimum.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ MOROCCAN ══════════════ -->
+  <div class="section-divider"><span>Moroccan</span></div>
+
+  <div class="blend-card" data-style="wet" data-region="moroccan" onclick="toggleCard(this)">
+    <div class="blend-head">
+      <span class="region-tag" style="background:#c47c1a">Moroccan</span>
+      <div>
+        <div class="blend-name">Ras el Hanout Tagine Blend</div>
+        <div class="blend-meta">Warm aromatic stew · North Africa</div>
+      </div>
+      <span class="style-pill wet">Wet / Tagine</span>
+    </div>
+    <div class="blend-body">
+      <div>
+        <div class="col-label">Ras el Hanout Mix</div>
+        <table class="ratio-table">
+          <tr><td>Cumin</td><td>2 tsp</td></tr>
+          <tr><td>Coriander</td><td>2 tsp</td></tr>
+          <tr><td>Smoked paprika</td><td>1½ tsp</td></tr>
+          <tr><td>Cinnamon</td><td>1 tsp</td></tr>
+          <tr><td>Ginger (ground)</td><td>1 tsp</td></tr>
+          <tr><td>Turmeric</td><td>½ tsp</td></tr>
+          <tr><td>Black pepper</td><td>½ tsp</td></tr>
+          <tr><td>Cardamom</td><td>¼ tsp</td></tr>
+          <tr><td>Cayenne</td><td>¼ tsp</td></tr>
+          <tr><td>Allspice</td><td>¼ tsp</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="col-label">Method</div>
+        <div class="how-to">
+          <strong>Bloom first</strong>
+          Heat olive oil. Add 1½ tsp ras el hanout per serving — stir in oil 30–45 seconds until fragrant. Add garlic + tomato paste, cook 1 min.
+          <strong>Tagine method</strong>
+          Add vegetables + chickpeas + vegetable stock. Cover, simmer low 20–25 min. Preserved lemon + olives go in last 5 min (they're already salty/briny). Finish with fresh coriander + a squeeze of lemon.
+          <strong>Store blend</strong>
+          Mix and jar remaining ras el hanout — keeps 3 months.
+        </div>
+        <div class="use-for">Use for: vegetable tagine, Moroccan lentil soup, roasted cauliflower stew, couscous topping</div>
+      </div>
+      <div class="booster-strip">
+        <div class="booster-label">✨ Flavor Boosters</div>
+        <div class="booster-items">
+          <div class="booster-item"><strong>Preserved Lemon — FINISH</strong><span>Rinse, remove flesh, finely chop the rind only. Add last 5 min. Adds a salty-fermented citrus depth that is completely unique — no substitute fully replicates it.</span></div>
+          <div class="booster-item"><strong>Harissa — MID or FINISH</strong><span>1 tsp stirred in mid-cook for heat throughout, or swirled on top at serving for a bold visual hit. The chili-cumin-caraway combination is distinctly North African.</span></div>
+          <div class="booster-item"><strong>Saffron water — MID</strong><span>Pinch of saffron steeped in 2 tbsp warm water for 10 min. Add to tagine mid-cook. Adds color, a subtle floral note, and unmistakable Moroccan character.</span></div>
+          <div class="booster-item"><strong>Fresh coriander + mint — FINISH</strong><span>Both together, not separately. The mint adds a cooling lift that cuts through the warm, heavy spices. Very Moroccan — used in mint tea for the same reason.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blend-card" data-style="dry" data-region="moroccan" onclick="toggleCard(this)">
+    <div class="blend-head">
+      <span class="region-tag" style="background:#c47c1a">Moroccan</span>
+      <div>
+        <div class="blend-name">Chermoula Dry Rub</div>
+        <div class="blend-meta">Herb-spice crust · sheet pan or grill</div>
+      </div>
+      <span class="style-pill dry">Dry Rub</span>
+    </div>
+    <div class="blend-body">
+      <div>
+        <div class="col-label">Ratios (per 2 servings)</div>
+        <table class="ratio-table">
+          <tr><td>Cumin</td><td>1½ tsp</td></tr>
+          <tr><td>Smoked paprika</td><td>1 tsp</td></tr>
+          <tr><td>Coriander</td><td>1 tsp</td></tr>
+          <tr><td>Cayenne</td><td>¼ tsp</td></tr>
+          <tr><td>Sumac</td><td>½ tsp</td></tr>
+          <tr><td>Garlic powder</td><td>½ tsp</td></tr>
+          <tr><td>Lemon zest</td><td>1 tsp (fresh)</td></tr>
+          <tr><td>Olive oil to bind</td><td>2 tbsp</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="col-label">Method</div>
+        <div class="how-to">
+          <strong>Make the rub</strong>
+          Mix all dry spices. Add lemon zest + olive oil — forms a thick paste rub.
+          <strong>Apply & roast</strong>
+          Coat tofu/vegetables generously. Let sit 10 min if possible. Sheet pan 425°F — 25 min for tofu, 20 min for vegetables. The lemon zest chars slightly = incredible flavor.
+          <strong>Herb version</strong>
+          Add fresh cilantro + parsley + garlic blended with above for a wet chermoula sauce.
+        </div>
+        <div class="use-for">Use for: sheet pan tofu, roasted carrots, grilled zucchini, roasted cauliflower steaks</div>
+      </div>
+      <div class="booster-strip">
+        <div class="booster-label">✨ Flavor Boosters</div>
+        <div class="booster-items">
+          <div class="booster-item"><strong>Sumac — FINISH</strong><span>Extra sprinkle of sumac on the finished dish. Its tartness brightens the charred, roasted notes. Think of it as Moroccan amchur.</span></div>
+          <div class="booster-item"><strong>Chermoula herb sauce drizzle — FINISH</strong><span>Blend cilantro + parsley + garlic + cumin + lemon + olive oil into a loose green sauce. Drizzle cold over hot roasted vegetables — the contrast is stunning.</span></div>
+          <div class="booster-item"><strong>Charred lemon — FINISH</strong><span>Halve a lemon, char cut-side in dry pan 2 min until blackened. Squeeze over finished dish. Deeper, smoky citrus vs raw lemon.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ ASIAN ══════════════ -->
+  <div class="section-divider"><span>Asian</span></div>
+
+  <div class="blend-card" data-style="wet" data-region="asian" onclick="toggleCard(this)">
+    <div class="blend-head">
+      <span class="region-tag" style="background:#2e5e7a">Asian</span>
+      <div>
+        <div class="blend-name">Miso-Ginger Sauce Blend</div>
+        <div class="blend-meta">Japanese-style glaze · umami-forward</div>
+      </div>
+      <span class="style-pill wet">Wet / Glaze</span>
+    </div>
+    <div class="blend-body">
+      <div>
+        <div class="col-label">Ratios (per 2 servings)</div>
+        <table class="ratio-table">
+          <tr><td>White miso</td><td>2 tbsp</td></tr>
+          <tr><td>Soy sauce / tamari</td><td>1 tbsp</td></tr>
+          <tr><td>Rice vinegar</td><td>1 tbsp</td></tr>
+          <tr><td>Sesame oil</td><td>1 tsp</td></tr>
+          <tr><td>Fresh ginger (grated)</td><td>1 tsp</td></tr>
+          <tr><td>Garlic (grated)</td><td>1 clove</td></tr>
+          <tr><td>Maple syrup</td><td>1 tsp</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="col-label">Method</div>
+        <div class="how-to">
+          <strong>Whisk together</strong>
+          All ingredients + 2 tbsp warm water to loosen. Taste — should be salty, tangy, slightly sweet.
+          <strong>Use as marinade</strong>
+          Toss tofu/vegetables. Marinate 15–30 min. Roast or stir-fry. Brush more sauce last 5 min of roasting.
+          <strong>Use as sauce</strong>
+          Simmer sauce 2 min to thicken. Drizzle over bowl at end. Add chili flakes + lime for brightness.
+        </div>
+        <div class="use-for">Use for: miso glazed eggplant, tofu bowls, roasted broccoli, soba noodle sauce</div>
+      </div>
+      <div class="booster-strip">
+        <div class="booster-label">✨ Flavor Boosters</div>
+        <div class="booster-items">
+          <div class="booster-item"><strong>Toasted sesame oil — FINISH</strong><span>Only add raw at the very end, off heat. Cooking destroys its flavor entirely. Just 1 tsp drizzled cold adds a deep, nutty aroma that defines Japanese-style cooking.</span></div>
+          <div class="booster-item"><strong>Togarashi or chili flakes — FINISH</strong><span>Japanese seven-spice blend or simple chili flakes sprinkled on top. Adds heat and visual contrast against the deep brown glaze.</span></div>
+          <div class="booster-item"><strong>Scallion greens (raw) — FINISH</strong><span>Thin-sliced, added cold over hot food. Their sharp onion freshness cuts through the umami richness of miso perfectly.</span></div>
+          <div class="booster-item"><strong>Yuzu or lime zest — FINISH</strong><span>A tiny amount of citrus zest over a miso dish adds brightness and lifts the whole bowl. Yuzu is authentic; lime works perfectly as a substitute.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blend-card" data-style="dry" data-region="asian" onclick="toggleCard(this)">
+    <div class="blend-head">
+      <span class="region-tag" style="background:#2e5e7a">Asian</span>
+      <div>
+        <div class="blend-name">Chinese Five Spice Stir-Fry Blend</div>
+        <div class="blend-meta">Aromatic dry stir-fry · Chinese-inspired</div>
+      </div>
+      <span class="style-pill dry">Dry Stir-fry</span>
+    </div>
+    <div class="blend-body">
+      <div>
+        <div class="col-label">Five Spice Mix (store or make)</div>
+        <table class="ratio-table">
+          <tr><td>Star anise (ground)</td><td>2 parts</td></tr>
+          <tr><td>Cloves (ground)</td><td>1 part</td></tr>
+          <tr><td>Cinnamon (ground)</td><td>1 part</td></tr>
+          <tr><td>Sichuan pepper (ground)</td><td>1 part</td></tr>
+          <tr><td>Fennel seeds (ground)</td><td>1 part</td></tr>
+          <tr><td>+ Garlic powder</td><td>½ tsp</td></tr>
+          <tr><td>+ White pepper</td><td>¼ tsp</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="col-label">Method</div>
+        <div class="how-to">
+          <strong>Stir-fry method (high heat)</strong>
+          Wok or wide pan very hot. Add oil — just before smoking. Add ginger + garlic — 30 seconds. Add vegetables — don't stir immediately, let them sear. Then toss.
+          <strong>Season</strong>
+          Add ½ tsp five spice + soy sauce + white pepper. Toss 1 min on high. Finish: dash of rice vinegar, sesame oil off heat. Sesame seeds on top.
+        </div>
+        <div class="use-for">Use for: stir-fried bok choy, mushrooms, tofu scramble, noodle toss, cauliflower dry fry</div>
+      </div>
+      <div class="booster-strip">
+        <div class="booster-label">✨ Flavor Boosters</div>
+        <div class="booster-items">
+          <div class="booster-item"><strong>Shaoxing wine / dry sherry — MID</strong><span>A splash deglazed into the wok mid-cook adds depth and that unmistakable "wok flavor." If unavailable, a tiny splash of rice vinegar works.</span></div>
+          <div class="booster-item"><strong>Sesame oil — FINISH</strong><span>Off heat only. The high-smoke degradation kills its flavor entirely if added during cooking.</span></div>
+          <div class="booster-item"><strong>White pepper — FINISH</strong><span>A pinch of freshly ground white pepper gives Chinese stir-fries their distinctive nose-warming heat that black pepper doesn't replicate.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blend-card" data-style="wet" data-region="asian" onclick="toggleCard(this)">
+    <div class="blend-head">
+      <span class="region-tag" style="background:#2e5e7a">Asian</span>
+      <div>
+        <div class="blend-name">Thai-Inspired Peanut Curry Blend</div>
+        <div class="blend-meta">Coconut + peanut · bold Southeast Asian</div>
+      </div>
+      <span class="style-pill wet">Wet / Curry</span>
+    </div>
+    <div class="blend-body">
+      <div>
+        <div class="col-label">Ratios (per 2 servings)</div>
+        <table class="ratio-table">
+          <tr><td>Red curry paste</td><td>1½ tbsp</td></tr>
+          <tr><td>Coconut milk (full fat)</td><td>¾ cup</td></tr>
+          <tr><td>Peanut butter</td><td>2 tbsp</td></tr>
+          <tr><td>Soy sauce / tamari</td><td>1 tbsp</td></tr>
+          <tr><td>Lime juice</td><td>1 tbsp</td></tr>
+          <tr><td>Brown sugar / maple</td><td>1 tsp</td></tr>
+          <tr><td>Ginger (grated)</td><td>1 tsp</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="col-label">Method</div>
+        <div class="how-to">
+          <strong>Build the sauce</strong>
+          Fry curry paste in oil 1 min until fragrant. Add coconut milk — stir to combine. Add peanut butter, soy sauce, sugar, ginger. Simmer 5 min until slightly thickened.
+          <strong>Add to vegetables</strong>
+          Add par-cooked vegetables or tofu. Simmer 8–10 min. Taste — balance with lime (acid), soy (salt), sugar (sweet). Serve over rice + fresh basil/cilantro.
+        </div>
+        <div class="use-for">Use for: sweet potato peanut curry, tofu & broccoli, Thai-style lentil curry, eggplant</div>
+      </div>
+      <div class="booster-strip">
+        <div class="booster-label">✨ Flavor Boosters</div>
+        <div class="booster-items">
+          <div class="booster-item"><strong>Thai basil (holy basil) — FINISH</strong><span>Tear and add off heat. Thai basil has a peppery, clove-like intensity that sweet Italian basil doesn't have. If unavailable, fresh cilantro works but the character changes.</span></div>
+          <div class="booster-item"><strong>Kaffir lime leaves — MID</strong><span>2–3 leaves torn and added to simmering curry. Remove before serving. Adds a distinctly Thai citrus-floral note that no other ingredient replicates.</span></div>
+          <div class="booster-item"><strong>Fish sauce substitute (vegan) — MID</strong><span>Soy sauce + nori + a tiny pinch of seaweed flakes. Adds the briny, fermented depth that fish sauce brings. Or use store-bought vegan fish sauce.</span></div>
+          <div class="booster-item"><strong>Lime juice + zest — FINISH</strong><span>Thai cooking uses both — zest in cooking, juice at the table. Always add fresh lime juice right before serving, not during — it brightens the whole bowl.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ OTHER WORLD ══════════════ -->
+  <div class="section-divider"><span>Other World Cuisines</span></div>
+
+  <div class="blend-card" data-style="wet" data-region="other" onclick="toggleCard(this)">
+    <div class="blend-head">
+      <span class="region-tag" style="background:#3a5c3a">Ethiopian</span>
+      <div>
+        <div class="blend-name">Berbere Lentil / Wet Stew</div>
+        <div class="blend-meta">Bold East African spice · lentil-forward</div>
+      </div>
+      <span class="style-pill wet">Wet / Stew</span>
+    </div>
+    <div class="blend-body">
+      <div>
+        <div class="col-label">Berbere Spice Mix</div>
+        <table class="ratio-table">
+          <tr><td>Smoked paprika</td><td>3 tsp</td></tr>
+          <tr><td>Cayenne</td><td>1 tsp</td></tr>
+          <tr><td>Cumin</td><td>1 tsp</td></tr>
+          <tr><td>Coriander</td><td>1 tsp</td></tr>
+          <tr><td>Cinnamon</td><td>½ tsp</td></tr>
+          <tr><td>Cardamom</td><td>¼ tsp</td></tr>
+          <tr><td>Fenugreek (ground)</td><td>¼ tsp</td></tr>
+          <tr><td>Allspice</td><td>¼ tsp</td></tr>
+          <tr><td>Ginger</td><td>½ tsp</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="col-label">Method</div>
+        <div class="how-to">
+          <strong>Dry-fry the blend</strong>
+          Toast berbere mix in dry pan 1 min — this deepens the flavor significantly.
+          <strong>Cook (Misir Wat style)</strong>
+          Fry onion in niter kibbeh (spiced oil) or regular oil until very soft (10 min low heat). Add garlic + ginger. Add 2 tsp berbere — cook 2 min. Add red lentils + water 1:2.5. Simmer 20 min until creamy. Bold, earthy, rich — serve with flatbread.
+        </div>
+        <div class="use-for">Use for: misir wat (red lentils), tikil gomen (cabbage), shiro, atakilt wat</div>
+      </div>
+      <div class="booster-strip">
+        <div class="booster-label">✨ Flavor Boosters</div>
+        <div class="booster-items">
+          <div class="booster-item"><strong>Niter Kibbeh (vegan) — BASE OIL</strong><span>Infuse coconut oil or vegan butter with onion, garlic, ginger, turmeric, cardamom, cinnamon, clove for 20 min on low. Strain. Use this spiced oil as your cooking fat — this is the flavor foundation of Ethiopian cooking.</span></div>
+          <div class="booster-item"><strong>Extra berbere on top — FINISH</strong><span>A small pinch of dry-toasted berbere sprinkled over the finished dish before serving adds a toasty, raw spice hit on top of the slow-cooked depth underneath.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blend-card" data-style="dry" data-region="other" onclick="toggleCard(this)">
+    <div class="blend-head">
+      <span class="region-tag" style="background:#7a2e2e">Mexican</span>
+      <div>
+        <div class="blend-name">Ancho-Chipotle Sheet Pan Blend</div>
+        <div class="blend-meta">Smoky dried chili rub · Mexican inspired</div>
+      </div>
+      <span class="style-pill dry">Dry Rub</span>
+    </div>
+    <div class="blend-body">
+      <div>
+        <div class="col-label">Ratios (per 2 servings)</div>
+        <table class="ratio-table">
+          <tr><td>Ancho chili powder</td><td>1½ tsp</td></tr>
+          <tr><td>Smoked paprika</td><td>1 tsp</td></tr>
+          <tr><td>Cumin</td><td>1 tsp</td></tr>
+          <tr><td>Coriander</td><td>½ tsp</td></tr>
+          <tr><td>Garlic powder</td><td>½ tsp</td></tr>
+          <tr><td>Oregano (Mexican)</td><td>½ tsp</td></tr>
+          <tr><td>Chipotle powder</td><td>¼ tsp</td></tr>
+          <tr><td>Lime zest</td><td>½ tsp</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="col-label">Method</div>
+        <div class="how-to">
+          <strong>Mix & apply</strong>
+          Combine all dry spices. Toss with olive oil + lime juice to form a loose rub. Coat tofu/vegetables.
+          <strong>Sheet pan</strong>
+          Roast 425°F, 25 min. The smoked paprika + chipotle creates a deeply charred edge that tastes incredible. Finish: fresh lime juice + cilantro + avocado. Works beautifully in tacos or over rice.
+        </div>
+        <div class="use-for">Use for: taco bowl tofu, roasted corn + zucchini, black bean fajita vegetables, cauliflower tacos</div>
+      </div>
+      <div class="booster-strip">
+        <div class="booster-label">✨ Flavor Boosters</div>
+        <div class="booster-items">
+          <div class="booster-item"><strong>Fresh lime — FINISH</strong><span>Squeezed at table, not in cooking. Mexican cooking uses lime as a seasoning, not an ingredient — the brightness right before eating is the point.</span></div>
+          <div class="booster-item"><strong>Pickled jalapeño brine — FINISH</strong><span>A teaspoon of jalapeño pickling brine drizzled over roasted vegetables adds acid + heat in one shot. A Mexican cook's secret weapon.</span></div>
+          <div class="booster-item"><strong>Epazote (Mexican herb) — MID</strong><span>Dried epazote added mid-cook to black beans or corn. Earthy, petroleum-like in the best possible way — distinctly Mexican, completely unlike cilantro.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blend-card" data-style="wet" data-region="other" onclick="toggleCard(this)">
+    <div class="blend-head">
+      <span class="region-tag" style="background:#5c6b8a">Middle Eastern</span>
+      <div>
+        <div class="blend-name">Za'atar + Lemon Stew Blend</div>
+        <div class="blend-meta">Levantine herbs · bright tomato base</div>
+      </div>
+      <span class="style-pill wet">Wet / Stew</span>
+    </div>
+    <div class="blend-body">
+      <div>
+        <div class="col-label">Za'atar Mix (make or buy)</div>
+        <table class="ratio-table">
+          <tr><td>Dried thyme</td><td>2 tsp</td></tr>
+          <tr><td>Sumac</td><td>2 tsp</td></tr>
+          <tr><td>Sesame seeds (toasted)</td><td>1 tsp</td></tr>
+          <tr><td>Dried oregano</td><td>1 tsp</td></tr>
+          <tr><td>Salt</td><td>¼ tsp</td></tr>
+          <tr><td>+ Cumin (for stew)</td><td>1 tsp</td></tr>
+          <tr><td>+ Allspice (for stew)</td><td>¼ tsp</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="col-label">Method</div>
+        <div class="how-to">
+          <strong>Build stew base</strong>
+          Sauté garlic in olive oil. Add diced tomatoes + cumin + allspice. Cook 5 min. Add chickpeas or lentils + water. Simmer 15 min.
+          <strong>Za'atar finish</strong>
+          Za'atar goes in off heat — it's a finishing herb blend, not a cooking spice. Stir in 1–2 tsp + a generous squeeze of lemon. Drizzle raw olive oil on top. Serve with pita and hummus alongside.
+        </div>
+        <div class="use-for">Use for: chickpea stew, white bean za'atar soup, braised eggplant, lentil soup</div>
+      </div>
+      <div class="booster-strip">
+        <div class="booster-label">✨ Flavor Boosters</div>
+        <div class="booster-items">
+          <div class="booster-item"><strong>Raw good olive oil — FINISH</strong><span>Middle Eastern cooking treats finishing olive oil as a flavor ingredient, not a fat. A generous pour of fruity, peppery extra-virgin at the end is non-negotiable.</span></div>
+          <div class="booster-item"><strong>Sumac — FINISH</strong><span>Extra sprinkle over the finished bowl. Sumac is the lemon of the Levant — adds tartness and a beautiful dark red color.</span></div>
+          <div class="booster-item"><strong>Pomegranate molasses — FINISH</strong><span>A few drops drizzled over eggplant or lentil dishes. Sweet-sour-fruity — a Middle Eastern finishing ingredient unlike anything in other cuisines.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ FLAVOR BOOSTERS MASTER REFERENCE ══════════════ -->
+  <div class="section-divider" data-booster="true"><span>✨ Flavor Boosters — Master Reference</span></div>
+
+  <div class="booster-ref-card" data-region="boosters" onclick="toggleCard(this)">
+    <div class="booster-ref-head">
+      <span class="region-tag" style="background:#4a7c59">South Indian</span>
+      <div class="blend-name">Thalippu & South Indian Finishing Techniques</div>
+      <span style="color:#c47c1a;font-size:0.9rem;">▾</span>
+    </div>
+    <div class="booster-ref-body">
+      <div class="bref-item">
+        <div class="bref-name">Thalippu (தாளிப்பு)</div>
+        <div class="bref-tamil">Tamil · "The temper"</div>
+        <div class="bref-desc">Mustard seeds + urad dal + dried red chili + curry leaves spluttered in coconut oil. The non-negotiable flavor foundation of Tamil, Kannada, and Telugu cooking. Goes in FIRST, sets the flavor key of the entire dish.</div>
+        <div class="bref-when">⏱ When: Always START · 30–45 seconds until mustard pops and urad turns golden</div>
+      </div>
+      <div class="bref-item">
+        <div class="bref-name">Perungayam / Hing (Asafoetida)</div>
+        <div class="bref-tamil">பெருங்காயம் · Ferula resin</div>
+        <div class="bref-desc">A pinch (literally ⅛ tsp) into hot oil before anything else. Smells sulfurous raw — transforms into a deep, savory allium-like flavor when cooked. Critical when cooking without onion or garlic.</div>
+        <div class="bref-when">⏱ When: START · into hot oil, 5–10 seconds only</div>
+      </div>
+      <div class="bref-item">
+        <div class="bref-name">Kothamalli (கொத்தமல்லி)</div>
+        <div class="bref-tamil">Fresh coriander / cilantro</div>
+        <div class="bref-desc">Added raw at the very end, off heat. A generous handful — not a garnish but a flavor ingredient. Adds brightness, herbaceous lift, and freshness that cuts through heavy spiced dishes.</div>
+        <div class="bref-when">⏱ When: FINISH · off heat, raw, just before serving</div>
+      </div>
+      <div class="bref-item">
+        <div class="bref-name">Curry Leaves (Kadi Patta)</div>
+        <div class="bref-tamil">கறிவேப்பிலை · Fresh preferred</div>
+        <div class="bref-desc">Goes into the thalippu oil — let them crackle and crisp. Fresh leaves have a completely different (better) flavor than dried. Store fresh leaves in the freezer — they last months and can be used straight from frozen.</div>
+        <div class="bref-when">⏱ When: START · with thalippu, 10–15 seconds until fragrant and slightly crisp</div>
+      </div>
+      <div class="bref-item">
+        <div class="bref-name">Coconut (raw, fresh or frozen)</div>
+        <div class="bref-tamil">தேங்காய் · Raw finish only</div>
+        <div class="bref-desc">For dry sabzis: added off heat, raw — the sweetness is the point. For kootu: ground with roasted spices into a paste mid-cook. Never substitute desiccated coconut for fresh in finishing — the textures and flavors are different.</div>
+        <div class="bref-when">⏱ When: FINISH (dry) or MID (wet/kootu)</div>
+      </div>
+      <div class="bref-item">
+        <div class="bref-name">Raw coconut oil drizzle</div>
+        <div class="bref-tamil">தேங்காய் எண்ணெய்</div>
+        <div class="bref-desc">Cold-pressed coconut oil, a few drops, drizzled over the finished dish. Adds a distinct coastal South Indian aroma that cooked coconut oil doesn't give. Use only cold-pressed, unrefined oil.</div>
+        <div class="bref-when">⏱ When: FINISH · raw, just before serving</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booster-ref-card" data-region="boosters" onclick="toggleCard(this)">
+    <div class="booster-ref-head">
+      <span class="region-tag" style="background:#7a5c2e">Bengali</span>
+      <div class="blend-name">Bengali Flavor Boosters</div>
+      <span style="color:#c47c1a;font-size:0.9rem;">▾</span>
+    </div>
+    <div class="booster-ref-body">
+      <div class="bref-item">
+        <div class="bref-name">Smoked Mustard Oil</div>
+        <div class="bref-tamil">সর্ষের তেল · Heat to smoking</div>
+        <div class="bref-desc">Heat mustard oil to smoking point, then let cool slightly before adding panch phoron. The brief smoking transforms the oil's sharp rawness into something deep and complex. This step is the DNA of Bengali cooking.</div>
+        <div class="bref-when">⏱ When: START · smoke, then reduce heat, then temper</div>
+      </div>
+      <div class="bref-item">
+        <div class="bref-name">Kashundi (mustard paste)</div>
+        <div class="bref-tamil">কাশুন্দি · Ground mustard sauce</div>
+        <div class="bref-desc">Pungent, bitter, sharp. Add 1 tsp dissolved in water mid-cook for a punch of authenticity. Can substitute with whole-grain or Dijon mustard, though the flavor is milder.</div>
+        <div class="bref-when">⏱ When: MID · added to hot dish, cook 2 min</div>
+      </div>
+      <div class="bref-item">
+        <div class="bref-name">Bhaja Masala</div>
+        <div class="bref-tamil">ভাজা মশলা · Dry-roasted spice powder</div>
+        <div class="bref-desc">Dry roast cumin + 1 dried red chili until dark. Grind coarsely. Sprinkle raw over any finished Bengali dish. Adds a smoky, roasted top note that distinguishes Bengali home cooking.</div>
+        <div class="bref-when">⏱ When: FINISH · sprinkled raw over finished dish</div>
+      </div>
+      <div class="bref-item">
+        <div class="bref-name">Raw mustard oil drizzle</div>
+        <div class="bref-tamil">কাঁচা সর্ষের তেল</div>
+        <div class="bref-desc">A few drops of raw (uncooked) mustard oil just before serving. Sharp, nose-clearing, pungent. This is what makes Bengali food taste distinctly Bengali at the table.</div>
+        <div class="bref-when">⏱ When: FINISH · raw, just before serving</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booster-ref-card" data-region="boosters" onclick="toggleCard(this)">
+    <div class="booster-ref-head">
+      <span class="region-tag" style="background:#b5400a">Punjabi · Marathi</span>
+      <div class="blend-name">North & West Indian Boosters</div>
+      <span style="color:#c47c1a;font-size:0.9rem;">▾</span>
+    </div>
+    <div class="booster-ref-body">
+      <div class="bref-item">
+        <div class="bref-name">Kasuri Methi</div>
+        <div class="bref-tamil">कसूरी मेथी · Dried fenugreek leaves</div>
+        <div class="bref-desc">Crush between palms to release oils, add off heat. The single ingredient that most differentiates restaurant Punjabi curries from home cooking. Bitter, slightly sweet, irreplaceable. Use ½–1 tsp.</div>
+        <div class="bref-when">⏱ When: FINISH · crushed, off heat</div>
+      </div>
+      <div class="bref-item">
+        <div class="bref-name">Garam Masala</div>
+        <div class="bref-tamil">गरम मसाला · Warming spice blend</div>
+        <div class="bref-desc">Never add at the start — the volatile aromatics (cardamom, clove, cinnamon) dissipate with prolonged heat. Always stir in at the very end with heat off. ¼–½ tsp is enough.</div>
+        <div class="bref-when">⏱ When: FINISH · off heat, just before serving</div>
+      </div>
+      <div class="bref-item">
+        <div class="bref-name">Amchur (Dry Mango Powder)</div>
+        <div class="bref-tamil">आमचूर · Dried green mango</div>
+        <div class="bref-desc">The souring agent of North and West Indian dry sabzis. Adds a bright, fruity tartness that tamarind doesn't quite replicate. Add last — it turns bitter if cooked too long. ¼–½ tsp.</div>
+        <div class="bref-when">⏱ When: FINISH · last 30 seconds or off heat</div>
+      </div>
+      <div class="bref-item">
+        <div class="bref-name">Kokum</div>
+        <div class="bref-tamil">कोकम · Garcinia indica · Konkan coast</div>
+        <div class="bref-desc">Dried purple fruit. Soak 2–3 pieces in warm water 10 min, add liquid mid-cook. Distinctly Marathi-Konkan souring agent — fruitier, less sharp than tamarind, with a slight sweetness. Essential for authentic sol kadhi.</div>
+        <div class="bref-when">⏱ When: MID · soaked, added with liquid</div>
+      </div>
+      <div class="bref-item">
+        <div class="bref-name">Hing / Asafoetida</div>
+        <div class="bref-tamil">हींग · Universal Indian booster</div>
+        <div class="bref-desc">Used across all Indian regional cuisines. A pinch in hot oil for 5–10 seconds only — it transforms from pungent/raw to savory/allium. Especially important for lentil dishes (reduces digestive discomfort too).</div>
+        <div class="bref-when">⏱ When: START · first into hot oil, before all else</div>
+      </div>
+      <div class="bref-item">
+        <div class="bref-name">Goda Masala</div>
+        <div class="bref-tamil">गोडा मसाला · Maharashtrian blend</div>
+        <div class="bref-desc">Maharashtra's answer to garam masala — includes stone flower (dagad phool), bay leaf, star anise alongside standard warming spices. Adds a distinct floral, warm complexity. Use ½ tsp mid-cook alongside main spices.</div>
+        <div class="bref-when">⏱ When: MID · cooked with main spice blend</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booster-ref-card" data-region="boosters" onclick="toggleCard(this)">
+    <div class="booster-ref-head">
+      <span class="region-tag" style="background:#2e5e7a">Asian · Moroccan · World</span>
+      <div class="blend-name">World Kitchen Finishing Boosters</div>
+      <span style="color:#c47c1a;font-size:0.9rem;">▾</span>
+    </div>
+    <div class="booster-ref-body">
+      <div class="bref-item">
+        <div class="bref-name">Toasted Sesame Oil</div>
+        <div class="bref-tamil">참기름 · Japanese / Korean</div>
+        <div class="bref-desc">NEVER cook with it — add raw, off heat only. Deep, nutty, irreplaceable. The universal Asian finishing oil. Even ½ tsp completely changes a dish's character. Dark sesame oil = stronger; light = more delicate.</div>
+        <div class="bref-when">⏱ When: FINISH · always raw, off heat</div>
+      </div>
+      <div class="bref-item">
+        <div class="bref-name">Preserved Lemon</div>
+        <div class="bref-tamil">Moroccan · citrus + salt cure</div>
+        <div class="bref-desc">Rinse, discard flesh, use rind only — finely chopped. A tiny amount adds salty, fermented citrus depth unique to North African cooking. Nothing fully substitutes. Add last 5 min of cooking.</div>
+        <div class="bref-when">⏱ When: FINISH · last 5 min of simmering</div>
+      </div>
+      <div class="bref-item">
+        <div class="bref-name">Sumac</div>
+        <div class="bref-tamil">Levantine · ground red berry</div>
+        <div class="bref-desc">Fruity, tart, ruby-red. The lemon of the Middle East and North Africa. Always added as a finishing sprinkle — cooking mutes its brightness. Sprinkle over hummus, roasted veg, stews at the table.</div>
+        <div class="bref-when">⏱ When: FINISH · sprinkled raw at serving</div>
+      </div>
+      <div class="bref-item">
+        <div class="bref-name">Good Olive Oil (raw drizzle)</div>
+        <div class="bref-tamil">Mediterranean · finishing only</div>
+        <div class="bref-desc">Middle Eastern and Moroccan cooking treats finishing olive oil as a flavor ingredient. A generous pour of fruity, peppery extra-virgin at the end of a chickpea stew or roasted vegetable dish is non-negotiable.</div>
+        <div class="bref-when">⏱ When: FINISH · raw drizzle just before serving</div>
+      </div>
+      <div class="bref-item">
+        <div class="bref-name">Pomegranate Molasses</div>
+        <div class="bref-tamil">دبس الرمان · Levantine / Persian</div>
+        <div class="bref-desc">Thick, sweet-sour, deeply fruity. A few drops over eggplant, lentils, or roasted cauliflower. Adds a complexity that vinegar and sugar together don't fully replicate. Use sparingly — it's intense.</div>
+        <div class="bref-when">⏱ When: FINISH · drizzled cold at table</div>
+      </div>
+      <div class="bref-item">
+        <div class="bref-name">Fresh Mint</div>
+        <div class="bref-tamil">Universal cooling finisher</div>
+        <div class="bref-desc">Used across Moroccan, Levantine, Thai, and Indian cooking as a cooling contrast to heavy, spiced dishes. Always raw, always at serving. Pairs especially well with warm spice blends (cinnamon, cumin, allspice).</div>
+        <div class="bref-when">⏱ When: FINISH · always raw at serving</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /document -->
+
+<script>
+function toggleCard(card) {
+  card.classList.toggle('open');
+}
+
+function filterCards(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  // Handle blend cards
+  document.querySelectorAll('.blend-card').forEach(card => {
+    if (type === 'all') {
+      card.style.display = '';
+    } else if (type === 'wet' || type === 'dry') {
+      card.style.display = card.dataset.style === type ? '' : 'none';
+    } else if (type === 'boosters') {
+      card.style.display = 'none';
+    } else {
+      card.style.display = card.dataset.region === type ? '' : 'none';
+    }
+  });
+
+  // Handle booster reference cards
+  document.querySelectorAll('.booster-ref-card').forEach(card => {
+    if (type === 'all' || type === 'boosters') {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  // Handle section dividers
+  document.querySelectorAll('.section-divider').forEach(div => {
+    if (type === 'all') { div.style.display = ''; return; }
+    if (type === 'boosters') {
+      div.style.display = div.dataset.booster ? '' : 'none';
+      return;
+    }
+    let next = div.nextElementSibling;
+    let hasVisible = false;
+    while (next && !next.classList.contains('section-divider')) {
+      if ((next.classList.contains('blend-card') || next.classList.contains('booster-ref-card')) && next.style.display !== 'none') {
+        hasVisible = true; break;
+      }
+      next = next.nextElementSibling;
+    }
+    div.style.display = hasVisible ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
